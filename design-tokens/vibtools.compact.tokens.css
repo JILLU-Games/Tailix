@@ -1,8 +1,9 @@
-/* VibTools Official Compact Token CSS — v2.1.2 official freeze baseline
+/* VibTools Official Compact Token CSS — v2.2.0 8-Module Token Foundation Baseline
    Documentation mirror for the Single Token Foundation Engine. Runtime source of truth is
    Sandbox/assets/css/foundation/ and Sandbox/assets/css/vibtools-theme.css. */
 :root {
   color-scheme: dark;
+  --vib-topbar-bg: rgba(13, 17, 23, .96);
   --vib-background: #0D1117;
   --vib-deep: #0B0F17;
   --vib-footer: #080B11;
@@ -53,6 +54,9 @@
   --vib-state-danger-bg: #280D12;
   --vib-state-danger-border: #5C1D24;
   --vib-state-danger-text: #F87171;
+  --vib-state-info-bg: #0F172A;
+  --vib-state-info-border: #1E293B;
+  --vib-state-info-text: #38BDF8;
   --vib-skeleton-bg: #161B22;
   --vib-skeleton-pulse: #21262D;
   --vib-log-bg: #090D14;
@@ -147,12 +151,13 @@
   --vib-doc-shell-max: 1280px;
   --vib-content-max: 1280px;
   
-  --vib-focus: 0 0 0 3px rgba(56, 189, 248, 0.28);
+  --vib-focus: none;
   --vib-transition: 120ms ease;
 }
 
 html[data-theme="light"] {
   color-scheme: light;
+  --vib-topbar-bg: rgba(246, 248, 250, .96);
   --vib-background: #F6F8FA;
   --vib-deep: #EEF1F4;
   --vib-footer: #EAEFF4;
@@ -228,6 +233,9 @@ html[data-theme="light"] {
   --vib-state-danger-bg: #FEF2F2;
   --vib-state-danger-border: #FECACA;
   --vib-state-danger-text: #B91C1C;
+  --vib-state-info-bg: #EFF6FF;
+  --vib-state-info-border: #BFDBFE;
+  --vib-state-info-text: #1D4ED8;
   --vib-skeleton-bg: #F3F4F6;
   --vib-skeleton-pulse: #D0D7DE;
   --vib-log-bg: #FFFFFF;
@@ -281,7 +289,7 @@ html, body {
   min-height: 100%;
   background: var(--vib-background);
   color: var(--vib-text);
-  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Segoe UI", "Segoe UI Web", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
   font-size: 13px;
   line-height: 1.46;
   text-rendering: optimizeLegibility;
@@ -338,7 +346,7 @@ code, kbd, pre, samp {
 .vib-doc-hero .vib-h1,
 .vib-app-page:has(.vib-settings-layout) .vib-h1 {
   font-size: var(--vib-compact-page-title) !important;
-  font-weight: 600 !important;
+  font-weight: 500 !important;
   line-height: 1.3 !important;
   letter-spacing: -0.01em !important;
   color: var(--vib-compact-heading-color) !important;
@@ -348,7 +356,7 @@ code, kbd, pre, samp {
 .vib-doc-body h2,
 .vib-app-page:has(.vib-settings-layout) .vib-h2 {
   font-size: var(--vib-compact-section-title) !important;
-  font-weight: 600 !important;
+  font-weight: 500 !important;
   line-height: 1.4 !important;
   letter-spacing: -0.01em !important;
   color: var(--vib-compact-section-color) !important;
@@ -361,7 +369,7 @@ code, kbd, pre, samp {
 .vib-app-page:has(.vib-settings-layout) .vib-settings-title,
 .vib-app-page:has(.vib-settings-layout) .vib-card-title {
   font-size: var(--vib-compact-card-title) !important;
-  font-weight: 600 !important;
+  font-weight: 500 !important;
   line-height: 1.35 !important;
   color: var(--vib-compact-card-title-color) !important;
 }
@@ -390,14 +398,14 @@ code, kbd, pre, samp {
 .vib-doc-nav-title,
 .vib-app-page:has(.vib-settings-layout) .vib-kicker {
   font-size: var(--vib-compact-helper) !important;
-  font-weight: 700 !important;
+  font-weight: 500 !important;
   line-height: 1.2 !important;
   letter-spacing: 0.06em !important;
 }
 
 .vib-method {
   font-size: 10px !important;
-  font-weight: 600 !important;
+  font-weight: 500 !important;
   border-width: 1px !important;
 }
 .vib-method-get {
@@ -430,7 +438,7 @@ code, kbd, pre, samp {
   color: var(--vib-file-badge-text-restrained) !important;
   border: 1px solid var(--vib-file-badge-border-restrained) !important;
   font-size: 11px !important;
-  font-weight: 600 !important;
+  font-weight: 500 !important;
 }
 
 .vib-app-page:has(.vib-settings-layout) .vib-settings-nav-item.active,
@@ -441,7 +449,7 @@ code, kbd, pre, samp {
   color: var(--vib-compact-section-color) !important;
 }
 
-/* v2.1.2 Precision Typography & Color Refinement
+/* v2.2.0 Precision Typography & Color Refinement
    Scope: upload.html, docs-layout.html and settings.html only.
    Strictly tightens hierarchy, muted descriptions and soft active accents.
    Preserves layout, routing, zero-shadow flat UI and component markup. */
@@ -479,7 +487,7 @@ code, kbd, pre, samp {
 .vib-doc-hero h1.vib-title,
 .vib-app-page:has(.vib-settings-layout) h1.vib-title {
   font-size: var(--vib-precision-page-title) !important;
-  font-weight: 600 !important;
+  font-weight: 500 !important;
   line-height: 1.25 !important;
   color: var(--vib-precision-heading) !important;
   letter-spacing: -0.01em !important;
@@ -496,7 +504,7 @@ code, kbd, pre, samp {
 .vib-doc-body h2.vib-title,
 .vib-app-page:has(.vib-settings-layout) h2.vib-title {
   font-size: var(--vib-precision-section-title) !important;
-  font-weight: 600 !important;
+  font-weight: 500 !important;
   line-height: 1.3 !important;
   color: var(--vib-precision-section) !important;
   margin-bottom: 2px !important;
@@ -551,7 +559,7 @@ code, kbd, pre, samp {
 .vib-app-page:has(.vib-settings-layout) .vib-kicker,
 .vib-app-page:has(.vib-settings-layout) .vib-label-muted {
   font-size: 10px !important;
-  font-weight: 700 !important;
+  font-weight: 500 !important;
   line-height: 1.2 !important;
   letter-spacing: 0.055em !important;
   color: var(--vib-secondary) !important;
@@ -565,7 +573,7 @@ code, kbd, pre, samp {
 .vib-app-page:has(.vib-upload-shell) .vib-badge,
 .vib-app-page:has(.vib-settings-layout) .vib-badge {
   font-size: var(--vib-precision-badge) !important;
-  font-weight: 600 !important;
+  font-weight: 500 !important;
   padding: 2px 6px !important;
   border-radius: 4px !important;
   color: var(--vib-precision-muted) !important;
@@ -573,7 +581,7 @@ code, kbd, pre, samp {
 
 .vib-method {
   font-size: var(--vib-precision-badge) !important;
-  font-weight: 600 !important;
+  font-weight: 500 !important;
   padding: 1px 6px !important;
   border-radius: 999px !important;
   letter-spacing: 0 !important;
@@ -593,7 +601,7 @@ code, kbd, pre, samp {
   color: var(--vib-precision-muted) !important;
   border: 1px solid #30363D !important;
   font-size: 10px !important;
-  font-weight: 600 !important;
+  font-weight: 500 !important;
   letter-spacing: 0.01em !important;
 }
 
@@ -615,8 +623,8 @@ code, kbd, pre, samp {
 
 
 
-/* v2.1.2 Production-Grade Form Components Playground
-   Adds forms.html playground classes while preserving the v2.1.2 precision typography contract. */
+/* v2.2.0 Production-Grade Form Components Playground
+   Adds forms.html playground classes while preserving the v2.2.0 precision typography contract. */
 :root {
   --vib-playground-gap: 24px;
   --vib-playground-card-padding-y: 16px;
@@ -627,8 +635,7 @@ code, kbd, pre, samp {
 }
 
 
-/* v2.1.2 Forms Playground Verification Fixes
-   Scope: complete the missing v2.1.2 form-state evidence without changing shell/layout architecture. */
+/* v2.2.0 Forms Playground Verification Fixes */
 .vib-forms-playground-page .vib-input.is-hover {
   background: var(--vib-field-hover) !important;
   border-color: var(--vib-border) !important;
@@ -650,7 +657,7 @@ code, kbd, pre, samp {
   opacity: var(--vib-disabled-opacity);
   pointer-events: none;
 }
-.vib-disabled-surface strong { font-size: 12px; font-weight: 600; color: var(--vib-precision-row); }
+.vib-disabled-surface strong { font-size: 12px; font-weight: 500; color: var(--vib-precision-row); }
 .vib-disabled-surface span { font-size: 11px; line-height: 1.35; }
 
 
@@ -785,19 +792,18 @@ code, kbd, pre, samp {
 :root { --vib-nav-polish-border: #2D3748; --vib-nav-polish-title: #E6EDF3; --vib-nav-polish-subtitle: #C9D1D9; --vib-nav-polish-muted: #8B949E; --vib-nav-polish-accent: #38BDF8; }
 
 
-/* v2.1.2 Single Token Foundation Engine Tokens
+/* v2.2.0 Single Token Foundation Engine Tokens
    Runtime location: Sandbox/assets/css/foundation/ and Sandbox/assets/css/vibtools-theme.css */
 :root {
-  --foundation-token-engine-version: "v2.1.2";
-  --foundation-token-root: "Sandbox/assets/css/foundation/_tokens.css";
+  --foundation-token-engine-version: "v2.2.0";
+  --foundation-token-root: "Sandbox/assets/css/foundation/_colors.css";
   --foundation-theme-aggregator: "Sandbox/assets/css/vibtools-theme.css";
 }
 
 
-/* v2.1.2 Single Token Foundation Verification Tokens
-   Current frozen SSOT status: foundation semantic tokens now also cover low-glare primary text and Tailwind CDN legacy aliases. */
+/* v2.2.0 Single Token Foundation Verification Tokens */
 :root {
-  --foundation-token-engine-version: "v2.1.2";
+  --foundation-token-engine-version: "v2.2.0";
   --text-primary: var(--color-slate-200);
   --vib-text: var(--text-primary);
   --vib-active-bg: var(--component-active-bg);

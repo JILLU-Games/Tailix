@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en" class="dark">
 <head>
   <meta charset="utf-8">
@@ -26,23 +26,22 @@
 </head>
 
 <body data-vib-shell style="font-family: var(--font-sans); font-size: var(--text-md); font-weight: 400;">
-  <main class="vib-main flex-1">
   <!-- Header & Actions Area -->
   <section class="vib-section border-b border-vib-borderSubtle">
     <div class="vib-container py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div>
         <p class="vib-kicker">Marketplace</p>
         <h1 class="vib-h1 mt-1">Plugin Directory &amp; Marketplace</h1>
-        <p class="text-[var(--vib-body)] text-vib-muted mt-1">
+        <p class="text-vib-body text-vib-muted mt-1">
           Discover, install, and manage your workspace integrations.
         </p>
       </div>
       <div class="flex items-center gap-2">
         <div class="vib-field-wrap mb-0 relative w-64">
-          <svg class="absolute left-3 top-2.5 w-[var(--icon-sm)] h-[var(--icon-sm)] text-[var(--vib-muted)]" fill="none" stroke="currentColor" stroke-width="var(--icon-stroke)" viewBox="0 0 24 24">
+          <svg class="absolute left-3 top-2.5 w-[var(--icon-sm)] h-[var(--icon-sm)] text-vib-muted" fill="none" stroke="currentColor" stroke-width="var(--icon-stroke)" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"></path>
           </svg>
-          <input type="text" class="vib-input pl-9" placeholder="Search plugins..." aria-label="Search plugins">
+          <input id="plugin-search" type="text" class="vib-input pl-9" placeholder="Search plugins..." aria-label="Search plugins">
         </div>
       </div>
     </div>
@@ -50,48 +49,48 @@
 
   <!-- Filter Pills -->
   <div class="border-b border-vib-borderSubtle bg-vib-surfaceSoft">
-    <div class="vib-container py-3 flex gap-2 overflow-x-auto">
-      <button type="button" class="px-3 py-1 text-[var(--vib-body)] font-medium rounded-[var(--vib-radius-full)] bg-[var(--vib-primary)] text-white whitespace-nowrap">All</button>
-      <button type="button" class="px-3 py-1 text-[var(--vib-body)] font-medium rounded-[var(--vib-radius-full)] bg-transparent text-vib-muted hover:text-vib-text hover:bg-vib-surfaceHover transition-colors whitespace-nowrap">Active</button>
-      <button type="button" class="px-3 py-1 text-[var(--vib-body)] font-medium rounded-[var(--vib-radius-full)] bg-transparent text-vib-muted hover:text-vib-text hover:bg-vib-surfaceHover transition-colors whitespace-nowrap">Security</button>
-      <button type="button" class="px-3 py-1 text-[var(--vib-body)] font-medium rounded-[var(--vib-radius-full)] bg-transparent text-vib-muted hover:text-vib-text hover:bg-vib-surfaceHover transition-colors whitespace-nowrap">Automation</button>
-      <button type="button" class="px-3 py-1 text-[var(--vib-body)] font-medium rounded-[var(--vib-radius-full)] bg-transparent text-vib-muted hover:text-vib-text hover:bg-vib-surfaceHover transition-colors whitespace-nowrap">Payment</button>
+    <div id="plugin-filter-bar" class="vib-container py-3 flex gap-2 overflow-x-auto" role="group" aria-label="Filter plugins">
+      <button type="button" data-plugin-filter="all" aria-pressed="true" class="px-3 py-1 text-vib-body font-medium rounded-vib-full bg-vib-primary text-white whitespace-nowrap transition-colors">All</button>
+      <button type="button" data-plugin-filter="active" aria-pressed="false" class="px-3 py-1 text-vib-body font-medium rounded-vib-full bg-transparent text-vib-muted hover:text-vib-text hover:bg-vib-surfaceHover transition-colors whitespace-nowrap">Active</button>
+      <button type="button" data-plugin-filter="security" aria-pressed="false" class="px-3 py-1 text-vib-body font-medium rounded-vib-full bg-transparent text-vib-muted hover:text-vib-text hover:bg-vib-surfaceHover transition-colors whitespace-nowrap">Security</button>
+      <button type="button" data-plugin-filter="automation" aria-pressed="false" class="px-3 py-1 text-vib-body font-medium rounded-vib-full bg-transparent text-vib-muted hover:text-vib-text hover:bg-vib-surfaceHover transition-colors whitespace-nowrap">Automation</button>
+      <button type="button" data-plugin-filter="payment" aria-pressed="false" class="px-3 py-1 text-vib-body font-medium rounded-vib-full bg-transparent text-vib-muted hover:text-vib-text hover:bg-vib-surfaceHover transition-colors whitespace-nowrap">Payment</button>
     </div>
   </div>
 
   <!-- Main content area -->
   <div class="vib-container vib-section-sm">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div id="plugins-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
       <!-- Plugin Card: Stripe -->
-      <div class="vib-card vib-card-pad flex flex-col justify-between h-full">
+      <div class="vib-card vib-card-pad flex flex-col justify-between h-full" data-plugin-card data-plugin-name="Stripe" data-category="payment" data-status="active">
         <div>
           <div class="flex items-start justify-between mb-4">
-            <div class="w-10 h-10 rounded-[var(--vib-radius-md)] bg-[#635BFF] flex items-center justify-center text-white shrink-0">
+            <div class="w-10 h-10 rounded-vib-control bg-vib-primary flex items-center justify-center text-white shrink-0">
               <svg class="w-[var(--icon-lg)] h-[var(--icon-lg)]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
             </div>
-            <span class="inline-flex items-center px-2 py-0.5 rounded-[var(--vib-radius-sm)] vib-meta font-medium bg-[var(--state-success-bg)] text-[var(--state-success-text)] border border-[var(--state-success-border)]">Active</span>
+            <span data-plugin-badge class="inline-flex items-center px-2 py-0.5 rounded-vib-sm vib-meta font-medium bg-vib-stateSuccessBg text-vib-stateSuccessText border border-vib-stateSuccessBorder">Active</span>
           </div>
-          <h3 class="text-[var(--text-base)] font-semibold text-vib-text">Stripe Payments</h3>
+          <h3 class="text-vib-base font-medium text-vib-text">Stripe Payments</h3>
           <div class="flex items-center gap-2 mt-1 mb-3 vib-meta">
             <span>By Stripe</span>
             <span>&bull;</span>
             <span>v2.1.0</span>
           </div>
-          <p class="text-[var(--vib-body)] text-vib-muted ">
+          <p class="text-vib-body text-vib-muted ">
             Accept payments, send payouts, and manage your business online with Stripe.
           </p>
         </div>
         <div class="mt-5 pt-4 border-t border-vib-borderSubtle flex items-center justify-between">
           <label class="flex items-center gap-2 cursor-pointer">
-            <input type="checkbox" class="vib-checkbox" checked onchange="togglePlugin('Stripe', this.checked)">
-            <span class="text-[var(--vib-body)] text-vib-muted select-none">Enabled</span>
+            <input type="checkbox" class="vib-checkbox" checked onchange="togglePlugin('Stripe', this.checked, this)">
+            <span data-plugin-toggle-label class="text-vib-body text-vib-muted select-none">Enabled</span>
           </label>
           <div class="flex gap-2">
             <button type="button" class="p-2 text-vib-muted hover:text-vib-primary transition-colors" aria-label="Settings" onclick="openPluginSettings('Stripe')">
               <svg class="w-[var(--icon-md)] h-[var(--icon-md)]" fill="none" stroke="currentColor" stroke-width="var(--icon-stroke)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
             </button>
-            <button type="button" class="p-2 text-vib-muted hover:text-[var(--state-danger-text)] transition-colors" aria-label="Uninstall" onclick="uninstallPlugin('Stripe')">
+            <button type="button" class="p-2 text-vib-muted hover:text-vib-stateDangerText transition-colors" aria-label="Uninstall" onclick="uninstallPlugin('Stripe')">
               <svg class="w-[var(--icon-md)] h-[var(--icon-md)]" fill="none" stroke="currentColor" stroke-width="var(--icon-stroke)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
             </button>
           </div>
@@ -99,34 +98,34 @@
       </div>
 
       <!-- Plugin Card: Slack -->
-      <div class="vib-card vib-card-pad flex flex-col justify-between h-full">
+      <div class="vib-card vib-card-pad flex flex-col justify-between h-full" data-plugin-card data-plugin-name="Slack" data-category="automation" data-status="inactive">
         <div>
           <div class="flex items-start justify-between mb-4">
-            <div class="w-10 h-10 rounded-[var(--vib-radius-md)] bg-white flex items-center justify-center shrink-0">
-              <svg class="w-[var(--icon-lg)] h-[var(--icon-lg)]" viewBox="0 0 24 24" fill="none"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313z" fill="#E01E5A"/><path d="M8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312z" fill="#36C5F0"/><path d="M18.956 8.835a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.835a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.835zM17.688 8.835a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.313z" fill="#2EB67D"/><path d="M15.165 18.958a2.528 2.528 0 0 1 2.52 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.52h2.52zM15.165 17.687a2.527 2.527 0 0 1-2.52-2.52 2.528 2.528 0 0 1 2.52-2.522h6.313A2.527 2.527 0 0 1 24 15.166a2.528 2.528 0 0 1-2.522 2.52h-6.313z" fill="#ECB22E"/></svg>
+            <div class="w-10 h-10 rounded-vib-control bg-vib-surfaceSoft border border-vib-borderSubtle flex items-center justify-center shrink-0">
+              <svg class="w-[var(--icon-lg)] h-[var(--icon-lg)]" viewBox="0 0 24 24" fill="none"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313z" fill="var(--state-danger-text)"/><path d="M8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312z" fill="var(--text-accent)"/><path d="M18.956 8.835a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.835a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.835zM17.688 8.835a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.313z" fill="var(--state-success-text)"/><path d="M15.165 18.958a2.528 2.528 0 0 1 2.52 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.52h2.52zM15.165 17.687a2.527 2.527 0 0 1-2.52-2.52 2.528 2.528 0 0 1 2.52-2.522h6.313A2.527 2.527 0 0 1 24 15.166a2.528 2.528 0 0 1-2.522 2.52h-6.313z" fill="var(--state-warning-text)"/></svg>
             </div>
-            <span class="inline-flex items-center px-2 py-0.5 rounded-[var(--vib-radius-sm)] vib-meta font-medium bg-[var(--vib-surface-hover)] text-[var(--vib-muted)] border border-[var(--vib-border)]">Inactive</span>
+            <span data-plugin-badge class="inline-flex items-center px-2 py-0.5 rounded-vib-sm vib-meta font-medium bg-vib-surfaceHover text-vib-muted border border-vib-border">Inactive</span>
           </div>
-          <h3 class="text-[var(--text-base)] font-semibold text-vib-text">Slack Notifications</h3>
+          <h3 class="text-vib-base font-medium text-vib-text">Slack Notifications</h3>
           <div class="flex items-center gap-2 mt-1 mb-3 vib-meta">
             <span>By VibTools</span>
             <span>&bull;</span>
             <span>v1.0.4</span>
           </div>
-          <p class="text-[var(--vib-body)] text-vib-muted ">
+          <p class="text-vib-body text-vib-muted ">
             Send real-time alerts and activity summaries directly to your Slack channels.
           </p>
         </div>
         <div class="mt-5 pt-4 border-t border-vib-borderSubtle flex items-center justify-between">
           <label class="flex items-center gap-2 cursor-pointer">
-            <input type="checkbox" class="vib-checkbox" onchange="togglePlugin('Slack', this.checked)">
-            <span class="text-[var(--vib-body)] text-vib-muted select-none">Disabled</span>
+            <input type="checkbox" class="vib-checkbox" onchange="togglePlugin('Slack', this.checked, this)">
+            <span data-plugin-toggle-label class="text-vib-body text-vib-muted select-none">Disabled</span>
           </label>
           <div class="flex gap-2">
             <button type="button" class="p-2 text-vib-muted hover:text-vib-primary transition-colors" aria-label="Settings" onclick="openPluginSettings('Slack')">
               <svg class="w-[var(--icon-md)] h-[var(--icon-md)]" fill="none" stroke="currentColor" stroke-width="var(--icon-stroke)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
             </button>
-            <button type="button" class="p-2 text-vib-muted hover:text-[var(--state-danger-text)] transition-colors" aria-label="Uninstall" onclick="uninstallPlugin('Slack')">
+            <button type="button" class="p-2 text-vib-muted hover:text-vib-stateDangerText transition-colors" aria-label="Uninstall" onclick="uninstallPlugin('Slack')">
               <svg class="w-[var(--icon-md)] h-[var(--icon-md)]" fill="none" stroke="currentColor" stroke-width="var(--icon-stroke)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
             </button>
           </div>
@@ -134,15 +133,107 @@
       </div>
 
     </div>
+
+    <div id="plugins-empty-state" class="vib-card vib-card-pad mt-4 text-center" hidden>
+      <p class="text-vib-body font-medium text-vib-text">No plugins match your current filter</p>
+      <p class="vib-meta mt-1">Try adjusting your search query or switching category pills.</p>
+      <button type="button" id="plugins-clear-filters" class="vib-button vib-button-secondary mt-3">Clear Filters</button>
+    </div>
   </div>
 
   <script>
+    (function () {
+      var activeFilter = 'all';
+      var activePillClasses = ['bg-vib-primary', 'text-white'];
+      var idlePillClasses = ['bg-transparent', 'text-vib-muted', 'hover:text-vib-text', 'hover:bg-vib-surfaceHover'];
+
+      function applyPluginFilters() {
+        var searchEl = document.getElementById('plugin-search');
+        var query = searchEl ? String(searchEl.value || '').trim().toLowerCase() : '';
+        var cards = Array.prototype.slice.call(document.querySelectorAll('[data-plugin-card]'));
+        var emptyEl = document.getElementById('plugins-empty-state');
+        var visibleCount = 0;
+
+        cards.forEach(function (card) {
+          var isRemoved = card.dataset.removed === 'true';
+          var text = String(card.textContent || '').toLowerCase();
+          var cat = String(card.dataset.category || '').toLowerCase();
+          var status = String(card.dataset.status || '').toLowerCase();
+
+          var matchesQuery = !query || text.indexOf(query) !== -1;
+          var matchesFilter =
+            activeFilter === 'all' ||
+            (activeFilter === 'active' && status === 'active') ||
+            cat === activeFilter;
+
+          var show = !isRemoved && matchesQuery && matchesFilter;
+          card.hidden = !show;
+          if (show) visibleCount += 1;
+        });
+
+        if (emptyEl) emptyEl.hidden = visibleCount > 0;
+      }
+
+      function setFilterPill(nextFilter) {
+        activeFilter = nextFilter || 'all';
+        document.querySelectorAll('[data-plugin-filter]').forEach(function (btn) {
+          var isSelected = btn.getAttribute('data-plugin-filter') === activeFilter;
+          btn.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
+          activePillClasses.forEach(function (cls) { btn.classList.toggle(cls, isSelected); });
+          idlePillClasses.forEach(function (cls) { btn.classList.toggle(cls, !isSelected); });
+        });
+        applyPluginFilters();
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        var searchEl = document.getElementById('plugin-search');
+        var clearBtn = document.getElementById('plugins-clear-filters');
+
+        if (searchEl) searchEl.addEventListener('input', applyPluginFilters);
+
+        document.querySelectorAll('[data-plugin-filter]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            setFilterPill(btn.getAttribute('data-plugin-filter'));
+          });
+        });
+
+        if (clearBtn) {
+          clearBtn.addEventListener('click', function () {
+            if (searchEl) searchEl.value = '';
+            setFilterPill('all');
+          });
+        }
+
+        applyPluginFilters();
+      });
+
+      window.applyPluginFilters = applyPluginFilters;
+    })();
+
     // Plugin Actions
-    function togglePlugin(pluginName, isEnabled) {
-      if (isEnabled) {
-        EventBus.emit('toast:show', { type: 'success', message: pluginName + ' plugin enabled.' });
-      } else {
-        EventBus.emit('toast:show', { type: 'warning', message: pluginName + ' plugin disabled.' });
+    function togglePlugin(pluginName, isEnabled, inputEl) {
+      var card = inputEl && inputEl.closest ? inputEl.closest('[data-plugin-card]') : document.querySelector('[data-plugin-card][data-plugin-name="' + pluginName + '"]');
+      if (card) {
+        card.dataset.status = isEnabled ? 'active' : 'inactive';
+        var label = card.querySelector('[data-plugin-toggle-label]');
+        if (label) label.textContent = isEnabled ? 'Enabled' : 'Disabled';
+        var badge = card.querySelector('[data-plugin-badge]');
+        if (badge) {
+          badge.textContent = isEnabled ? 'Active' : 'Inactive';
+          badge.className = isEnabled
+            ? 'inline-flex items-center px-2 py-0.5 rounded-vib-sm vib-meta font-medium bg-vib-stateSuccessBg text-vib-stateSuccessText border border-vib-stateSuccessBorder'
+            : 'inline-flex items-center px-2 py-0.5 rounded-vib-sm vib-meta font-medium bg-vib-surfaceHover text-vib-muted border border-vib-border';
+        }
+      }
+
+      if (window.applyPluginFilters) window.applyPluginFilters();
+
+      if (window.EventBus) {
+        if (isEnabled) {
+          EventBus.emit('toast:show', { type: 'success', message: pluginName + ' plugin enabled.' });
+        } else {
+          EventBus.emit('toast:show', { type: 'warning', message: pluginName + ' plugin disabled.' });
+        }
       }
     }
 
@@ -152,6 +243,12 @@
         body: 'Are you sure you want to uninstall the ' + pluginName + ' plugin? This action cannot be undone.',
         confirmText: 'Uninstall',
         onConfirm: function() {
+          var card = document.querySelector('[data-plugin-card][data-plugin-name="' + pluginName + '"]');
+          if (card) {
+            card.dataset.removed = 'true';
+            card.hidden = true;
+          }
+          if (window.applyPluginFilters) window.applyPluginFilters();
           EventBus.emit('toast:show', { type: 'danger', message: pluginName + ' has been uninstalled.' });
         }
       });
@@ -178,9 +275,9 @@
         confirmText: 'Save Settings',
         onConfirm: function() {
           var formEl = document.getElementById('plugin-settings-form');
-          if (!formEl) return;
-          
-          var formController = new FormController({
+          if (!formEl) return false;
+
+          var formController = formEl._vibFormController || (formEl._vibFormController = new FormController({
             form: formEl,
             eventBus: window.EventBus,
             rules: {
@@ -188,13 +285,13 @@
               webhookUrl: { type: 'url' }
             },
             onSubmit: function(payload) {
-              EventBus.emit('toast:show', { type: 'success', message: 'Settings saved for ' + pluginName });
+              if (window.EventBus) {
+                EventBus.emit('toast:show', { type: 'success', message: 'Settings saved for ' + pluginName });
+              }
             }
-          });
-          
-          // Manually trigger submission for the modal's confirm button
-          var mockEvent = { preventDefault: function(){} };
-          formController.handleSubmit(mockEvent);
+          }));
+
+          return formController.submit();
         }
       });
     }

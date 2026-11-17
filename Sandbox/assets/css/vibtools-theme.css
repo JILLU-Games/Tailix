@@ -14,8 +14,10 @@
   --vib-background: var(--bg-app);
   --vib-deep: var(--bg-deep);
   --vib-footer: var(--bg-footer);
+  --vib-topbar-bg: var(--topbar-bg);
   --vib-surface: var(--bg-surface-card);
   --vib-surface-soft: var(--bg-surface-soft);
+  --vib-surface-hover: var(--bg-surface-hover);
   --vib-field: var(--component-input-bg);
   --vib-field-hover: var(--component-input-hover-bg);
   --vib-field-focus: var(--component-input-focus-bg);
@@ -38,6 +40,7 @@
   --vib-btn-secondary-border: var(--component-button-secondary-border);
   --vib-text: var(--text-primary);
   --vib-content: var(--text-content);
+  --vib-body: var(--text-base);
   --vib-doc-content: var(--text-soft);
   --vib-doc-text-primary: var(--text-soft);
   --vib-doc-text-muted: var(--text-secondary);
@@ -51,6 +54,9 @@
   --vib-warning: var(--status-warning);
   --vib-danger: var(--status-danger);
   --vib-radius-sm: var(--radius-sm);
+  --vib-radius-md: var(--radius-md);
+  --vib-radius-lg: var(--radius-lg);
+  --vib-radius-full: var(--radius-pill);
   --vib-radius-control: var(--radius-md);
   --vib-radius-card: var(--radius-lg);
   --vib-header: var(--height-topbar);
@@ -76,7 +82,7 @@
   --vib-disabled-opacity: var(--component-disabled-opacity);
   --vib-disabled-bg: var(--component-disabled-bg);
   --vib-feedback-bg: var(--component-feedback-bg);
-  --vib-table-skeleton-bg: var(--component-table-skeleton-bg, rgba(255, 255, 255, .035));
+  --vib-table-skeleton-bg: var(--component-table-skeleton-bg);
   --vib-state-success-bg: var(--state-success-bg);
   --vib-state-success-border: var(--state-success-border);
   --vib-state-success-text: var(--state-success-text);
@@ -86,6 +92,9 @@
   --vib-state-danger-bg: var(--state-danger-bg);
   --vib-state-danger-border: var(--state-danger-border);
   --vib-state-danger-text: var(--state-danger-text);
+  --vib-state-info-bg: var(--state-info-bg);
+  --vib-state-info-border: var(--state-info-border);
+  --vib-state-info-text: var(--state-info-text);
   --vib-skeleton-bg: var(--component-skeleton-bg);
   --vib-skeleton-pulse: var(--component-skeleton-pulse);
   --vib-log-bg: var(--log-bg);
@@ -222,4 +231,58 @@
   --vib-doc-font-sub: var(--doc-font-sub);
   --vib-doc-font-nav: var(--doc-font-nav);
   --vib-doc-font-category: var(--doc-font-category);
+  --vib-form-control-muted-bg: var(--form-control-muted-bg);
+  --vib-switch-thumb-bg: var(--switch-thumb-bg);
+  --vib-text-on-accent: var(--text-on-accent);
+  --vib-log-tools-bg: var(--log-tools-bg);
+  --vib-modal-backdrop-bg: var(--modal-backdrop-bg);
+  --vib-soft-primary-text: var(--text-primary);
+  --vib-soft-label-text: var(--text-content);
+  --vib-soft-muted-text: var(--text-secondary);
+  --vib-soft-placeholder-text: var(--text-muted);
+  --vib-soft-field-bg: var(--bg-surface-primary);
+  --vib-soft-field-border: var(--border-card);
+  --vib-precision-page-title: 16px;
+  --vib-precision-section-title: 13px;
+  --vib-precision-row-title: 12px;
+  --vib-precision-body: 11px;
+  --vib-precision-badge: 10px;
+  --vib-precision-heading: var(--text-soft);
+  --vib-precision-section: var(--text-content);
+  --vib-precision-row: var(--text-soft);
+  --vib-precision-muted: var(--text-subtle);
+  --vib-precision-subtle: var(--text-muted);
+  --vib-precision-toggle-on: var(--status-success-soft);
+  --vib-precision-blue: var(--border-focus);
+  --vib-playground-gap: 24px;
+  --vib-playground-card-padding-y: 16px;
+  --vib-playground-card-padding-x: 20px;
+  --vib-form-success: var(--status-success-soft);
+  --vib-form-warning: var(--status-warning);
+  --vib-form-error: var(--status-danger-soft);
+}
+
+.vib-cards-playground-page {
+  --vib-card-playground-title: var(--text-soft);
+  --vib-card-playground-subtitle: var(--text-content);
+  --vib-card-playground-body: var(--text-secondary);
+  --vib-card-playground-muted: var(--text-subtle);
+  --vib-card-playground-border: var(--border-card);
+  --vib-card-playground-soft-border: var(--border-subtle);
+  --vib-card-playground-surface: var(--bg-surface-primary);
+  --vib-card-playground-panel: var(--bg-surface-card);
+}
+
+.vib-navigation-playground-page {
+  --vib-nav-playground-title: var(--text-soft);
+  --vib-nav-playground-subtitle: var(--text-content);
+  --vib-nav-playground-body: var(--text-secondary);
+  --vib-nav-playground-muted: var(--text-subtle);
+  --vib-nav-playground-border: var(--border-card);
+  --vib-nav-playground-border-soft: var(--border-inner);
+  --vib-nav-playground-surface: var(--bg-surface-primary);
+  --vib-nav-playground-soft: var(--bg-surface-card);
+  --vib-nav-playground-hover: var(--bg-surface-hover);
+  --vib-nav-playground-active-bg: transparent;
+  --vib-nav-playground-accent: var(--border-focus);
 }

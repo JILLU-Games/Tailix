@@ -20,7 +20,7 @@
     <header class="vib-topbar sticky top-0 z-20">
       <div class="vib-container vib-topbar-inner">
         <a href="../index.html" class="vib-brand">
-          <svg class="w-[var(--icon-lg)] h-[var(--icon-lg)] stroke-[var(--icon-stroke)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+          <svg class="w-[var(--icon-lg)] h-[var(--icon-lg)]" fill="none" stroke="currentColor" stroke-width="var(--icon-stroke)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
           <span>VibTools UI Sandbox</span>
         </a>
         <div class="vib-row">
@@ -67,15 +67,15 @@
         
         <!-- Header & Actions Area -->
         <section class="vib-app-page vib-cards-playground-page">
-          <div class="vib-page-header flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="vib-page-header max-w-none flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <p class="vib-kicker">Workspace</p>
               <h1 class="vib-h1 mt-1">Billing &amp; Usage</h1>
-              <p class="text-[var(--vib-body)] text-vib-muted mt-1">Manage your subscription, view current usage metrics, and download invoice history.</p>
+              <p class="text-vib-body text-vib-muted mt-1">Manage your subscription, view current usage metrics, and download invoice history.</p>
             </div>
-            <div class="flex items-center gap-2 bg-vib-surfaceSoft border border-vib-borderSubtle rounded-[var(--vib-radius-md)] p-1">
-              <button type="button" class="px-3 py-1 vib-meta font-medium bg-vib-navActiveBg text-vib-primary rounded-[var(--vib-radius-sm)] shadow-sm">Monthly</button>
-              <button type="button" class="px-3 py-1 vib-meta hover:text-vib-primary transition-colors">Annually (Save 20%)</button>
+            <div id="billing-cycle-toggle" class="flex items-center gap-2 bg-vib-surfaceSoft border border-vib-borderSubtle rounded-vib-control p-1 shrink-0">
+              <button type="button" data-billing-cycle="monthly" aria-pressed="true" class="px-3 py-1 vib-meta font-medium bg-vib-navActiveBg text-vib-primary rounded-vib-sm transition-colors whitespace-nowrap">Monthly</button>
+              <button type="button" data-billing-cycle="annual" aria-pressed="false" class="px-3 py-1 vib-meta text-vib-muted hover:text-vib-primary rounded-vib-sm transition-colors whitespace-nowrap">Annually (Save 20%)</button>
             </div>
           </div>
           <div class="vib-playground-container space-y-8">
@@ -84,20 +84,20 @@
             <div class="vib-card-subtle p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div>
                 <div class="flex items-center gap-3 mb-2">
-                  <h2 class="vib-h2">Enterprise Pro</h2>
-                  <span class="inline-flex items-center px-2 py-0.5 rounded-[var(--vib-radius-full)] vib-meta font-medium bg-vib-stateSuccessBg text-vib-stateSuccessText border border-vib-stateSuccessBorder">Active</span>
+                  <h2 id="billing-plan-name" class="vib-h2">Enterprise Pro</h2>
+                  <span id="billing-plan-status" class="inline-flex items-center px-2 py-0.5 rounded-vib-full vib-meta font-medium bg-vib-stateSuccessBg text-vib-stateSuccessText border border-vib-stateSuccessBorder">Active</span>
                 </div>
-                <p class="text-[var(--vib-body)] text-vib-muted">Your subscription renews on Oct 1, 2026 for $199.00.</p>
+                <p id="billing-plan-summary" class="text-vib-body text-vib-muted">Your subscription renews on Oct 1, 2026 for $199.00/mo.</p>
               </div>
               <div class="flex items-center gap-3">
-                <button type="button" class="vib-button vib-button-ghost text-vib-danger hover:text-vib-danger hover:bg-vib-stateDangerBg">Cancel Subscription</button>
-                <button type="button" class="vib-button vib-button-primary">Upgrade Plan</button>
+                <button id="billing-cancel-btn" type="button" class="vib-button vib-button-ghost text-vib-danger hover:text-vib-danger hover:bg-vib-stateDangerBg">Cancel Subscription</button>
+                <button id="billing-upgrade-btn" type="button" class="vib-button vib-button-primary">Upgrade Plan</button>
               </div>
             </div>
 
             <!-- Usage & Resource Metrics Grid -->
             <div>
-              <h3 class="text-[var(--text-md)] font-medium text-vib-primary mb-4">Current Usage</h3>
+              <h3 class="text-vib-md font-medium text-vib-primary mb-4">Current Usage</h3>
               <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 
                 <!-- API Requests Metric -->
@@ -105,12 +105,12 @@
                   <div class="flex justify-between items-end mb-4">
                     <div>
                       <p class="vib-meta uppercase tracking-wide">API Requests</p>
-                      <div class="vib-h1 mt-1">85,000 <span class="text-[var(--vib-body)] text-vib-muted font-normal">/ 100k</span></div>
+                      <div class="vib-h1 mt-1">85,000 <span class="text-vib-body text-vib-muted font-normal">/ 100k</span></div>
                     </div>
                     <svg class="w-[var(--icon-lg)] h-[var(--icon-lg)] stroke-[var(--vib-border)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                   </div>
-                  <div class="w-full bg-vib-surfaceSoft h-2 rounded-[var(--vib-radius-full)] overflow-hidden">
-                    <div class="bg-vib-stateWarningText h-full rounded-[var(--vib-radius-full)] transition-all duration-[var(--motion-duration-slow,300ms)] ease-[var(--motion-easing-bounce,cubic-bezier(0.4,0,0.2,1))]" style="width: 85%"></div>
+                  <div class="w-full bg-vib-surfaceSoft h-2 rounded-vib-full overflow-hidden">
+                    <div class="bg-vib-stateWarningText h-full rounded-vib-full transition-all duration-[var(--motion-duration-slow,300ms)] ease-[var(--motion-easing-bounce,cubic-bezier(0.4,0,0.2,1))]" style="width: 85%"></div>
                   </div>
                   <p class="vib-meta mt-2">15,000 requests remaining</p>
                 </div>
@@ -120,12 +120,12 @@
                   <div class="flex justify-between items-end mb-4">
                     <div>
                       <p class="vib-meta uppercase tracking-wide">Team Seats</p>
-                      <div class="vib-h1 mt-1">4 <span class="text-[var(--vib-body)] text-vib-muted font-normal">/ 5</span></div>
+                      <div class="vib-h1 mt-1">4 <span class="text-vib-body text-vib-muted font-normal">/ 5</span></div>
                     </div>
                     <svg class="w-[var(--icon-lg)] h-[var(--icon-lg)] stroke-[var(--vib-border)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
                   </div>
-                  <div class="w-full bg-vib-surfaceSoft h-2 rounded-[var(--vib-radius-full)] overflow-hidden">
-                    <div class="bg-vib-primary h-full rounded-[var(--vib-radius-full)] transition-all duration-[var(--motion-duration-slow,300ms)] ease-[var(--motion-easing-bounce,cubic-bezier(0.4,0,0.2,1))]" style="width: 80%"></div>
+                  <div class="w-full bg-vib-surfaceSoft h-2 rounded-vib-full overflow-hidden">
+                    <div class="bg-vib-primary h-full rounded-vib-full transition-all duration-[var(--motion-duration-slow,300ms)] ease-[var(--motion-easing-bounce,cubic-bezier(0.4,0,0.2,1))]" style="width: 80%"></div>
                   </div>
                   <p class="vib-meta mt-2">1 seat remaining</p>
                 </div>
@@ -135,12 +135,12 @@
                   <div class="flex justify-between items-end mb-4">
                     <div>
                       <p class="vib-meta uppercase tracking-wide">Storage</p>
-                      <div class="vib-h1 mt-1">2.4 GB <span class="text-[var(--vib-body)] text-vib-muted font-normal">/ 10 GB</span></div>
+                      <div class="vib-h1 mt-1">2.4 GB <span class="text-vib-body text-vib-muted font-normal">/ 10 GB</span></div>
                     </div>
                     <svg class="w-[var(--icon-lg)] h-[var(--icon-lg)] stroke-[var(--vib-border)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>
                   </div>
-                  <div class="w-full bg-vib-surfaceSoft h-2 rounded-[var(--vib-radius-full)] overflow-hidden">
-                    <div class="bg-vib-primary h-full rounded-[var(--vib-radius-full)] transition-all duration-[var(--motion-duration-slow,300ms)] ease-[var(--motion-easing-bounce,cubic-bezier(0.4,0,0.2,1))]" style="width: 24%"></div>
+                  <div class="w-full bg-vib-surfaceSoft h-2 rounded-vib-full overflow-hidden">
+                    <div class="bg-vib-primary h-full rounded-vib-full transition-all duration-[var(--motion-duration-slow,300ms)] ease-[var(--motion-easing-bounce,cubic-bezier(0.4,0,0.2,1))]" style="width: 24%"></div>
                   </div>
                   <p class="vib-meta mt-2">7.6 GB remaining</p>
                 </div>
@@ -153,49 +153,23 @@
               
               <!-- Payment Methods -->
               <div class="lg:col-span-1">
-                <h3 class="text-[var(--text-md)] font-medium text-vib-primary mb-4">Payment Method</h3>
+                <h3 class="text-vib-md font-medium text-vib-primary mb-4">Payment Method</h3>
                 <div class="vib-card-subtle p-5 relative overflow-hidden group">
                   <!-- Decorative background -->
                   <div class="absolute -right-8 -top-8 w-24 h-24 bg-vib-surfaceSoft rounded-full opacity-50 group-hover:scale-110 transition-transform duration-[var(--motion-duration-slow)]"></div>
                   
                   <div class="flex items-start justify-between relative z-10">
                     <div>
-                      <p class="text-[var(--vib-body)] font-medium text-vib-text mb-1">Visa ending in 4242</p>
-                      <p class="vib-meta">Expires 12/2028</p>
+                      <p id="billing-card-label" class="text-vib-body font-medium text-vib-text mb-1">Visa ending in 4242</p>
+                      <p id="billing-card-expiry" class="vib-meta">Expires 12/2028</p>
                     </div>
-                    <div class="px-2 py-1 bg-vib-surfaceSoft border border-vib-borderSubtle rounded-[var(--vib-radius-sm)] flex items-center justify-center">
+                    <div class="px-2 py-1 bg-vib-surfaceSoft border border-vib-borderSubtle rounded-vib-sm flex items-center justify-center">
                       <svg class="w-[var(--icon-lg)] h-[var(--icon-md)] fill-vib-primary opacity-80" viewBox="0 0 32 20"><path d="M12.164 1.109L9.756 18.06h-4.32l2.408-16.95h4.32zm13.146 0h4.298l-7.234 16.95h-4.482l3.432-8.083-4.225-8.868h4.63l1.865 4.587 1.716-4.587zM4.773 1.11H.272L0 2.457c1.378.368 2.802 1.05 3.96 1.874l1.328 11.232c-.068.34.02.695.234.954.214.258.537.406.878.406h4.5L13.13 1.11H8.56c-.347 0-.649.231-.741.564L6.19 10.354C5.83 5.464 2.857 2.147 4.773 1.11zm19.643 0h-3.483c-.392 0-.742.247-.872.617l-3.23 8.815-1.745-9.432H10.57l2.84 16.95h4.52l5.485-16.95z"/></svg>
                     </div>
                   </div>
                   <div class="mt-6 flex items-center gap-3 relative z-10">
-                    <button type="button" class="vib-meta font-medium text-vib-danger hover:text-vib-danger/80 transition-colors">Remove</button>
-                    <button type="button" class="vib-meta font-medium text-vib-primary hover:opacity-80 transition-opacity ml-auto" onclick="
-                      window.VibModal.open({
-                        title: 'Add Payment Method',
-                        body: `
-                          <form id='payment-form' class='space-y-4' onsubmit='event.preventDefault(); window.VibToast.success(\`Payment method added successfully!\`, 3000);'>
-                            <div>
-                              <label class='block vib-meta font-medium text-vib-text mb-1.5'>Card Information</label>
-                              <div class='border border-vib-borderSubtle rounded-[var(--vib-radius-md)] overflow-hidden bg-vib-surface'>
-                                <input type='text' class='w-full px-3 py-2 bg-transparent text-[var(--vib-body)] text-vib-text focus:outline-none border-b border-vib-borderSubtle' placeholder='Card number' required>
-                                <div class='flex'>
-                                  <input type='text' class='w-1/2 px-3 py-2 bg-transparent text-[var(--vib-body)] text-vib-text focus:outline-none border-r border-vib-borderSubtle' placeholder='MM / YY' required>
-                                  <input type='text' class='w-1/2 px-3 py-2 bg-transparent text-[var(--vib-body)] text-vib-text focus:outline-none' placeholder='CVC' required>
-                                </div>
-                              </div>
-                            </div>
-                            <div>
-                              <label class='block vib-meta font-medium text-vib-text mb-1.5'>Cardholder Name</label>
-                              <input type='text' class='vib-input w-full' placeholder='Full name on card' required>
-                            </div>
-                          </form>
-                        `,
-                        confirmText: 'Save Card',
-                        onConfirm: () => {
-                          document.getElementById('payment-form').dispatchEvent(new Event('submit'));
-                        }
-                      })
-                    ">Add New Method</button>
+                    <button id="billing-remove-card-btn" type="button" class="vib-meta font-medium text-vib-danger hover:text-vib-danger/80 transition-colors">Remove</button>
+                    <button id="billing-add-card-btn" type="button" class="vib-meta font-medium text-vib-primary hover:opacity-80 transition-opacity ml-auto">Add New Method</button>
                   </div>
                 </div>
               </div>
@@ -203,9 +177,9 @@
               <!-- Invoice History Table -->
               <div class="lg:col-span-2">
                 <div class="flex items-center justify-between mb-4">
-                  <h3 class="text-[var(--text-md)] font-medium text-vib-primary">Invoice History</h3>
-                  <button type="button" class="vib-meta hover:text-vib-primary transition-colors flex items-center gap-1">
-                    <svg class="w-[var(--icon-sm)] h-[var(--icon-sm)] stroke-[var(--icon-stroke)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                  <h3 class="text-vib-md font-medium text-vib-primary">Invoice History</h3>
+                  <button id="billing-download-all-btn" type="button" class="vib-meta hover:text-vib-primary transition-colors flex items-center gap-1">
+                    <svg class="w-[var(--icon-sm)] h-[var(--icon-sm)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="var(--icon-stroke)"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                     Download All
                   </button>
                 </div>
@@ -215,44 +189,44 @@
                     <table class="vib-table" aria-label="Invoice History">
                       <thead>
                         <tr>
-                          <th scope="col" class="vib-meta uppercase font-semibold">Date</th>
-                          <th scope="col" class="vib-meta uppercase font-semibold">Invoice ID</th>
-                          <th scope="col" class="vib-meta uppercase font-semibold">Amount</th>
-                          <th scope="col" class="vib-meta uppercase font-semibold">Status</th>
-                          <th scope="col" class="vib-td-action vib-meta uppercase font-semibold text-right">Receipt</th>
+                          <th scope="col" class="vib-meta uppercase font-medium">Date</th>
+                          <th scope="col" class="vib-meta uppercase font-medium">Invoice ID</th>
+                          <th scope="col" class="vib-meta uppercase font-medium">Amount</th>
+                          <th scope="col" class="vib-meta uppercase font-medium">Status</th>
+                          <th scope="col" class="vib-td-action vib-meta uppercase font-medium text-right">Receipt</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr class="hover:bg-vib-tableRowHover even:bg-vib-tableEmptyBg transition-colors">
-                          <td class="text-vib-primary text-[var(--vib-body)]">Sep 1, 2026</td>
+                        <tr class="hover:bg-vib-tableRowHover even:bg-vib-tableEmptyBg transition-colors" data-invoice-id="#INV-2026-009" data-invoice-date="Sep 1, 2026" data-invoice-amount="$199.00">
+                          <td class="text-vib-primary text-vib-body">Sep 1, 2026</td>
                           <td class="font-mono vib-meta text-vib-text">#INV-2026-009</td>
-                          <td class="text-vib-text text-[var(--vib-body)]">$199.00</td>
-                          <td><span class="inline-flex items-center px-2 py-0.5 rounded-[var(--vib-radius-full)] vib-meta font-medium bg-vib-stateSuccessBg text-vib-stateSuccessText border border-vib-stateSuccessBorder">Paid</span></td>
+                          <td class="text-vib-text text-vib-body">$199.00</td>
+                          <td><span class="inline-flex items-center px-2 py-0.5 rounded-vib-full vib-meta font-medium bg-vib-stateSuccessBg text-vib-stateSuccessText border border-vib-stateSuccessBorder">Paid</span></td>
                           <td class="vib-td-action text-right">
-                            <button type="button" class="text-vib-muted hover:text-vib-primary transition-colors" aria-label="Download receipt">
-                              <svg class="w-[var(--icon-md)] h-[var(--icon-md)] stroke-[var(--icon-stroke)] inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                            <button type="button" data-download-receipt class="text-vib-muted hover:text-vib-primary transition-colors" aria-label="Download receipt #INV-2026-009">
+                              <svg class="w-[var(--icon-md)] h-[var(--icon-md)] inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="var(--icon-stroke)"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                             </button>
                           </td>
                         </tr>
-                        <tr class="hover:bg-vib-tableRowHover even:bg-vib-tableEmptyBg transition-colors">
-                          <td class="text-vib-primary text-[var(--vib-body)]">Aug 1, 2026</td>
+                        <tr class="hover:bg-vib-tableRowHover even:bg-vib-tableEmptyBg transition-colors" data-invoice-id="#INV-2026-008" data-invoice-date="Aug 1, 2026" data-invoice-amount="$199.00">
+                          <td class="text-vib-primary text-vib-body">Aug 1, 2026</td>
                           <td class="font-mono vib-meta text-vib-text">#INV-2026-008</td>
-                          <td class="text-vib-text text-[var(--vib-body)]">$199.00</td>
-                          <td><span class="inline-flex items-center px-2 py-0.5 rounded-[var(--vib-radius-full)] vib-meta font-medium bg-vib-stateSuccessBg text-vib-stateSuccessText border border-vib-stateSuccessBorder">Paid</span></td>
+                          <td class="text-vib-text text-vib-body">$199.00</td>
+                          <td><span class="inline-flex items-center px-2 py-0.5 rounded-vib-full vib-meta font-medium bg-vib-stateSuccessBg text-vib-stateSuccessText border border-vib-stateSuccessBorder">Paid</span></td>
                           <td class="vib-td-action text-right">
-                            <button type="button" class="text-vib-muted hover:text-vib-primary transition-colors" aria-label="Download receipt">
-                              <svg class="w-[var(--icon-md)] h-[var(--icon-md)] stroke-[var(--icon-stroke)] inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                            <button type="button" data-download-receipt class="text-vib-muted hover:text-vib-primary transition-colors" aria-label="Download receipt #INV-2026-008">
+                              <svg class="w-[var(--icon-md)] h-[var(--icon-md)] inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="var(--icon-stroke)"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                             </button>
                           </td>
                         </tr>
-                        <tr class="hover:bg-vib-tableRowHover even:bg-vib-tableEmptyBg transition-colors">
-                          <td class="text-vib-primary text-[var(--vib-body)]">Jul 1, 2026</td>
+                        <tr class="hover:bg-vib-tableRowHover even:bg-vib-tableEmptyBg transition-colors" data-invoice-id="#INV-2026-007" data-invoice-date="Jul 1, 2026" data-invoice-amount="$199.00">
+                          <td class="text-vib-primary text-vib-body">Jul 1, 2026</td>
                           <td class="font-mono vib-meta text-vib-text">#INV-2026-007</td>
-                          <td class="text-vib-text text-[var(--vib-body)]">$199.00</td>
-                          <td><span class="inline-flex items-center px-2 py-0.5 rounded-[var(--vib-radius-full)] vib-meta font-medium bg-vib-stateSuccessBg text-vib-stateSuccessText border border-vib-stateSuccessBorder">Paid</span></td>
+                          <td class="text-vib-text text-vib-body">$199.00</td>
+                          <td><span class="inline-flex items-center px-2 py-0.5 rounded-vib-full vib-meta font-medium bg-vib-stateSuccessBg text-vib-stateSuccessText border border-vib-stateSuccessBorder">Paid</span></td>
                           <td class="vib-td-action text-right">
-                            <button type="button" class="text-vib-muted hover:text-vib-primary transition-colors" aria-label="Download receipt">
-                              <svg class="w-[var(--icon-md)] h-[var(--icon-md)] stroke-[var(--icon-stroke)] inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                            <button type="button" data-download-receipt class="text-vib-muted hover:text-vib-primary transition-colors" aria-label="Download receipt #INV-2026-007">
+                              <svg class="w-[var(--icon-md)] h-[var(--icon-md)] inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="var(--icon-stroke)"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                             </button>
                           </td>
                         </tr>
@@ -270,5 +244,234 @@
     </div>
   </div>
   <script src="../js/sandbox-nav.js"></script>
+  <script>
+    (function () {
+      var cycle = 'monthly';
+      var planPriceMonthly = 199;
+      var planName = 'Enterprise Pro';
+      var isCanceled = false;
+      var hasActiveCard = true;
+
+      function downloadFile(filename, content, mimeType) {
+        var blob = new Blob([content], { type: mimeType || 'text/plain;charset=utf-8;' });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+      }
+
+      function refreshPlanSummary() {
+        var summaryEl = document.getElementById('billing-plan-summary');
+        var nameEl = document.getElementById('billing-plan-name');
+        var statusEl = document.getElementById('billing-plan-status');
+        var cancelBtn = document.getElementById('billing-cancel-btn');
+
+        if (nameEl) nameEl.textContent = planName;
+        if (summaryEl) {
+          var formatted = cycle === 'annual'
+            ? '$' + (planPriceMonthly * 12 * 0.8).toFixed(2) + '/yr (20% annual discount)'
+            : '$' + planPriceMonthly.toFixed(2) + '/mo';
+          summaryEl.textContent = isCanceled
+            ? 'Your ' + planName + ' subscription ends on Oct 1, 2026.'
+            : 'Your subscription renews on Oct 1, 2026 for ' + formatted + '.';
+        }
+        if (statusEl) {
+          statusEl.textContent = isCanceled ? 'Canceling' : 'Active';
+          statusEl.className = isCanceled
+            ? 'inline-flex items-center px-2 py-0.5 rounded-vib-full vib-meta font-medium bg-vib-stateWarningBg text-vib-stateWarningText border border-vib-stateWarningBorder'
+            : 'inline-flex items-center px-2 py-0.5 rounded-vib-full vib-meta font-medium bg-vib-stateSuccessBg text-vib-stateSuccessText border border-vib-stateSuccessBorder';
+        }
+        if (cancelBtn) {
+          cancelBtn.textContent = isCanceled ? 'Reactivate Plan' : 'Cancel Subscription';
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        var toggleButtons = document.querySelectorAll('[data-billing-cycle]');
+        var cancelBtn = document.getElementById('billing-cancel-btn');
+        var upgradeBtn = document.getElementById('billing-upgrade-btn');
+        var removeCardBtn = document.getElementById('billing-remove-card-btn');
+        var addCardBtn = document.getElementById('billing-add-card-btn');
+        var downloadAllBtn = document.getElementById('billing-download-all-btn');
+
+        toggleButtons.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            cycle = btn.getAttribute('data-billing-cycle') === 'annual' ? 'annual' : 'monthly';
+            toggleButtons.forEach(function (b) {
+              var active = b.getAttribute('data-billing-cycle') === cycle;
+              b.setAttribute('aria-pressed', active ? 'true' : 'false');
+              b.className = active
+                ? 'px-3 py-1 vib-meta font-medium bg-vib-navActiveBg text-vib-primary rounded-vib-sm transition-colors'
+                : 'px-3 py-1 vib-meta text-vib-muted hover:text-vib-primary rounded-vib-sm transition-colors';
+            });
+            refreshPlanSummary();
+            window.VibToast.info('Switched billing cycle preview to ' + (cycle === 'annual' ? 'Annual (Save 20%)' : 'Monthly') + '.', 2500);
+          });
+        });
+
+        if (cancelBtn) {
+          cancelBtn.addEventListener('click', function () {
+            if (isCanceled) {
+              isCanceled = false;
+              refreshPlanSummary();
+              window.VibToast.success('Subscription reactivated.', 3000);
+              return;
+            }
+            window.VibModal.open({
+              title: 'Cancel Subscription',
+              body: 'Your ' + planName + ' plan will remain active until Oct 1, 2026. Are you sure you want to cancel auto-renewal?',
+              confirmText: 'Confirm Cancellation',
+              onConfirm: function () {
+                isCanceled = true;
+                refreshPlanSummary();
+                window.VibToast.warning('Subscription scheduled for cancellation.', 3500);
+              }
+            });
+          });
+        }
+
+        if (upgradeBtn) {
+          upgradeBtn.addEventListener('click', function () {
+            window.VibModal.open({
+              title: 'Change Subscription Plan',
+              body: [
+                '<div class="flex flex-col gap-3">',
+                '  <label class="vib-label" for="billing-plan-select">Select Plan</label>',
+                '  <select id="billing-plan-select" class="vib-select w-full">',
+                '    <option value="Enterprise Pro|199"' + (planName === 'Enterprise Pro' ? ' selected' : '') + '>Enterprise Pro ($199/mo)</option>',
+                '    <option value="Scale Unlimited|399"' + (planName === 'Scale Unlimited' ? ' selected' : '') + '>Scale Unlimited ($399/mo)</option>',
+                '  </select>',
+                '</div>'
+              ].join('\n'),
+              confirmText: 'Update Plan',
+              onConfirm: function () {
+                var sel = document.getElementById('billing-plan-select');
+                var parts = (sel ? sel.value : 'Enterprise Pro|199').split('|');
+                planName = parts[0];
+                planPriceMonthly = parseFloat(parts[1]) || 199;
+                isCanceled = false;
+                refreshPlanSummary();
+                window.VibToast.success('Updated subscription to ' + planName + '.', 3000);
+              }
+            });
+          });
+        }
+
+        if (removeCardBtn) {
+          removeCardBtn.addEventListener('click', function () {
+            if (!hasActiveCard) {
+              window.VibToast.info('No active payment method on file.', 2500);
+              return;
+            }
+            window.VibModal.open({
+              title: 'Remove Payment Method',
+              body: 'Remove the saved payment method on file? Add a replacement card to keep auto-renewal active.',
+              confirmText: 'Remove Card',
+              onConfirm: function () {
+                hasActiveCard = false;
+                var label = document.getElementById('billing-card-label');
+                var exp = document.getElementById('billing-card-expiry');
+                if (label) label.textContent = 'No default payment method';
+                if (exp) exp.textContent = 'Add a card to avoid service interruption';
+                window.VibToast.warning('Payment method removed.', 3000);
+              }
+            });
+          });
+        }
+
+        if (addCardBtn) {
+          addCardBtn.addEventListener('click', function () {
+            window.VibModal.open({
+              title: 'Add Payment Method',
+              body: [
+                '<form id="payment-form" class="space-y-4" novalidate>',
+                '  <div>',
+                '    <label class="block vib-meta font-medium text-vib-text mb-1.5">Card Information</label>',
+                '    <div class="border border-vib-borderSubtle rounded-vib-control overflow-hidden bg-vib-surface">',
+                '      <input id="card-number-input" type="text" class="w-full px-3 py-2 bg-transparent text-vib-body text-vib-text focus:outline-none border-b border-vib-borderSubtle" placeholder="4242 4242 4242 4242" required>',
+                '      <div class="flex">',
+                '        <input id="card-expiry-input" type="text" class="w-1/2 px-3 py-2 bg-transparent text-vib-body text-vib-text focus:outline-none border-r border-vib-borderSubtle" placeholder="MM / YY" required>',
+                '        <input id="card-cvc-input" type="text" class="w-1/2 px-3 py-2 bg-transparent text-vib-body text-vib-text focus:outline-none" placeholder="CVC" required>',
+                '      </div>',
+                '    </div>',
+                '  </div>',
+                '  <div>',
+                '    <label class="block vib-meta font-medium text-vib-text mb-1.5">Cardholder Name</label>',
+                '    <input id="card-holder-input" type="text" class="vib-input w-full" placeholder="Full name on card" required>',
+                '  </div>',
+                '</form>'
+              ].join('\n'),
+              confirmText: 'Save Card',
+              onConfirm: function () {
+                var numEl = document.getElementById('card-number-input');
+                var expEl = document.getElementById('card-expiry-input');
+                var cvcEl = document.getElementById('card-cvc-input');
+                var holderEl = document.getElementById('card-holder-input');
+                var digits = numEl ? numEl.value.replace(/\D/g, '') : '';
+                var exp = expEl ? expEl.value.trim() : '';
+                var cvc = cvcEl ? cvcEl.value.trim() : '';
+                var holder = holderEl ? holderEl.value.trim() : '';
+                if (digits.length < 12 || !exp || cvc.length < 3 || !holder) {
+                  window.VibToast.warning('Please enter complete card details.', 3000);
+                  return false;
+                }
+                hasActiveCard = true;
+                var last4 = digits.slice(-4);
+                var label = document.getElementById('billing-card-label');
+                var expiry = document.getElementById('billing-card-expiry');
+                if (label) label.textContent = 'Card ending in ' + last4;
+                if (expiry) expiry.textContent = 'Expires ' + exp;
+                window.VibToast.success('Payment method ending in ' + last4 + ' saved!', 3000);
+              }
+            });
+          });
+        }
+
+        if (downloadAllBtn) {
+          downloadAllBtn.addEventListener('click', function () {
+            var rows = Array.prototype.slice.call(document.querySelectorAll('[data-invoice-id]'));
+            var lines = ['Invoice ID,Date,Amount,Status'];
+            rows.forEach(function (tr) {
+              lines.push([
+                tr.getAttribute('data-invoice-id'),
+                '"' + tr.getAttribute('data-invoice-date') + '"',
+                tr.getAttribute('data-invoice-amount'),
+                'Paid'
+              ].join(','));
+            });
+            downloadFile('vibtools-invoices.csv', lines.join('\n'), 'text/csv;charset=utf-8;');
+            window.VibToast.success('Downloaded ' + rows.length + ' invoices (CSV).', 3000);
+          });
+        }
+
+        document.querySelectorAll('[data-download-receipt]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var tr = btn.closest('tr');
+            if (!tr) return;
+            var id = tr.getAttribute('data-invoice-id') || '#INV';
+            var date = tr.getAttribute('data-invoice-date') || '';
+            var amount = tr.getAttribute('data-invoice-amount') || '$0.00';
+            var receiptText = [
+              'VibTools Receipt',
+              '================',
+              'Invoice: ' + id,
+              'Date:    ' + date,
+              'Plan:    ' + planName,
+              'Amount:  ' + amount,
+              'Status:  Paid'
+            ].join('\n');
+            downloadFile('receipt-' + id.replace('#', '') + '.txt', receiptText, 'text/plain;charset=utf-8;');
+            window.VibToast.success('Downloaded receipt ' + id, 2500);
+          });
+        });
+
+        refreshPlanSummary();
+      });
+    })();
+  </script>
 </body>
 </html>

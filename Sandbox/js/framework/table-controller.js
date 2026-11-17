@@ -65,10 +65,10 @@
   }
 
   var PILL_CLASSES = {
-    success: 'inline-flex items-center px-2 py-0.5 rounded-full text-[var(--text-2xs)] font-medium bg-vib-stateSuccessBg text-vib-stateSuccessText border border-vib-stateSuccessBorder',
-    warning: 'inline-flex items-center px-2 py-0.5 rounded-full text-[var(--text-2xs)] font-medium bg-vib-stateWarningBg text-vib-stateWarningText border border-vib-stateWarningBorder',
-    danger:  'inline-flex items-center px-2 py-0.5 rounded-full text-[var(--text-2xs)] font-medium bg-vib-stateDangerBg text-vib-stateDangerText border border-vib-stateDangerBorder',
-    neutral: 'inline-flex items-center px-2 py-0.5 rounded-full text-[var(--text-2xs)] font-medium bg-vib-badgeBg text-vib-textMuted border border-vib-borderSubtle',
+    success: 'inline-flex items-center px-2 py-0.5 rounded-full text-vib-2xs font-medium bg-vib-stateSuccessBg text-vib-stateSuccessText border border-vib-stateSuccessBorder',
+    warning: 'inline-flex items-center px-2 py-0.5 rounded-full text-vib-2xs font-medium bg-vib-stateWarningBg text-vib-stateWarningText border border-vib-stateWarningBorder',
+    danger:  'inline-flex items-center px-2 py-0.5 rounded-full text-vib-2xs font-medium bg-vib-stateDangerBg text-vib-stateDangerText border border-vib-stateDangerBorder',
+    neutral: 'inline-flex items-center px-2 py-0.5 rounded-full text-vib-2xs font-medium bg-vib-badgeBg text-vib-textMuted border border-vib-borderSubtle',
   };
 
   function pillHtml(value) {
@@ -112,14 +112,21 @@
    * @param {boolean}      [opts.selectable] - Show row checkboxes.
    */
   function TableController(opts) {
+    if (!opts || typeof opts !== 'object') {
+      throw new Error('TableController requires an options object.');
+    }
+    if (!opts.container || typeof opts.container.appendChild !== 'function') {
+      throw new Error('TableController requires a valid DOM element in { container }.');
+    }
     this.container     = opts.container;
-    this.columns       = opts.columns || [];
-    this._rawData      = (opts.data || []).slice();
+    this.columns       = Array.isArray(opts.columns) ? opts.columns : [];
+    this._rawData      = Array.isArray(opts.data) ? opts.data.slice() : [];
     this._data         = this._rawData.slice();
-    this.pageSize      = opts.pageSize || 10;
-    this.filterDefs    = opts.filters || [];
-    this.actions       = opts.actions || ['View', 'Edit', 'Delete'];
-    this.onAction      = opts.onAction || null;
+    var parsedPageSize = Number(opts.pageSize);
+    this.pageSize      = Number.isFinite(parsedPageSize) && parsedPageSize > 0 ? Math.floor(parsedPageSize) : 10;
+    this.filterDefs    = Array.isArray(opts.filters) ? opts.filters : [];
+    this.actions       = Array.isArray(opts.actions) ? opts.actions : ['View', 'Edit', 'Delete'];
+    this.onAction      = typeof opts.onAction === 'function' ? opts.onAction : null;
     this.bus           = opts.eventBus || null;
     this.ariaLabel     = opts.tableAriaLabel || 'Data table';
     this.selectable    = opts.selectable !== false;
@@ -146,7 +153,7 @@
 
   /** Replace the dataset and re-render. */
   TableController.prototype.setData = function (rows) {
-    this._rawData = (rows || []).slice();
+    this._rawData = Array.isArray(rows) ? rows.slice() : [];
     this._page    = 1;
     this._applyFiltersAndSort();
     this._renderBody();
@@ -253,7 +260,7 @@
     if (this.selectable) {
       var thSel = document.createElement('th');
       thSel.scope     = 'col';
-      thSel.className = 'vib-table-select-col text-[var(--text-2xs)] uppercase text-vib-muted font-semibold';
+      thSel.className = 'vib-table-select-col text-vib-2xs uppercase text-vib-muted font-medium';
       var chkAll = document.createElement('input');
       chkAll.type      = 'checkbox';
       chkAll.className = 'vib-table-checkbox';
@@ -270,7 +277,7 @@
     this.columns.forEach(function (col) {
       var th = document.createElement('th');
       th.scope     = 'col';
-      th.className = 'text-[var(--text-2xs)] uppercase text-vib-muted font-semibold';
+      th.className = 'text-vib-2xs uppercase text-vib-muted font-medium';
       if (col.type === 'actions') th.className += ' vib-td-action';
 
       if (col.sortable) {
@@ -326,7 +333,7 @@
 
     // Rows-per-page selector
     var rpSel = document.createElement('select');
-    rpSel.className = 'vib-select vib-table-filter h-8 border border-vib-borderSubtle bg-transparent rounded-[var(--vib-radius-sm)] px-2 text-[var(--text-sm)]';
+    rpSel.className = 'vib-select vib-table-filter h-8 border border-vib-borderSubtle bg-transparent rounded-vib-sm px-2 text-vib-sm';
     rpSel.setAttribute('aria-label', 'Rows per page');
     [10, 25, 50].forEach(function (n) {
       var o = document.createElement('option');
@@ -407,7 +414,7 @@
       var empty = document.createElement('tr');
       var td    = document.createElement('td');
       td.colSpan = this.columns.length + (this.selectable ? 1 : 0);
-      td.className = 'py-8 text-center text-[var(--text-sm)] text-vib-muted';
+      td.className = 'py-8 text-center text-vib-sm text-vib-muted';
       td.textContent = 'No results found.';
       empty.appendChild(td);
       tbody.appendChild(empty);
@@ -462,7 +469,16 @@
             btn.textContent = actionLabel;
             btn.addEventListener('click', function () {
               details.removeAttribute('open');
-              if (self.onAction) self.onAction(actionLabel, row);
+              if (self.onAction) {
+                try {
+                  self.onAction(actionLabel, row);
+                } catch (err) {
+                  console.error('[TableController] onAction error:', err);
+                  if (window.VibToast && typeof window.VibToast.error === 'function') {
+                    window.VibToast.error(err && err.message ? err.message : 'Row action failed.');
+                  }
+                }
+              }
               self._emit('table:action', { action: actionLabel, row: row, instance: self });
             });
             panel.appendChild(btn);
@@ -505,10 +521,10 @@
       var btn = document.createElement('button');
       btn.type      = 'button';
       btn.className = disabled
-        ? 'vib-page-button h-8 px-2 border border-vib-borderSubtle rounded-[var(--vib-radius-sm)] bg-transparent text-[var(--text-sm)] opacity-50 cursor-not-allowed'
+        ? 'vib-page-button h-8 px-2 border border-vib-borderSubtle rounded-vib-sm bg-transparent text-vib-sm opacity-50 cursor-not-allowed'
         : isCurrent
-          ? 'vib-page-button h-8 px-3 border border-vib-borderSubtle rounded-[var(--vib-radius-sm)] bg-vib-navActiveBg text-vib-primary text-[var(--text-sm)] font-medium'
-          : 'vib-page-button h-8 px-2 border border-vib-borderSubtle rounded-[var(--vib-radius-sm)] bg-transparent hover:bg-vib-surfaceSoft text-[var(--text-sm)] transition-colors';
+          ? 'vib-page-button h-8 px-3 border border-vib-borderSubtle rounded-vib-sm bg-vib-navActiveBg text-vib-primary text-vib-sm font-medium'
+          : 'vib-page-button h-8 px-2 border border-vib-borderSubtle rounded-vib-sm bg-transparent hover:bg-vib-surfaceSoft text-vib-sm transition-colors';
       btn.textContent = label;
       if (isCurrent) btn.setAttribute('aria-current', 'page');
       if (disabled)  btn.disabled = true;
@@ -543,7 +559,7 @@
     pages.forEach(function (p) {
       if (p === '…') {
         var span = document.createElement('span');
-        span.className   = 'h-8 flex items-center px-1 text-[var(--text-sm)] text-vib-muted';
+        span.className   = 'h-8 flex items-center px-1 text-vib-sm text-vib-muted';
         span.textContent = '…';
         paginEl.appendChild(span);
       } else {

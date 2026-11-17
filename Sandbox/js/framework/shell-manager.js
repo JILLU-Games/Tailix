@@ -116,6 +116,20 @@
 
   var VERSION = 'v2.2.0';
   var LS_KEY_SIDEBAR = 'vib-sidebar-collapsed';
+  var LS_KEY_THEME = 'vib-theme';
+
+  function getSandboxBase() {
+    var p = String(window.location.pathname || '');
+    var idx = p.toLowerCase().indexOf('/sandbox/');
+    if (idx !== -1) return p.slice(0, idx) + '/Sandbox';
+    if (/\/sandbox$/i.test(p)) return p.slice(0, p.length - 8) + '/Sandbox';
+    return '';
+  }
+
+  function resolveHref(href) {
+    if (!href || href.charAt(0) !== '/') return href;
+    return getSandboxBase() + href;
+  }
 
   function icon(name) {
     return ICONS[String(name || '').toLowerCase()] || ICONS.fallback;
@@ -144,7 +158,7 @@
     return [
       '<header class="vib-topbar sticky top-0 z-20">',
       '  <div class="vib-container vib-topbar-inner">',
-      '    <a href="/index.html" class="vib-brand">',
+      '    <a href="' + resolveHref('/index.html') + '" class="vib-brand">',
       '      <svg class="w-[var(--icon-lg)] h-[var(--icon-lg)]" fill="none" stroke="currentColor" stroke-width="var(--icon-stroke)" viewBox="0 0 24 24">',
       '        <path stroke-linecap="round" stroke-linejoin="round" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>',
       '      </svg>',
@@ -152,6 +166,11 @@
       '    </a>',
       '    <div class="vib-row gap-2">',
       '      <span class="vib-badge">' + VERSION + '</span>',
+      '      <button id="vib-theme-toggle" type="button" class="vib-icon-button" aria-label="Toggle theme" title="Toggle theme">',
+      '        <svg class="w-[var(--icon-md)] h-[var(--icon-md)]" fill="none" stroke="currentColor" stroke-width="var(--icon-stroke)" viewBox="0 0 24 24">',
+      '          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364 6.364-1.414-1.414M7.05 7.05 5.636 5.636m12.728 0-1.414 1.414M7.05 16.95l-1.414 1.414M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/>',
+      '        </svg>',
+      '      </button>',
       '      <button id="vib-sidebar-toggle" type="button" class="vib-icon-button" aria-label="Toggle sidebar">',
       '        <svg class="w-[var(--icon-md)] h-[var(--icon-md)]" fill="none" stroke="currentColor" stroke-width="var(--icon-stroke)" viewBox="0 0 24 24">',
       '          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>',
@@ -168,9 +187,9 @@
     var cls = 'sandbox-page-link vib-sidebar-link' + (active ? ' active' : '');
     var aria = active ? ' aria-current="page"' : '';
     return [
-      '<a class="' + cls + '" href="' + item.href + '"' + aria + '>',
+      '<a class="' + cls + '" href="' + resolveHref(item.href) + '"' + aria + '>',
       '  <span class="vib-sidebar-icon" aria-hidden="true">' + icon(item.icon) + '</span>',
-      '  ' + item.label,
+      '  <span class="vib-sidebar-label">' + item.label + '</span>',
       '</a>'
     ].join('');
   }
@@ -214,6 +233,7 @@
    */
   function injectShell() {
     var body = document.body;
+    if (!body) return;
 
     // Capture existing page content (the page-author's markup)
     var pageContent = document.createElement('div');
@@ -231,12 +251,20 @@
     sidebarEl.innerHTML = buildSidebarHTML();
     var sidebar = sidebarEl.firstElementChild;
 
-    // Shell: main wrapper
+    // Shell: main wrapper (unwrap any pre-existing <main> to prevent nested <main>)
     var main = document.createElement('main');
     main.className = 'vib-main flex-1';
     main.id = 'vib-page-content';
     while (pageContent.firstChild) {
-      main.appendChild(pageContent.firstChild);
+      var child = pageContent.firstChild;
+      if (child.nodeType === 1 && child.tagName === 'MAIN') {
+        while (child.firstChild) {
+          main.appendChild(child.firstChild);
+        }
+        pageContent.removeChild(child);
+      } else {
+        main.appendChild(child);
+      }
     }
 
     // Shell: layout row
@@ -313,18 +341,55 @@
       toggleSidebar();
     });
 
-    // theme:toggle — flips data-theme on <html> (reserved for future theming)
+    // theme:toggle — flips data-theme and .dark class on <html>
     bus.on('theme:toggle', function () {
-      var html = document.documentElement;
-      html.setAttribute('data-theme',
-        html.getAttribute('data-theme') === 'light' ? 'dark' : 'light'
-      );
+      toggleTheme();
+    });
+  }
+
+  function getSavedTheme() {
+    try {
+      var saved = localStorage.getItem(LS_KEY_THEME);
+      if (saved === 'light' || saved === 'dark') return saved;
+    } catch (e) {}
+    return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+  }
+
+  function applyTheme(theme) {
+    var html = document.documentElement;
+    var next = theme === 'light' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    html.classList.toggle('dark', next === 'dark');
+    try { localStorage.setItem(LS_KEY_THEME, next); } catch (e) {}
+    var btn = document.getElementById('vib-theme-toggle');
+    if (btn) {
+      btn.setAttribute('aria-pressed', next === 'light' ? 'true' : 'false');
+      btn.setAttribute('title', next === 'light' ? 'Switch to dark theme' : 'Switch to light theme');
+    }
+  }
+
+  function toggleTheme() {
+    var current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+    applyTheme(current === 'light' ? 'dark' : 'light');
+  }
+
+  function wireThemeToggleButton() {
+    var btn = document.getElementById('vib-theme-toggle');
+    if (!btn || btn.dataset.vibThemeBound === 'true') return;
+    btn.dataset.vibThemeBound = 'true';
+    btn.addEventListener('click', function () {
+      if (window.EventBus) {
+        window.EventBus.emit('theme:toggle');
+      } else {
+        toggleTheme();
+      }
     });
   }
 
   function wireSidebarToggleButton() {
     var btn = document.getElementById('vib-sidebar-toggle');
-    if (!btn) return;
+    if (!btn || btn.dataset.vibSidebarBound === 'true') return;
+    btn.dataset.vibSidebarBound = 'true';
     btn.addEventListener('click', function () {
       if (window.EventBus) {
         window.EventBus.emit('sidebar:toggle');
@@ -349,7 +414,10 @@
 
   function init() {
     var body = document.body;
+    if (!body) return;
     var isShellPage = body.hasAttribute('data-vib-shell');
+
+    applyTheme(getSavedTheme());
 
     if (isShellPage) {
       injectShell();
@@ -361,6 +429,7 @@
     if (isShellPage) {
       applySidebarState();
       wireSidebarToggleButton();
+      wireThemeToggleButton();
     }
 
     setVersionBadges();

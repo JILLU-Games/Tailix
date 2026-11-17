@@ -108,7 +108,7 @@
    * @param {boolean}         [opts.validateOnInput] - Clear error on input (default true).
    */
   function FormController(opts) {
-    if (!opts.form) throw new Error('[FormController] opts.form is required.');
+    if (!opts || !opts.form) throw new Error('[FormController] opts.form is required.');
     this.form            = opts.form;
     this.rules           = opts.rules || {};
     this.onSubmit        = opts.onSubmit || null;
@@ -136,8 +136,13 @@
 
       // Custom validator
       if (typeof rule.custom === 'function') {
-        var customErr = rule.custom(value, payload);
-        if (customErr) { errors[name] = customErr; return; }
+        try {
+          var customErr = rule.custom(value, payload);
+          if (customErr) { errors[name] = customErr; return; }
+        } catch (err) {
+          errors[name] = (err && err.message) ? err.message : 'Validation failed.';
+          return;
+        }
       }
 
       var err = validateField(value, rule);
@@ -194,7 +199,7 @@
     if (!errEl) {
       errEl      = document.createElement('p');
       errEl.id   = errId;
-      errEl.className = CLS_HELPER_ERROR + ' text-[var(--text-xs)] mt-1';
+      errEl.className = CLS_HELPER_ERROR + ' text-vib-xs mt-1';
       errEl.style.color = 'var(--state-danger-text)';
       var parent = field.closest('.vib-field-wrap') || field.parentElement;
       if (parent) parent.appendChild(errEl);
@@ -230,6 +235,38 @@
     this._emit('form:reset', { instance: this });
   };
 
+  /** Programmatically validate and submit the form. Returns true if valid, false otherwise. */
+  FormController.prototype.submit = function (e) {
+    if (e && typeof e.preventDefault === 'function') {
+      e.preventDefault();
+    }
+    this.clearAllErrors();
+    var errors = this.validate();
+    var hasErrors = Object.keys(errors).length > 0;
+
+    if (hasErrors) {
+      var self = this;
+      Object.keys(errors).forEach(function (name) {
+        self.setFieldError(name, errors[name]);
+      });
+      var firstErr = Object.keys(errors)[0];
+      var firstField = this._fieldEl(firstErr);
+      if (firstField && firstField.focus) firstField.focus();
+      this._emit('form:invalid', { errors: errors, instance: this });
+      return false;
+    }
+
+    var payload = this.serialize();
+    this._emit('form:valid', { payload: payload, instance: this });
+    if (typeof this.onSubmit === 'function') {
+      this.onSubmit(payload, this);
+    }
+    return true;
+  };
+
+  /** Backwards-compatible alias for programmatic form submission. */
+  FormController.prototype.handleSubmit = FormController.prototype.submit;
+
   /* ── Event binding ──────────────────────────────────────────────── */
 
   FormController.prototype._bindEvents = function () {
@@ -237,25 +274,7 @@
 
     // Submit
     this.form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      self.clearAllErrors();
-      var errors = self.validate();
-      var hasErrors = Object.keys(errors).length > 0;
-
-      if (hasErrors) {
-        Object.keys(errors).forEach(function (name) {
-          self.setFieldError(name, errors[name]);
-        });
-        // Focus the first errored field
-        var firstErr = Object.keys(errors)[0];
-        var firstField = self._fieldEl(firstErr);
-        if (firstField && firstField.focus) firstField.focus();
-        self._emit('form:invalid', { errors: errors, instance: self });
-      } else {
-        var payload = self.serialize();
-        self._emit('form:valid', { payload: payload, instance: self });
-        if (self.onSubmit) self.onSubmit(payload, self);
-      }
+      self.submit(e);
     });
 
     // Blur validation

@@ -20,7 +20,7 @@
     <header class="vib-topbar sticky top-0 z-20">
       <div class="vib-container vib-topbar-inner">
         <a href="../index.html" class="vib-brand">
-          <svg class="w-[var(--icon-lg)] h-[var(--icon-lg)] stroke-[var(--icon-stroke)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+          <svg class="w-[var(--icon-lg)] h-[var(--icon-lg)]" fill="none" stroke="currentColor" stroke-width="var(--icon-stroke)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
           <span>VibTools UI Sandbox</span>
         </a>
         <div class="vib-row">
@@ -66,39 +66,14 @@
         
         <!-- Header & Actions Area -->
         <section class="vib-app-page vib-cards-playground-page">
-          <div class="vib-page-header flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="vib-page-header max-w-none flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <p class="vib-kicker">Workspace</p>
               <h1 class="vib-h1 mt-1">Team &amp; User Management</h1>
-              <p class="text-[var(--vib-body)] text-vib-muted mt-1">Manage members, assign specialized roles, and control access permissions across your organization.</p>
+              <p class="text-vib-body text-vib-muted mt-1">Manage members, assign specialized roles, and control access permissions across your organization.</p>
             </div>
-            <button class="vib-button vib-button-primary" type="button" onclick="
-              window.VibModal.open({
-                title: 'Invite Team Member',
-                body: `
-                  <form id='invite-form' class='flex flex-col gap-4' onsubmit='event.preventDefault(); window.VibToast.success(\`Invitation sent to new member!\`, 3000);'>
-                    <div>
-                      <label class='block vib-meta font-medium text-vib-text mb-1.5'>Email Address</label>
-                      <input type='email' class='vib-input w-full' placeholder='colleague@example.com' required>
-                    </div>
-                    <div>
-                      <label class='block vib-meta font-medium text-vib-text mb-1.5'>Assign Role</label>
-                      <select class='vib-select w-full'>
-                        <option value='viewer'>Viewer</option>
-                        <option value='editor' selected>Editor</option>
-                        <option value='admin'>Admin</option>
-                      </select>
-                      <p class='vib-meta mt-2'>Roles determine access levels across all workspace projects.</p>
-                    </div>
-                  </form>
-                `,
-                confirmText: 'Send Invite',
-                onConfirm: () => {
-                  document.getElementById('invite-form').dispatchEvent(new Event('submit'));
-                }
-              })
-            ">
-              <svg class="w-[var(--icon-md)] h-[var(--icon-md)] stroke-[var(--icon-stroke)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg>
+            <button id="users-invite-btn" class="vib-button vib-button-primary whitespace-nowrap shrink-0" type="button">
+              <svg class="w-[var(--icon-md)] h-[var(--icon-md)]" fill="none" stroke="currentColor" stroke-width="var(--icon-stroke)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg>
               Invite Member
             </button>
           </div>
@@ -120,8 +95,8 @@
                   </select>
                 </div>
                 <div class="vib-table-controls-right">
-                  <button class="vib-button vib-button-secondary" type="button">
-                    <svg class="w-[var(--icon-sm)] h-[var(--icon-sm)] stroke-[var(--icon-stroke)] mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                  <button id="users-export-csv" class="vib-button vib-button-secondary whitespace-nowrap" type="button">
+                    <svg class="w-[var(--icon-sm)] h-[var(--icon-sm)] mr-1.5" fill="none" stroke="currentColor" stroke-width="var(--icon-stroke)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                     Export CSV
                   </button>
                 </div>
@@ -130,12 +105,12 @@
                 <table class="vib-table" aria-label="Team members">
                   <thead>
                     <tr>
-                      <th scope="col" class="vib-table-select-col vib-meta uppercase font-semibold"><input class="vib-table-checkbox" type="checkbox" data-table-select-all aria-label="Select all users"></th>
-                      <th scope="col" class="vib-meta uppercase font-semibold"><button class="vib-th-sort" type="button" data-sort-key="user">Member <span class="vib-sort-icon">?</span></button></th>
-                      <th scope="col" class="vib-meta uppercase font-semibold"><button class="vib-th-sort" type="button" data-sort-key="role">Role <span class="vib-sort-icon">?</span></button></th>
-                      <th scope="col" class="vib-meta uppercase font-semibold"><button class="vib-th-sort" type="button" data-sort-key="status">Status <span class="vib-sort-icon">?</span></button></th>
-                      <th scope="col" class="vib-meta uppercase font-semibold">Last Active</th>
-                      <th scope="col" class="vib-td-action vib-meta uppercase font-semibold">Actions</th>
+                      <th scope="col" class="vib-table-select-col vib-meta uppercase font-medium"><input class="vib-table-checkbox" type="checkbox" data-table-select-all aria-label="Select all users"></th>
+                      <th scope="col" class="vib-meta uppercase font-medium"><button class="vib-th-sort" type="button" data-sort-key="user">Member <span class="vib-sort-icon">?</span></button></th>
+                      <th scope="col" class="vib-meta uppercase font-medium"><button class="vib-th-sort" type="button" data-sort-key="role">Role <span class="vib-sort-icon">?</span></button></th>
+                      <th scope="col" class="vib-meta uppercase font-medium"><button class="vib-th-sort" type="button" data-sort-key="status">Status <span class="vib-sort-icon">?</span></button></th>
+                      <th scope="col" class="vib-meta uppercase font-medium">Last Active</th>
+                      <th scope="col" class="vib-td-action vib-meta uppercase font-medium">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -145,14 +120,14 @@
                         <div class="flex items-center gap-3">
                           <div class="w-[32px] h-[32px] rounded-full bg-vib-surfaceSoft border border-vib-border flex items-center justify-center vib-meta font-medium text-vib-text shrink-0 uppercase tracking-wide">SJ</div>
                           <div class="flex flex-col">
-                            <span class="text-[var(--vib-body)] font-medium text-vib-text ">Sarah Jenkins</span>
+                            <span class="text-vib-body font-medium text-vib-text ">Sarah Jenkins</span>
                             <span class="vib-meta ">sarah@example.com</span>
                           </div>
                         </div>
                       </td>
-                      <td><span class="inline-flex items-center px-2 py-0.5 rounded-[var(--vib-radius-full)] vib-meta font-medium bg-vib-badgeBg text-vib-primary border border-vib-borderSubtle">Admin</span></td>
-                      <td><span class="inline-flex items-center px-2 py-0.5 rounded-[var(--vib-radius-full)] vib-meta font-medium bg-vib-stateSuccessBg text-vib-stateSuccessText border border-vib-stateSuccessBorder">Active</span></td>
-                      <td class="text-vib-muted text-[var(--vib-body)]">Just now</td>
+                      <td><span class="inline-flex items-center px-2 py-0.5 rounded-vib-full vib-meta font-medium bg-vib-badgeBg text-vib-primary border border-vib-borderSubtle">Admin</span></td>
+                      <td><span class="inline-flex items-center px-2 py-0.5 rounded-vib-full vib-meta font-medium bg-vib-stateSuccessBg text-vib-stateSuccessText border border-vib-stateSuccessBorder">Active</span></td>
+                      <td class="text-vib-muted text-vib-body">Just now</td>
                       <td class="vib-td-action">
                         <details class="vib-action-menu">
                           <summary class="vib-icon-button" aria-label="Open row menu">•••</summary>
@@ -172,14 +147,14 @@
                         <div class="flex items-center gap-3">
                           <div class="w-[32px] h-[32px] rounded-full bg-vib-surfaceSoft border border-vib-border flex items-center justify-center vib-meta font-medium text-vib-text shrink-0 uppercase tracking-wide">MC</div>
                           <div class="flex flex-col">
-                            <span class="text-[var(--vib-body)] font-medium text-vib-text ">Michael Chen</span>
+                            <span class="text-vib-body font-medium text-vib-text ">Michael Chen</span>
                             <span class="vib-meta ">michael.chen@example.com</span>
                           </div>
                         </div>
                       </td>
-                      <td><span class="inline-flex items-center px-2 py-0.5 rounded-[var(--vib-radius-full)] vib-meta font-medium bg-vib-surfaceSoft text-vib-text border border-vib-borderSubtle">Editor</span></td>
-                      <td><span class="inline-flex items-center px-2 py-0.5 rounded-[var(--vib-radius-full)] vib-meta font-medium bg-vib-stateSuccessBg text-vib-stateSuccessText border border-vib-stateSuccessBorder">Active</span></td>
-                      <td class="text-vib-muted text-[var(--vib-body)]">2 hours ago</td>
+                      <td><span class="inline-flex items-center px-2 py-0.5 rounded-vib-full vib-meta font-medium bg-vib-surfaceSoft text-vib-text border border-vib-borderSubtle">Editor</span></td>
+                      <td><span class="inline-flex items-center px-2 py-0.5 rounded-vib-full vib-meta font-medium bg-vib-stateSuccessBg text-vib-stateSuccessText border border-vib-stateSuccessBorder">Active</span></td>
+                      <td class="text-vib-muted text-vib-body">2 hours ago</td>
                       <td class="vib-td-action">
                         <details class="vib-action-menu">
                           <summary class="vib-icon-button" aria-label="Open row menu">•••</summary>
@@ -199,14 +174,14 @@
                         <div class="flex items-center gap-3">
                           <div class="w-[32px] h-[32px] rounded-full bg-vib-surfaceSoft border border-vib-border flex items-center justify-center vib-meta font-medium text-vib-text shrink-0 uppercase tracking-wide opacity-60">AR</div>
                           <div class="flex flex-col opacity-60">
-                            <span class="text-[var(--vib-body)] font-medium text-vib-text ">Alex Rivera</span>
+                            <span class="text-vib-body font-medium text-vib-text ">Alex Rivera</span>
                             <span class="vib-meta ">alex.rivera@example.com</span>
                           </div>
                         </div>
                       </td>
-                      <td><span class="inline-flex items-center px-2 py-0.5 rounded-[var(--vib-radius-full)] vib-meta font-medium bg-vib-surfaceSoft text-vib-muted border border-vib-borderSubtle">Viewer</span></td>
-                      <td><span class="inline-flex items-center px-2 py-0.5 rounded-[var(--vib-radius-full)] vib-meta font-medium bg-vib-surfaceSoft text-vib-muted border border-vib-borderSubtle">Inactive</span></td>
-                      <td class="text-vib-muted text-[var(--vib-body)]">4 days ago</td>
+                      <td><span class="inline-flex items-center px-2 py-0.5 rounded-vib-full vib-meta font-medium bg-vib-surfaceSoft text-vib-muted border border-vib-borderSubtle">Viewer</span></td>
+                      <td><span class="inline-flex items-center px-2 py-0.5 rounded-vib-full vib-meta font-medium bg-vib-surfaceSoft text-vib-muted border border-vib-borderSubtle">Inactive</span></td>
+                      <td class="text-vib-muted text-vib-body">4 days ago</td>
                       <td class="vib-td-action">
                         <details class="vib-action-menu">
                           <summary class="vib-icon-button" aria-label="Open row menu">•••</summary>
@@ -226,14 +201,14 @@
                         <div class="flex items-center gap-3">
                           <div class="w-[32px] h-[32px] rounded-full bg-vib-surfaceSoft border border-vib-border border-dashed flex items-center justify-center vib-meta shrink-0 uppercase tracking-wide">JW</div>
                           <div class="flex flex-col">
-                            <span class="text-[var(--vib-body)] font-medium text-vib-text ">Jessica Wu</span>
+                            <span class="text-vib-body font-medium text-vib-text ">Jessica Wu</span>
                             <span class="vib-meta ">jwu@example.com</span>
                           </div>
                         </div>
                       </td>
-                      <td><span class="inline-flex items-center px-2 py-0.5 rounded-[var(--vib-radius-full)] vib-meta font-medium bg-vib-surfaceSoft text-vib-text border border-vib-borderSubtle">Viewer</span></td>
-                      <td><span class="inline-flex items-center px-2 py-0.5 rounded-[var(--vib-radius-full)] vib-meta font-medium bg-vib-stateWarningBg text-vib-stateWarningText border border-vib-stateWarningBorder">Pending</span></td>
-                      <td class="text-vib-muted text-[var(--vib-body)]">Invited today</td>
+                      <td><span class="inline-flex items-center px-2 py-0.5 rounded-vib-full vib-meta font-medium bg-vib-surfaceSoft text-vib-text border border-vib-borderSubtle">Viewer</span></td>
+                      <td><span class="inline-flex items-center px-2 py-0.5 rounded-vib-full vib-meta font-medium bg-vib-stateWarningBg text-vib-stateWarningText border border-vib-stateWarningBorder">Pending</span></td>
+                      <td class="text-vib-muted text-vib-body">Invited today</td>
                       <td class="vib-td-action">
                         <details class="vib-action-menu">
                           <summary class="vib-icon-button" aria-label="Open row menu">•••</summary>
@@ -250,14 +225,17 @@
                 </table>
               </div>
               <div class="vib-table-footer border-t border-vib-borderSubtle mt-2 pt-2">
-                <span class="vib-meta" data-table-count>4 of 12 entries</span>
+                <span class="vib-meta" data-table-count>4 of 4 entries</span>
                 <div class="vib-table-controls flex items-center gap-2">
-                  <select class="vib-select vib-table-filter h-8 border border-vib-borderSubtle bg-transparent rounded-[var(--vib-radius-sm)] px-2 text-[var(--vib-body)] text-vib-text" aria-label="Rows per page"><option>10 / page</option><option>25 / page</option></select>
-                  <nav class="vib-pagination flex gap-1" aria-label="Table pagination">
-                    <button class="vib-page-button h-8 px-2 border border-vib-borderSubtle rounded-[var(--vib-radius-sm)] bg-transparent text-vib-text hover:bg-vib-surfaceSoft disabled:opacity-50 text-[var(--vib-body)] transition-colors" type="button" disabled>Prev</button>
-                    <button class="vib-page-button h-8 px-3 border border-vib-borderSubtle rounded-[var(--vib-radius-sm)] bg-vib-navActiveBg text-vib-primary text-[var(--vib-body)] font-medium" type="button" aria-current="page">1</button>
-                    <button class="vib-page-button h-8 px-3 border border-vib-borderSubtle rounded-[var(--vib-radius-sm)] bg-transparent text-vib-text hover:bg-vib-surfaceSoft transition-colors text-[var(--vib-body)] font-medium" type="button">2</button>
-                    <button class="vib-page-button h-8 px-2 border border-vib-borderSubtle rounded-[var(--vib-radius-sm)] bg-transparent text-vib-text hover:bg-vib-surfaceSoft disabled:opacity-50 text-[var(--vib-body)] transition-colors" type="button">Next</button>
+                  <select id="users-page-size" class="vib-select vib-table-filter h-8 border border-vib-borderSubtle bg-transparent rounded-vib-sm px-2 text-vib-body text-vib-text" aria-label="Rows per page">
+                    <option value="2">2 / page</option>
+                    <option value="10" selected>10 / page</option>
+                    <option value="25">25 / page</option>
+                  </select>
+                  <nav id="users-pagination" class="vib-pagination flex gap-1" aria-label="Table pagination">
+                    <button data-page-action="prev" class="vib-page-button h-8 px-2 border border-vib-borderSubtle rounded-vib-sm bg-transparent text-vib-text hover:bg-vib-surfaceSoft disabled:opacity-50 text-vib-body transition-colors" type="button" disabled>Prev</button>
+                    <button data-page-num="1" class="vib-page-button h-8 px-3 border border-vib-borderSubtle rounded-vib-sm bg-vib-navActiveBg text-vib-primary text-vib-body font-medium" type="button" aria-current="page">1</button>
+                    <button data-page-action="next" class="vib-page-button h-8 px-2 border border-vib-borderSubtle rounded-vib-sm bg-transparent text-vib-text hover:bg-vib-surfaceSoft disabled:opacity-50 text-vib-body transition-colors" type="button" disabled>Next</button>
                   </nav>
                 </div>
               </div>
@@ -269,5 +247,306 @@
     </div>
   </div>
   <script src="../js/sandbox-nav.js"></script>
+  <script>
+    (function () {
+      var ROLE_BADGE_CLASS = {
+        admin: 'inline-flex items-center px-2 py-0.5 rounded-vib-full vib-meta font-medium bg-vib-badgeBg text-vib-primary border border-vib-borderSubtle',
+        editor: 'inline-flex items-center px-2 py-0.5 rounded-vib-full vib-meta font-medium bg-vib-surfaceSoft text-vib-text border border-vib-borderSubtle',
+        viewer: 'inline-flex items-center px-2 py-0.5 rounded-vib-full vib-meta font-medium bg-vib-surfaceSoft text-vib-muted border border-vib-borderSubtle'
+      };
+      var STATUS_BADGE_CLASS = {
+        active: 'inline-flex items-center px-2 py-0.5 rounded-vib-full vib-meta font-medium bg-vib-stateSuccessBg text-vib-stateSuccessText border border-vib-stateSuccessBorder',
+        inactive: 'inline-flex items-center px-2 py-0.5 rounded-vib-full vib-meta font-medium bg-vib-surfaceSoft text-vib-muted border border-vib-borderSubtle',
+        pending: 'inline-flex items-center px-2 py-0.5 rounded-vib-full vib-meta font-medium bg-vib-stateWarningBg text-vib-stateWarningText border border-vib-stateWarningBorder'
+      };
+
+      var currentPage = 1;
+
+      function esc(str) {
+        return String(str == null ? '' : str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      function csvEscape(val) {
+        var str = String(val == null ? '' : val).replace(/\s+/g, ' ').trim();
+        if (/[",\n]/.test(str)) return '"' + str.replace(/"/g, '""') + '"';
+        return str;
+      }
+
+      function getPageSize() {
+        var sel = document.getElementById('users-page-size');
+        return sel ? parseInt(sel.value, 10) || 10 : 10;
+      }
+
+      function applyUsersPagination() {
+        var panel = document.querySelector('[data-vib-table-panel]');
+        if (!panel) return;
+        var tbody = panel.querySelector('tbody');
+        var search = panel.querySelector('[data-table-search]');
+        var roleFilter = panel.querySelector('[data-table-filter="role"]');
+        var counter = panel.querySelector('[data-table-count]');
+        var pagNav = document.getElementById('users-pagination');
+        if (!tbody) return;
+
+        var query = search ? String(search.value || '').trim().toLowerCase() : '';
+        var roleVal = roleFilter ? String(roleFilter.value || '').trim().toLowerCase() : '';
+        var allRows = Array.prototype.slice.call(tbody.querySelectorAll('tr'));
+        var matching = allRows.filter(function (row) {
+          var rowText = String(row.textContent || '').trim().toLowerCase();
+          var rowRole = String(row.getAttribute('data-role') || '').trim().toLowerCase();
+          var okQuery = !query || rowText.indexOf(query) !== -1;
+          var okRole = !roleVal || rowRole === roleVal;
+          return okQuery && okRole;
+        });
+
+        var pageSize = getPageSize();
+        var totalPages = Math.max(1, Math.ceil(matching.length / pageSize));
+        if (currentPage > totalPages) currentPage = totalPages;
+        if (currentPage < 1) currentPage = 1;
+
+        var startIdx = (currentPage - 1) * pageSize;
+        var endIdx = startIdx + pageSize;
+
+        allRows.forEach(function (row) { row.hidden = true; });
+        matching.forEach(function (row, idx) {
+          row.hidden = !(idx >= startIdx && idx < endIdx);
+        });
+
+        if (counter) {
+          var shownOnPage = matching.slice(startIdx, endIdx).length;
+          counter.textContent = shownOnPage + ' of ' + matching.length + ' entries';
+        }
+
+        if (pagNav) {
+          var html = [];
+          html.push('<button data-page-action="prev" class="vib-page-button h-8 px-2 border border-vib-borderSubtle rounded-vib-sm bg-transparent text-vib-text hover:bg-vib-surfaceSoft disabled:opacity-50 text-vib-body transition-colors" type="button"' + (currentPage <= 1 ? ' disabled' : '') + '>Prev</button>');
+          for (var p = 1; p <= totalPages; p++) {
+            var activeCls = p === currentPage ? ' bg-vib-navActiveBg text-vib-primary' : ' bg-transparent text-vib-text hover:bg-vib-surfaceSoft';
+            html.push('<button data-page-num="' + p + '" class="vib-page-button h-8 px-3 border border-vib-borderSubtle rounded-vib-sm' + activeCls + ' text-vib-body font-medium transition-colors" type="button"' + (p === currentPage ? ' aria-current="page"' : '') + '>' + p + '</button>');
+          }
+          html.push('<button data-page-action="next" class="vib-page-button h-8 px-2 border border-vib-borderSubtle rounded-vib-sm bg-transparent text-vib-text hover:bg-vib-surfaceSoft disabled:opacity-50 text-vib-body transition-colors" type="button"' + (currentPage >= totalPages ? ' disabled' : '') + '>Next</button>');
+          pagNav.innerHTML = html.join('');
+        }
+      }
+
+      function updateRowAppearance(row) {
+        var role = row.getAttribute('data-role') || 'viewer';
+        var status = row.getAttribute('data-status') || 'active';
+        var tds = row.querySelectorAll('td');
+        if (tds[2]) {
+          var roleLabel = role.charAt(0).toUpperCase() + role.slice(1);
+          tds[2].innerHTML = '<span class="' + (ROLE_BADGE_CLASS[role] || ROLE_BADGE_CLASS.viewer) + '">' + esc(roleLabel) + '</span>';
+        }
+        if (tds[3]) {
+          var statusLabel = status.charAt(0).toUpperCase() + status.slice(1);
+          tds[3].innerHTML = '<span class="' + (STATUS_BADGE_CLASS[status] || STATUS_BADGE_CLASS.inactive) + '">' + esc(statusLabel) + '</span>';
+        }
+        var nameBlock = tds[1] ? tds[1].querySelector('.flex-col') : null;
+        var avatarBlock = tds[1] ? tds[1].querySelector('.rounded-full') : null;
+        if (nameBlock) nameBlock.classList.toggle('opacity-60', status === 'inactive');
+        if (avatarBlock) avatarBlock.classList.toggle('opacity-60', status === 'inactive');
+      }
+
+      function appendInvitedUser(email, role) {
+        var tbody = document.querySelector('[data-vib-table-panel] tbody');
+        if (!tbody) return;
+        var localPart = String(email.split('@')[0] || 'User').replace(/[._-]+/g, ' ');
+        var displayName = localPart.replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+        var initials = displayName.split(/\s+/).slice(0, 2).map(function (w) { return w.charAt(0); }).join('').toUpperCase() || 'NU';
+        var roleLabel = role.charAt(0).toUpperCase() + role.slice(1);
+
+        var tr = document.createElement('tr');
+        tr.setAttribute('data-user', displayName);
+        tr.setAttribute('data-role', role);
+        tr.setAttribute('data-status', 'pending');
+        tr.className = 'hover:bg-vib-tableRowHover even:bg-vib-tableEmptyBg transition-colors';
+        tr.innerHTML = [
+          '<td class="vib-table-select-col"><input class="vib-table-checkbox" type="checkbox" data-table-row-select aria-label="Select ' + esc(displayName) + '"></td>',
+          '<td><div class="flex items-center gap-3"><div class="w-[32px] h-[32px] rounded-full bg-vib-surfaceSoft border border-vib-border border-dashed flex items-center justify-center vib-meta shrink-0 uppercase tracking-wide">' + esc(initials) + '</div><div class="flex flex-col"><span class="text-vib-body font-medium text-vib-text">' + esc(displayName) + '</span><span class="vib-meta">' + esc(email) + '</span></div></div></td>',
+          '<td><span class="' + (ROLE_BADGE_CLASS[role] || ROLE_BADGE_CLASS.viewer) + '">' + esc(roleLabel) + '</span></td>',
+          '<td><span class="' + STATUS_BADGE_CLASS.pending + '">Pending</span></td>',
+          '<td class="text-vib-muted text-vib-body">Invited just now</td>',
+          '<td class="vib-td-action"><details class="vib-action-menu"><summary class="vib-icon-button" aria-label="Open row menu">•••</summary><div class="vib-action-menu-panel"><button type="button">Resend Invite</button><button type="button">Edit Role</button><div class="h-px bg-vib-borderSubtle my-1"></div><button type="button" class="text-vib-danger hover:text-vib-danger">Cancel Invite</button></div></details></td>'
+        ].join('');
+        tbody.appendChild(tr);
+        applyUsersPagination();
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        var panel = document.querySelector('[data-vib-table-panel]');
+        var tbody = panel ? panel.querySelector('tbody') : null;
+        var inviteBtn = document.getElementById('users-invite-btn');
+        var exportBtn = document.getElementById('users-export-csv');
+        var pageSizeSel = document.getElementById('users-page-size');
+        var pagNav = document.getElementById('users-pagination');
+        var search = panel ? panel.querySelector('[data-table-search]') : null;
+        var roleFilter = panel ? panel.querySelector('[data-table-filter="role"]') : null;
+
+        if (inviteBtn) {
+          inviteBtn.addEventListener('click', function () {
+            window.VibModal.open({
+              title: 'Invite Team Member',
+              body: [
+                '<form id="invite-form" class="flex flex-col gap-4" novalidate>',
+                '  <div>',
+                '    <label class="block vib-meta font-medium text-vib-text mb-1.5">Email Address</label>',
+                '    <input id="invite-email" type="email" class="vib-input w-full" placeholder="colleague@example.com" required>',
+                '  </div>',
+                '  <div>',
+                '    <label class="block vib-meta font-medium text-vib-text mb-1.5">Assign Role</label>',
+                '    <select id="invite-role" class="vib-select w-full">',
+                '      <option value="viewer">Viewer</option>',
+                '      <option value="editor" selected>Editor</option>',
+                '      <option value="admin">Admin</option>',
+                '    </select>',
+                '    <p class="vib-meta mt-2">Roles determine access levels across all workspace projects.</p>',
+                '  </div>',
+                '</form>'
+              ].join('\n'),
+              confirmText: 'Send Invite',
+              onConfirm: function () {
+                var emailEl = document.getElementById('invite-email');
+                var roleEl = document.getElementById('invite-role');
+                var email = emailEl ? String(emailEl.value || '').trim() : '';
+                var role = roleEl ? roleEl.value : 'editor';
+                if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                  window.VibToast.warning('Please enter a valid email address.', 3000);
+                  if (emailEl) emailEl.focus();
+                  return false;
+                }
+                appendInvitedUser(email, role);
+                window.VibToast.success('Invitation sent to ' + email, 3000);
+              }
+            });
+          });
+        }
+
+        if (exportBtn && tbody) {
+          exportBtn.addEventListener('click', function () {
+            var rows = Array.prototype.slice.call(tbody.querySelectorAll('tr')).filter(function (tr) { return !tr.hidden; });
+            var lines = ['Name,Email,Role,Status,Last Active'];
+            rows.forEach(function (tr) {
+              var name = tr.getAttribute('data-user') || '';
+              var emailNode = tr.querySelector('td:nth-child(2) .vib-meta');
+              var email = emailNode ? emailNode.textContent : '';
+              var role = tr.getAttribute('data-role') || '';
+              var status = tr.getAttribute('data-status') || '';
+              var lastActive = tr.querySelector('td:nth-child(5)') ? tr.querySelector('td:nth-child(5)').textContent : '';
+              lines.push([name, email, role, status, lastActive].map(csvEscape).join(','));
+            });
+            var blob = new Blob([lines.join('\n')], { type: 'text/csv;charset=utf-8;' });
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = 'team-users.csv';
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+            window.VibToast.success('Exported ' + rows.length + ' user(s) to CSV.', 3000);
+          });
+        }
+
+        if (tbody) {
+          tbody.addEventListener('click', function (event) {
+            var btn = event.target && event.target.closest ? event.target.closest('.vib-action-menu-panel button') : null;
+            if (!btn) return;
+            var details = btn.closest('details.vib-action-menu');
+            if (details) details.open = false;
+
+            var row = btn.closest('tr');
+            if (!row) return;
+            var userName = row.getAttribute('data-user') || 'Member';
+            var actionText = String(btn.textContent || '').trim();
+
+            if (actionText === 'Resend Invite') {
+              window.VibToast.info('Invitation resent to ' + userName, 3000);
+            } else if (actionText === 'Edit Role') {
+              var currentRole = row.getAttribute('data-role') || 'viewer';
+              window.VibModal.open({
+                title: 'Edit Role — ' + userName,
+                body: [
+                  '<div class="flex flex-col gap-3">',
+                  '  <label class="vib-label" for="edit-role-select">Workspace Role</label>',
+                  '  <select id="edit-role-select" class="vib-select w-full">',
+                  '    <option value="admin"' + (currentRole === 'admin' ? ' selected' : '') + '>Admin</option>',
+                  '    <option value="editor"' + (currentRole === 'editor' ? ' selected' : '') + '>Editor</option>',
+                  '    <option value="viewer"' + (currentRole === 'viewer' ? ' selected' : '') + '>Viewer</option>',
+                  '  </select>',
+                  '</div>'
+                ].join('\n'),
+                confirmText: 'Save Role',
+                onConfirm: function () {
+                  var sel = document.getElementById('edit-role-select');
+                  var nextRole = sel ? sel.value : currentRole;
+                  row.setAttribute('data-role', nextRole);
+                  updateRowAppearance(row);
+                  applyUsersPagination();
+                  window.VibToast.success('Updated role for ' + userName + ' to ' + nextRole + '.', 3000);
+                }
+              });
+            } else if (actionText === 'Suspend User') {
+              row.setAttribute('data-status', 'inactive');
+              updateRowAppearance(row);
+              btn.textContent = 'Restore User';
+              window.VibToast.warning(userName + ' has been suspended.', 3000);
+            } else if (actionText === 'Restore User') {
+              row.setAttribute('data-status', 'active');
+              updateRowAppearance(row);
+              btn.textContent = 'Suspend User';
+              window.VibToast.success(userName + ' access restored.', 3000);
+            } else if (actionText === 'Revoke Access' || actionText === 'Cancel Invite') {
+              window.VibModal.open({
+                title: actionText,
+                body: 'Are you sure you want to ' + actionText.toLowerCase() + ' for ' + userName + '?',
+                confirmText: actionText,
+                onConfirm: function () {
+                  row.remove();
+                  applyUsersPagination();
+                  window.VibToast.danger(actionText + ' completed for ' + userName + '.', 3000);
+                }
+              });
+            }
+          });
+        }
+
+        if (search) {
+          search.addEventListener('input', function () {
+            currentPage = 1;
+            setTimeout(applyUsersPagination, 0);
+          });
+        }
+        if (roleFilter) {
+          roleFilter.addEventListener('change', function () {
+            currentPage = 1;
+            setTimeout(applyUsersPagination, 0);
+          });
+        }
+        if (pageSizeSel) {
+          pageSizeSel.addEventListener('change', function () {
+            currentPage = 1;
+            applyUsersPagination();
+          });
+        }
+        if (pagNav) {
+          pagNav.addEventListener('click', function (event) {
+            var btn = event.target && event.target.closest ? event.target.closest('button') : null;
+            if (!btn || btn.disabled) return;
+            var action = btn.getAttribute('data-page-action');
+            var pageNum = btn.getAttribute('data-page-num');
+            if (action === 'prev') currentPage = Math.max(1, currentPage - 1);
+            else if (action === 'next') currentPage += 1;
+            else if (pageNum) currentPage = parseInt(pageNum, 10) || 1;
+            applyUsersPagination();
+          });
+        }
+
+        setTimeout(applyUsersPagination, 0);
+      });
+    })();
+  </script>
 </body>
 </html>

@@ -32,7 +32,7 @@ Every UI page MUST follow this exact full HTML structure. The example below uses
           <span>VibTools UI Sandbox</span>
         </a>
         <div class="vib-row">
-          <span class="vib-badge">v2.1.2</span>
+          <span class="vib-badge">v2.2.0</span>
           <span class="vib-badge">Tailwind CDN</span>
           <span class="vib-badge">Compact</span>
         </div>
@@ -72,7 +72,7 @@ Every UI page MUST follow this exact full HTML structure. The example below uses
           <div class="vib-page-header vib-playground-hero">
             <p class="vib-kicker">Cards Demo</p>
             <h1 class="vib-h1 mt-2">Production-grade card components.</h1>
-            <p class="vib-body mt-2">Scrollable card component playground for base, compact, interactive, nested, metric, project, empty, error and loading states. The page preserves the v2.1.2 soft typography, zero-shadow flat UI and top-aligned app-page layout.</p>
+            <p class="vib-body mt-2">Scrollable card component playground for base, compact, interactive, nested, metric, project, empty, error and loading states. The page preserves the v2.2.0 soft typography, zero-shadow flat UI and top-aligned app-page layout.</p>
           </div>
 
           <div class="vib-cards-playground">
@@ -134,3 +134,9 @@ You are **STRICTLY PROHIBITED** from using hardcoded, arbitrary Tailwind sizing 
 - The `main` container MUST only contain a single wrapper `<section class="vib-app-page vib-[component]-playground-page">`.
 - The page header MUST be `.vib-page-header .vib-playground-hero`. **Do not wrap header text in extra unnecessary `<div>` elements.**
 - Do not use random container names like `.vib-playground-container`; stick to `.vib-[component]-playground` and `.vib-playground-stack`.
+
+## 5. v2.2.0 Typography, Flat Geometry & Standalone `framework/` Parity
+- **Font Stack**: `"Segoe UI", "Segoe UI Web", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif` (`--font-weight-bold: 500`, zero `600+` weights or `font-semibold`).
+- **Flat Geometry & Zero Shadow**: `--radius: 0rem` (`html[data-radius="sharp|flat|0"]`) and `--shadow-none: none` (zero `box-shadow` or `backdrop-filter: blur(...)`).
+- **Standalone `framework/`**: `framework/css/tokens.css`, `framework/css/tailix.css` (`tailix.min.css`), `framework/css/vib-compat.css`, `framework/js/tailix.js` (`tailix.min.js`), and `framework/pwa/` implement the identical compact Dark/Light design tokens without Tailwind CDN or Node.js.
+

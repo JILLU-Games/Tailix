@@ -1,0 +1,8 @@
+{
+  "name": "VibTools UI Sandbox",
+  "description": "VibTools compact Tailwind CDN visual validation sandbox",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

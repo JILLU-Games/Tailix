@@ -45,6 +45,7 @@
   --bg-app: var(--color-slate-950);
   --bg-deep: var(--color-slate-940);
   --bg-footer: var(--color-slate-980);
+  --topbar-bg: rgba(13, 17, 23, .96);
   --bg-surface-card: var(--color-slate-900);
   --bg-surface-primary: var(--color-slate-950);
   --bg-surface-soft: var(--color-slate-920);
@@ -52,6 +53,12 @@
   --bg-surface-hover: var(--color-slate-850);
   --bg-surface-active: #12171F;
   --bg-surface-muted: rgba(33, 38, 45, .36);
+  --form-control-muted-bg: var(--color-slate-920);
+  --switch-thumb-bg: var(--color-slate-100);
+  --text-on-accent: #FFFFFF;
+  --grid-line-color: rgba(255, 255, 255, .018);
+  --log-tools-bg: rgba(9, 13, 20, .34);
+  --modal-backdrop-bg: rgba(0, 0, 0, .75);
 
   --border-subtle: var(--color-slate-800);
   --border-muted: var(--color-slate-700);
@@ -187,13 +194,20 @@ html[data-theme="light"] {
   --bg-app: #F6F8FA;
   --bg-deep: #EEF1F4;
   --bg-footer: #EAEFF4;
+  --topbar-bg: rgba(246, 248, 250, .96);
   --bg-surface-card: #FFFFFF;
   --bg-surface-primary: #FFFFFF;
   --bg-surface-soft: #F3F4F6;
   --bg-surface-field: #FFFFFF;
   --bg-surface-hover: #EEF1F4;
-  --bg-surface-active: #EEF1F4;
+  --bg-surface-active: #E7EDF3;
   --bg-surface-muted: rgba(208, 215, 222, .36);
+  --form-control-muted-bg: #F3F4F6;
+  --switch-thumb-bg: #FFFFFF;
+  --text-on-accent: #FFFFFF;
+  --grid-line-color: rgba(13, 17, 23, .035);
+  --log-tools-bg: rgba(246, 248, 250, .86);
+  --modal-backdrop-bg: rgba(13, 17, 23, .42);
   --border-subtle: #D8DEE4;
   --border-muted: #D0D7DE;
   --border-card: #D0D7DE;
@@ -207,9 +221,112 @@ html[data-theme="light"] {
   --text-muted: #6E7781;
   --text-subtle: #57606A;
   --text-accent: #0969DA;
+
+  --status-success: #16A34A;
+  --status-success-soft: #15803D;
+  --status-danger: #DC2626;
+  --status-danger-soft: #B91C1C;
+  --status-warning: #D97706;
+
+  --component-button-primary-bg: #2563EB;
+  --component-button-primary-hover-bg: #1D4ED8;
+  --component-button-secondary-bg: #FFFFFF;
+  --component-button-secondary-border: #D0D7DE;
+  --component-input-bg: #FFFFFF;
+  --component-input-hover-bg: #EEF1F4;
   --component-input-focus-bg: #FFFFFF;
+  --component-input-border: #D0D7DE;
+  --component-card-bg: #FFFFFF;
+  --component-card-border: #D0D7DE;
+  --component-badge-bg: rgba(13, 17, 23, .026);
   --component-table-header-bg: rgba(13, 17, 23, .04);
   --component-table-row-hover-bg: rgba(13, 17, 23, .035);
+  --component-table-skeleton-bg: rgba(13, 17, 23, .06);
+
+  --component-active-bg: rgba(37, 99, 235, .08);
+  --component-active-border: rgba(9, 105, 218, .22);
+  --component-hover-bg: rgba(238, 241, 244, .82);
+  --component-disabled-opacity: .54;
+  --component-disabled-bg: rgba(208, 215, 222, .36);
+  --component-feedback-bg: #F3F4F6;
+  --component-skeleton-bg: #F3F4F6;
+  --component-skeleton-pulse: #D0D7DE;
+  --component-meter-track: #D8DEE4;
+  --component-meter-fill: #57606A;
+
+  --state-success-bg: #ECFDF3;
+  --state-success-border: #A7F3D0;
+  --state-success-text: #15803D;
+  --state-warning-bg: #FFFBEB;
+  --state-warning-border: #FDE68A;
+  --state-warning-text: #B45309;
+  --state-danger-bg: #FEF2F2;
+  --state-danger-border: #FECACA;
+  --state-danger-text: #B91C1C;
+  --state-info-bg: #EFF6FF;
+  --state-info-border: #BFDBFE;
+  --state-info-text: #1D4ED8;
+
+  --log-bg: #FFFFFF;
+  --log-border: #D0D7DE;
+  --log-modal-surface: #FFFFFF;
+  --log-info-bg: rgba(59, 130, 246, 0.10);
+  --log-info-text: #2563EB;
+  --log-debug-bg: rgba(249, 115, 22, 0.10);
+  --log-debug-text: #C2410C;
+  --log-debug-row-bg: rgba(249, 115, 22, 0.06);
+  --log-warning-bg: rgba(234, 179, 8, 0.12);
+  --log-warning-text: #A16207;
+  --log-warning-row-bg: rgba(234, 179, 8, 0.06);
+  --log-success-bg: rgba(34, 197, 94, 0.12);
+  --log-success-text: #15803D;
+
+  --chart-cpu: #0969DA;
+  --chart-cpu-bg: rgba(9, 105, 218, 0.10);
+  --chart-memory: #BF3989;
+  --chart-memory-bg: rgba(191, 57, 137, 0.10);
+  --chart-disk: #9A6700;
+  --chart-disk-bg: rgba(154, 103, 0, 0.10);
+  --chart-network: #1A7F37;
+
+  --doc-sidebar-bg: #FFFFFF;
+  --doc-code-bg: #F6F8FA;
+  --doc-border: #D0D7DE;
+  --method-get-bg: rgba(34, 197, 94, 0.12);
+  --method-get-text: #15803D;
+  --method-post-bg: rgba(59, 130, 246, 0.10);
+  --method-post-text: #2563EB;
+  --method-put-bg: rgba(234, 179, 8, 0.14);
+  --method-put-text: #A16207;
+  --method-delete-bg: rgba(239, 68, 68, 0.10);
+  --method-delete-text: #B91C1C;
+
+  --settings-nav-bg: #FFFFFF;
+  --settings-row-border: #D8DEE4;
+  --settings-danger-bg: rgba(239, 68, 68, 0.06);
+  --settings-danger-border: rgba(185, 28, 28, 0.24);
+  --settings-active-bg: #EEF1F4;
+  --danger-button-bg: rgba(239, 68, 68, 0.10);
+  --danger-button-text: #B91C1C;
+  --danger-button-border: rgba(185, 28, 28, 0.35);
+  --danger-button-hover-bg: #B91C1C;
+
+  --upload-dropzone-bg: #F6F8FA;
+  --upload-dropzone-hover-bg: rgba(9, 105, 218, 0.06);
+  --upload-dropzone-border: #D0D7DE;
+  --upload-item-bg: #FFFFFF;
+  --upload-progress-track: #D8DEE4;
+  --upload-progress-fill: #0969DA;
+  --upload-success: #15803D;
+  --upload-error: #B91C1C;
+  --file-pdf-bg: rgba(239, 68, 68, 0.10);
+  --file-pdf-text: #B91C1C;
+  --file-png-bg: rgba(59, 130, 246, 0.10);
+  --file-png-text: #2563EB;
+  --file-docx-bg: rgba(34, 197, 94, 0.12);
+  --file-docx-text: #15803D;
+  --file-mp4-bg: rgba(168, 85, 247, 0.12);
+  --file-mp4-text: #7E22CE;
 }
 
 /* v2.1.2 Foundation Audit Completion Tokens

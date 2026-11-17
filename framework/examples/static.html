@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Standalone zero-Node, zero-CDN compact UI framework and A-Z component hub.">
+  <meta name="theme-color" content="#0B0F17">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Tailix">
+  <title>Tailix v2.2.0 — Standalone Zero-Node Component Hub</title>
+  <link rel="manifest" href="../pwa/manifest.json">
+  <link rel="apple-touch-icon" href="../pwa/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="../pwa/icon.svg">
+  <link rel="stylesheet" href="../css/tailix.min.css">
+  <link rel="stylesheet" href="../css/vib-compat.css">
+  <script src="../js/tailix.min.js" defer></script>
+</head>
+<body>
+  <div class="tx-shell">
+    <header class="tx-topbar">
+      <div class="tx-topbar-inner">
+        <div class="tx-brand">
+          <button id="ex-sidebar-toggle" type="button" class="tx-icon-btn" data-tx-sidebar-toggle aria-label="Toggle sidebar">
+            <span data-tx-icon="menu" data-tx-icon-size="sm"></span>
+          </button>
+          <span>Tailix</span>
+          <span class="tx-badge">v2.2.0</span>
+        </div>
+
+        <div class="tx-row tx-gap-2">
+          <div class="tx-dropdown" data-tx-dropdown>
+            <button id="ex-dd-trigger" type="button" class="tx-btn tx-btn-sm tx-btn-secondary" data-tx-dropdown-trigger aria-expanded="false">Actions</button>
+            <div class="tx-dropdown-menu" data-tx-dropdown-menu hidden>
+              <button type="button" class="tx-dropdown-item" data-tx-toast="Cache purged cleanly" data-tx-toast-type="success">Purge Cache</button>
+              <button type="button" class="tx-dropdown-item" data-tx-toast="Read-only snapshot queued" data-tx-toast-type="info">Create Snapshot</button>
+              <button type="button" class="tx-dropdown-item" data-tx-modal-target="#ex-confirm-modal">Inspect Modal</button>
+            </div>
+          </div>
+
+          <button id="ex-radius-toggle" type="button" class="tx-btn tx-btn-sm tx-btn-secondary" aria-pressed="false" data-tx-tooltip="Toggle 0rem flat geometry">Sharp 0px</button>
+          <button id="ex-theme-toggle" type="button" class="tx-btn tx-btn-sm tx-btn-secondary" data-tx-theme-toggle aria-pressed="false">Theme</button>
+          <button id="ex-pwa-install-btn" type="button" class="tx-btn tx-btn-sm tx-btn-secondary" hidden>
+            <span data-tx-icon="download" data-tx-icon-size="xs"></span>
+            <span>Install App</span>
+          </button>
+          <button id="ex-save-toast" type="button" class="tx-btn tx-btn-sm tx-btn-primary" data-tx-toast="Configuration saved" data-tx-toast-type="success">Save</button>
+        </div>
+      </div>
+    </header>
+
+    <div id="ex-offline-banner" class="tx-alert tx-alert-warning" hidden role="status">
+      <span><strong>Offline Mode:</strong> Serving cached Tailix bundle via Service Worker.</span>
+    </div>
+
+    <div class="tx-layout">
+      <aside class="tx-sidebar" aria-label="Standalone navigation">
+        <div class="tx-sidebar-inner">
+          <div class="tx-sidebar-group">
+            <div class="tx-sidebar-group-title">Workspace</div>
+            <a href="#overview" class="tx-sidebar-link is-active" aria-current="page">
+              <span data-tx-icon="home" data-tx-icon-size="sm"></span>
+              <span class="tx-sidebar-label">Overview</span>
+            </a>
+            <a href="#components" class="tx-sidebar-link">
+              <span data-tx-icon="dashboard" data-tx-icon-size="sm"></span>
+              <span class="tx-sidebar-label">Components A-Z</span>
+            </a>
+            <a href="#extended" class="tx-sidebar-link">
+              <span data-tx-icon="terminal" data-tx-icon-size="sm"></span>
+              <span class="tx-sidebar-label">Extended &amp; Icons</span>
+            </a>
+            <a href="#datatable" class="tx-sidebar-link">
+              <span data-tx-icon="folder" data-tx-icon-size="sm"></span>
+              <span class="tx-sidebar-label">Data Table</span>
+            </a>
+            <a href="#forms" class="tx-sidebar-link">
+              <span data-tx-icon="shield" data-tx-icon-size="sm"></span>
+              <span class="tx-sidebar-label">Forms &amp; Modals</span>
+            </a>
+            <a href="#vib-bridge" class="tx-sidebar-link">
+              <span data-tx-icon="settings" data-tx-icon-size="sm"></span>
+              <span class="tx-sidebar-label">.vib-* Bridge</span>
+            </a>
+          </div>
+          <div class="tx-sidebar-footer">
+            <span class="tx-sidebar-footer-text">Zero-CDN PWA Bundle</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="tx-main tx-stack tx-gap-6">
+        <nav class="tx-breadcrumb" aria-label="Breadcrumb">
+          <a href="#overview" class="tx-breadcrumb-item">
+            <span data-tx-icon="home" data-tx-icon-size="xs"></span>
+            <span>Framework</span>
+          </a>
+          <span class="tx-breadcrumb-sep">/</span>
+          <a href="#components" class="tx-breadcrumb-item">v2.2.0</a>
+          <span class="tx-breadcrumb-sep">/</span>
+          <span class="tx-breadcrumb-item is-active" aria-current="page">Component Hub</span>
+        </nav>
+
+        <section id="overview" class="tx-page-header">
+          <div>
+            <p class="tx-kicker">Standalone Starter</p>
+            <h1 class="tx-h1">Tailix Zero-Node Component Hub</h1>
+          </div>
+          <div class="tx-row tx-gap-2">
+            <button type="button" class="tx-btn tx-btn-sm tx-btn-secondary" data-tx-modal-target="#ex-confirm-modal">Open Declarative Modal</button>
+            <button id="ex-prog-modal-btn" type="button" class="tx-btn tx-btn-sm tx-btn-danger">Validation Hold Modal</button>
+          </div>
+        </section>
+
+        <!-- Compact KPI Grid -->
+        <section class="tx-grid tx-grid-4">
+          <article class="tx-stat-card">
+            <span class="tx-stat-label">Active Nodes</span>
+            <span class="tx-stat-value">24 / 24</span>
+            <div class="tx-meter"><div class="tx-meter-fill" style="width: 100%"></div></div>
+            <span class="tx-stat-trend tx-text-success">100% healthy</span>
+          </article>
+          <article class="tx-stat-card">
+            <span class="tx-stat-label">CSS Footprint</span>
+            <span class="tx-stat-value">42.2 KB</span>
+            <div class="tx-meter"><div class="tx-meter-fill" style="width: 45%"></div></div>
+            <span class="tx-stat-trend">Zero Tailwind CDN</span>
+          </article>
+          <article class="tx-stat-card">
+            <span class="tx-stat-label">JS Runtime</span>
+            <span class="tx-stat-value">36.9 KB</span>
+            <div class="tx-meter"><div class="tx-meter-fill" style="width: 35%"></div></div>
+            <span class="tx-stat-trend">28 Icons + Vanilla IIFE</span>
+          </article>
+          <article class="tx-stat-card">
+            <span class="tx-stat-label">Build Tools</span>
+            <span class="tx-stat-value">0 Required</span>
+            <div class="tx-meter"><div class="tx-meter-fill" style="width: 10%"></div></div>
+            <span class="tx-stat-trend tx-text-accent">Static / PHP / Python</span>
+          </article>
+        </section>
+
+        <!-- Alerts & Status Badges -->
+        <section id="components" class="tx-card">
+          <div class="tx-card-header">
+            <h2 class="tx-card-title">Buttons, Badges, Alerts &amp; Switches</h2>
+            <div class="tx-row tx-gap-2">
+              <span class="tx-badge tx-badge-success"><span class="tx-status-dot"></span>Ready</span>
+              <span class="tx-badge tx-badge-info">Info</span>
+              <span class="tx-badge tx-badge-warning">Warning</span>
+              <span class="tx-badge tx-badge-danger">Critical</span>
+            </div>
+          </div>
+          <div class="tx-card-body tx-stack tx-gap-4">
+            <div class="tx-row tx-flex-wrap tx-gap-2">
+              <button type="button" class="tx-btn tx-btn-sm tx-btn-primary" data-tx-toast="Primary action executed" data-tx-toast-type="success">Primary</button>
+              <button type="button" class="tx-btn tx-btn-sm tx-btn-secondary" data-tx-toast="Secondary info toast" data-tx-toast-type="info">Secondary</button>
+              <button type="button" class="tx-btn tx-btn-sm tx-btn-ghost" data-tx-toast="Ghost action notice" data-tx-toast-type="warning">Ghost</button>
+              <button type="button" class="tx-btn tx-btn-sm tx-btn-danger" data-tx-toast="Destructive warning!" data-tx-toast-type="danger">Danger</button>
+              <label class="tx-switch">
+                <input id="ex-autosync" type="checkbox" checked>
+                <span class="tx-switch-track" aria-hidden="true"></span>
+                <span class="tx-text-sm">Auto Sync</span>
+              </label>
+            </div>
+            <div class="tx-grid tx-grid-2">
+              <div class="tx-alert tx-alert-info">
+                <span><strong>Drop-In Integration:</strong> Include <code class="tx-code">tailix.min.css</code> and <code class="tx-code">tailix.min.js</code> inside your layout header.</span>
+              </div>
+              <div class="tx-alert tx-alert-success">
+                <span><strong>Theme Parity:</strong> Dark &amp; Light tokens update automatically via <code class="tx-code">data-tx-theme-toggle</code>.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Phase 05 & 06 Extended Component Suite -->
+        <section id="extended" class="tx-card">
+          <div class="tx-card-header">
+            <h2 class="tx-card-title">Extended Components, Icons, Accordion &amp; Code Copy</h2>
+            <div class="tx-row tx-gap-2">
+              <span class="tx-spinner tx-spinner-sm" aria-label="Loading"></span>
+              <span class="tx-spinner" aria-label="Loading"></span>
+              <span class="tx-spinner tx-spinner-lg" aria-label="Loading"></span>
+              <button type="button" class="tx-btn tx-btn-sm tx-btn-secondary" data-tx-tooltip="Zero-shadow CSS tooltip">Tooltip</button>
+            </div>
+          </div>
+          <div class="tx-card-body tx-grid tx-grid-2 tx-gap-6">
+            <div class="tx-stack tx-gap-4">
+              <div class="tx-row tx-flex-wrap tx-gap-2">
+                <span class="tx-method tx-method-get">GET</span>
+                <span class="tx-method tx-method-post">POST</span>
+                <span class="tx-method tx-method-put">PUT</span>
+                <span class="tx-method tx-method-delete">DELETE</span>
+                <span class="tx-log-badge tx-log-badge-info">INFO</span>
+                <span class="tx-log-badge tx-log-badge-success">OK</span>
+                <span class="tx-log-badge tx-log-badge-warning">WARN</span>
+                <span class="tx-log-badge tx-log-badge-danger">ERR</span>
+              </div>
+
+              <div class="tx-progress-wrap">
+                <div class="tx-progress-label">
+                  <span>Worker Pool Saturation</span>
+                  <span>68%</span>
+                </div>
+                <div class="tx-progress">
+                  <div class="tx-progress-fill is-success" style="width: 68%"></div>
+                </div>
+              </div>
+
+              <div class="tx-input-group">
+                <span class="tx-input-addon"><span data-tx-icon="shield" data-tx-icon-size="sm"></span></span>
+                <input id="ex-secret-input" type="password" class="tx-input" value="tx_live_98a7bc65d4" aria-label="API Secret">
+                <button id="ex-pwd-toggle" type="button" class="tx-password-toggle" aria-label="Show password" aria-pressed="false">
+                  <span data-tx-icon="eye" data-tx-icon-size="sm"></span>
+                </button>
+              </div>
+
+              <div class="tx-row tx-flex-wrap tx-gap-2">
+                <span class="tx-chip" id="ex-chip-region">
+                  <span>region:us-east-1</span>
+                  <button id="ex-chip-dismiss" type="button" class="tx-chip-close" data-tx-chip-close aria-label="Remove chip">×</button>
+                </span>
+                <span class="tx-chip"><span>runtime:zero-node</span></span>
+                <span class="tx-chip"><span>pwa:ready</span></span>
+              </div>
+
+              <div class="tx-field">
+                <label class="tx-label" for="ex-rate-slider">Rate Limit Threshold</label>
+                <input id="ex-rate-slider" type="range" class="tx-slider" min="0" max="100" value="60">
+              </div>
+            </div>
+
+            <div class="tx-stack tx-gap-4">
+              <div class="tx-accordion" data-tx-accordion="single">
+                <div class="tx-accordion-item">
+                  <button id="ex-acc-btn-1" type="button" class="tx-accordion-trigger" data-tx-accordion-trigger aria-expanded="true">
+                    <span>Zero-Node Asset Delivery</span>
+                    <span class="tx-accordion-chevron" data-tx-icon="chevron-down" data-tx-icon-size="sm"></span>
+                  </button>
+                  <div id="ex-acc-panel-1" class="tx-accordion-panel" data-tx-accordion-panel>
+                    Link <code class="tx-code">tailix.min.css</code> and <code class="tx-code">tailix.min.js</code> directly from Apache, Nginx, PHP, or Python without a bundler.
+                  </div>
+                </div>
+                <div class="tx-accordion-item">
+                  <button id="ex-acc-btn-2" type="button" class="tx-accordion-trigger" data-tx-accordion-trigger aria-expanded="false">
+                    <span>Offline PWA Precaching</span>
+                    <span class="tx-accordion-chevron" data-tx-icon="chevron-down" data-tx-icon-size="sm"></span>
+                  </button>
+                  <div id="ex-acc-panel-2" class="tx-accordion-panel" data-tx-accordion-panel hidden>
+                    Service worker <code class="tx-code">pwa/sw.js</code> caches tokens, styles, icons, and scripts for instant offline startup.
+                  </div>
+                </div>
+              </div>
+
+              <div class="tx-code-block">
+                <div class="tx-code-header">
+                  <div class="tx-code-tabs" data-tx-tabs role="tablist">
+                    <button type="button" class="tx-tab is-active" data-tx-tab="code-html" role="tab" aria-selected="true">HTML</button>
+                    <button type="button" class="tx-tab" data-tx-tab="code-php" role="tab" aria-selected="false">PHP</button>
+                    <button type="button" class="tx-tab" data-tx-tab="code-py" role="tab" aria-selected="false">Python</button>
+                  </div>
+                  <button id="ex-copy-code-btn" type="button" class="tx-btn tx-btn-ghost tx-btn-sm" data-tx-copy data-tx-copy-toast="Snippet copied to clipboard">Copy</button>
+                </div>
+                <div data-tx-tab-panel="code-html"><pre class="tx-code-pre">&lt;link rel="stylesheet" href="/framework/css/tailix.min.css"&gt;
+&lt;script src="/framework/js/tailix.min.js" defer&gt;&lt;/script&gt;</pre></div>
+                <div data-tx-tab-panel="code-php" hidden><pre class="tx-code-pre">php -S localhost:8080 framework/examples/app.php</pre></div>
+                <div data-tx-tab-panel="code-py" hidden><pre class="tx-code-pre">python3 framework/examples/app.py</pre></div>
+              </div>
+
+              <div class="tx-grid tx-grid-2 tx-gap-3">
+                <label class="tx-radio-card is-selected" id="ex-rc-std">
+                  <input type="radio" name="ex_tier" value="standard" class="tx-radio" checked>
+                  <span>Standard Node</span>
+                </label>
+                <label class="tx-radio-card" id="ex-rc-ent">
+                  <input id="ex-rc-ent-input" type="radio" name="ex_tier" value="enterprise" class="tx-radio">
+                  <span>Cluster Replica</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Interactive Tabs: Data Table vs Validated Form vs States -->
+        <section id="datatable" class="tx-card">
+          <div class="tx-card-header">
+            <h2 class="tx-card-title">Interactive Workspace Controls</h2>
+          </div>
+
+          <div class="tx-card-body tx-stack tx-gap-4">
+            <div class="tx-tabs" data-tx-tabs role="tablist">
+              <button id="ex-tab-table" type="button" class="tx-tab is-active" data-tx-tab="panel-table" role="tab" aria-selected="true">Data Table</button>
+              <button id="ex-tab-form" type="button" class="tx-tab" data-tx-tab="panel-form" role="tab" aria-selected="false">Validated Form</button>
+              <button id="ex-tab-states" type="button" class="tx-tab" data-tx-tab="panel-states" role="tab" aria-selected="false">States &amp; Skeleton</button>
+            </div>
+            <!-- Panel 1: Declarative Data Table -->
+            <div id="panel-table" data-tx-tab-panel="panel-table">
+              <div class="tx-table-panel" data-tx-table>
+                <div class="tx-table-toolbar">
+                  <input id="ex-tbl-search" type="search" class="tx-input" style="max-width: 220px" placeholder="Search services..." data-tx-table-search>
+                  <select id="ex-tbl-filter" class="tx-select" style="max-width: 150px" data-tx-table-filter="2">
+                    <option value="all">All Status</option>
+                    <option value="active">active</option>
+                    <option value="degraded">degraded</option>
+                    <option value="paused">paused</option>
+                  </select>
+                  <select id="ex-tbl-size" class="tx-select" style="max-width: 110px" data-tx-page-size>
+                    <option value="3" selected>3 / page</option>
+                    <option value="6">6 / page</option>
+                  </select>
+                </div>
+                <div class="tx-table-wrap">
+                  <table class="tx-table">
+                    <thead>
+                      <tr>
+                        <th><input type="checkbox" class="tx-checkbox" data-tx-select-all aria-label="Select all rows"></th>
+                        <th><button type="button" class="tx-th-sort" data-tx-sort-col="1">Service</button></th>
+                        <th>Status</th>
+                        <th><button type="button" class="tx-th-sort" data-tx-sort-col="3">Latency</button></th>
+                        <th>Region</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><input type="checkbox" class="tx-checkbox" aria-label="Select Auth Gateway"></td>
+                        <td class="tx-td-mono">Auth Gateway</td>
+                        <td>active</td>
+                        <td class="tx-td-numeric">12ms</td>
+                        <td>us-east-1</td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox" class="tx-checkbox" aria-label="Select Billing Worker"></td>
+                        <td class="tx-td-mono">Billing Worker</td>
+                        <td>paused</td>
+                        <td class="tx-td-numeric">84ms</td>
+                        <td>eu-west-1</td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox" class="tx-checkbox" aria-label="Select Edge Cache"></td>
+                        <td class="tx-td-mono">Edge Cache</td>
+                        <td>active</td>
+                        <td class="tx-td-numeric">4ms</td>
+                        <td>ap-south-1</td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox" class="tx-checkbox" aria-label="Select Mail Queue"></td>
+                        <td class="tx-td-mono">Mail Queue</td>
+                        <td>degraded</td>
+                        <td class="tx-td-numeric">146ms</td>
+                        <td>us-west-2</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="tx-table-footer">
+                  <span id="ex-tbl-count" class="tx-meta" data-tx-table-count></span>
+                  <div id="ex-tbl-pages" class="tx-pagination" data-tx-pagination></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel 2: Declarative Validated Form -->
+            <div id="panel-form" data-tx-tab-panel="panel-form" hidden>
+              <form id="forms" class="tx-stack tx-gap-4 tx-max-w-md" data-tx-validate data-tx-success-toast="Service configuration verified">
+                <div class="tx-field">
+                  <label class="tx-label tx-label-required" for="ex-email">Operator Email</label>
+                  <input id="ex-email" name="email" type="email" class="tx-input" placeholder="ops@example.com" required>
+                  <p class="tx-helper">Validates automatically using HTML attributes + Tailix.Form.</p>
+                </div>
+                <div class="tx-field">
+                  <label class="tx-label tx-label-required" for="ex-slug">Project Slug</label>
+                  <input id="ex-slug" name="slug" type="text" class="tx-input" minlength="3" pattern="^[a-z0-9-]+$" data-tx-error="Use lowercase letters, numbers, or hyphens (min 3 chars)." placeholder="tailix-core" required>
+                </div>
+                <div class="tx-form-actions">
+                  <button id="ex-form-submit" type="submit" class="tx-btn tx-btn-sm tx-btn-primary">Validate &amp; Submit</button>
+                  <button type="reset" class="tx-btn tx-btn-sm tx-btn-secondary">Reset</button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Panel 3: Skeleton & Empty State -->
+            <div id="panel-states" data-tx-tab-panel="panel-states" hidden>
+              <div class="tx-grid tx-grid-2">
+                <div class="tx-card-subtle tx-p-4 tx-stack tx-gap-2">
+                  <span class="tx-text-sm">Skeleton Loading Placeholder</span>
+                  <div class="tx-skeleton" style="height: 14px; width: 65%"></div>
+                  <div class="tx-skeleton" style="height: 12px; width: 90%"></div>
+                  <div class="tx-skeleton" style="height: 12px; width: 45%"></div>
+                </div>
+                <div class="tx-empty">
+                  <strong class="tx-text-sm">No Archived Audits</strong>
+                  <p class="tx-meta">Completed audit logs appear automatically here.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Legacy .vib-* Compatibility Bridge Showcase -->
+        <section id="vib-bridge" class="vib-card">
+          <div class="tx-flex tx-items-center tx-justify-between tx-mb-4">
+            <h2 class="tx-h2">.vib-* Zero-CDN Compatibility Bridge</h2>
+            <span class="vib-badge vib-badge-info">vib-compat.css</span>
+          </div>
+          <div class="tx-row tx-flex-wrap tx-gap-3">
+            <button type="button" class="vib-btn vib-btn-primary" data-tx-toast=".vib-btn-primary works without Tailwind CDN" data-tx-toast-type="success">vib-btn-primary</button>
+            <button type="button" class="vib-btn vib-btn-secondary">vib-btn-secondary</button>
+            <span class="vib-method vib-method-get">GET</span>
+            <span class="vib-badge vib-badge-success">Active Bridge</span>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Declarative Modal -->
+  <div id="ex-confirm-modal" class="tx-modal-backdrop" hidden aria-hidden="true">
+    <div class="tx-modal" role="dialog" aria-modal="true" aria-labelledby="ex-modal-title">
+      <div class="tx-modal-header">
+        <h2 id="ex-modal-title" class="tx-h2">Deploy Snapshot</h2>
+        <button type="button" class="tx-icon-btn" data-tx-modal-close aria-label="Close">×</button>
+      </div>
+      <div class="tx-modal-body">
+        Declarative modal triggered via <code class="tx-code">data-tx-modal-target</code>. Press <kbd class="tx-kbd">Esc</kbd> to close and restore focus.
+      </div>
+      <div class="tx-modal-footer">
+        <button type="button" class="tx-btn tx-btn-sm tx-btn-secondary" data-tx-modal-close>Cancel</button>
+        <button type="button" class="tx-btn tx-btn-sm tx-btn-primary" data-tx-modal-close data-tx-toast="Snapshot deployed" data-tx-toast-type="success">Deploy Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- iOS Safari PWA Install Guide Modal -->
+  <div id="ex-ios-pwa-modal" class="tx-modal-backdrop" hidden aria-hidden="true">
+    <div class="tx-modal" role="dialog" aria-modal="true" aria-labelledby="ex-ios-pwa-title">
+      <div class="tx-modal-header">
+        <h2 id="ex-ios-pwa-title" class="tx-h2">Install on iPhone / iPad</h2>
+        <button type="button" class="tx-icon-btn" data-tx-modal-close aria-label="Close">×</button>
+      </div>
+      <div class="tx-modal-body">
+        1. Tap the <strong>Share</strong> button in Safari toolbar.<br>
+        2. Scroll down and select <strong>Add to Home Screen</strong>.
+      </div>
+      <div class="tx-modal-footer">
+        <button type="button" class="tx-btn tx-btn-sm tx-btn-primary" data-tx-modal-close>Got It</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      var progBtn = document.getElementById('ex-prog-modal-btn');
+      if (progBtn && window.Tailix) {
+        progBtn.addEventListener('click', function () {
+          var pass = false;
+          window.Tailix.modal({
+            title: 'Validation Hold Demo',
+            body: 'First click holds the dialog open (return false); second click confirms and closes cleanly.',
+            confirmText: 'Verify & Close',
+            danger: true,
+            onConfirm: function () {
+              if (!pass) {
+                pass = true;
+                window.Tailix.toast('Verification gate checked — click again to proceed.', 'warning');
+                return false;
+              }
+              window.Tailix.toast('Confirmed and closed cleanly.', 'success');
+            }
+          });
+        });
+      }
+
+      var radiusBtn = document.getElementById('ex-radius-toggle');
+      if (radiusBtn) {
+        radiusBtn.addEventListener('click', function () {
+          var root = document.documentElement;
+          var isSharp = root.getAttribute('data-radius') === 'sharp';
+          if (isSharp) {
+            root.removeAttribute('data-radius');
+            radiusBtn.setAttribute('aria-pressed', 'false');
+          } else {
+            root.setAttribute('data-radius', 'sharp');
+            radiusBtn.setAttribute('aria-pressed', 'true');
+          }
+        });
+      }
+
+      var offlineBanner = document.getElementById('ex-offline-banner');
+      function syncOnlineState() {
+        if (!offlineBanner) return;
+        if (navigator.onLine === false) offlineBanner.removeAttribute('hidden');
+        else offlineBanner.setAttribute('hidden', '');
+      }
+      window.addEventListener('online', syncOnlineState);
+      window.addEventListener('offline', syncOnlineState);
+      syncOnlineState();
+
+      var installBtn = document.getElementById('ex-pwa-install-btn');
+      var deferredPrompt = null;
+      var isStandalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone === true;
+      var isIOS = /iphone|ipad|ipod/i.test(window.navigator.userAgent || '');
+
+      if (installBtn && !isStandalone) {
+        if (isIOS) {
+          installBtn.removeAttribute('hidden');
+          installBtn.setAttribute('data-tx-modal-target', '#ex-ios-pwa-modal');
+        }
+        window.addEventListener('beforeinstallprompt', function (e) {
+          e.preventDefault();
+          deferredPrompt = e;
+          installBtn.removeAttribute('hidden');
+        });
+        window.addEventListener('appinstalled', function () {
+          deferredPrompt = null;
+          installBtn.setAttribute('hidden', '');
+        });
+        installBtn.addEventListener('click', function () {
+          if (!deferredPrompt) return;
+          deferredPrompt.prompt();
+          deferredPrompt.userChoice.then(function (choice) {
+            if (choice && choice.outcome === 'accepted') {
+              installBtn.setAttribute('hidden', '');
+            }
+            deferredPrompt = null;
+          });
+        });
+      }
+
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js').catch(function () {});
+      }
+    });
+  </script>
+</body>
+</html>

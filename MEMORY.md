@@ -20,9 +20,9 @@ The project documents explicitly state that the runtime and the official freeze 
 
 ### Front-end framework and runtime model
 
-- No React, Vue, Angular, or Node application framework is present.
-- No package.json file was found in the workspace root, indicating there is no standard package manager build pipeline for this project.
-- The app behaves as a static sandbox/running prototype served directly in the browser.
+- No heavy front-end framework (React/Vue/Angular); pure static HTML5/Tailwind CDN.
+- Configured with `package.json`, `server.js` (Express static server running on port 3000, 0.0.0.0), and root `index.html` entry redirect.
+- The app behaves as a static sandbox/running prototype served directly in the browser via Node/Express on port 3000.
 
 ### Styling system
 
@@ -50,12 +50,16 @@ The project documents explicitly state that the runtime and the official freeze 
 
 ### Validation tooling
 
+- Automated Node.js unit test suite (`npm test`):
+  - `tests/tailix.test.mjs` (`16` tests verifying both `framework/js/tailix.js` and `framework/js/tailix.min.js`)
 - Python validation scripts:
-  - `validation/no_growth_check.py`
-  - `validation/sandbox_static_check.py`
-- Node syntax validation commands are used for runtime JS files:
-  - `node --check Sandbox/js/sandbox-nav.js`
-  - `node --check Sandbox/js/tailwind-config.js`
+  - `validation/no_growth_check.py` (compact caps, `Segoe UI`, `font-weight <= 500`, zero shadows/hexes)
+  - `validation/sandbox_static_check.py` (8 foundation modules, Light parity, 28 pages + 34 fragments)
+- Cryptographic checksum manifest:
+  - `validation/CHECKSUMS.sha256` (`sha256sum -c validation/CHECKSUMS.sha256`)
+- Node syntax validation commands:
+  - `npm run lint` (`server.js`, `Sandbox/js/sandbox-nav.js`, `Sandbox/js/tailwind-config.js`)
+  - `node --check framework/js/tailix.js && node --check framework/js/tailix.min.js`
 
 ---
 
@@ -63,18 +67,22 @@ The project documents explicitly state that the runtime and the official freeze 
 
 ### Root-level organization
 
+- `framework/` — standalone zero-Node, zero-CDN CSS & JS framework (`package.json`, `VERSION`, `LICENSE`, `css/tokens.css`, `css/tailix.css`, `css/tailix.min.css`, `css/vib-compat.css`, `js/tailix.js`, `js/tailix.min.js`, `pwa/` manifest + offline Service Worker + icons, `examples/` for Static HTML, runnable PHP `app.php`, and runnable Python `app.py`) completed across Phases 04–06.
+- `tests/` — automated `node:test` unit suite (`tests/tailix.test.mjs`) completed in Phase 07.
 - `README.md` — project overview and freeze baseline notes
 - `MANIFEST.md` — package manifest and scope lock summary
 - `AI_INSTRUCTIONS.md` — general AI working rules for this repository
 - `AGENTS.md` — required workflow rules for AI agents
-- `DESIGN_SYSTEM_GUIDE.md` — central enterprise-grade design system guidelines
-- `CHANGELOG_*.md` — historical release documentation
-- `docs/` — official design and implementation freeze documentation
+- `DESIGN_SYSTEM.md` & `DESIGN_SYSTEM_GUIDE.md` — central enterprise-grade design system guidelines
+- `CHANGELOG_*.md` — historical release documentation and `CHANGELOG_v2_2_0.md`
+- `notes/` — development-time planning, forensic audit (`001`–`005`), and Phase 01–07 session logs
+- `project/` — permanent deep architectural anatomy (functions, files, modules, logic, setup, logs)
+- `docs/` — official user guidelines, developer guides, and frozen architecture standards
 - `components/` — component contract docs and sample markup
 - `design-tokens/` — token files and Tailwind mirroring metadata
-- `Sandbox/` — the active UI runtime and visual sandbox
+- `Sandbox/` — the active UI runtime and visual sandbox (`28` pages + `34` partial snippets)
 - `preview/` — alternate preview assets / notes
-- `validation/` — validation scripts and checks
+- `validation/` — validation scripts and `CHECKSUMS.sha256`
 - `forensic-audit/` — historical mismatch/audit records
 - `references/` — source snapshot references
 

@@ -4,4 +4,6 @@
   --transition-normal: 120ms ease;
   --transition-slow: 150ms ease;
   --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-duration-slow: 300ms;
+  --motion-easing-bounce: var(--ease-standard);
 }

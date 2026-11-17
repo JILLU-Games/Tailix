@@ -109,3 +109,25 @@
 - **Typography Standardization:** Eradicated oversized headings (`vib-hero-title`, `vib-body-lg`, `text-[var(--text-xl)]`) across all Sandbox pages (home, about, projects, billing, plugins, etc.).
 - **Layout Enforcement:** Enforced compact spacing (maximum `gap-4` or `gap-[var(--space-4)]`), matching the design contract established in reference pages (`forms.html`, `navigation.html`).
 - **Baseline Alignment:** Confirmed zero remaining layout or typography mismatches against the frozen SaaS app baseline, enforcing the compact token standard across the framework.
+
+---
+
+### 7-Phase Production Remediation & Standalone `framework/` Release (`2026-11-17` — `BUG-01`..`BUG-17`)
+- **Phase 01 (`BUG-01..04`) — Sandbox Broken Page, Encoding & SVG Icon Repair**:
+  - Repaired `Sandbox/pages/settings.html`, populated all `6` empty sections in `Sandbox/pages/forms/settings-components.js`, and wired interactive controls in `settings-page.js` (`VibToast` / `VibModal`).
+  - Replaced `26×` broken `stroke-[var(--icon-stroke)]` classes with `stroke-width="var(--icon-stroke)"`, fixed `12×` `28px` topbar icons, cleaned `9×` mojibake strings, and stripped `3×` UTF-8 BOMs.
+- **Phase 02 (`BUG-05..07`) — Unified Design Tokens, Typography, Flat Geometry & Light-Mode CSS**:
+  - Standardized `--font-sans` onto `"Segoe UI", "Segoe UI Web", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif` (`0` `Inter`), capped `--font-weight-bold: 500` (`0` `font-semibold`), removed all `box-shadow` rules (`0` shadows), and added `--radius: 0rem` + `html[data-radius="sharp|flat|0"]` flat geometry.
+  - Eliminated duplicate `:root` blocks in `Sandbox/css/vibtools-sandbox.css` and completed Light-mode parity across Cards, Forms, and Navigation playgrounds.
+- **Phase 03 (`BUG-08..09`) — Unified Shell, Theme Toggle Parity, Defensive JS Guards & Validation Repair**:
+  - Unified `localStorage['vib-theme']`, `#vib-theme-toggle`, `#vib-sidebar-toggle`, and canonical `27`-link sidebar across all `28` Sandbox pages via `sandbox-nav.js` and `shell-manager.js`.
+  - Added fail-fast and exception-safe guards to `table-controller.js`, `toast-manager.js`, and `modal-manager.js`, and upgraded `validation/no_growth_check.py` & `validation/sandbox_static_check.py`.
+- **Phase 04 (`BUG-10..13`) — `framework/` Core JS Bug Fixes & CSS Light-Mode Parity**:
+  - Fixed dropdown click-away before early returns, added `Tab`/`Shift+Tab` modal focus trapping, unified declarative table sorting (`4ms, 12ms, 84ms, 146ms`) & `...` pagination, guarded regex/selector inputs, and completed Light-mode & flat-mode parity in `framework/css/tokens.css` & `tailix.css`.
+- **Phase 05 (`BUG-14..15`) — `framework/` Mobile Drawer, Built-in Icons & Complete Component Suite**:
+  - Added mobile offcanvas sidebar drawer (`<= 768px`) + backdrop, `28`-icon `Tailix.icon()` SVG registry (`[data-tx-icon]`), and extended components (breadcrumbs, log badges, spinners, progress bars, accordions, tooltips, input groups/password reveal, code blocks with copy, HTTP method badges, radio cards, chips, sliders).
+- **Phase 06 (`BUG-16`) — `framework/` Packaging, PWA Support, `.vib-*` Bridge & PHP/Python Apps**:
+  - Added `framework/package.json` (`tailix-ui@2.2.0`), `VERSION`, `LICENSE`, `framework/pwa/` (`manifest.json`, offline `sw.js`, PNG/SVG icons), `framework/css/vib-compat.css`, and runnable `framework/examples/app.php` & `app.py`.
+- **Phase 07 (`BUG-17`) — Automated Unit + Playwright Verification, Checksums & Docs Sync**:
+  - Added `tests/tailix.test.mjs` (`16/16` passing `node:test` assertions on `tailix.js` & `tailix.min.js`), verified multi-page Dark/Light/Mobile rendering in headless Chromium Playwright (`0` console errors), refreshed `validation/CHECKSUMS.sha256`, and synchronized all `docs/`, `project/`, and `notes/` markdown files.
+

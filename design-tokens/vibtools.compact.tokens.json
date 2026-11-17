@@ -1,5 +1,5 @@
 {
-  "version": "2.1.2",
+  "version": "2.2.0",
   "framework": "Tailwind CDN",
   "mode": "compact-no-growth",
   "colors": {
@@ -123,9 +123,10 @@
     "textHeading": "#E6EDF3"
   },
   "fontFamilies": {
-    "sans": "\"Inter\", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "sans": "\"Segoe UI\", \"Segoe UI Web\", system-ui, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
     "mono": "\"JetBrains Mono\", \"SFMono-Regular\", Consolas, \"Liberation Mono\", monospace"
   },
+  "radiusPreset": "0rem",
   "compactTypeScalePx": {
     "heroDisplayDefault": 24,
     "heroDisplayMax": 26,
@@ -481,7 +482,7 @@
     "scope": "docs-layout.html compact restrained typography layer"
   },
   "step_16_docs_typography_text_size_color_contrast_sync": "applied",
-  "currentRelease": "v2.1.2 Single Token Foundation Audit Freeze",
+  "currentRelease": "v2.2.0 8-Module Token Foundation & Production Baseline",
   "authSurfaceFormArchitecture": {
     "baseline": "v1.5.1",
     "scope": "Auth Surface & Compact Form Architecture with v1.6.1 page-category correction",
@@ -891,7 +892,7 @@
       "settings/docs/upload behavior"
     ]
   },
-  "currentBaseline": "v2.1.2 freezes the Single Token Foundation Engine audit freeze over the frozen v2.1.2 official freeze baseline",
+  "currentBaseline": "v2.2.0 8-Module Token Foundation over compact-no-growth baseline",
   "formsPlaygroundVerificationFix": {
     "version": "1.8.1",
     "baseline": "v2.1.2 official freeze baseline",
@@ -1103,30 +1104,33 @@
     ]
   },
   "singleTokenFoundationEngine": {
-    "version": "v2.1.2",
-    "root": "Sandbox/assets/css/foundation/_tokens.css",
+    "version": "v2.2.0",
+    "root": "Sandbox/assets/css/foundation/_colors.css",
     "aggregator": "Sandbox/assets/css/vibtools-theme.css",
     "files": [
-      "_tokens.css",
+      "_colors.css",
       "_typography.css",
       "_spacing.css",
-      "_surfaces.css",
+      "_radius.css",
+      "_shadows.css",
+      "_icons.css",
+      "_breakpoints.css",
       "_motion.css"
     ],
-    "legacyAliasContract": "Core --vib-* runtime variables resolve through foundation semantic tokens.",
+    "legacyAliasContract": "Core --vib-* runtime variables resolve through the 8-module foundation semantic tokens (Dark + Light).",
     "acceptanceCriteria": [
       "Changing --color-cyan-500 updates focus/accent/nav/upload/chart aliases.",
       "Changing --bg-surface-card updates card/table/navigation/forms surfaces through --vib-surface and .ui-card.",
       "Zero-shadow flat UI remains preserved."
     ],
-    "verificationFix": "Expanded remaining legacy --vib-* and Tailwind CDN aliases to resolve through foundation semantic/component tokens; softened text-primary to #E6EDF3; no page layout or workflow change.",
-    "tailwindAliasContract": "Sandbox/js/tailwind-config.js now exposes both ui.* and legacy vib.* aliases through CSS variables where supported."
+    "verificationFix": "Synced all --vib-* and Tailwind CDN aliases (including surfaceSoft, surfaceHover, textMuted) to the 8-module v2.2.0 foundation with full Light/Dark theme parity.",
+    "tailwindAliasContract": "Sandbox/js/tailwind-config.js exposes both ui.* and legacy vib.* aliases through CSS variables."
   },
-  "documentationSync": "v2.1.2 official freeze documents full rewrite sync",
+  "documentationSync": "v2.2.0 8-module foundation documents full sync",
   "officialFreeze": {
-    "baseline": "VibTools_WEB_UI_v2.1.2.zip",
+    "baseline": "v2.2.0",
     "status": "active",
-    "documentationStatus": "fully synced to v2.1.2",
+    "documentationStatus": "synced to v2.2.0",
     "runtimeChangedByDocsSync": false,
     "primaryTextToken": "#E6EDF3",
     "sourceOfTruth": "Sandbox/assets/css/foundation + Sandbox/assets/css/vibtools-theme.css"

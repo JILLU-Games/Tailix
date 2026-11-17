@@ -1,9 +1,21 @@
 /* VibTools Foundation Radius — v2.2.0 */
 :root {
+  --radius: 0rem;
+  --radius-preset: 0rem;
   --radius-xs: 3px;
   --radius-sm: 6px;
   --radius-md: 8px;
   --radius-lg: 12px;
   --radius-pill: 9999px;
   --border-width-default: 1px;
+}
+
+html[data-radius="sharp"],
+html[data-radius="flat"],
+html[data-radius="0"] {
+  --radius-xs: var(--radius-preset);
+  --radius-sm: var(--radius-preset);
+  --radius-md: var(--radius-preset);
+  --radius-lg: var(--radius-preset);
+  --radius-pill: var(--radius-preset);
 }

@@ -1,14 +1,166 @@
-/* VibTools Sandbox navigation controller — v2.1.2 single token foundation engine baseline. */
+/* VibTools Sandbox navigation controller — v2.2.0 single token foundation engine baseline. */
 (function () {
   'use strict';
 
-  var VERSION = 'v2.1.2';
+  var VERSION = 'v2.2.0';
+  var LS_KEY_THEME = 'vib-theme';
+  var LS_KEY_SIDEBAR = 'vib-sidebar-collapsed';
   var groupPlan = [
     { title: 'MAIN', labels: ['Overview', 'Home', 'Projects', 'Dashboard', 'Monitoring'] },
+    { title: 'SAAS', labels: ['Users', 'Billing', 'Settings', 'Plugins'] },
     { title: 'PAGES & AUTH', labels: ['Docs', 'About', 'Contact', 'Login', 'Register', 'Profile'] },
     { title: 'COMPONENTS', labels: ['Forms', 'Upload Files', 'Tables', 'Cards', 'Navigation', 'Dropdowns'] },
-    { title: 'SYSTEM', labels: ['States', 'Empty/Error', 'Logs', 'Settings', 'Tokens'] }
+    { title: 'SYSTEM', labels: ['States', 'Empty/Error', 'Logs', 'Tokens', '404 Error', '500 Error'] }
   ];
+
+  var CANONICAL_FILES = {
+    'Overview': 'index.html',
+    'Home': 'home.html',
+    'Projects': 'projects.html',
+    'Dashboard': 'dashboard-shell.html',
+    'Monitoring': 'monitoring.html',
+    'Users': 'users.html',
+    'Billing': 'billing.html',
+    'Settings': 'settings.html',
+    'Plugins': 'plugins.html',
+    'Docs': 'docs-layout.html',
+    'About': 'about.html',
+    'Contact': 'contact.html',
+    'Login': 'login.html',
+    'Register': 'register.html',
+    'Profile': 'profile.html',
+    'Forms': 'forms.html',
+    'Upload Files': 'upload.html',
+    'Tables': 'tables.html',
+    'Cards': 'cards.html',
+    'Navigation': 'navigation.html',
+    'Dropdowns': 'dropdowns.html',
+    'States': 'alerts-states.html',
+    'Empty/Error': 'empty-loading-error.html',
+    'Logs': 'logs-modal.html',
+    'Tokens': 'typography-colors.html',
+    '404 Error': '404.html',
+    '500 Error': '500.html'
+  };
+
+  function getSavedTheme() {
+    try {
+      var saved = localStorage.getItem(LS_KEY_THEME);
+      if (saved === 'light' || saved === 'dark') return saved;
+    } catch (e) {}
+    return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+  }
+
+  function syncThemeButtonState(theme) {
+    var btn = document.getElementById('vib-theme-toggle');
+    if (!btn) return;
+    var isLight = theme === 'light';
+    btn.setAttribute('aria-pressed', isLight ? 'true' : 'false');
+    btn.setAttribute('title', isLight ? 'Switch to dark theme' : 'Switch to light theme');
+  }
+
+  function applyTheme(theme) {
+    var html = document.documentElement;
+    var next = theme === 'light' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    html.classList.toggle('dark', next === 'dark');
+    try { localStorage.setItem(LS_KEY_THEME, next); } catch (e) {}
+    syncThemeButtonState(next);
+  }
+
+  function toggleTheme() {
+    var current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+    var next = current === 'light' ? 'dark' : 'light';
+    applyTheme(next);
+    if (window.EventBus && typeof window.EventBus.emit === 'function') {
+      window.EventBus.emit('theme:changed', { theme: next });
+    }
+  }
+
+  function isSidebarCollapsed() {
+    try { return localStorage.getItem(LS_KEY_SIDEBAR) === '1'; } catch (e) { return false; }
+  }
+
+  function saveSidebarState(collapsed) {
+    try { localStorage.setItem(LS_KEY_SIDEBAR, collapsed ? '1' : '0'); } catch (e) {}
+  }
+
+  function ensureSidebarId() {
+    var sidebar = document.querySelector('.vib-sidebar');
+    if (sidebar && !sidebar.id) {
+      sidebar.id = 'vib-sidebar';
+    }
+    return sidebar;
+  }
+
+  function applySidebarState() {
+    var sidebar = ensureSidebarId();
+    if (!sidebar) return;
+    var collapsed = isSidebarCollapsed();
+    if (collapsed) {
+      sidebar.setAttribute('data-collapsed', 'true');
+    } else {
+      sidebar.removeAttribute('data-collapsed');
+    }
+    var btn = document.getElementById('vib-sidebar-toggle');
+    if (btn) btn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+  }
+
+  function toggleSidebar() {
+    var next = !isSidebarCollapsed();
+    saveSidebarState(next);
+    applySidebarState();
+  }
+
+  function ensureTopbarControls() {
+    var row = document.querySelector('.vib-topbar .vib-row');
+    if (!row) return;
+
+    if (!document.getElementById('vib-theme-toggle')) {
+      var themeBtn = document.createElement('button');
+      themeBtn.id = 'vib-theme-toggle';
+      themeBtn.type = 'button';
+      themeBtn.className = 'vib-icon-button';
+      themeBtn.setAttribute('aria-label', 'Toggle theme');
+      themeBtn.setAttribute('title', 'Toggle theme');
+      themeBtn.innerHTML = '<svg class="w-[var(--icon-md)] h-[var(--icon-md)]" fill="none" stroke="currentColor" stroke-width="var(--icon-stroke)" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364 6.364-1.414-1.414M7.05 7.05 5.636 5.636m12.728 0-1.414 1.414M7.05 16.95l-1.414 1.414M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>';
+      row.appendChild(themeBtn);
+    }
+
+    if (document.querySelector('.vib-sidebar') && !document.getElementById('vib-sidebar-toggle')) {
+      var sideBtn = document.createElement('button');
+      sideBtn.id = 'vib-sidebar-toggle';
+      sideBtn.type = 'button';
+      sideBtn.className = 'vib-icon-button';
+      sideBtn.setAttribute('aria-label', 'Toggle sidebar');
+      sideBtn.setAttribute('title', 'Toggle sidebar');
+      sideBtn.innerHTML = '<svg class="w-[var(--icon-md)] h-[var(--icon-md)]" fill="none" stroke="currentColor" stroke-width="var(--icon-stroke)" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+      row.appendChild(sideBtn);
+    }
+
+    syncThemeButtonState(getSavedTheme());
+  }
+
+  function wireTopbarControls() {
+    var themeBtn = document.getElementById('vib-theme-toggle');
+    if (themeBtn && themeBtn.dataset.vibThemeBound !== 'true') {
+      themeBtn.dataset.vibThemeBound = 'true';
+      themeBtn.addEventListener('click', toggleTheme);
+    }
+    var sideBtn = document.getElementById('vib-sidebar-toggle');
+    if (sideBtn && sideBtn.dataset.vibSidebarBound !== 'true') {
+      sideBtn.dataset.vibSidebarBound = 'true';
+      sideBtn.addEventListener('click', toggleSidebar);
+    }
+  }
+
+  function resolveCanonicalHref(label) {
+    var file = CANONICAL_FILES[label];
+    if (!file) return '#';
+    var inPages = String(window.location.pathname || '').replace(/\\/g, '/').indexOf('/pages/') !== -1;
+    if (file === 'index.html') return inPages ? '../index.html' : 'index.html';
+    return inPages ? file : 'pages/' + file;
+  }
 
   function normalizePath(path) {
     return String(path || '').split('#')[0].split('?')[0].replace(/\\/g, '/').split('/').pop() || 'index.html';
@@ -21,6 +173,9 @@
       projects: '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3.2" y="4.2" width="9.6" height="7.6" rx="1.4"/><path d="M5.2 6.2h5.6M5.2 8h4"/></svg>',
       dashboard: '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="3" width="4" height="4" rx="1"/><rect x="9" y="3" width="4" height="4" rx="1"/><rect x="3" y="9" width="4" height="4" rx="1"/><rect x="9" y="9" width="4" height="4" rx="1"/></svg>',
       monitoring: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.8 10.6h10.4"/><path d="M3.4 10.4 5.6 7.8l2 1.7 2.2-4.2 2.6 5.1"/><rect x="2.8" y="3.3" width="10.4" height="9.4" rx="1.4"/></svg>',
+      users: '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6" cy="5.8" r="2.2"/><path d="M2.9 12.2c.7-2 5.5-2 6.2 0"/><path d="M11.5 5.2v4.2M9.4 7.3h4.2"/></svg>',
+      billing: '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2.8" y="4" width="10.4" height="9" rx="1.4"/><path d="M2.8 7.4h10.4M5.2 10.2h2M5.2 11.8h1.2"/></svg>',
+      plugins: '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="2"/><path d="M8 2.8v1.4M8 11.8v1.4M3.4 5.1l1.2.7M11.4 10.2l1.2.7M3.4 10.9l1.2-.7M11.4 5.8l1.2-.7"/><path d="M2.8 8h1.4M11.8 8h1.4"/></svg>',
       docs: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 2.8h4.6L12 5.2v8H5z"/><path d="M9.5 2.8v2.6H12"/><path d="M6.6 7.5h3.8M6.6 9.4h3.8M6.6 11.3h2.2"/></svg>',
       about: '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.2"/><path d="M8 7.4v3.7M8 4.9h.01"/></svg>',
       contact: '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2.8" y="4" width="10.4" height="8" rx="1.4"/><path d="m3.5 5.2 4.5 3.2 4.5-3.2"/></svg>',
@@ -38,6 +193,8 @@
       logs: '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2.8" y="3.6" width="10.4" height="8.8" rx="1.2"/><path d="M4.8 6.1h1.8M4.8 8h3M4.8 9.9h5.5"/><path d="m10.6 6.2 1.2 1.2-1.2 1.2"/></svg>',
       settings: '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="2"/><path d="M8 2.8v1.4M8 11.8v1.4M3.4 5.1l1.2.7M11.4 10.2l1.2.7M3.4 10.9l1.2-.7M11.4 5.8l1.2-.7"/><path d="M2.8 8h1.4M11.8 8h1.4"/></svg>',
       tokens: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.6 3.5 4.7 12.5M11.3 3.5l-.9 9M3.5 6h9M3.1 10h9"/></svg>',
+      '404error': '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3.2"/></svg>',
+      '500error': '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3.2"/></svg>',
       fallback: '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3.2"/></svg>'
     };
     var key = String(name || '').toLowerCase().replace(/[^a-z0-9]/g, '');
@@ -54,7 +211,8 @@
   }
 
   function prepareLink(link, currentFile) {
-    var label = link.textContent.trim();
+    var labelEl = link.querySelector('.vib-sidebar-label');
+    var label = (labelEl ? labelEl.textContent : link.textContent).trim();
     var hrefFile = normalizePath(link.getAttribute('href'));
     var isCurrent = hrefFile === currentFile || (label === 'Overview' && currentFile === 'index.html');
     if (isCurrent) {
@@ -65,6 +223,13 @@
       link.classList.remove('active');
     }
     link.querySelectorAll('.vib-sidebar-icon').forEach(function (icon) { icon.remove(); });
+    if (!labelEl) {
+      link.textContent = '';
+      labelEl = document.createElement('span');
+      labelEl.className = 'vib-sidebar-label';
+      labelEl.textContent = label;
+      link.appendChild(labelEl);
+    }
     var span = document.createElement('span');
     span.className = 'vib-sidebar-icon';
     span.setAttribute('aria-hidden', 'true');
@@ -78,6 +243,18 @@
     if (!links.length) return;
     var byLabel = new Map();
     links.forEach(function (link) { byLabel.set(link.textContent.trim(), link); });
+    groupPlan.forEach(function (group) {
+      group.labels.forEach(function (label) {
+        if (!byLabel.has(label) && CANONICAL_FILES[label]) {
+          var a = document.createElement('a');
+          a.setAttribute('data-sandbox-link', '');
+          a.className = 'sandbox-page-link vib-sidebar-link';
+          a.href = resolveCanonicalHref(label);
+          a.textContent = label;
+          byLabel.set(label, a);
+        }
+      });
+    });
     nav.innerHTML = '';
     nav.classList.remove('vib-stack-sm');
     nav.classList.add('vib-sidebar-nav');
@@ -417,26 +594,44 @@
           button.textContent = 'Copied';
           window.setTimeout(function () { button.textContent = original || 'Copy Markdown'; }, 1000);
         }
-        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, done);
-        else done();
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done, done);
+        } else {
+          var area = document.createElement('textarea');
+          area.value = text;
+          area.setAttribute('readonly', 'readonly');
+          area.style.position = 'fixed';
+          area.style.opacity = '0';
+          document.body.appendChild(area);
+          area.select();
+          try { document.execCommand('copy'); } catch (err) {}
+          area.remove();
+          done();
+        }
       });
       button.dataset.docsCopyReady = 'true';
     });
   }
 
   function init() {
+    applyTheme(getSavedTheme());
     setVersionBadges();
+    ensureTopbarControls();
     var currentFile = normalizePath(window.location.pathname);
     var mainNav = document.querySelector('.vib-sidebar nav[aria-label="Sandbox pages"]');
     groupMainSidebar(mainNav);
     document.querySelectorAll('.vib-sidebar-link').forEach(function (link) { prepareLink(link, currentFile); });
     ensureFooter();
+    applySidebarState();
+    wireTopbarControls();
     initTables();
     initLogModals();
     initMonitoringClock();
     initDocsInteractions();
     initUploadInteractions();
   }
+
+  applyTheme(getSavedTheme());
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);

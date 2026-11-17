@@ -1,0 +1,40 @@
+{
+  "name": "tailix-ui",
+  "version": "2.2.0",
+  "description": "Standalone zero-Node, zero-CDN compact UI framework (Dark/Light CSS tokens, flat components, and vanilla JS engine).",
+  "license": "MIT",
+  "main": "./js/tailix.js",
+  "unpkg": "./js/tailix.min.js",
+  "jsdelivr": "./js/tailix.min.js",
+  "style": "./css/tailix.min.css",
+  "files": [
+    "css/",
+    "js/",
+    "pwa/",
+    "examples/",
+    "VERSION",
+    "LICENSE",
+    "README.md",
+    "MANIFEST.md"
+  ],
+  "exports": {
+    ".": "./js/tailix.js",
+    "./js": "./js/tailix.js",
+    "./min.js": "./js/tailix.min.js",
+    "./css": "./css/tailix.css",
+    "./min.css": "./css/tailix.min.css",
+    "./tokens.css": "./css/tokens.css",
+    "./vib-compat.css": "./css/vib-compat.css",
+    "./pwa/manifest.json": "./pwa/manifest.json"
+  },
+  "keywords": [
+    "ui-framework",
+    "zero-dependency",
+    "zero-cdn",
+    "compact-ui",
+    "dark-light-theme",
+    "pwa",
+    "tailix",
+    "vibtools"
+  ]
+}

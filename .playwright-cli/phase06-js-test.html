@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tailix Phase 06 Standalone JS Engine Test</title>
+  <link rel="stylesheet" href="/framework/css/tailix.min.css">
+  <script src="/framework/js/tailix.min.js" defer></script>
+</head>
+<body>
+  <div class="tx-shell">
+    <header class="tx-topbar">
+      <div class="tx-topbar-inner">
+        <div class="tx-brand">
+          <button id="btn-sidebar" class="tx-btn tx-btn-sm tx-btn-secondary" data-tx-sidebar-toggle>Sidebar</button>
+          <span>Tailix</span>
+          <span class="tx-badge">v2.2.0</span>
+          <span class="tx-meta">Phase 06 Interactive Harness</span>
+        </div>
+        <div class="tx-row tx-gap-2">
+          <div class="tx-dropdown" data-tx-dropdown>
+            <button id="btn-dd" class="tx-btn tx-btn-sm tx-btn-secondary" data-tx-dropdown-trigger aria-expanded="false">Menu</button>
+            <div id="dd-menu" class="tx-dropdown-menu" data-tx-dropdown-menu hidden>
+              <button type="button" class="tx-dropdown-item" data-tx-toast="Quick export triggered" data-tx-toast-type="info">Quick Export</button>
+              <button type="button" class="tx-dropdown-item" data-tx-toast="<img src=x onerror=window.__xss=1>" data-tx-toast-type="warning">XSS Safety Test</button>
+            </div>
+          </div>
+          <button id="btn-theme" class="tx-btn tx-btn-sm tx-btn-secondary" data-tx-theme-toggle>Toggle Theme</button>
+          <button id="btn-toast" class="tx-btn tx-btn-sm tx-btn-primary" data-tx-toast="Deployment saved cleanly" data-tx-toast-type="success">Save</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="tx-layout">
+      <aside class="tx-sidebar" aria-label="Sidebar navigation">
+        <div class="tx-sidebar-inner">
+          <div class="tx-sidebar-group">
+            <div class="tx-sidebar-group-title">Workspace</div>
+            <a href="#overview" class="tx-sidebar-link is-active"><span class="tx-sidebar-label">Overview</span></a>
+            <a href="#table" class="tx-sidebar-link"><span class="tx-sidebar-label">Data Table</span></a>
+            <a href="#forms" class="tx-sidebar-link"><span class="tx-sidebar-label">Validation</span></a>
+          </div>
+        </div>
+      </aside>
+
+      <main class="tx-main tx-stack tx-gap-3">
+        <div class="tx-row tx-gap-2">
+          <button id="btn-open-dec-modal" class="tx-btn tx-btn-sm tx-btn-secondary" data-tx-modal-target="#dec-modal">Open Declarative Modal</button>
+          <button id="btn-open-prog-modal" class="tx-btn tx-btn-sm tx-btn-danger">Open Hold-On-False Modal</button>
+        </div>
+
+        <section class="tx-card">
+          <div class="tx-tabs" data-tx-tabs role="tablist">
+            <button id="tab-a" class="tx-tab is-active" data-tx-tab="panel-a" role="tab" aria-selected="true">Records Table</button>
+            <button id="tab-b" class="tx-tab" data-tx-tab="panel-b" role="tab" aria-selected="false">Validated Form</button>
+          </div>
+
+          <div id="panel-a" class="tx-mt-3" data-tx-tab-panel="panel-a">
+            <div class="tx-table-panel" data-tx-table>
+              <div class="tx-table-toolbar">
+                <input id="tbl-search" class="tx-input" style="max-width:200px" placeholder="Search..." data-tx-table-search>
+                <select id="tbl-filter" class="tx-select" style="max-width:140px" data-tx-table-filter="1">
+                  <option value="all">All Status</option>
+                  <option value="active">active</option>
+                  <option value="paused">paused</option>
+                </select>
+                <select id="tbl-size" class="tx-select" style="max-width:100px" data-tx-page-size>
+                  <option value="2" selected>2 / page</option>
+                  <option value="5">5 / page</option>
+                </select>
+              </div>
+              <div class="tx-table-wrap">
+                <table class="tx-table">
+                  <thead>
+                    <tr>
+                      <th><button type="button" class="tx-th-sort" data-tx-sort-col="0">Service</button></th>
+                      <th>Status</th>
+                      <th><button type="button" class="tx-th-sort" data-tx-sort-col="2">Latency</button></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Auth Gateway</td><td>active</td><td>12ms</td></tr>
+                    <tr><td>Billing Worker</td><td>paused</td><td>88ms</td></tr>
+                    <tr><td>Edge Cache</td><td>active</td><td>4ms</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="tx-table-footer">
+                <span id="tbl-count" class="tx-meta" data-tx-table-count></span>
+                <div id="tbl-pages" class="tx-pagination" data-tx-pagination></div>
+              </div>
+            </div>
+          </div>
+
+          <div id="panel-b" class="tx-mt-3" data-tx-tab-panel="panel-b" hidden>
+            <form id="demo-form" class="tx-stack tx-gap-2" data-tx-validate data-tx-success-toast="Form submitted cleanly">
+              <div class="tx-field">
+                <label class="tx-label" for="f-email">Operator Email</label>
+                <input id="f-email" name="email" type="email" class="tx-input" required>
+              </div>
+              <div class="tx-field">
+                <label class="tx-label" for="f-name">Project Code</label>
+                <input id="f-name" name="code" class="tx-input" minlength="3" required>
+              </div>
+              <div>
+                <button id="btn-form-submit" class="tx-btn tx-btn-sm tx-btn-primary" type="submit">Submit Form</button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div id="dec-modal" class="tx-modal-backdrop" hidden aria-hidden="true">
+    <div class="tx-modal" role="dialog" aria-modal="true" aria-labelledby="dec-modal-title">
+      <div class="tx-modal-header">
+        <h2 id="dec-modal-title" class="tx-h2">Declarative Modal</h2>
+        <button id="btn-dec-close" type="button" class="tx-icon-btn" data-tx-modal-close aria-label="Close">×</button>
+      </div>
+      <div class="tx-modal-body">Press Escape or Close to verify focus restoration.</div>
+      <div class="tx-modal-footer">
+        <button type="button" class="tx-btn tx-btn-sm tx-btn-secondary" data-tx-modal-close>Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      var holdBtn = document.getElementById('btn-open-prog-modal');
+      var allowClose = false;
+      holdBtn.addEventListener('click', function () {
+        allowClose = false;
+        window.Tailix.modal({
+          title: 'Hold On False',
+          body: 'Click Confirm to test validation hold; click second time after toggle to close.',
+          confirmText: 'Confirm Hold',
+          onConfirm: function () {
+            if (!allowClose) {
+              allowClose = true;
+              window.Tailix.toast('Held open as expected', 'warning');
+              return false;
+            }
+            window.Tailix.toast('Closed on second confirm', 'success');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

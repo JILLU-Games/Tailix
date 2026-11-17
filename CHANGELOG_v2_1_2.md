@@ -1,4 +1,6 @@
-# CHANGELOG v2.2.0 — Single Token Foundation Audit Freeze
+# CHANGELOG v2.1.2 → v2.2.0 — Single Token Foundation Audit Freeze
+
+> **Archive Note**: File `CHANGELOG_v2_1_2.md` preserves the `v2.1.2 → v2.2.0` transition audit freeze record; see `CHANGELOG_v2_2_0.md` for the full `v2.2.0` release log.
 
 Baseline: `VibTools_WEB_UI_v2.1.1.zip`  
 Scope: Verification/fix only for the Single Token Foundation Engine. No page layout, route, module count, component workflow, backend/API behavior, sidebar width, topbar height or playground behavior was redesigned.
