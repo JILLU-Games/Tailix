@@ -1,0 +1,136 @@
+# VibTools UI Design System Rules
+
+**STATUS: STRICTLY ENFORCED**
+
+This document outlines the absolute, non-negotiable design system rules for creating or updating any UI pages in this project. The following baseline structure is a **100% EXACT MATCH** of `cards.html` (File-01). 
+
+**DO NOT DEVIATE from these rules. There should be NO FAKE/DEMO placeholders.**
+
+## 1. Allowed HTML Page Architecture (100% Literal Exact Match)
+Every UI page MUST follow this exact full HTML structure. The example below uses the canonical `cards` structure. When creating other pages, you must strictly swap the component name (e.g., `cards` to `tables`), but keep all sidebars, meta tags, and accessibility ARIA linkages identically structured.
+
+```html
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cards — VibTools Sandbox</title>
+  <meta name="description" content="Production-grade card component playground">
+  <script src="../js/tailwind-config.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/css/vibtools-theme.css">
+  <link rel="stylesheet" href="../css/vibtools-sandbox.css">
+  <link rel="stylesheet" href="../css/sandbox-only.css">
+</head>
+<body>
+  <div class="vib-shell">
+    <header class="vib-topbar sticky top-0 z-20">
+      <div class="vib-container vib-topbar-inner">
+        <a href="../index.html" class="vib-brand">
+          <img src="../assets/brand/placeholder-vibtools-icon.svg" class="w-[var(--icon-lg)] h-[var(--icon-lg)]" alt="">
+          <span>VibTools UI Sandbox</span>
+        </a>
+        <div class="vib-row">
+          <span class="vib-badge">v2.1.2</span>
+          <span class="vib-badge">Tailwind CDN</span>
+          <span class="vib-badge">Compact</span>
+        </div>
+      </div>
+    </header>
+    <div class="vib-layout">
+      <aside class="vib-sidebar shrink-0">
+        <div class="vib-sidebar-inner">
+          <nav class="vib-stack-sm" aria-label="Sandbox pages">
+            <a class="vib-sidebar-link" href="../index.html">Overview</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="home.html">Home</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="projects.html">Projects</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="about.html">About</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="contact.html">Contact</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="docs-layout.html">Docs</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="dashboard-shell.html">Dashboard</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="monitoring.html">Monitoring</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="login.html">Login</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="register.html">Register</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="profile.html">Profile</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="forms.html">Forms</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="upload.html">Upload Files</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="tables.html">Tables</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="cards.html">Cards</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="navigation.html">Navigation</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="dropdowns.html">Dropdowns</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="alerts-states.html">States</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="empty-loading-error.html">Empty/Error</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="logs-modal.html">Logs</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="settings.html">Settings</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="typography-colors.html">Tokens</a>
+          </nav>
+        </div>
+      </aside>
+      <main class="vib-main">
+        <section class="vib-app-page vib-cards-playground-page">
+          <div class="vib-page-header vib-playground-hero">
+            <p class="vib-kicker">Cards Demo</p>
+            <h1 class="vib-h1 mt-2">Production-grade card components.</h1>
+            <p class="vib-body mt-2">Scrollable card component playground for base, compact, interactive, nested, metric, project, empty, error and loading states. The page preserves the v2.1.2 soft typography, zero-shadow flat UI and top-aligned app-page layout.</p>
+          </div>
+
+          <div class="vib-cards-playground">
+            <section class="vib-card-section vib-playground-index" aria-labelledby="cards-playground-index-title">
+              <div class="vib-component-header">
+                <div>
+                  <p class="vib-kicker">Component index</p>
+                  <h2 id="cards-playground-index-title" class="vib-h2 mt-1">A-Z card primitives and states.</h2>
+                </div>
+                <span class="vib-badge">11 modules</span>
+              </div>
+              <p class="vib-card-text">Use the jump links to audit every card primitive: base, compact, hover/active, nested, stat, metric, feature, project, empty, error and loading without changing global app behavior.</p>
+              <nav id="vib-cards-playground-nav" class="vib-playground-nav" aria-label="Card component sections"></nav>
+            </section>
+
+            <div id="vib-cards-playground" class="vib-playground-stack" data-card-playground></div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script src="cards/base.js"></script>
+  <script src="cards/compact.js"></script>
+  <script src="cards/elevated.js"></script>
+  <script src="cards/nested.js"></script>
+  <script src="cards/stat.js"></script>
+  <script src="cards/metric.js"></script>
+  <script src="cards/feature.js"></script>
+  <script src="cards/project.js"></script>
+  <script src="cards/empty.js"></script>
+  <script src="cards/error.js"></script>
+  <script src="cards/loading.js"></script>
+  <script src="cards/card-playground.js"></script>
+  <script src="../js/sandbox-nav.js"></script>
+</body>
+</html>
+```
+
+## 2. STRICT Dynamic Framework Loading (NO HARDCODED DESIGN)
+**All UI designs, modules, and states MUST be dynamically loaded from the JavaScript framework.**
+- Do not write static UI templates or components (like raw `<table>`, grids, inputs) directly inside `.vib-main`.
+- You must mount component modules (e.g., `base.js`, `compact.js`) using explicit `<script>` tags at the end of the body.
+- The UI must render solely inside the dynamic container (e.g., `<div id="vib-cards-playground" class="vib-playground-stack" data-card-playground></div>`).
+- There are no hardcoded design rules or inline layout constructs permitted in the raw HTML payload.
+
+## 3. STRICT Typography & Token Rules
+You are **STRICTLY PROHIBITED** from using hardcoded, arbitrary Tailwind sizing or color classes (e.g., `text-[12px]`, `text-[11px]`, `text-sm`, `font-semibold`, `px-2 py-0.5`, `bg-vib-tableRowHover`). 
+
+**ALLOWED Typography Tokens:**
+- Kicker / Eyebrow: `.vib-kicker`
+- Page Title: `.vib-h1`
+- Section Title: `.vib-h2`
+- General Description/Body: `.vib-body`
+- Card/Component Text: `.vib-card-text`
+- Metadata: `.vib-meta`
+- Badges: `.vib-badge`
+
+## 4. Layout Constraints
+- The `main` container MUST only contain a single wrapper `<section class="vib-app-page vib-[component]-playground-page">`.
+- The page header MUST be `.vib-page-header .vib-playground-hero`. **Do not wrap header text in extra unnecessary `<div>` elements.**
+- Do not use random container names like `.vib-playground-container`; stick to `.vib-[component]-playground` and `.vib-playground-stack`.

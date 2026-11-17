@@ -1,0 +1,18 @@
+{
+  "Vib Tools Brand Identity & UI Design Specification.pdf": {
+    "sha256": "535a48606b11c0b4c77e3a2e0db2a13dac27daa4c592ee054def62fcf8ef1bef",
+    "status": "canonical brand reference"
+  },
+  "vibtools.github.io.zip": {
+    "sha256": "a425f41f42fea62fc5c30dcb4302a72759e6f5a88f794e6a9972a878aebcf859",
+    "status": "audited source archive"
+  },
+  "id.vib.tools.zip": {
+    "sha256": "b32e0704d64cbaac76094732d630e1927bf130a82f75c0a8e98ce3d4de50aecf",
+    "status": "audited source archive"
+  },
+  "VibTools_Web_UI_Design_Official_Freeze_Compact_Package_v1_1_UPDATED.zip": {
+    "sha256": "a93de91feb3d31a5d63eb8ab89548fd8e174c30403dd2cc7ad010b6c6b9e0d6a",
+    "status": "baseline audited and updated"
+  }
+}

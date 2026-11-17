@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="88" viewBox="0 0 360 88" role="img" aria-label="Vib Tools">
+  <rect width="360" height="88" rx="14" fill="#0D1117"/>
+  <rect x="18" y="18" width="52" height="52" rx="12" fill="#010510" stroke="#30363D"/>
+  <path d="M30 30h10l5 18 8-18h10L50 62H40L30 30Z" fill="url(#g)"/>
+  <text x="86" y="52" fill="#F8FAFC" font-family="Inter, Segoe UI, sans-serif" font-size="28" font-weight="750">Vib Tools</text>
+  <defs><linearGradient id="g" x1="30" x2="64" y1="30" y2="62" gradientUnits="userSpaceOnUse"><stop stop-color="#0053FC"/><stop offset="1" stop-color="#00BFFD"/></linearGradient></defs>
+</svg>

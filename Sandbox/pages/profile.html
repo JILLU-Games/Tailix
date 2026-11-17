@@ -1,0 +1,85 @@
+﻿<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profile â€” VibTools Sandbox</title>
+  <meta name="description" content="Profile sandbox page">
+  <script src="../js/tailwind-config.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/css/vibtools-theme.css">
+  <link rel="stylesheet" href="../css/vibtools-sandbox.css">
+  <link rel="stylesheet" href="../css/sandbox-only.css">
+</head>
+<body>
+  <div class="vib-shell">
+    <header class="vib-topbar sticky top-0 z-20">
+      <div class="vib-container vib-topbar-inner">
+        <a href="../index.html" class="vib-brand">
+          <img src="../assets/brand/placeholder-vibtools-icon.svg" width="28" height="28" alt="">
+          <span>VibTools UI Sandbox</span>
+        </a>
+        <div class="vib-row">
+          <span class="vib-badge">v2.1.2</span>
+          <span class="vib-badge">Tailwind CDN</span>
+          <span class="vib-badge">Compact</span>
+        </div>
+      </div>
+    </header>
+    <div class="vib-layout">
+      <aside class="vib-sidebar shrink-0">
+        <div class="vib-sidebar-inner">
+          <nav class="vib-stack-sm" aria-label="Sandbox pages">
+            <a class="vib-sidebar-link" href="../index.html">Overview</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="home.html">Home</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="projects.html">Projects</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="about.html">About</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="contact.html">Contact</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="docs-layout.html">Docs</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="dashboard-shell.html">Dashboard</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="monitoring.html">Monitoring</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="login.html">Login</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="register.html">Register</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="profile.html">Profile</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="forms.html">Forms</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="upload.html">Upload Files</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="tables.html">Tables</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="cards.html">Cards</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="navigation.html">Navigation</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="dropdowns.html">Dropdowns</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="alerts-states.html">States</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="empty-loading-error.html">Empty/Error</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="logs-modal.html">Logs</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="settings.html">Settings</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="typography-colors.html">Tokens</a>
+          </nav>
+        </div>
+      </aside>
+      <main class="vib-main">
+<section class="vib-app-page vib-cards-playground-page">
+  <article class="vib-grid-2col vib-profile-editor">
+    <aside class="vib-form-card">
+      <div class="vib-row"><span class="vib-avatar">VT</span><div><h1 class="vib-h1">Profile summary</h1><p class="vib-meta">Compact account surface</p></div></div>
+      <p class="vib-card-text mt-3">Profile pages use the same top-aligned app form architecture while keeping avatar and metadata in a compact left panel.</p>
+      <div class="vib-card-subtle vib-auth-proof mt-3"><div class="vib-meta">Email</div><div class="vib-body">hello@vib.tools</div></div>
+    </aside>
+    <form class="vib-form-card vib-auth-form" aria-label="Profile editor">
+      <p class="vib-kicker">Profile Editor</p>
+      <div class="vib-form-grid-auto mt-3">
+        <div class="vib-form-field"><label class="vib-label" for="profile-display-name">Display name</label><input id="profile-display-name" class="vib-input" value="Vib Tools User"></div>
+        <div class="vib-form-field"><label class="vib-label" for="profile-role">Role</label><input id="profile-role" class="vib-input" value="Developer"></div>
+      </div>
+      <div class="vib-auth-field-stack">
+        <div class="vib-form-field"><label class="vib-label" for="profile-email">Email</label><input id="profile-email" class="vib-input" value="hello@vib.tools"></div>
+        <div class="vib-form-field"><label class="vib-label" for="profile-bio">Bio</label><textarea id="profile-bio" class="vib-textarea">Open-source organization profile.</textarea></div>
+      </div>
+      <div class="vib-row vib-form-actions"><button type="button" class="vib-button vib-button-primary">Save profile</button><button type="button" class="vib-button vib-button-secondary">Cancel</button></div>
+    </form>
+  </article>
+</section>
+      </main>
+    </div>
+  </div>
+  <script src="../js/sandbox-nav.js"></script>
+</body>
+</html>

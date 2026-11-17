@@ -1,0 +1,13 @@
+window.VibForms = window.VibForms || { modules: [], register: function (module) { this.modules.push(module); } };
+window.VibForms.register({
+  "id": "helper-text",
+  "title": "Helper Text",
+  "description": "Muted slate helper copy, character count helper and status note patterns.",
+  "states": [
+    "Muted slate",
+    "Character count helper",
+    "Status note",
+    "Inline helper row"
+  ],
+  "html": "<div class=\"vib-component-grid\">\n  <div class=\"vib-demo-field\"><label class=\"vib-label\" for=\"helper-muted\">API label</label><input id=\"helper-muted\" class=\"vib-input\" value=\"vibtools-prod\"><p class=\"vib-helper-text\">Muted slate helper text: visible to workspace admins only.</p></div>\n  <div class=\"vib-demo-field\"><label class=\"vib-label\" for=\"helper-count\">Slug</label><input id=\"helper-count\" class=\"vib-input\" value=\"compact-forms\"><div class=\"vib-helper-row\"><span class=\"vib-helper-text\">Lowercase URL slug.</span><span class=\"vib-helper-text\">13/50</span></div></div>\n  <div class=\"vib-demo-field vib-demo-field-wide\"><p class=\"vib-status-note\">Status note: changes update local sandbox previews only.</p></div>\n</div>"
+});

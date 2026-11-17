@@ -1,0 +1,1134 @@
+{
+  "version": "2.1.2",
+  "framework": "Tailwind CDN",
+  "mode": "compact-no-growth",
+  "colors": {
+    "logoBlue": "#0053FC",
+    "logoCyan": "#00BFFD",
+    "logoDark": "#010510",
+    "background": "#0D1117",
+    "backgroundDeep": "#0B0F17",
+    "footerDeep": "#080B11",
+    "surface": "#161B22",
+    "surfaceSubtle": "#11161D",
+    "surfaceHover": "#21262D",
+    "border": "#30373F",
+    "borderStrong": "#46505D",
+    "textPrimary": "#E6EDF3",
+    "textContent": "#C9D1D9",
+    "textSecondary": "#8B949E",
+    "textTertiary": "#6E7681",
+    "primary": "#2563EB",
+    "primaryHover": "#1D4ED8",
+    "secondary": "#38BDF8",
+    "success": "#22C55E",
+    "warning": "#F59E0B",
+    "danger": "#EF4444",
+    "field": "#12171F",
+    "textDocsContent": "#E6EDF3",
+    "borderSoft": "#21262D",
+    "cardBorder": "#30363D",
+    "innerBorder": "#2A303C",
+    "activeBackground": "rgba(37, 99, 235, .10)",
+    "activeBorder": "rgba(56, 189, 248, .18)",
+    "hoverBackground": "rgba(33, 38, 45, .74)",
+    "badgeBackground": "rgba(255, 255, 255, .018)",
+    "gridLine": "rgba(255, 255, 255, .018)",
+    "cardHoverBorder": "#46505D",
+    "buttonSecondaryHoverBorder": "#46505D",
+    "inputFocusBorder": "#38BDF8",
+    "disabledBackground": "rgba(33, 38, 45, .36)",
+    "feedbackBackground": "#11161D",
+    "fieldHover": "#181F2B",
+    "tableHeaderBackground": "rgba(13, 17, 23, .60)",
+    "tableRowHover": "rgba(255, 255, 255, .03)",
+    "tableToolbarBackground": "#161B22",
+    "tableEmptyBackground": "#11161D",
+    "tableSkeletonBackground": "rgba(255, 255, 255, .035)",
+    "fieldFocus": "#151C28",
+    "navActiveBackground": "#12171F",
+    "navActiveBorder": "#38BDF8",
+    "navHoverBackground": "#181F2B",
+    "buttonHeightCompact": "28px",
+    "buttonSecondaryBackground": "#161B22",
+    "buttonSecondaryBorder": "#30373F",
+    "stateSuccessBackground": "#0C2117",
+    "stateSuccessBorder": "#124D31",
+    "stateSuccessText": "#4ADE80",
+    "stateWarningBackground": "#261C0C",
+    "stateWarningBorder": "#523912",
+    "stateWarningText": "#FACC15",
+    "stateDangerBackground": "#280D12",
+    "stateDangerBorder": "#5C1D24",
+    "stateDangerText": "#F87171",
+    "skeletonBackground": "#161B22",
+    "skeletonPulse": "#21262D",
+    "logBackground": "#090D14",
+    "logBorder": "#21262D",
+    "logModalSurface": "#12171F",
+    "logInfoBackground": "rgba(59, 130, 246, 0.15)",
+    "logInfoText": "#60A5FA",
+    "logDebugBackground": "rgba(249, 115, 22, 0.15)",
+    "logDebugText": "#FB923C",
+    "logDebugRowBackground": "rgba(249, 115, 22, 0.08)",
+    "logWarningBackground": "rgba(234, 179, 8, 0.15)",
+    "logWarningText": "#FACC15",
+    "logWarningRowBackground": "rgba(234, 179, 8, 0.08)",
+    "logSuccessBackground": "rgba(34, 197, 94, 0.15)",
+    "logSuccessText": "#4ADE80",
+    "chartCpu": "#38BDF8",
+    "chartCpuBackground": "rgba(56, 189, 248, 0.12)",
+    "chartMemory": "#F472B6",
+    "chartMemoryBackground": "rgba(244, 114, 182, 0.12)",
+    "chartDisk": "#FBBF24",
+    "chartDiskBackground": "rgba(251, 191, 36, 0.12)",
+    "chartNetwork": "#34D399",
+    "meterTrack": "#1C2128",
+    "meterFill": "#E2E8F0",
+    "docSidebarBackground": "#0D1117",
+    "docCodeBackground": "#0A0E14",
+    "docBorder": "#21262D",
+    "methodGetBackground": "rgba(34, 197, 94, 0.15)",
+    "methodGetText": "#4ADE80",
+    "methodPostBackground": "rgba(59, 130, 246, 0.15)",
+    "methodPostText": "#60A5FA",
+    "methodPutBackground": "rgba(234, 179, 8, 0.15)",
+    "methodPutText": "#FACC15",
+    "methodDeleteBackground": "rgba(239, 68, 68, 0.15)",
+    "methodDeleteText": "#F87171",
+    "docTextPrimary": "#E6EDF3",
+    "docTextMuted": "#8B949E",
+    "docTextHeading": "#F0F6FC",
+    "surfaceCard": "#0D1117",
+    "borderSubtle": "#21262D",
+    "authPanel": "#11161D",
+    "authPanelSoft": "#0F141C",
+    "uploadDropzoneBg": "#0F141C",
+    "uploadDropzoneHoverBg": "rgba(56, 189, 248, 0.05)",
+    "uploadDropzoneBorder": "#30373F",
+    "uploadItemBg": "#11161D",
+    "uploadProgressTrack": "#21262D",
+    "uploadProgressFill": "#38BDF8",
+    "settingsActiveBackground": "#1F242C",
+    "dangerButtonBackground": "rgba(248, 81, 73, 0.15)",
+    "dangerButtonText": "#F87171",
+    "dangerButtonBorder": "rgba(248, 81, 73, 0.40)",
+    "dangerButtonHoverBackground": "#DA3633",
+    "surfacePrimary": "#0D1117",
+    "precisionMuted": "#7D8590",
+    "precisionToggleOn": "#238636",
+    "precisionSectionText": "#C9D1D9",
+    "precisionLabelText": "#E6EDF3",
+    "textSoft": "#E6EDF3",
+    "textHeading": "#E6EDF3"
+  },
+  "fontFamilies": {
+    "sans": "\"Inter\", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "mono": "\"JetBrains Mono\", \"SFMono-Regular\", Consolas, \"Liberation Mono\", monospace"
+  },
+  "compactTypeScalePx": {
+    "heroDisplayDefault": 24,
+    "heroDisplayMax": 26,
+    "pageH1Default": 24,
+    "pageH1Max": 26,
+    "h2Default": 16,
+    "h2Max": 18,
+    "h3Default": 14,
+    "h3Max": 16,
+    "bodyDefault": 13,
+    "bodyMax": 13,
+    "bodyLargeDefault": 13,
+    "bodyLargeMax": 13,
+    "uiLabelDefault": 11,
+    "uiLabelMax": 12,
+    "metadataDefault": 11,
+    "metadataMax": 12,
+    "codeDefault": 12,
+    "codeMax": 12
+  },
+  "compactLayoutPx": {
+    "containerDefault": 1280,
+    "docsContentDefault": 100,
+    "dashboardContentMax": 1280,
+    "headerHeightDefault": 44,
+    "headerHeightMax": 56,
+    "mobileHeaderDefault": 44,
+    "buttonHeightDefault": 28,
+    "buttonHeightMax": 36,
+    "inputHeightDefault": 30,
+    "inputHeightMax": 38,
+    "cardPaddingDefault": 10,
+    "cardPaddingMax": 16,
+    "sectionGapDefault": 16,
+    "sectionGapMax": 32,
+    "heroPaddingYDefault": 14,
+    "heroPaddingYMax": 32,
+    "sidebarDefault": 196,
+    "sidebarMax": 240,
+    "tocDefault": 220,
+    "tocMax": 260,
+    "avatarDefault": 22,
+    "avatarMax": 32,
+    "logoWordmarkDefault": 112,
+    "logoWordmarkMax": 148,
+    "logoIconDefault": 24,
+    "logoIconMax": 36,
+    "navRowDefault": 28,
+    "navRowMax": 32,
+    "dropdownPaddingDefault": 8,
+    "dropdownWidthMax": 280,
+    "contentGutterDefault": 16,
+    "gridGapDefault": 12,
+    "tableCellPaddingXDefault": 12,
+    "buttonPaddingXDefault": 12,
+    "buttonPaddingYDefault": 4,
+    "inputPaddingXDefault": 8,
+    "inputPaddingYDefault": 2,
+    "badgePaddingXDefault": 8,
+    "badgePaddingYDefault": 2,
+    "codePaddingXDefault": 12,
+    "codePaddingYDefault": 8,
+    "docsShellMax": 1280,
+    "gridMinColumnDefault": 300,
+    "textareaHeightDefault": 64,
+    "textareaPaddingXDefault": 8,
+    "textareaPaddingYDefault": 6,
+    "formActionMarginTopDefault": 12,
+    "docSidebarDefault": 200,
+    "docsGridGapDefault": 12
+  },
+  "motion": {
+    "transitionDefault": "120ms ease",
+    "transitionMax": "150ms ease",
+    "hoverTransformDefault": "0px",
+    "hoverTransformMax": "1px"
+  },
+  "header_height_default": "44px",
+  "sidebar_width_default": "196px",
+  "button_height_default": "28px form action / 30px base button",
+  "input_height_default": "30px",
+  "card_padding_default": "10px 12px",
+  "body_text_default": "13px",
+  "hero_title_default": "24-26px",
+  "components": {
+    "sidebar_link_icon": "14px pseudo/JS icon slot"
+  },
+  "step_1_typography_density_repair": "applied",
+  "surfaceHierarchy": {
+    "deep": "#0B0F17 sidebar/deepest surface",
+    "canvas": "#0D1117 main canvas",
+    "nestedField": "#11161D nested/code/subtle panel surface",
+    "card": "#161B22 primary card/panel surface",
+    "hoverElevated": "#21262D hover/elevated interaction surface",
+    "insetField": "#12171F input/select/textarea base field surface",
+    "nestedPanel": "#11161D nested/code/subtle panel surface with #2A303C inner border",
+    "fieldHover": "#181F2B input/select/textarea hover surface",
+    "fieldFocus": "#151C28 input/select/textarea focus surface"
+  },
+  "borderHierarchy": {
+    "primaryComponentBorder": "1px solid #30373F",
+    "secondaryInternalBorder": "1px solid #2A303C for nested/subtle/code panels",
+    "strongEmphasisBorder": "1px solid #46505D selective use only",
+    "focusOutline": "form controls use #38BDF8 border plus inset/outer cyan focus ring"
+  },
+  "step_2_color_border_surface_contrast_repair": "applied",
+  "componentVisualTreatment": {
+    "card": {
+      "surface": "#161B22",
+      "border": "1px solid #30363D / #21262D flat border only, no elevation",
+      "hoverBorder": "1px solid #46505D selective hover only",
+      "nestedSurface": "#11161D",
+      "nestedBorder": "1px solid #2A303C",
+      "radius": "12px retained",
+      "shadow": "none enforced globally with !important zero-shadow rule",
+      "padding": "10px 12px via --vib-card-pad and --vib-card-pad-x"
+    },
+    "button": {
+      "primary": "#2563EB / #1D4ED8 retained",
+      "secondary": "#161B22 surface, #30363D border, #46505D hover border",
+      "ghost": "transparent normal, restrained hover surface",
+      "height": "30px base button; 28px inside .vib-form-actions",
+      "radius": "8px retained"
+    },
+    "input": {
+      "surface": "#12171F balanced inset field surface",
+      "hoverSurface": "#181F2B interactive field hover surface",
+      "border": "1px solid #30373F",
+      "focusBorder": "1px solid #38BDF8, no focus box-shadow; global outline remains available",
+      "height": "30px compact form control",
+      "textarea": "64px compact form textarea",
+      "focusSurface": "#151C28 interactive field focus surface"
+    }
+  },
+  "step_3_card_button_input_visual_treatment": "applied",
+  "interactionStates": {
+    "hover": {
+      "buttonSecondary": "#21262D surface with #46505D border retained from Step-3",
+      "ghostButton": "rgba(33, 38, 45, .74) restrained hover surface",
+      "tableRow": "rgba(255, 255, 255, .03) compact no-height-change hover surface",
+      "card": "#46505D selective border only, no shadow/transform"
+    },
+    "activeSelected": {
+      "sidebar": "rgba(37, 99, 235, .10) + rgba(56, 189, 248, .18)",
+      "tableRow": "rgba(37, 99, 235, .10)",
+      "cardAriaSelected": "#46505D border only"
+    },
+    "focus": {
+      "global": "3px solid #38BDF8 with 3px offset retained",
+      "inputBorder": "#46505D retained from Step-3"
+    },
+    "disabled": {
+      "opacity": ".52 dark / .54 light",
+      "cursor": "not-allowed",
+      "hover": "disabled via pointer-events none on disabled controls"
+    },
+    "loading": {
+      "buttonAriaBusy": "compact 10px currentColor spinner, cursor wait, no layout size change"
+    },
+    "feedback": {
+      "success": "#22C55E semantic border tint",
+      "warning": "#F59E0B semantic border tint",
+      "danger": "#EF4444 semantic border tint",
+      "info": "#38BDF8 semantic border tint"
+    }
+  },
+  "step_4_states_interactions_feedback": "applied",
+  "spacingDensityTreatment": {
+    "cardInternalPadding": "10px 12px via --vib-card-pad and --vib-card-pad-x for global form/docs update",
+    "innerCodeFeaturePadding": "8px 12px",
+    "labelToInputGap": "3px",
+    "fieldGroupSeparation": "8px in auth pages, 12px in standard forms",
+    "formActionMarginTop": "12px via .vib-form-actions",
+    "buttonPadding": "4px 12px with 30px min-height retained",
+    "inputPadding": "2px 8px with 30px min-height",
+    "textareaPadding": "6px 8px with 64px min-height",
+    "badgePadding": "2px 8px with 20px min-height retained",
+    "shellContentGutter": "16px",
+    "gridGap": "12px for .vib-grid/.vib-grid-2/.vib-grid-3",
+    "sectionVerticalPadding": "16px retained",
+    "tableCellPadding": "6px 12px"
+  },
+  "step_5_spacing_padding_margin_density": "applied",
+  "layoutAlignmentSpaceDistribution": {
+    "containerWidth": "width: min(100% - 32px, 1280px)",
+    "containerAlignment": "margin-inline auto in shell context",
+    "docsShellWidth": "width: min(100% - 32px, 1280px)",
+    "docsGrid": "200px sidebar + minmax(0, 1fr) content + 220px toc for global docs design",
+    "projectGrid": "repeat(auto-fit, minmax(300px, 1fr)) for .vib-grid-3",
+    "narrowPanels": "380px/520px/560px panels horizontally centered inside layout container",
+    "componentSizes": "unchanged from v1.3.7"
+  },
+  "step_6_layout_alignment_space_distribution": "applied",
+  "globalDocsFormsDesign": {
+    "docsGrid": "200px sidebar + minmax(0, 1fr) body + 220px toc at >=860px",
+    "docsBody": "max-width 100%; h2 margin 14px/4px; h3 margin 10px/4px",
+    "docsToc": "220px column with 8px 10px padding and truncated links",
+    "formsPage": "two-column split: 40% context panel + 60% active form card",
+    "authPages": "two-column compact auth shell with contextual side panel and form card",
+    "profilePage": "two-column profile editor: summary panel + editable form controls",
+    "controls": "30px inputs, 64px textarea, 28px form action buttons, 3px label gap"
+  },
+  "step_7_global_docs_forms_design": "applied",
+  "sidebarDesignSystem": {
+    "sidebarWidth": "196px retained",
+    "grouping": "MAIN / PAGES & AUTH / COMPONENTS / SYSTEM via .vib-sidebar-group and .vib-sidebar-group-title",
+    "groupTitle": "10px / 700 / uppercase / 0.05em / #6E7681",
+    "rowHeight": "28px min-height",
+    "rowPadding": "0 8px",
+    "rowRadius": "6px",
+    "rowWeight": "11.5px / 500",
+    "itemGap": "2px inside groups",
+    "sectionGap": "12px between groups",
+    "iconSlot": "14px x 14px inline SVG currentColor",
+    "iconTextGap": "8px",
+    "activeIndicator": "2px #38BDF8 left border with restrained active fill",
+    "footer": "compact VibTools Sandbox workspace tile with runtime version indicator",
+    "versionSync": "visible runtime/static badge v1.5.1"
+  },
+  "step_8_sidebar_design_system": "applied",
+  "surfaceColorSystem": {
+    "canvas": "#0D1117 retained",
+    "cardSurface": "#161B22 retained",
+    "nestedSurface": "#11161D retained for .vib-card-subtle/.vib-code-inner/.vib-auth-context/.vib-field-surface",
+    "fieldSurface": "#12171F for .vib-input/.vib-select/.vib-textarea",
+    "fieldHoverSurface": "#181F2B for form control hover",
+    "tableHeader": "rgba(13, 17, 23, .60) with #30363D divider",
+    "tableRowHover": "rgba(255, 255, 255, .03)",
+    "alertBackground": "#11161D with semantic left border color",
+    "versionSync": "visible runtime/static badge v1.5.1",
+    "fieldFocusSurface": "#151C28 for form control focus",
+    "componentBorder": "#30373F for default form/control borders",
+    "innerBorder": "#2A303C for .vib-card-subtle and .vib-code-inner"
+  },
+  "step_9_background_surface_color_system": "applied",
+  "tableDesignSystem": {
+    "toolbar": "vib-table-toolbar with strict single-row search, status/category filters and primary/secondary actions",
+    "semantics": "thead/tbody/tfoot with scope=col required for table examples",
+    "selection": "14px checkbox column via .vib-table-checkbox and aria-selected row styling",
+    "sorting": "button-based header sort affordance via .vib-th-sort and .vib-sort-icon",
+    "statusBadge": "dot pill status via .vib-badge-status[data-state=success|warning|danger|info]",
+    "cellUtilities": ".vib-td-mono, .vib-td-numeric, .vib-td-truncate, .vib-td-action",
+    "actions": "compact 26px .vib-icon-button and details-based .vib-action-menu",
+    "footer": "vib-table-footer with entry count, page size selector and compact pagination buttons",
+    "states": "vib-table-state empty/loading surfaces and pulse skeleton rows",
+    "scroll": "thin horizontal scrollbar on .vib-table-wrap",
+    "versionSync": "visible runtime/static badge v1.5.1"
+  },
+  "step_10_global_table_design_features": "applied",
+  "cardFormSurfaceColorBalance": {
+    "baseline": "VibTools_WEB_UI_v1.4.3",
+    "scope": "Global Card + Form Background / Surface / Border / Input Color Balance only",
+    "fieldSurface": "#12171F",
+    "fieldHover": "#181F2B",
+    "fieldFocus": "#151C28",
+    "componentBorder": "#30373F",
+    "innerBorder": "#2A303C",
+    "inputFocusBorder": "#38BDF8",
+    "preserved": "layout, route structure, sidebar system, table feature behavior, typography, spacing, radius, shadows and gradients"
+  },
+  "step_11_card_form_surface_color_balance": "applied",
+  "navigationActionControlsShellRefinement": {
+    "baseline": "VibTools_WEB_UI_v1.4.4",
+    "scope": "Navigation, Action Controls & UI Shell Refinement only",
+    "navActiveBackground": "#12171F",
+    "navActiveBorder": "#38BDF8",
+    "navHoverBackground": "#181F2B",
+    "buttonHeight": "28px compact standard",
+    "buttonPadding": "4px 10px",
+    "secondaryButton": "#161B22 background with #30373F border",
+    "breadcrumb": "navigation.html uses compact Dashboard / Navigation breadcrumb",
+    "preserved": "layout widths, sidebar width, file structure, page routes, card/form/table architecture, typography, radius, shadow and gradient policy"
+  },
+  "step_12_navigation_action_controls_shell_refinement": "applied",
+  "systemFeedbackAlertStates": {
+    "baseline": "VibTools_WEB_UI_v1.4.5",
+    "scope": "System Feedback, Alert Banners & Loading/Empty States only",
+    "alertBanners": "Subtle semantic bg/border tokens, dot indicator, label text, optional 22px close control",
+    "success": {
+      "background": "#0C2117",
+      "border": "#124D31",
+      "text": "#4ADE80"
+    },
+    "warning": {
+      "background": "#261C0C",
+      "border": "#523912",
+      "text": "#FACC15"
+    },
+    "danger": {
+      "background": "#280D12",
+      "border": "#5C1D24",
+      "text": "#F87171"
+    },
+    "loading": {
+      "skeletonBackground": "#161B22",
+      "skeletonPulse": "#21262D",
+      "animation": "vib-skeleton-pulse 1.2s"
+    },
+    "preserved": "layout widths, sidebar dimensions, routes, card/form/table architecture, typography scale, radius, shadows, gradients and dependencies"
+  },
+  "step_13_system_feedback_alerts_empty_states": "applied",
+  "logModal": {
+    "component": "Real-time Deployment & Build Logs Modal",
+    "page": "Sandbox/pages/logs-modal.html",
+    "modalMaxWidth": "850px",
+    "terminalMaxHeight": "450px",
+    "rowGrid": "52px 128px minmax(0, 1fr)",
+    "controls": "Copy Logs, AI Diagnostics, Close, Pin to bottom, Search, Severity filter",
+    "versionSync": "visible runtime/static badge v1.5.1"
+  },
+  "monitoringDashboard": {
+    "scope": "Server Health & Metrics Monitoring Page only",
+    "page": "Sandbox/pages/monitoring.html",
+    "grid": "Desktop two-column .vib-grid-monitoring, mobile one-column collapse",
+    "metricCards": "CPU, Memory, Disk Space, Docker Disk Usage, Block I/O and Network I/O cards using existing .vib-card compact geometry",
+    "progressMeters": "6px rounded meter track using --vib-meter-track and --vib-meter-fill or chart-specific fills",
+    "charts": "Inline SVG area/line chart contract with compact gridlines and no external chart dependency",
+    "donut": "Inline SVG donut chart with center total and Build Cache / Containers / Images / Volumes legend",
+    "timePill": "Right-aligned UTC server time pill updated by sandbox-nav.js",
+    "navigationSync": "Monitoring link added under MAIN sidebar group",
+    "versionSync": "visible runtime/static badge v1.5.1"
+  },
+  "step_14_server_health_metrics_monitoring": "applied",
+  "nextGenDocsApiPlayground": {
+    "baseline": "VibTools_WEB_UI_v1.4.9",
+    "scope": "Next-Gen Developer Documentation & API Playground Layout only",
+    "page": "Sandbox/pages/docs-layout.html",
+    "topSearch": "Search docs input with Ctrl/Cmd+K focus contract",
+    "docsGrid": "240px left docs navigation + fluid center reading/API content + 200px sticky right TOC",
+    "methodBadges": "GET/POST/PUT/DELETE route badges using method-specific semantic tokens",
+    "codeTabs": "cURL, JavaScript, Python and Go tabbed code block with Copy Code action",
+    "quickstartCards": "Compact developer guide cards using existing card density and border system",
+    "preserved": "Global app shell, sidebar width, topbar height, non-docs pages, table/card/form/log/monitoring behavior, typography scale, radius system and dependencies",
+    "currentBaseline": "v2.1.2 official freeze baseline"
+  },
+  "step_15_next_gen_docs_api_playground": "applied",
+  "docsTypographyScalePx": {
+    "h1": 18,
+    "h2": 14,
+    "h3": 13,
+    "body": 12,
+    "sub": 12,
+    "nav": 12,
+    "category": 10,
+    "code": 12
+  },
+  "docsTypographyContrast": {
+    "heading": "#F0F6FC",
+    "primaryBody": "#8B949E",
+    "muted": "#8B949E",
+    "bodyLineHeight": 1.5,
+    "codeLineHeight": 1.45,
+    "scope": "docs-layout.html compact restrained typography layer"
+  },
+  "step_16_docs_typography_text_size_color_contrast_sync": "applied",
+  "currentRelease": "v2.1.2 Single Token Foundation Audit Freeze",
+  "authSurfaceFormArchitecture": {
+    "baseline": "v1.5.1",
+    "scope": "Auth Surface & Compact Form Architecture with v1.6.1 page-category correction",
+    "viewport": {
+      "class": ".vib-auth-viewport / .vib-auth-page",
+      "display": "flex",
+      "alignItems": "center",
+      "justifyContent": "center",
+      "minHeight": "calc(100vh - var(--vib-header))",
+      "padding": "32px 16px",
+      "pages": [
+        "login.html",
+        "register.html"
+      ]
+    },
+    "authCard": {
+      "class": ".vib-auth-card",
+      "maxWidth": "420px standalone / 880px split shell",
+      "background": "var(--vib-surface-card, #0D1117)",
+      "border": "1px solid var(--vib-border-subtle, #21262D)",
+      "radius": "12px card / 16px split shell",
+      "padding": "28px 24px",
+      "shadow": "none (v1.7.3 zero-shadow override)"
+    },
+    "splitView": {
+      "class": ".vib-auth-split-container",
+      "grid": "1fr 1fr",
+      "maxWidth": "880px",
+      "pages": [
+        "login.html",
+        "register.html"
+      ]
+    },
+    "formRhythm": {
+      "fieldGroupGap": "16px",
+      "labelToInputGap": "6px",
+      "actionMarginTop": "20px",
+      "controlHeight": "30px input / 28px action button"
+    },
+    "socialProviders": {
+      "pages": [
+        "login.html",
+        "register.html"
+      ],
+      "providers": [
+        "Google",
+        "GitHub",
+        "Apple"
+      ],
+      "buttonHeight": "30px"
+    },
+    "centeredPages": [
+      "login.html",
+      "register.html"
+    ],
+    "preserved": "Forms and Profile are no longer documented as centered auth pages. Sidebar width, topbar height, route names, docs/table/log/monitoring architecture and global shell remain preserved.",
+    "topAlignedAppPages": [
+      "forms.html",
+      "profile.html",
+      "tables.html",
+      "docs-layout.html",
+      "monitoring.html",
+      "logs-modal.html",
+      "contact.html",
+      "dashboard-shell.html",
+      "home.html",
+      "projects.html",
+      "cards.html"
+    ]
+  },
+  "step_17_auth_surface_compact_form_architecture": "applied",
+  "pageCategoryLayoutSeparation": {
+    "version": "1.6.1",
+    "reason": "v1.6.0 centered forms.html and profile.html like auth pages. v1.6.1 restores dashboard/component pages to top-aligned app flow.",
+    "authPages": {
+      "pages": [
+        "login.html",
+        "register.html"
+      ],
+      "wrapper": ".vib-auth-viewport",
+      "layout": "viewport centered split auth shell",
+      "minHeight": "calc(100vh - var(--vib-header))",
+      "padding": "32px 16px"
+    },
+    "appPages": {
+      "pages": [
+        "forms.html",
+        "profile.html",
+        "upload.html",
+        "settings.html"
+      ],
+      "wrapper": ".vib-app-page",
+      "layout": "top-aligned dashboard flow",
+      "maxWidth": "1200px",
+      "padding": "24px",
+      "headerClass": ".vib-page-header",
+      "gridClass": ".vib-grid-2col"
+    }
+  },
+  "step_18_official_docs_sync": "applied",
+  "uploadFilesComponent": {
+    "version": "1.7.0",
+    "page": "Sandbox/pages/upload.html",
+    "wrapper": ".vib-app-page",
+    "sidebarLabel": "Upload Files",
+    "group": "COMPONENTS",
+    "dropzone": {
+      "class": ".vib-upload-dropzone",
+      "border": "2px dashed var(--vib-upload-dropzone-border)",
+      "radius": "12px",
+      "padding": "32px 20px",
+      "hoverDragBg": "var(--vib-upload-dropzone-hover-bg)"
+    },
+    "queueItem": {
+      "class": ".vib-upload-item",
+      "layout": "icon badge + file metadata/progress + remove control",
+      "padding": "10px 12px",
+      "gap": "12px"
+    },
+    "fileBadges": [
+      ".vib-file-badge.pdf",
+      ".vib-file-badge.png",
+      ".vib-file-badge.docx",
+      ".vib-file-badge.mp4"
+    ],
+    "progress": {
+      "track": ".vib-progress-track",
+      "fill": ".vib-progress-fill",
+      "height": "4px",
+      "widthVariable": "--vib-progress"
+    },
+    "states": [
+      "uploading",
+      "success",
+      "failed/retry"
+    ],
+    "currentBaseline": "v2.1.2 official freeze baseline"
+  },
+  "step_19_file_upload_component": "applied",
+  "settingsPageComponent": {
+    "version": "1.7.4",
+    "page": "Sandbox/pages/settings.html",
+    "wrapper": ".vib-app-page",
+    "sidebarLabel": "Settings",
+    "group": "SYSTEM",
+    "layout": {
+      "class": ".vib-settings-layout",
+      "columns": "220px 1fr",
+      "gap": "32px",
+      "mobile": "1 column at <= 768px"
+    },
+    "subNavigation": [
+      "General",
+      "Appearance & Theme",
+      "Security & API Keys",
+      "Integrations",
+      "Danger Zone"
+    ],
+    "controls": [
+      ".vib-settings-row",
+      ".vib-settings-nav-item",
+      ".vib-switch",
+      ".vib-settings-control",
+      ".vib-settings-danger-card"
+    ],
+    "states": [
+      "active sub-nav",
+      "toggle on/off",
+      "danger zone isolated surface"
+    ],
+    "stickyPolish": {
+      "version": "1.7.3",
+      "sidebarWrapper": ".vib-settings-sidebar",
+      "stickyRule": "position: sticky; top: 24px; align-self: start",
+      "activeIndicator": "2px left accent border using --vib-nav-active-border",
+      "dangerButton": ".vib-btn-danger",
+      "currentBaseline": "v1.7.4 retains sticky behavior"
+    },
+    "currentBaseline": "v2.1.2 official freeze baseline"
+  },
+  "step_20_settings_page_component": "applied",
+  "step_21_sticky_settings_layout_polish": "applied",
+  "zeroShadowPureFlatUIStandard": {
+    "version": "1.7.3",
+    "baseline": "v1.7.3",
+    "scope": "Zero-Shadow Pure Flat UI Standard only",
+    "globalOverride": "*, *::before, *::after { box-shadow: none !important; text-shadow: none !important; }",
+    "surfaceRule": "Components remain flat and are separated by 1px border contracts rather than elevation shadows.",
+    "preserved": [
+      "layout margins",
+      "top alignment",
+      "sidebar width",
+      "topbar height",
+      "routes",
+      "component markup",
+      "JavaScript workflow"
+    ],
+    "currentBaseline": "v1.7.4 retains this contract"
+  },
+  "step_22_zero_shadow_pure_flat_ui_standard": {
+    "version": "1.7.3",
+    "baseline": "v1.7.3",
+    "scope": "Zero-Shadow Pure Flat UI Standard only",
+    "globalOverride": "*, *::before, *::after { box-shadow: none !important; text-shadow: none !important; }",
+    "surfaceRule": "Components remain flat and are separated by 1px border contracts rather than elevation shadows.",
+    "preserved": [
+      "layout margins",
+      "top alignment",
+      "sidebar width",
+      "topbar height",
+      "routes",
+      "component markup",
+      "JavaScript workflow"
+    ]
+  },
+  "compactTypographyRestrainedColorHierarchy": {
+    "version": "1.7.4",
+    "baseline": "v1.7.3",
+    "scope": "upload.html, docs-layout.html and settings.html typography/color hierarchy only",
+    "typeScale": {
+      "pageTitle": "18px",
+      "sectionTitle": "14px",
+      "cardTitle": "13px",
+      "body": "12px",
+      "helperLabel": "11px"
+    },
+    "textColors": {
+      "heading": "#F0F6FC",
+      "section": "#E6EDF3",
+      "cardTitle": "#D0D7DE",
+      "muted": "#8B949E",
+      "helper": "#6E7681"
+    },
+    "badgeRestraint": {
+      "httpMethodBadges": "12% opacity fills with 28% border opacity, 10px semibold text",
+      "fileBadges": "#161B22 fill, #8B949E text, #30363D border"
+    },
+    "preserved": [
+      "zero-shadow flat UI",
+      "route structure",
+      "sidebar/topbar dimensions",
+      "app/auth page category layout",
+      "component markup",
+      "JavaScript workflow"
+    ]
+  },
+  "step_23_compact_typography_restrained_color_hierarchy": {
+    "version": "1.7.4",
+    "baseline": "v1.7.3",
+    "scope": "upload.html, docs-layout.html and settings.html typography/color hierarchy only",
+    "typeScale": {
+      "pageTitle": "18px",
+      "sectionTitle": "14px",
+      "cardTitle": "13px",
+      "body": "12px",
+      "helperLabel": "11px"
+    },
+    "textColors": {
+      "heading": "#F0F6FC",
+      "section": "#E6EDF3",
+      "cardTitle": "#D0D7DE",
+      "muted": "#8B949E",
+      "helper": "#6E7681"
+    },
+    "badgeRestraint": {
+      "httpMethodBadges": "12% opacity fills with 28% border opacity, 10px semibold text",
+      "fileBadges": "#161B22 fill, #8B949E text, #30363D border"
+    },
+    "preserved": [
+      "zero-shadow flat UI",
+      "route structure",
+      "sidebar/topbar dimensions",
+      "app/auth page category layout",
+      "component markup",
+      "JavaScript workflow"
+    ]
+  },
+  "precisionTypographyColorRefinement": {
+    "version": "1.7.5",
+    "baseline": "v1.7.4",
+    "scope": "upload.html, docs-layout.html and settings.html precision typography/color hierarchy only",
+    "typeScale": {
+      "pageTitle": "16px",
+      "sectionTitle": "13px",
+      "rowLabel": "12px",
+      "description": "11px",
+      "badge": "10px"
+    },
+    "textColors": {
+      "heading": "#F0F6FC",
+      "section": "#C9D1D9",
+      "rowLabel": "#E6EDF3",
+      "muted": "#7D8590",
+      "subtle": "#6E7681"
+    },
+    "badgeRestraint": {
+      "httpMethodBadges": "10% opacity fills with 24% border opacity, 10px semibold text",
+      "fileBadges": "#161B22 fill, #7D8590 text, #30363D border"
+    },
+    "activeAccent": {
+      "settingsSwitchChecked": "#238636",
+      "activeLine": "#1F6BEB"
+    },
+    "preserved": [
+      "zero-shadow flat UI",
+      "route structure",
+      "sidebar/topbar dimensions",
+      "app/auth page category layout",
+      "component markup",
+      "JavaScript workflow"
+    ]
+  },
+  "step_24_precision_typography_color_refinement": {
+    "version": "1.7.5",
+    "baseline": "v1.7.4",
+    "scope": "upload.html, docs-layout.html and settings.html precision typography/color hierarchy only",
+    "typeScale": {
+      "pageTitle": "16px",
+      "sectionTitle": "13px",
+      "rowLabel": "12px",
+      "description": "11px",
+      "badge": "10px"
+    },
+    "textColors": {
+      "heading": "#F0F6FC",
+      "section": "#C9D1D9",
+      "rowLabel": "#E6EDF3",
+      "muted": "#7D8590",
+      "subtle": "#6E7681"
+    },
+    "badgeRestraint": {
+      "httpMethodBadges": "10% opacity fills with 24% border opacity, 10px semibold text",
+      "fileBadges": "#161B22 fill, #7D8590 text, #30363D border"
+    },
+    "activeAccent": {
+      "settingsSwitchChecked": "#238636",
+      "activeLine": "#1F6BEB"
+    },
+    "preserved": [
+      "zero-shadow flat UI",
+      "route structure",
+      "sidebar/topbar dimensions",
+      "app/auth page category layout",
+      "component markup",
+      "JavaScript workflow"
+    ]
+  },
+  "productionGradeFormComponentsPlayground": {
+    "version": "1.8.1",
+    "baseline": "v2.1.2 official freeze baseline",
+    "scope": "Production-Grade Form Components Playground only",
+    "page": "Sandbox/pages/forms.html",
+    "moduleDirectory": "Sandbox/pages/forms/",
+    "moduleCount": 15,
+    "modules": [
+      "input.html / input.js",
+      "password.html / password.js",
+      "search.html / search.js",
+      "select.html / select.js",
+      "textarea.html / textarea.js",
+      "checkbox.html / checkbox.js",
+      "radio.html / radio.js",
+      "switch.html / switch.js",
+      "file-input.html / file-input.js",
+      "form-label.html / form-label.js",
+      "helper-text.html / helper-text.js",
+      "validation.html / validation.js",
+      "disabled.html / disabled.js",
+      "readonly.html / readonly.js",
+      "loading.html / loading.js"
+    ],
+    "layout": {
+      "wrapper": ".vib-app-page.vib-forms-playground-page",
+      "container": ".vib-playground-container",
+      "card": ".vib-component-card",
+      "header": ".vib-component-header",
+      "topAlignment": true,
+      "scrollable": true
+    },
+    "typography": {
+      "pageTitle": "16px",
+      "sectionTitle": "13px",
+      "label": "12px",
+      "helperText": "11px #7D8590"
+    },
+    "states": [
+      "default",
+      "placeholder",
+      "value",
+      "hover",
+      "focus",
+      "success",
+      "warning",
+      "error",
+      "disabled",
+      "readonly",
+      "loading",
+      "medium size",
+      "eye-icon password toggle"
+    ],
+    "preserved": [
+      "zero-shadow flat UI",
+      "app shell",
+      "sidebar structure",
+      "topbar height",
+      "auth centering",
+      "settings/docs/upload behavior"
+    ]
+  },
+  "currentBaseline": "v2.1.2 freezes the Single Token Foundation Engine audit freeze over the frozen v2.1.2 official freeze baseline",
+  "formsPlaygroundVerificationFix": {
+    "version": "1.8.1",
+    "baseline": "v2.1.2 official freeze baseline",
+    "scope": "Latest Forms Playground verification/fix only",
+    "fixedStateEvidence": [
+      "input medium size",
+      "input hover preview",
+      "input focus preview",
+      "password eye-icon toggle",
+      "search Ctrl+K badge text",
+      "form-label tooltip outside label",
+      "helper muted slate copy",
+      "disabled pointer-events-none greyed surface",
+      "readonly lock icon"
+    ],
+    "preserved": [
+      "15 module count",
+      "forms.html route",
+      "app shell",
+      "zero-shadow flat UI",
+      "v2.1.2 precision typography"
+    ]
+  },
+  "formsPlaygroundSoftTypographyContrastCalibration": {
+    "version": "1.9.0",
+    "scope": "forms.html and Sandbox/pages/forms/* only",
+    "fontWeightContract": {
+      "componentHeaders": "500 maximum",
+      "labels": "500",
+      "inputsSelectsTextareas": "400",
+      "placeholders": "400",
+      "badgesAndHelperText": "400",
+      "buttons": "500 maximum"
+    },
+    "colorContract": {
+      "primaryText": "#E6EDF3",
+      "labelText": "#C9D1D9",
+      "helperText": "#8B949E",
+      "placeholderText": "#6E7681",
+      "fieldBackground": "#0D1117",
+      "fieldBorder": "#30363D"
+    },
+    "preservedInteractions": [
+      "password eye toggle",
+      "Ctrl+K search badge",
+      "clear search action",
+      "async spinner",
+      "textarea auto-expand",
+      "character counter",
+      "indeterminate checkbox",
+      "file input/change label",
+      "dropzone drag states",
+      "disabled surface pointer-events none",
+      "readonly lock state",
+      "loading skeleton/spinner"
+    ]
+  },
+  "productionGradeCardComponentsPlayground": {
+    "version": "1.9.0",
+    "baseline": "v1.9.0 soft typography contrast baseline",
+    "scope": "Production-Grade Card Components Playground only",
+    "page": "Sandbox/pages/cards.html",
+    "moduleDirectory": "Sandbox/pages/cards/",
+    "moduleCount": 11,
+    "modules": [
+      "base.html / base.js",
+      "compact.html / compact.js",
+      "elevated.html / elevated.js",
+      "nested.html / nested.js",
+      "stat.html / stat.js",
+      "metric.html / metric.js",
+      "feature.html / feature.js",
+      "project.html / project.js",
+      "empty.html / empty.js",
+      "error.html / error.js",
+      "loading.html / loading.js"
+    ],
+    "layout": {
+      "wrapper": ".vib-app-page.vib-cards-playground-page",
+      "container": ".vib-cards-playground",
+      "section": ".vib-card-section",
+      "topAlignment": true,
+      "scrollable": true
+    },
+    "visualContract": {
+      "title": "#E6EDF3 / 500",
+      "body": "#8B949E / 400",
+      "border": "1px #30363D",
+      "shadow": "none",
+      "surface": "#0D1117 / #161B22"
+    },
+    "states": [
+      "default",
+      "compact",
+      "hover preview",
+      "active border",
+      "nested",
+      "stat trend",
+      "metric progress",
+      "feature",
+      "project",
+      "empty",
+      "error",
+      "loading skeleton"
+    ],
+    "preserved": [
+      "zero-shadow flat UI",
+      "app shell",
+      "sidebar structure",
+      "topbar height",
+      "auth centering",
+      "forms playground",
+      "settings/docs/upload behavior"
+    ],
+    "verifiedIn": "1.9.1",
+    "visualRefinement": "v1.9.1 caps card-page typography at 400/500 and removes white glare from card titles/buttons/badges."
+  },
+  "cardTypographyWeightBrightnessRefinement": {
+    "version": "1.9.1",
+    "baseline": "VibTools_WEB_UI_ v1.9.0.zip",
+    "scope": "cards.html and Sandbox/pages/cards/* rendered modules only",
+    "rules": {
+      "pageTitle": "16px / 500 / #E6EDF3",
+      "sectionTitle": "13px / 500 / #C9D1D9",
+      "cardTitle": "12px / 500 / #E6EDF3",
+      "buttons": "12px / 500 / #E6EDF3",
+      "badgesAndDescriptions": "12px / 400 / #8B949E",
+      "code": "400 / #C9D1D9"
+    },
+    "preserved": [
+      "11 card module pairs",
+      "card-playground.js loader",
+      "scrollable cards.html layout",
+      "zero-shadow flat UI",
+      "sidebar/topbar/shell architecture"
+    ]
+  },
+  "productionGradeNavigationComponentsPlayground": {
+    "version": "2.0.1",
+    "baseline": "VibTools_WEB_UI_v2.0.0.zip",
+    "scope": "Polish & Typography Refinement for Navigation Playground only",
+    "page": "Sandbox/pages/navigation.html",
+    "moduleDirectory": "Sandbox/pages/Navigation/",
+    "moduleCount": 8,
+    "modules": [
+      "sidebar",
+      "topbar",
+      "nav-link",
+      "active-link",
+      "breadcrumb",
+      "tabs",
+      "pagination",
+      "dropdown"
+    ],
+    "typography": {
+      "maxHeadingWeight": 500,
+      "linkWeight": 400,
+      "badgeWeight": 400,
+      "buttonWeight": 500,
+      "titleColor": "#E6EDF3",
+      "subtitleColor": "#C9D1D9",
+      "bodyColor": "#8B949E"
+    },
+    "layout": "scrollable full-width top-aligned app page with jump index",
+    "visualContract": "zero-shadow flat borders #30363D; no shell/sidebar/topbar architecture change",
+    "preserved": [
+      "app shell",
+      "sidebar width",
+      "topbar height",
+      "forms playground",
+      "cards playground",
+      "docs",
+      "upload",
+      "settings",
+      "monitoring",
+      "logs modal",
+      "backend/API logic"
+    ],
+    "activeState": "border-only active state with transparent background and softened #38BDF8 accent",
+    "pagination": "32px controls, 12px text, max 500 weight, #2D3748 border"
+  },
+  "navigationPlaygroundPolishTypographyRefinement": {
+    "version": "2.0.1",
+    "baseline": "VibTools_WEB_UI_v2.0.0.zip",
+    "scope": "navigation.html and Sandbox/pages/Navigation/* only",
+    "headingWeightMax": 500,
+    "bodyWeight": 400,
+    "buttonHeightPx": 32,
+    "buttonFontSizePx": 12,
+    "buttonWeightMax": 500,
+    "badgeFontSizePx": 11,
+    "badgeWeight": 400,
+    "colors": {
+      "primary": "#E6EDF3",
+      "secondary": "#C9D1D9",
+      "muted": "#8B949E",
+      "border": "#2D3748",
+      "accent": "#38BDF8"
+    },
+    "preserved": [
+      "8 navigation modules",
+      "module loader",
+      "app shell",
+      "sidebar width",
+      "topbar height",
+      "zero-shadow flat UI",
+      "forms/cards playgrounds",
+      "docs/upload/settings"
+    ]
+  },
+  "singleTokenFoundationEngine": {
+    "version": "v2.1.2",
+    "root": "Sandbox/assets/css/foundation/_tokens.css",
+    "aggregator": "Sandbox/assets/css/vibtools-theme.css",
+    "files": [
+      "_tokens.css",
+      "_typography.css",
+      "_spacing.css",
+      "_surfaces.css",
+      "_motion.css"
+    ],
+    "legacyAliasContract": "Core --vib-* runtime variables resolve through foundation semantic tokens.",
+    "acceptanceCriteria": [
+      "Changing --color-cyan-500 updates focus/accent/nav/upload/chart aliases.",
+      "Changing --bg-surface-card updates card/table/navigation/forms surfaces through --vib-surface and .ui-card.",
+      "Zero-shadow flat UI remains preserved."
+    ],
+    "verificationFix": "Expanded remaining legacy --vib-* and Tailwind CDN aliases to resolve through foundation semantic/component tokens; softened text-primary to #E6EDF3; no page layout or workflow change.",
+    "tailwindAliasContract": "Sandbox/js/tailwind-config.js now exposes both ui.* and legacy vib.* aliases through CSS variables where supported."
+  },
+  "documentationSync": "v2.1.2 official freeze documents full rewrite sync",
+  "officialFreeze": {
+    "baseline": "VibTools_WEB_UI_v2.1.2.zip",
+    "status": "active",
+    "documentationStatus": "fully synced to v2.1.2",
+    "runtimeChangedByDocsSync": false,
+    "primaryTextToken": "#E6EDF3",
+    "sourceOfTruth": "Sandbox/assets/css/foundation + Sandbox/assets/css/vibtools-theme.css"
+  }
+}

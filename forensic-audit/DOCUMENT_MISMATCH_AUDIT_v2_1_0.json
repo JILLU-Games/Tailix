@@ -1,0 +1,35 @@
+{
+  "version": "v2.1.0",
+  "baseline": "VibTools_WEB_UI_v2.0.1.zip",
+  "scope": "Architecture Blueprint: Single Token Foundation Engine",
+  "runtimeFilesAdded": [
+    "Sandbox/assets/css/foundation/_tokens.css",
+    "Sandbox/assets/css/foundation/_typography.css",
+    "Sandbox/assets/css/foundation/_spacing.css",
+    "Sandbox/assets/css/foundation/_surfaces.css",
+    "Sandbox/assets/css/foundation/_motion.css",
+    "Sandbox/assets/css/vibtools-theme.css"
+  ],
+  "runtimeFilesUpdated": [
+    "Sandbox/css/vibtools-sandbox.css",
+    "Sandbox/js/tailwind-config.js",
+    "Sandbox/js/sandbox-nav.js",
+    "Sandbox/index.html",
+    "Sandbox/pages/*.html"
+  ],
+  "documentsUpdated": [
+    "CHANGELOG_v2_1_0.md",
+    "forensic-audit/FORENSIC_AUDIT_REPORT_v2_1_0.md",
+    "forensic-audit/DOCUMENT_MISMATCH_AUDIT_v2_1_0.json",
+    "README.md",
+    "MANIFEST.md",
+    "Sandbox/README.md",
+    "design-tokens/vibtools.compact.tokens.css",
+    "design-tokens/vibtools.compact.tokens.json",
+    "components/component-contracts-tailwind-cdn.md",
+    "docs/*.md",
+    "validation/*"
+  ],
+  "status": "PASS",
+  "scopeGuard": "Only foundation token architecture and version/document sync were changed."
+}

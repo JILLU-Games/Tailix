@@ -1,0 +1,54 @@
+{
+  "version": "v1.8.1",
+  "baseline": "VibTools_WEB_UI_v1.8.0.zip",
+  "scope": "Latest v1.8.0 Forms Playground verification and exact-state correction only",
+  "initial_mismatches_found": [
+    {
+      "component": "Input",
+      "issue": "Medium state was listed but no medium input was implemented",
+      "fix": "Added explicit Medium input and .vib-input-md"
+    },
+    {
+      "component": "Input",
+      "issue": "Hover/focus state evidence was not explicit enough",
+      "fix": "Added Hover preview and Focus preview fields"
+    },
+    {
+      "component": "Password",
+      "issue": "Spec asked for eye icon; v1.8.0 used text-only Show/Hide button",
+      "fix": "Added .vib-password-eye icon toggle and accessible label updates"
+    },
+    {
+      "component": "Search",
+      "issue": "Hotkey badge text used Ctrl K instead of Ctrl+K",
+      "fix": "Corrected badge text"
+    },
+    {
+      "component": "Form Label",
+      "issue": "Tooltip button was nested inside label",
+      "fix": "Moved tooltip button outside label in .vib-label-row"
+    },
+    {
+      "component": "Helper Text",
+      "issue": "Muted slate state was implicit only",
+      "fix": "Added explicit muted slate helper text evidence"
+    },
+    {
+      "component": "Disabled",
+      "issue": "Pointer-events none and greyed background state were implicit only",
+      "fix": "Added .vib-disabled-surface with disabled opacity, greyed background and pointer-events none"
+    },
+    {
+      "component": "Readonly",
+      "issue": "Lock affordance used text instead of compact lock icon",
+      "fix": "Replaced visible affordance with lock icon"
+    }
+  ],
+  "scope_outside_changes": "None functionally. Version badges, docs, manifest, token records and validation files were updated for v1.8.1 only.",
+  "verification": {
+    "static_project_check": "pass",
+    "local_reference_check": "pass",
+    "javascript_syntax_check": "pass",
+    "browser_render_check": "blocked_once_ERR_BLOCKED_BY_ADMINISTRATOR_no_retry"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "version": "v1.7.4",
+  "baseline": "v1.7.3",
+  "scope": "Compact Typography & Restrained Color Hierarchy",
+  "mismatches_found": [
+    {
+      "area": "visual typography scale",
+      "before": "v1.7.3 page titles inherited 22px\u201324px sizing",
+      "after": "v1.7.4 scoped pages use 18px page-title contract"
+    },
+    {
+      "area": "body/description contrast",
+      "before": "descriptive copy competed with headings",
+      "after": "descriptive copy muted to #8B949E at 12px"
+    },
+    {
+      "area": "HTTP and file badges",
+      "before": "badges appeared too bright/neon",
+      "after": "badges use desaturated fills or neutral file badge surface"
+    }
+  ],
+  "documents_rewritten": [
+    "README.md",
+    "MANIFEST.md",
+    "CHANGELOG_v1_7_4.md",
+    "design-tokens/vibtools.compact.tokens.json",
+    "design-tokens/vibtools.compact.tokens.css",
+    "components/component-contracts-tailwind-cdn.md",
+    "ai-handoff/VibTools_AI_Developer_Handoff_Tailwind_CDN_Compact.md"
+  ],
+  "sandbox_changed_pages": [
+    "Sandbox/css/vibtools-sandbox.css",
+    "Sandbox/pages/*.html version badges",
+    "Sandbox/js/sandbox-nav.js"
+  ],
+  "scope_guard": "No layout, routing, behavior or architecture change."
+}

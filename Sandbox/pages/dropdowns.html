@@ -1,0 +1,104 @@
+﻿<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dropdowns — VibTools Sandbox</title>
+  <meta name="description" content="Dropdown sandbox page">
+  <script src="../js/tailwind-config.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/css/vibtools-theme.css">
+  <link rel="stylesheet" href="../css/vibtools-sandbox.css">
+  <link rel="stylesheet" href="../css/sandbox-only.css">
+</head>
+<body>
+  <div class="vib-shell">
+    <header class="vib-topbar sticky top-0 z-20">
+      <div class="vib-container vib-topbar-inner">
+        <a href="../index.html" class="vib-brand">
+          <img src="../assets/brand/placeholder-vibtools-icon.svg" class="w-[var(--icon-lg)] h-[var(--icon-lg)]" alt="">
+          <span>VibTools UI Sandbox</span>
+        </a>
+        <div class="vib-row">
+          <span class="vib-badge">v2.1.2</span>
+          <span class="vib-badge">Tailwind CDN</span>
+          <span class="vib-badge">Compact</span>
+        </div>
+      </div>
+    </header>
+    <div class="vib-layout">
+      <aside class="vib-sidebar shrink-0">
+        <div class="vib-sidebar-inner">
+          <nav class="vib-stack-sm" aria-label="Sandbox pages">
+            <a class="vib-sidebar-link" href="../index.html">Overview</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="home.html">Home</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="projects.html">Projects</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="about.html">About</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="contact.html">Contact</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="docs-layout.html">Docs</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="dashboard-shell.html">Dashboard</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="monitoring.html">Monitoring</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="login.html">Login</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="register.html">Register</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="profile.html">Profile</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="forms.html">Forms</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="upload.html">Upload Files</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="tables.html">Tables</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="cards.html">Cards</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="navigation.html">Navigation</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="dropdowns.html">Dropdowns</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="alerts-states.html">States</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="empty-loading-error.html">Empty/Error</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="logs-modal.html">Logs</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="settings.html">Settings</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="typography-colors.html">Tokens</a>
+          </nav>
+        </div>
+      </aside>
+      <main class="vib-main">
+<section class="vib-app-page vib-cards-playground-page">
+    <div class="vib-page-header vib-playground-hero">
+      <div>
+    <p class="vib-kicker">Dropdowns Demo</p>
+    <h1 class="vib-h1 mt-2">Compact menu and popover surfaces.</h1>
+    <p class="vib-body mt-2">Dropdown-like surfaces use the same surface, border, radius and menu-row components.</p>
+    
+  </div>
+    </div>
+    <div class="vib-playground-container">
+  <article class="vib-card vib-card-pad relative min-h-[340px]">
+    <h2 class="vib-h2">Menu panel</h2>
+    <div class="absolute top-16 left-6 w-64 bg-vib-surface border border-vib-borderSubtle rounded-vib-card shadow-[var(--shadow-overlay)] z-50 flex flex-col p-1">
+      <a class="flex items-center justify-between px-3 py-2 vib-body text-vib-text hover:bg-vib-navHoverBg rounded-vib-sm transition-colors" href="#">
+        <span>Profile</span>
+        <span class="vib-meta font-mono">?P</span>
+      </a>
+      <a class="flex items-center justify-between px-3 py-2 vib-body text-vib-text bg-vib-navActiveBg border border-vib-navActiveBorder rounded-vib-sm" href="#">
+        <span>Settings</span>
+        <span class="vib-meta font-mono">Enter</span>
+      </a>
+      <a class="flex items-center justify-between px-3 py-2 vib-body text-vib-text hover:bg-vib-navHoverBg rounded-vib-sm transition-colors" href="#">
+        <span>Support</span>
+      </a>
+      <div class="h-px bg-vib-borderSubtle my-1 mx-2"></div>
+      <a class="flex items-center justify-between px-3 py-2 vib-body text-vib-danger hover:bg-vib-dangerButtonHoverBg rounded-vib-sm transition-colors" href="#">
+        <span>Delete Account</span>
+        <span class="vib-meta text-vib-danger font-mono opacity-80">Del</span>
+      </a>
+    </div>
+  </article>
+  
+  <article class="vib-card vib-card-pad relative min-h-[340px]">
+    <h2 class="vib-h2">Popover</h2>
+    <div class="absolute top-16 left-6 w-72 bg-vib-surface border border-vib-borderSubtle rounded-vib-card shadow-[var(--shadow-overlay)] z-50 p-4">
+      <p class="vib-body font-medium text-vib-text">Compact popover</p>
+      <p class="vib-body text-vib-muted mt-1">No wide dropdowns, no large padding, no glass effect. Positioned securely to prevent viewport clipping.</p>
+    </div>
+  </article>
+</div></section>
+      </main>
+    </div>
+  </div>
+  <script src="../js/sandbox-nav.js"></script>
+</body>
+</html>

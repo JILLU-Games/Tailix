@@ -1,0 +1,148 @@
+{
+  "canonical_defaults": {
+    "version": "1.2",
+    "framework": "Tailwind CDN",
+    "mode": "compact-no-growth",
+    "colors": {
+      "logoBlue": "#0053FC",
+      "logoCyan": "#00BFFD",
+      "logoDark": "#010510",
+      "background": "#0D1117",
+      "backgroundDeep": "#0B0F17",
+      "footerDeep": "#080B11",
+      "surface": "#161B22",
+      "surfaceSubtle": "#11161D",
+      "surfaceHover": "#21262D",
+      "border": "#30363D",
+      "borderStrong": "#46505D",
+      "textPrimary": "#F8FAFC",
+      "textContent": "#D8DEE9",
+      "textSecondary": "#8B949E",
+      "textTertiary": "#6E7681",
+      "primary": "#2563EB",
+      "primaryHover": "#1D4ED8",
+      "secondary": "#38BDF8",
+      "success": "#22C55E",
+      "warning": "#F59E0B",
+      "danger": "#EF4444"
+    },
+    "fontFamilies": {
+      "sans": "\"Inter\", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "mono": "\"JetBrains Mono\", \"SFMono-Regular\", Consolas, \"Liberation Mono\", monospace"
+    },
+    "compactTypeScalePx": {
+      "heroDisplayDefault": 40,
+      "heroDisplayMax": 48,
+      "pageH1Default": 32,
+      "pageH1Max": 36,
+      "h2Default": 22,
+      "h2Max": 24,
+      "h3Default": 17,
+      "h3Max": 20,
+      "bodyDefault": 14,
+      "bodyMax": 16,
+      "bodyLargeDefault": 15,
+      "bodyLargeMax": 16,
+      "uiLabelDefault": 12,
+      "uiLabelMax": 14,
+      "metadataDefault": 11,
+      "metadataMax": 13,
+      "codeDefault": 12,
+      "codeMax": 13
+    },
+    "compactLayoutPx": {
+      "containerDefault": 1200,
+      "docsContentDefault": 820,
+      "dashboardContentMax": 1440,
+      "headerHeightDefault": 56,
+      "headerHeightMax": 64,
+      "mobileHeaderDefault": 52,
+      "buttonHeightDefault": 36,
+      "buttonHeightMax": 44,
+      "inputHeightDefault": 38,
+      "inputHeightMax": 42,
+      "cardPaddingDefault": 16,
+      "cardPaddingMax": 20,
+      "sectionGapDefault": 40,
+      "sectionGapMax": 64,
+      "heroPaddingYDefault": 48,
+      "heroPaddingYMax": 64,
+      "sidebarDefault": 240,
+      "sidebarMax": 268,
+      "tocDefault": 260,
+      "tocMax": 280,
+      "avatarDefault": 28,
+      "avatarMax": 40,
+      "logoWordmarkDefault": 128,
+      "logoWordmarkMax": 160,
+      "logoIconDefault": 36,
+      "logoIconMax": 40,
+      "navRowDefault": 36,
+      "navRowMax": 44,
+      "dropdownPaddingDefault": 8,
+      "dropdownWidthMax": 320
+    },
+    "motion": {
+      "transitionDefault": "120ms ease",
+      "transitionMax": "150ms ease",
+      "hoverTransformDefault": "-1px",
+      "hoverTransformMax": "2px"
+    }
+  },
+  "source_maxima": {
+    "vibtools.github.io": {
+      "headerHeight": "64px (min-h-16)",
+      "navRow": "44px (min-h-11)",
+      "heroPaddingY": "64px base / 96px desktop (py-16 sm:py-24)",
+      "heroTitle": "36px base / 60px Tailwind text-6xl source approximation",
+      "button": "44px",
+      "cardPadding": "20px",
+      "wordmarkWidth": "144px base / 160px desktop"
+    },
+    "vib-id-account-portal": {
+      "topbarHeight": "64px",
+      "sidebar": "268px",
+      "button": "40px",
+      "input": "42px",
+      "body": "15px",
+      "authCardWidth": "440px",
+      "authCardPadding": "24px",
+      "avatar": "32px / 40px large",
+      "profileAvatarPreview": "80px source max"
+    },
+    "ygit-schema": {
+      "body": "14px",
+      "h1": "24px",
+      "h2": "18px",
+      "h3": "16px",
+      "header": "60px",
+      "sidebar": "240px",
+      "toc": "280px",
+      "content": "820px"
+    },
+    "ygit-platform": {
+      "navbarLogo": "28px",
+      "cardShadow": "none",
+      "imageRadius": "12px",
+      "activeMenuLeftBorder": "2px"
+    },
+    "brand_pdf": {
+      "buttonHeight": "36\u201344px",
+      "cardRadius": "12px",
+      "container": "1200px",
+      "spacingGrid": "4px base / 8px icon gap",
+      "heroType": "48\u201364px broad brand range; v1.2 compact caps at 48px"
+    }
+  },
+  "compact_decisions": {
+    "no_growth": true,
+    "tailwind_cdn": true,
+    "global_font": "Inter",
+    "marketing_display_font": "not canonical; marketing-only source evidence",
+    "default_hero": "32\u201340px, max 48px",
+    "default_card_padding": "16px",
+    "default_button": "36px",
+    "default_header": "56px",
+    "default_sidebar": "240px"
+  }
+}

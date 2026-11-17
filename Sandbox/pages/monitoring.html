@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Monitoring — VibTools Sandbox</title>
+  <meta name="description" content="Server health and metrics monitoring sandbox page">
+  <script src="../js/tailwind-config.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/css/vibtools-theme.css">
+  <link rel="stylesheet" href="../css/vibtools-sandbox.css">
+  <link rel="stylesheet" href="../css/sandbox-only.css">
+</head>
+<body>
+  <div class="vib-shell">
+    <header class="vib-topbar sticky top-0 z-20">
+      <div class="vib-container vib-topbar-inner">
+        <a href="../index.html" class="vib-brand">
+          <img src="../assets/brand/placeholder-vibtools-icon.svg" class="w-[var(--icon-lg)] h-[var(--icon-lg)]" alt="">
+          <span>VibTools UI Sandbox</span>
+        </a>
+        <div class="vib-row">
+          <span class="vib-badge">v2.1.2</span>
+          <span class="vib-badge">Tailwind CDN</span>
+          <span class="vib-badge">Compact</span>
+        </div>
+      </div>
+    </header>
+    <div class="vib-layout">
+      <aside class="vib-sidebar shrink-0">
+        <div class="vib-sidebar-inner">
+          <nav class="vib-stack-sm" aria-label="Sandbox pages">
+            <a class="vib-sidebar-link" href="../index.html">Overview</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="home.html">Home</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="projects.html">Projects</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="about.html">About</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="contact.html">Contact</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="docs-layout.html">Docs</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="dashboard-shell.html">Dashboard</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="monitoring.html">Monitoring</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="login.html">Login</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="register.html">Register</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="profile.html">Profile</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="forms.html">Forms</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="upload.html">Upload Files</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="tables.html">Tables</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="cards.html">Cards</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="navigation.html">Navigation</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="dropdowns.html">Dropdowns</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="alerts-states.html">States</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="empty-loading-error.html">Empty/Error</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="logs-modal.html">Logs</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="settings.html">Settings</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="typography-colors.html">Tokens</a>
+          </nav>
+        </div>
+      </aside>
+      <main class="vib-main">
+        <section class="vib-app-page vib-cards-playground-page">
+          <div class="vib-page-header flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <p class="vib-kicker">Monitoring Demo</p>
+              <h1 class="vib-h1 mt-2">Monitoring</h1>
+              <p class="vib-body mt-2">Watch CPU, memory, disk, Docker usage and I/O metrics in the current app.</p>
+            </div>
+            <div class="vib-monitor-timebar" aria-label="Server time">
+              <span class="vib-pill-utc">Server Time: <span data-monitoring-clock>23:20:40</span></span>
+              <span class="vib-pill-utc">UTC</span>
+              <span class="vib-pill-utc">UTC+00:00</span>
+            </div>
+          </div>
+          <div class="vib-playground-container">
+            <div class="vib-grid-monitoring">
+              <article class="vib-card vib-card-pad vib-card-metric" aria-label="CPU usage metric">
+                <div class="vib-metric-head">
+                  <div>
+                    <h2 class="vib-metric-name">CPU Usage</h2>
+                    <p class="vib-metric-value mt-1">Used: 13.58%</p>
+                  </div>
+                  <span class="inline-flex items-center px-2 py-0.5 rounded-full vib-meta font-medium bg-vib-badgeBg text-vib-textMuted border border-vib-borderSubtle">Live</span>
+                </div>
+                <div class="vib-meter" aria-label="CPU used 13.58 percent"><span class="vib-meter-fill transition-all" data-chart="cpu" style="--vib-meter-value: 13.58%"></span></div>
+                <div class="vib-chart-frame">
+                  <svg class="vib-chart-svg" viewBox="0 0 360 136" role="img" aria-label="CPU usage line chart">
+                    <defs><linearGradient id="cpuFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="var(--vib-chart-cpu)" stop-opacity="0.30"/><stop offset="1" stop-color="var(--vib-chart-cpu)" stop-opacity="0"/></linearGradient></defs>
+                    <line class="vib-chart-grid" x1="34" x2="352" y1="14" y2="14"/><line class="vib-chart-grid" x1="34" x2="352" y1="42" y2="42"/><line class="vib-chart-grid" x1="34" x2="352" y1="70" y2="70"/><line class="vib-chart-grid" x1="34" x2="352" y1="98" y2="98"/><line class="vib-chart-grid" x1="34" x2="352" y1="126" y2="126"/>
+                    <text class="vib-chart-axis-label" x="4" y="17">100%</text><text class="vib-chart-axis-label" x="8" y="45">75%</text><text class="vib-chart-axis-label" x="8" y="73">50%</text><text class="vib-chart-axis-label" x="8" y="101">25%</text><text class="vib-chart-axis-label" x="12" y="128">0%</text>
+                    <path class="vib-chart-fill" fill="url(#cpuFill)" d="M34 124 L70 123 L104 124 L138 123 L172 123 L205 121 L222 113 L228 124 L244 123 L252 38 L262 36 L270 55 L278 31 L286 49 L294 25 L302 54 L310 29 L318 82 L326 58 L334 94 L342 75 L352 101 L352 126 L34 126 Z"/>
+                    <path class="vib-chart-line" data-chart="cpu" d="M34 124 L70 123 L104 124 L138 123 L172 123 L205 121 L222 113 L228 124 L244 123 L252 38 L262 36 L270 55 L278 31 L286 49 L294 25 L302 54 L310 29 L318 82 L326 58 L334 94 L342 75 L352 101"/>
+                  </svg>
+                  <div class="vib-chart-legend"><span class="vib-chart-legend-item" style="color: var(--vib-chart-cpu)"><span class="vib-chart-dot"></span>CPU Usage</span></div>
+                </div>
+              </article>
+
+              <article class="vib-card vib-card-pad vib-card-metric" aria-label="Memory usage metric">
+                <div class="vib-metric-head">
+                  <div>
+                    <h2 class="vib-metric-name">Memory Usage</h2>
+                    <p class="vib-metric-value mt-1">Used: 5.88GiB / Limit: 15.62GiB</p>
+                  </div>
+                  <span class="inline-flex items-center px-2 py-0.5 rounded-full vib-meta font-medium bg-vib-badgeBg text-vib-textMuted border border-vib-borderSubtle">Stable</span>
+                </div>
+                <div class="vib-meter" aria-label="Memory used 37.64 percent"><span class="vib-meter-fill transition-all" data-chart="memory" style="--vib-meter-value: 37.64%"></span></div>
+                <div class="vib-chart-frame">
+                  <svg class="vib-chart-svg" viewBox="0 0 360 136" role="img" aria-label="Memory usage area chart">
+                    <defs><linearGradient id="memoryFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="var(--vib-chart-memory)" stop-opacity="0.30"/><stop offset="1" stop-color="var(--vib-chart-memory)" stop-opacity="0"/></linearGradient></defs>
+                    <line class="vib-chart-grid" x1="34" x2="352" y1="14" y2="14"/><line class="vib-chart-grid" x1="34" x2="352" y1="42" y2="42"/><line class="vib-chart-grid" x1="34" x2="352" y1="70" y2="70"/><line class="vib-chart-grid" x1="34" x2="352" y1="98" y2="98"/><line class="vib-chart-grid" x1="34" x2="352" y1="126" y2="126"/>
+                    <text class="vib-chart-axis-label" x="8" y="17">16</text><text class="vib-chart-axis-label" x="10" y="45">12</text><text class="vib-chart-axis-label" x="14" y="73">8</text><text class="vib-chart-axis-label" x="14" y="101">4</text><text class="vib-chart-axis-label" x="14" y="128">0</text>
+                    <path class="vib-chart-fill" fill="url(#memoryFill)" d="M34 94 L86 94 L138 94 L190 94 L242 94 L254 94 L256 62 L270 76 L286 76 L302 80 L318 81 L334 82 L352 79 L352 126 L34 126 Z"/>
+                    <path class="vib-chart-line" data-chart="memory" d="M34 94 L86 94 L138 94 L190 94 L242 94 L254 94 L256 62 L270 76 L286 76 L302 80 L318 81 L334 82 L352 79"/>
+                  </svg>
+                  <div class="vib-chart-legend"><span class="vib-chart-legend-item" style="color: var(--vib-chart-memory)"><span class="vib-chart-dot"></span>Memory (GB)</span></div>
+                </div>
+              </article>
+
+              <article class="vib-card vib-card-pad vib-card-metric" aria-label="Disk space metric">
+                <div class="vib-metric-head">
+                  <div>
+                    <h2 class="vib-metric-name">Disk Space</h2>
+                    <p class="vib-metric-value mt-1">Used: 31.62 GB / Limit: 192.69 GB</p>
+                  </div>
+                  <span class="inline-flex items-center px-2 py-0.5 rounded-full vib-meta font-medium bg-vib-stateWarningBg text-vib-stateWarningText border border-vib-stateWarningBorder">Burst</span>
+                </div>
+                <div class="vib-meter" aria-label="Disk used 16.41 percent"><span class="vib-meter-fill transition-all" data-chart="disk" style="--vib-meter-value: 16.41%"></span></div>
+                <div class="vib-chart-frame">
+                  <svg class="vib-chart-svg" viewBox="0 0 360 136" role="img" aria-label="Disk space area chart">
+                    <defs><linearGradient id="diskFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="var(--vib-chart-disk)" stop-opacity="0.30"/><stop offset="1" stop-color="var(--vib-chart-disk)" stop-opacity="0"/></linearGradient></defs>
+                    <line class="vib-chart-grid" x1="34" x2="352" y1="14" y2="14"/><line class="vib-chart-grid" x1="34" x2="352" y1="42" y2="42"/><line class="vib-chart-grid" x1="34" x2="352" y1="70" y2="70"/><line class="vib-chart-grid" x1="34" x2="352" y1="98" y2="98"/><line class="vib-chart-grid" x1="34" x2="352" y1="126" y2="126"/>
+                    <text class="vib-chart-axis-label" x="4" y="17">193</text><text class="vib-chart-axis-label" x="10" y="45">150</text><text class="vib-chart-axis-label" x="14" y="73">100</text><text class="vib-chart-axis-label" x="18" y="101">50</text><text class="vib-chart-axis-label" x="18" y="128">0</text>
+                    <path class="vib-chart-fill" fill="url(#diskFill)" d="M34 106 L82 106 L130 106 L178 106 L226 106 L246 106 L248 62 L268 62 L270 48 L290 52 L292 83 L308 100 L332 104 L352 102 L352 126 L34 126 Z"/>
+                    <path class="vib-chart-line" data-chart="disk" d="M34 106 L82 106 L130 106 L178 106 L226 106 L246 106 L248 62 L268 62 L270 48 L290 52 L292 83 L308 100 L332 104 L352 102"/>
+                  </svg>
+                  <div class="vib-chart-legend"><span class="vib-chart-legend-item" style="color: var(--vib-chart-disk)"><span class="vib-chart-dot"></span>Disk Space</span></div>
+                </div>
+              </article>
+
+              <article class="vib-card vib-card-pad vib-card-metric vib-donut-panel" aria-label="Docker disk usage metric">
+                <div class="vib-metric-head">
+                  <div>
+                    <h2 class="vib-metric-name">Docker Disk Usage</h2>
+                    <p class="vib-metric-value mt-1">Total: 21.95 GB</p>
+                  </div>
+                  <span class="vib-monitor-refresh" aria-hidden="true"><svg class="w-[var(--icon-md)] h-[var(--icon-md)]" viewBox="0 0 16 16"><path d="M12.2 6.1A4.5 4.5 0 1 0 13 8"/><path d="M12.4 3.4v2.9h-2.9"/></svg></span>
+                </div>
+                <div class="vib-donut-wrap">
+                  <div class="relative grid place-items-center">
+                    <svg class="vib-donut" viewBox="0 0 120 120" role="img" aria-label="Docker disk usage donut chart">
+                      <circle class="vib-donut-track" cx="60" cy="60" r="42"/>
+                      <circle class="vib-donut-slice" cx="60" cy="60" r="42" stroke="var(--vib-chart-cpu)" stroke-dasharray="132 264" stroke-dashoffset="0"/>
+                      <circle class="vib-donut-slice" cx="60" cy="60" r="42" stroke="var(--vib-chart-memory)" stroke-dasharray="42 264" stroke-dashoffset="-132"/>
+                      <circle class="vib-donut-slice" cx="60" cy="60" r="42" stroke="var(--vib-chart-disk)" stroke-dasharray="54 264" stroke-dashoffset="-174"/>
+                      <circle class="vib-donut-slice" cx="60" cy="60" r="42" stroke="var(--vib-chart-network)" stroke-dasharray="36 264" stroke-dashoffset="-228"/>
+                    </svg>
+                    <div class="vib-donut-center absolute">21.95 GB<span>Docker Usage</span></div>
+                  </div>
+                </div>
+                <div class="vib-chart-legend">
+                  <span class="vib-chart-legend-item" style="color: var(--vib-chart-cpu)"><span class="vib-chart-dot"></span>Build Cache</span>
+                  <span class="vib-chart-legend-item" style="color: var(--vib-chart-memory)"><span class="vib-chart-dot"></span>Containers</span>
+                  <span class="vib-chart-legend-item" style="color: var(--vib-chart-disk)"><span class="vib-chart-dot"></span>Images</span>
+                  <span class="vib-chart-legend-item" style="color: var(--vib-chart-network)"><span class="vib-chart-dot"></span>Volumes</span>
+                </div>
+              </article>
+            </div>
+
+            <div class="vib-monitor-mini-grid">
+              <article class="vib-card vib-card-pad vib-card-metric" aria-label="Block I/O metric">
+                <div class="vib-metric-head"><div><h2 class="vib-metric-name">Block I/O</h2><p class="vib-metric-value mt-1">Read: 18.4 MB/s · Write: 6.1 MB/s</p></div></div>
+                <div class="vib-meter"><span class="vib-meter-fill transition-all" data-chart="network" style="--vib-meter-value: 42%"></span></div>
+                <div class="vib-chart-frame">
+                  <svg class="vib-chart-svg" viewBox="0 0 360 136" role="img" aria-label="Block I/O line chart">
+                    <line class="vib-chart-grid" x1="34" x2="352" y1="42" y2="42"/><line class="vib-chart-grid" x1="34" x2="352" y1="84" y2="84"/><line class="vib-chart-grid" x1="34" x2="352" y1="126" y2="126"/>
+                    <path class="vib-chart-line" data-chart="network" d="M34 112 L70 110 L104 100 L138 105 L172 72 L205 78 L238 54 L272 66 L306 48 L334 58 L352 52"/>
+                  </svg>
+                </div>
+              </article>
+              <article class="vib-card vib-card-pad vib-card-metric" aria-label="Network I/O metric">
+                <div class="vib-metric-head"><div><h2 class="vib-metric-name">Network I/O</h2><p class="vib-metric-value mt-1">Inbound: 224 KB/s · Outbound: 118 KB/s</p></div></div>
+                <div class="vib-meter"><span class="vib-meter-fill transition-all" data-chart="cpu" style="--vib-meter-value: 35%"></span></div>
+                <div class="vib-chart-frame">
+                  <svg class="vib-chart-svg" viewBox="0 0 360 136" role="img" aria-label="Network I/O line chart">
+                    <line class="vib-chart-grid" x1="34" x2="352" y1="42" y2="42"/><line class="vib-chart-grid" x1="34" x2="352" y1="84" y2="84"/><line class="vib-chart-grid" x1="34" x2="352" y1="126" y2="126"/>
+                    <path class="vib-chart-line" data-chart="cpu" d="M34 116 L68 108 L102 112 L136 88 L170 92 L204 60 L238 80 L272 46 L306 66 L334 50 L352 70"/>
+                  </svg>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script src="../js/sandbox-nav.js"></script>
+</body>
+</html>

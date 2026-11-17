@@ -1,0 +1,23 @@
+{
+  "version": "v1.7.2",
+  "baseline": "VibTools_WEB_UI_v1.7.1.zip",
+  "scope": "Sticky Settings Layout & UI Polish",
+  "mismatches_found": [
+    {
+      "area": "Settings sub-navigation",
+      "before": "Settings sub-navigation was documented as a normal settings nav block",
+      "after": "Settings sub-navigation is documented as sticky `.vib-settings-sidebar` wrapping `.vib-settings-nav`"
+    },
+    {
+      "area": "Danger Zone action",
+      "before": "Destructive reset action used secondary button styling",
+      "after": "Destructive reset action uses `.vib-btn-danger` styling"
+    },
+    {
+      "area": "Version records",
+      "before": "Current records referenced v1.7.1",
+      "after": "Current runtime/docs records reference v1.7.2"
+    }
+  ],
+  "scope_guard": "Only settings page/CSS/tokens/docs/validation were updated for sticky settings polish."
+}

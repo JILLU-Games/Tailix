@@ -1,0 +1,5 @@
+/* Optional local CSS notes only. Main preview is Tailwind CDN based. */
+:focus-visible {
+  outline: 3px solid #38BDF8;
+  outline-offset: 3px;
+}

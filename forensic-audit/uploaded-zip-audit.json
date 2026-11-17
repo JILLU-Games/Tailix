@@ -1,0 +1,41 @@
+{
+  "vibtools.github.io.zip": {
+    "sha256": "a425f41f42fea62fc5c30dcb4302a72759e6f5a88f794e6a9972a878aebcf859",
+    "files_total": 535,
+    "important_files_found": [
+      "src/styles/global.css",
+      "tailwind.config.mjs",
+      "src/components/Header.astro",
+      "src/components/PageHero.astro",
+      "src/components/ButtonLink.astro",
+      "src/components/ProjectCard.astro",
+      "src/components/StatCard.astro"
+    ],
+    "design_findings": [
+      "core tokens match canonical PDF/hub values",
+      "source contains larger landing hero and header sizes than compact default",
+      "v1.2 records these as max caps and freezes smaller Tailwind CDN defaults"
+    ]
+  },
+  "id.vib.tools.zip": {
+    "sha256": "b32e0704d64cbaac76094732d630e1927bf130a82f75c0a8e98ce3d4de50aecf",
+    "files_total": 961,
+    "important_files_found": [
+      "app/static/css/app.css",
+      "app/templates/layouts/base.html",
+      "app/templates/components/page_header.html"
+    ],
+    "design_findings": [
+      "dashboard palette matches canonical dark family",
+      "light/system theme included as variant",
+      "source topbar/sidebar/form sizes are recorded as maximums; compact defaults are smaller"
+    ]
+  },
+  "baseline_v1_1": {
+    "sha256": "a93de91feb3d31a5d63eb8ab89548fd8e174c30403dd2cc7ad010b6c6b9e0d6a",
+    "design_findings": [
+      "baseline was complete but not strict enough on compact no-growth rule",
+      "v1.2 adds Tailwind CDN implementation and hard size caps"
+    ]
+  }
+}

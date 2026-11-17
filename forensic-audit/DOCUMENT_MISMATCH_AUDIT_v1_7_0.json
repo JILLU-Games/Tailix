@@ -1,0 +1,266 @@
+{
+  "version": "v1.7.0",
+  "scope": "File Upload Component & Layout Standard",
+  "changed_files": [
+    {
+      "path": "CHANGELOG_v1_7_0.md",
+      "status": "added",
+      "bytes": 932
+    },
+    {
+      "path": "MANIFEST.md",
+      "status": "modified",
+      "bytes": 1420
+    },
+    {
+      "path": "README.md",
+      "status": "modified",
+      "bytes": 1103
+    },
+    {
+      "path": "Sandbox/README.md",
+      "status": "modified",
+      "bytes": 1674
+    },
+    {
+      "path": "Sandbox/audit/SANDBOX_MATCH_REPORT.md",
+      "status": "modified",
+      "bytes": 1297
+    },
+    {
+      "path": "Sandbox/audit/SANDBOX_PAGE_MAP.md",
+      "status": "modified",
+      "bytes": 1811
+    },
+    {
+      "path": "Sandbox/audit/SANDBOX_VISUAL_QA_CHECKLIST.md",
+      "status": "modified",
+      "bytes": 2618
+    },
+    {
+      "path": "Sandbox/css/vibtools-sandbox.css",
+      "status": "modified",
+      "bytes": 69786
+    },
+    {
+      "path": "Sandbox/index.html",
+      "status": "modified",
+      "bytes": 3247
+    },
+    {
+      "path": "Sandbox/js/sandbox-nav.js",
+      "status": "modified",
+      "bytes": 20505
+    },
+    {
+      "path": "Sandbox/js/tailwind-config.js",
+      "status": "modified",
+      "bytes": 4018
+    },
+    {
+      "path": "Sandbox/pages/about.html",
+      "status": "modified",
+      "bytes": 4787
+    },
+    {
+      "path": "Sandbox/pages/alerts-states.html",
+      "status": "modified",
+      "bytes": 4978
+    },
+    {
+      "path": "Sandbox/pages/cards.html",
+      "status": "modified",
+      "bytes": 7214
+    },
+    {
+      "path": "Sandbox/pages/contact.html",
+      "status": "modified",
+      "bytes": 7804
+    },
+    {
+      "path": "Sandbox/pages/dashboard-shell.html",
+      "status": "modified",
+      "bytes": 5384
+    },
+    {
+      "path": "Sandbox/pages/docs-layout.html",
+      "status": "modified",
+      "bytes": 13047
+    },
+    {
+      "path": "Sandbox/pages/dropdowns.html",
+      "status": "modified",
+      "bytes": 4489
+    },
+    {
+      "path": "Sandbox/pages/empty-loading-error.html",
+      "status": "modified",
+      "bytes": 5806
+    },
+    {
+      "path": "Sandbox/pages/forms.html",
+      "status": "modified",
+      "bytes": 5398
+    },
+    {
+      "path": "Sandbox/pages/home.html",
+      "status": "modified",
+      "bytes": 7497
+    },
+    {
+      "path": "Sandbox/pages/login.html",
+      "status": "modified",
+      "bytes": 5504
+    },
+    {
+      "path": "Sandbox/pages/logs-modal.html",
+      "status": "modified",
+      "bytes": 15152
+    },
+    {
+      "path": "Sandbox/pages/monitoring.html",
+      "status": "modified",
+      "bytes": 16020
+    },
+    {
+      "path": "Sandbox/pages/navigation.html",
+      "status": "modified",
+      "bytes": 4734
+    },
+    {
+      "path": "Sandbox/pages/profile.html",
+      "status": "modified",
+      "bytes": 5211
+    },
+    {
+      "path": "Sandbox/pages/projects.html",
+      "status": "modified",
+      "bytes": 7259
+    },
+    {
+      "path": "Sandbox/pages/register.html",
+      "status": "modified",
+      "bytes": 5717
+    },
+    {
+      "path": "Sandbox/pages/tables.html",
+      "status": "modified",
+      "bytes": 11469
+    },
+    {
+      "path": "Sandbox/pages/typography-colors.html",
+      "status": "modified",
+      "bytes": 4807
+    },
+    {
+      "path": "Sandbox/pages/upload.html",
+      "status": "added",
+      "bytes": 8653
+    },
+    {
+      "path": "ai-handoff/VibTools_AI_Developer_Handoff_Tailwind_CDN_Compact.md",
+      "status": "modified",
+      "bytes": 2174
+    },
+    {
+      "path": "components/compact-components.html",
+      "status": "modified",
+      "bytes": 2704
+    },
+    {
+      "path": "components/component-contracts-tailwind-cdn.md",
+      "status": "modified",
+      "bytes": 5414
+    },
+    {
+      "path": "design-tokens/vibtools.compact.tokens.css",
+      "status": "modified",
+      "bytes": 9873
+    },
+    {
+      "path": "design-tokens/vibtools.compact.tokens.json",
+      "status": "modified",
+      "bytes": 24039
+    },
+    {
+      "path": "design-tokens/vibtools.tailwind-cdn.classes.md",
+      "status": "modified",
+      "bytes": 2997
+    },
+    {
+      "path": "design-tokens/vibtools.tailwind-cdn.config.js",
+      "status": "modified",
+      "bytes": 4017
+    },
+    {
+      "path": "docs/00_SCOPE_LOCK_COMPACT.md",
+      "status": "modified",
+      "bytes": 2547
+    },
+    {
+      "path": "docs/01_COMPACT_DESIGN_SHEET.md",
+      "status": "modified",
+      "bytes": 3476
+    },
+    {
+      "path": "docs/03_MATCH_AND_MISMATCH_AUDIT.md",
+      "status": "modified",
+      "bytes": 2554
+    },
+    {
+      "path": "docs/04_SIZE_GUARDRAILS.md",
+      "status": "modified",
+      "bytes": 2220
+    },
+    {
+      "path": "docs/05_SECTION_PATTERNS.md",
+      "status": "modified",
+      "bytes": 3226
+    },
+    {
+      "path": "docs/06_ACCESSIBILITY_AND_MOTION.md",
+      "status": "modified",
+      "bytes": 1879
+    },
+    {
+      "path": "docs/07_TAILWIND_CDN_IMPLEMENTATION_GUIDE.md",
+      "status": "modified",
+      "bytes": 1839
+    },
+    {
+      "path": "docs/08_FINAL_LOCK_SUMMARY.md",
+      "status": "modified",
+      "bytes": 1467
+    },
+    {
+      "path": "docs/08_SANDBOX_VALIDATION_GUIDE.md",
+      "status": "modified",
+      "bytes": 1798
+    },
+    {
+      "path": "docs/09_FINAL_LOCK_SUMMARY_v1_3.md",
+      "status": "modified",
+      "bytes": 1941
+    },
+    {
+      "path": "forensic-audit/FORENSIC_AUDIT_REPORT_v1_7_0.md",
+      "status": "added",
+      "bytes": 2333
+    },
+    {
+      "path": "validation/CHECKSUMS.sha256",
+      "status": "modified",
+      "bytes": 13861
+    },
+    {
+      "path": "validation/COMPACT_FREEZE_VALIDATION.md",
+      "status": "modified",
+      "bytes": 1436
+    },
+    {
+      "path": "validation/sandbox_static_check.py",
+      "status": "modified",
+      "bytes": 5323
+    }
+  ]
+}

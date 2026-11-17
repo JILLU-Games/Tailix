@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Vib Tools icon">
+  <rect width="64" height="64" rx="14" fill="#010510"/>
+  <path d="M17 17h12l6 20 8-20h12L40 49H28L17 17Z" fill="url(#g)"/>
+  <defs><linearGradient id="g" x1="16" x2="52" y1="17" y2="49" gradientUnits="userSpaceOnUse"><stop stop-color="#0053FC"/><stop offset="1" stop-color="#00BFFD"/></linearGradient></defs>
+</svg>

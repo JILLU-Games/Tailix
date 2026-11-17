@@ -1,0 +1,807 @@
+/* VibTools Official Compact Token CSS — v2.1.2 official freeze baseline
+   Documentation mirror for the Single Token Foundation Engine. Runtime source of truth is
+   Sandbox/assets/css/foundation/ and Sandbox/assets/css/vibtools-theme.css. */
+:root {
+  color-scheme: dark;
+  --vib-background: #0D1117;
+  --vib-deep: #0B0F17;
+  --vib-footer: #080B11;
+  --vib-surface: #161B22;
+  --vib-surface-soft: #11161D;
+  --vib-field: #12171F;
+  --vib-field-hover: #181F2B;
+  --vib-field-focus: #151C28;
+  --vib-surface-card: #0D1117;
+  --vib-surface-primary: #0D1117;
+  --vib-border-subtle: #21262D;
+  --vib-auth-panel: #11161D;
+  --vib-auth-panel-soft: #0F141C;
+  --vib-auth-shadow: none;
+  --vib-nav-active-bg: #12171F;
+  --vib-nav-active-border: #38BDF8;
+  --vib-nav-hover-bg: #181F2B;
+  --vib-btn-height-compact: 28px;
+  --vib-btn-secondary-bg: #161B22;
+  --vib-btn-secondary-border: #30373F;
+  --vib-hover: #21262D;
+  --vib-border: #30373F;
+  --vib-border-soft: #21262D;
+  --vib-border-strong: #46505D;
+  --vib-card-border: #30363D;
+  --vib-inner-border: #2A303C;
+  --vib-card-hover-border: #46505D;
+  --vib-button-secondary-hover-border: #46505D;
+  --vib-input-focus-border: #38BDF8;
+  --vib-active-bg: rgba(37, 99, 235, .10);
+  --vib-active-border: rgba(56, 189, 248, .18);
+  --vib-hover-bg: rgba(33, 38, 45, .74);
+  --vib-badge-bg: rgba(255, 255, 255, .018);
+  --vib-disabled-opacity: .52;
+  --vib-disabled-bg: rgba(33, 38, 45, .36);
+  --vib-feedback-bg: #11161D;
+  --vib-table-header-bg: rgba(13, 17, 23, .60);
+  --vib-table-row-hover: rgba(255, 255, 255, .03);
+  --vib-table-toolbar-bg: #161B22;
+  --vib-table-empty-bg: #11161D;
+  --vib-table-skeleton-bg: rgba(255, 255, 255, .035);
+  --vib-state-success-bg: #0C2117;
+  --vib-state-success-border: #124D31;
+  --vib-state-success-text: #4ADE80;
+  --vib-state-warning-bg: #261C0C;
+  --vib-state-warning-border: #523912;
+  --vib-state-warning-text: #FACC15;
+  --vib-state-danger-bg: #280D12;
+  --vib-state-danger-border: #5C1D24;
+  --vib-state-danger-text: #F87171;
+  --vib-skeleton-bg: #161B22;
+  --vib-skeleton-pulse: #21262D;
+  --vib-log-bg: #090D14;
+  --vib-log-border: #21262D;
+  --vib-log-mono-font: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+  --vib-log-info-bg: rgba(59, 130, 246, 0.15);
+  --vib-log-info-text: #60A5FA;
+  --vib-log-debug-bg: rgba(249, 115, 22, 0.15);
+  --vib-log-debug-text: #FB923C;
+  --vib-log-debug-row-bg: rgba(249, 115, 22, 0.08);
+  --vib-log-warning-bg: rgba(234, 179, 8, 0.15);
+  --vib-log-warning-text: #FACC15;
+  --vib-log-warning-row-bg: rgba(234, 179, 8, 0.08);
+  --vib-log-success-bg: rgba(34, 197, 94, 0.15);
+  --vib-log-success-text: #4ADE80;
+  --vib-chart-cpu: #38BDF8;
+  --vib-chart-cpu-bg: rgba(56, 189, 248, 0.12);
+  --vib-chart-memory: #F472B6;
+  --vib-chart-memory-bg: rgba(244, 114, 182, 0.12);
+  --vib-chart-disk: #FBBF24;
+  --vib-chart-disk-bg: rgba(251, 191, 36, 0.12);
+  --vib-chart-network: #34D399;
+  --vib-meter-track: #1C2128;
+  --vib-meter-fill: #E2E8F0;
+  --vib-text: #E6EDF3;
+  --vib-content: #C9D1D9;
+  --vib-doc-content: #E6EDF3;
+  --vib-doc-sidebar-bg: #0D1117;
+  --vib-doc-code-bg: #0A0E14;
+  --vib-doc-border: #21262D;
+  --vib-doc-font-h1: 20px;
+  --vib-doc-font-h2: 15px;
+  --vib-doc-font-h3: 13px;
+  --vib-doc-font-body: 13px;
+  --vib-doc-font-sub: 12px;
+  --vib-doc-font-nav: 12px;
+  --vib-doc-font-category: 10px;
+  --vib-doc-font-code: 12px;
+  --vib-doc-text-primary: #E6EDF3;
+  --vib-doc-text-muted: #8B949E;
+  --vib-doc-text-heading: #E6EDF3;
+  --vib-method-get-bg: rgba(34, 197, 94, 0.15);
+  --vib-method-get-text: #4ADE80;
+  --vib-method-post-bg: rgba(59, 130, 246, 0.15);
+  --vib-method-post-text: #60A5FA;
+  --vib-method-put-bg: rgba(234, 179, 8, 0.15);
+  --vib-method-put-text: #FACC15;
+  --vib-method-delete-bg: rgba(239, 68, 68, 0.15);
+  --vib-method-delete-text: #F87171;
+  --vib-settings-nav-bg: #0F141C;
+  --vib-settings-row-border: #2A303C;
+  --vib-settings-danger-bg: rgba(239, 68, 68, 0.08);
+  --vib-settings-danger-border: rgba(248, 113, 113, 0.34);
+  --vib-settings-active-bg: #1F242C;
+  --vib-danger-button-bg: rgba(248, 81, 73, 0.15);
+  --vib-danger-button-text: #F87171;
+  --vib-danger-button-border: rgba(248, 81, 73, 0.40);
+  --vib-danger-button-hover-bg: #DA3633;
+  --vib-upload-dropzone-bg: #0F141C;
+  --vib-upload-dropzone-hover-bg: rgba(56, 189, 248, 0.05);
+  --vib-upload-dropzone-border: #30373F;
+  --vib-upload-item-bg: #11161D;
+  --vib-upload-progress-track: #21262D;
+  --vib-upload-progress-fill: #38BDF8;
+  --vib-upload-success: #4ADE80;
+  --vib-upload-error: #F87171;
+  --vib-file-pdf-bg: rgba(239, 68, 68, 0.15);
+  --vib-file-pdf-text: #F87171;
+  --vib-file-png-bg: rgba(59, 130, 246, 0.15);
+  --vib-file-png-text: #60A5FA;
+  --vib-file-docx-bg: rgba(34, 197, 94, 0.15);
+  --vib-file-docx-text: #4ADE80;
+  --vib-file-mp4-bg: rgba(168, 85, 247, 0.15);
+  --vib-file-mp4-text: #C084FC;
+  --vib-muted: #8B949E;
+  --vib-tertiary: #6E7681;
+  --vib-primary: #2563EB;
+  --vib-primary-hover: #1D4ED8;
+  --vib-secondary: #38BDF8;
+  --vib-success: #22C55E;
+  --vib-warning: #F59E0B;
+  --vib-danger: #EF4444;
+  --vib-logo-blue: #0053FC;
+  --vib-logo-cyan: #00BFFD;
+  --vib-radius-sm: 6px;
+  --vib-radius-control: 8px;
+  --vib-radius-card: 12px;
+  --vib-header: 44px;
+  --vib-sidebar: 196px;
+  --vib-card-pad: 10px;
+  --vib-card-pad-x: 12px;
+  --vib-doc-shell-max: 1280px;
+  --vib-content-max: 1280px;
+  
+  --vib-focus: 0 0 0 3px rgba(56, 189, 248, 0.28);
+  --vib-transition: 120ms ease;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+  --vib-background: #F6F8FA;
+  --vib-deep: #EEF1F4;
+  --vib-footer: #EAEFF4;
+  --vib-surface: #FFFFFF;
+  --vib-surface-soft: #F3F4F6;
+  --vib-hover: #EEF1F4;
+  --vib-border: #D0D7DE;
+  --vib-border-soft: #D8DEE4;
+  --vib-border-strong: #AFB8C1;
+  --vib-card-border: #D0D7DE;
+  --vib-inner-border: #D8DEE4;
+  --vib-card-hover-border: #AFB8C1;
+  --vib-button-secondary-hover-border: #AFB8C1;
+  --vib-input-focus-border: #0969DA;
+  --vib-active-bg: rgba(37, 99, 235, .08);
+  --vib-active-border: rgba(37, 99, 235, .18);
+  --vib-hover-bg: rgba(238, 241, 244, .82);
+  --vib-badge-bg: rgba(13, 17, 23, .026);
+  --vib-disabled-opacity: .54;
+  --vib-disabled-bg: rgba(208, 215, 222, .36);
+  --vib-feedback-bg: #F3F4F6;
+  --vib-doc-sidebar-bg: #FFFFFF;
+  --vib-doc-code-bg: #F6F8FA;
+  --vib-doc-border: #D0D7DE;
+  --vib-doc-content: #24292F;
+  --vib-doc-text-primary: #24292F;
+  --vib-doc-text-muted: #57606A;
+  --vib-doc-text-heading: #0D1117;
+  --vib-method-get-bg: rgba(34, 197, 94, 0.12);
+  --vib-method-get-text: #15803D;
+  --vib-method-post-bg: rgba(59, 130, 246, 0.10);
+  --vib-method-post-text: #2563EB;
+  --vib-method-put-bg: rgba(234, 179, 8, 0.14);
+  --vib-method-put-text: #A16207;
+  --vib-method-delete-bg: rgba(239, 68, 68, 0.10);
+  --vib-method-delete-text: #B91C1C;
+  --vib-settings-nav-bg: #FFFFFF;
+  --vib-settings-row-border: #D8DEE4;
+  --vib-settings-danger-bg: rgba(239, 68, 68, 0.06);
+  --vib-settings-danger-border: rgba(185, 28, 28, 0.24);
+  --vib-settings-active-bg: #EEF1F4;
+  --vib-danger-button-bg: rgba(239, 68, 68, 0.10);
+  --vib-danger-button-text: #B91C1C;
+  --vib-danger-button-border: rgba(185, 28, 28, 0.35);
+  --vib-danger-button-hover-bg: #B91C1C;
+  --vib-upload-dropzone-bg: #F6F8FA;
+  --vib-upload-dropzone-hover-bg: rgba(9, 105, 218, 0.06);
+  --vib-upload-dropzone-border: #D0D7DE;
+  --vib-upload-item-bg: #FFFFFF;
+  --vib-upload-progress-track: #D8DEE4;
+  --vib-upload-progress-fill: #0969DA;
+  --vib-upload-success: #15803D;
+  --vib-upload-error: #B91C1C;
+  --vib-file-pdf-bg: rgba(239, 68, 68, 0.10);
+  --vib-file-pdf-text: #B91C1C;
+  --vib-file-png-bg: rgba(59, 130, 246, 0.10);
+  --vib-file-png-text: #2563EB;
+  --vib-file-docx-bg: rgba(34, 197, 94, 0.12);
+  --vib-file-docx-text: #15803D;
+  --vib-file-mp4-bg: rgba(168, 85, 247, 0.12);
+  --vib-file-mp4-text: #7E22CE;
+  --vib-table-header-bg: rgba(13, 17, 23, .04);
+  --vib-table-row-hover: rgba(13, 17, 23, .035);
+  --vib-table-toolbar-bg: #FFFFFF;
+  --vib-table-empty-bg: #F3F4F6;
+  --vib-table-skeleton-bg: rgba(13, 17, 23, .06);
+  --vib-state-success-bg: #ECFDF3;
+  --vib-state-success-border: #A7F3D0;
+  --vib-state-success-text: #15803D;
+  --vib-state-warning-bg: #FFFBEB;
+  --vib-state-warning-border: #FDE68A;
+  --vib-state-warning-text: #B45309;
+  --vib-state-danger-bg: #FEF2F2;
+  --vib-state-danger-border: #FECACA;
+  --vib-state-danger-text: #B91C1C;
+  --vib-skeleton-bg: #F3F4F6;
+  --vib-skeleton-pulse: #D0D7DE;
+  --vib-log-bg: #FFFFFF;
+  --vib-log-border: #D0D7DE;
+  --vib-log-mono-font: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+  --vib-log-info-bg: rgba(59, 130, 246, 0.10);
+  --vib-log-info-text: #2563EB;
+  --vib-log-debug-bg: rgba(249, 115, 22, 0.10);
+  --vib-log-debug-text: #C2410C;
+  --vib-log-debug-row-bg: rgba(249, 115, 22, 0.06);
+  --vib-log-warning-bg: rgba(234, 179, 8, 0.12);
+  --vib-log-warning-text: #A16207;
+  --vib-log-warning-row-bg: rgba(234, 179, 8, 0.06);
+  --vib-log-success-bg: rgba(34, 197, 94, 0.12);
+  --vib-log-success-text: #15803D;
+  --vib-chart-cpu: #0969DA;
+  --vib-chart-cpu-bg: rgba(9, 105, 218, 0.10);
+  --vib-chart-memory: #BF3989;
+  --vib-chart-memory-bg: rgba(191, 57, 137, 0.10);
+  --vib-chart-disk: #9A6700;
+  --vib-chart-disk-bg: rgba(154, 103, 0, 0.10);
+  --vib-chart-network: #1A7F37;
+  --vib-meter-track: #D8DEE4;
+  --vib-meter-fill: #57606A;
+  --vib-text: #0D1117;
+  --vib-content: #24292F;
+  --vib-muted: #57606A;
+  --vib-tertiary: #6E7781;
+  --vib-field: #F3F4F6;
+  --vib-field-hover: #EEF1F4;
+  --vib-field-focus: #E7EDF3;
+  --vib-surface-card: #FFFFFF;
+  --vib-surface-primary: #FFFFFF;
+  --vib-border-subtle: #D0D7DE;
+  --vib-auth-panel: #F6F8FA;
+  --vib-auth-panel-soft: #EEF1F4;
+  --vib-auth-shadow: none;
+  --vib-nav-active-bg: #E7EDF3;
+  --vib-nav-active-border: #0969DA;
+  --vib-nav-hover-bg: #EEF1F4;
+  --vib-btn-height-compact: 28px;
+  --vib-btn-secondary-bg: #FFFFFF;
+  --vib-btn-secondary-border: #D0D7DE;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100%;
+  background: var(--vib-background);
+  color: var(--vib-text);
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 13px;
+  line-height: 1.46;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: none !important;
+}
+
+code, kbd, pre, samp {
+  font-family: var(--vib-log-mono-font, "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+
+/* v2.1.2 Compact Typography & Restrained Color Hierarchy
+   Scope: upload.html, docs-layout.html and settings.html only.
+   Preserves layout, routing, component architecture and zero-shadow flat UI. */
+:root {
+  --vib-compact-page-title: 18px;
+  --vib-compact-section-title: 14px;
+  --vib-compact-card-title: 13px;
+  --vib-compact-body: 12px;
+  --vib-compact-helper: 11px;
+  --vib-compact-heading-color: #F0F6FC;
+  --vib-compact-section-color: #E6EDF3;
+  --vib-compact-card-title-color: #D0D7DE;
+  --vib-compact-muted-text: #8B949E;
+  --vib-compact-helper-text: #6E7681;
+  --vib-method-get-bg: rgba(46, 160, 67, 0.12);
+  --vib-method-get-text: #3FB950;
+  --vib-method-post-bg: rgba(56, 139, 253, 0.12);
+  --vib-method-post-text: #58A6FF;
+  --vib-method-put-bg: rgba(210, 153, 34, 0.12);
+  --vib-method-put-text: #D29922;
+  --vib-method-delete-bg: rgba(248, 81, 73, 0.12);
+  --vib-method-delete-text: #F85149;
+  --vib-file-badge-bg-restrained: #161B22;
+  --vib-file-badge-text-restrained: #8B949E;
+  --vib-file-badge-border-restrained: #30363D;
+}
+
+.vib-app-page:has(.vib-upload-shell) .vib-h1,
+.vib-doc-hero .vib-h1,
+.vib-app-page:has(.vib-settings-layout) .vib-h1 {
+  font-size: var(--vib-compact-page-title) !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  letter-spacing: -0.01em !important;
+  color: var(--vib-compact-heading-color) !important;
+}
+
+.vib-app-page:has(.vib-upload-shell) .vib-h2,
+.vib-doc-body h2,
+.vib-app-page:has(.vib-settings-layout) .vib-h2 {
+  font-size: var(--vib-compact-section-title) !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  letter-spacing: -0.01em !important;
+  color: var(--vib-compact-section-color) !important;
+}
+
+.vib-app-page:has(.vib-upload-shell) .vib-card-title,
+.vib-app-page:has(.vib-upload-shell) .vib-upload-file-title,
+.vib-doc-body h3,
+.vib-doc-card strong,
+.vib-app-page:has(.vib-settings-layout) .vib-settings-title,
+.vib-app-page:has(.vib-settings-layout) .vib-card-title {
+  font-size: var(--vib-compact-card-title) !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
+  color: var(--vib-compact-card-title-color) !important;
+}
+
+.vib-app-page:has(.vib-upload-shell) .vib-body,
+.vib-app-page:has(.vib-upload-shell) .vib-card-text,
+.vib-app-page:has(.vib-upload-shell) .vib-upload-rule-list li,
+.vib-app-page:has(.vib-upload-shell) .vib-upload-help,
+.vib-app-page:has(.vib-upload-shell) .vib-upload-file-meta,
+.vib-doc-hero .vib-body,
+.vib-doc-body p,
+.vib-doc-body li,
+.vib-doc-card span:last-child,
+.vib-doc-toc a,
+.vib-doc-nav-link,
+.vib-app-page:has(.vib-settings-layout) .vib-body,
+.vib-app-page:has(.vib-settings-layout) .vib-settings-desc {
+  font-size: var(--vib-compact-body) !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  color: var(--vib-compact-muted-text) !important;
+}
+
+.vib-app-page:has(.vib-upload-shell) .vib-kicker,
+.vib-doc-body .vib-kicker,
+.vib-doc-nav-title,
+.vib-app-page:has(.vib-settings-layout) .vib-kicker {
+  font-size: var(--vib-compact-helper) !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.06em !important;
+}
+
+.vib-method {
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  border-width: 1px !important;
+}
+.vib-method-get {
+  background: var(--vib-method-get-bg) !important;
+  color: var(--vib-method-get-text) !important;
+  border-color: rgba(46, 160, 67, 0.28) !important;
+}
+.vib-method-post {
+  background: var(--vib-method-post-bg) !important;
+  color: var(--vib-method-post-text) !important;
+  border-color: rgba(56, 139, 253, 0.28) !important;
+}
+.vib-method-put {
+  background: var(--vib-method-put-bg) !important;
+  color: var(--vib-method-put-text) !important;
+  border-color: rgba(210, 153, 34, 0.28) !important;
+}
+.vib-method-delete {
+  background: var(--vib-method-delete-bg) !important;
+  color: var(--vib-method-delete-text) !important;
+  border-color: rgba(248, 81, 73, 0.28) !important;
+}
+
+.vib-app-page:has(.vib-upload-shell) .vib-file-badge,
+.vib-app-page:has(.vib-upload-shell) .vib-file-badge.pdf,
+.vib-app-page:has(.vib-upload-shell) .vib-file-badge.png,
+.vib-app-page:has(.vib-upload-shell) .vib-file-badge.docx,
+.vib-app-page:has(.vib-upload-shell) .vib-file-badge.mp4 {
+  background: var(--vib-file-badge-bg-restrained) !important;
+  color: var(--vib-file-badge-text-restrained) !important;
+  border: 1px solid var(--vib-file-badge-border-restrained) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+}
+
+.vib-app-page:has(.vib-settings-layout) .vib-settings-nav-item.active,
+.vib-app-page:has(.vib-settings-layout) .vib-settings-nav-item[aria-current="page"],
+.vib-doc-nav-link.active,
+.vib-doc-nav-link[aria-current="page"],
+.vib-doc-toc a.active {
+  color: var(--vib-compact-section-color) !important;
+}
+
+/* v2.1.2 Precision Typography & Color Refinement
+   Scope: upload.html, docs-layout.html and settings.html only.
+   Strictly tightens hierarchy, muted descriptions and soft active accents.
+   Preserves layout, routing, zero-shadow flat UI and component markup. */
+:root {
+  --vib-precision-page-title: 16px;
+  --vib-precision-section-title: 13px;
+  --vib-precision-row-title: 12px;
+  --vib-precision-body: 11px;
+  --vib-precision-badge: 10px;
+  --vib-precision-heading: #F0F6FC;
+  --vib-precision-section: #C9D1D9;
+  --vib-precision-row: #E6EDF3;
+  --vib-precision-muted: #7D8590;
+  --vib-precision-subtle: #6E7681;
+  --vib-precision-toggle-on: #238636;
+  --vib-precision-blue: #1F6BEB;
+  --vib-method-get-bg: rgba(46, 160, 67, 0.10);
+  --vib-method-get-text: #3FB950;
+  --vib-method-post-bg: rgba(56, 139, 253, 0.10);
+  --vib-method-post-text: #58A6FF;
+  --vib-method-put-bg: rgba(210, 153, 34, 0.10);
+  --vib-method-put-text: #D29922;
+  --vib-method-delete-bg: rgba(248, 81, 73, 0.10);
+  --vib-method-delete-text: #F85149;
+}
+
+/* Strict H1 scale: docs, upload and settings only. */
+.vib-app-page:has(.vib-upload-shell) .vib-h1,
+.vib-doc-hero .vib-h1,
+.vib-app-page:has(.vib-settings-layout) .vib-h1,
+.vib-app-page:has(.vib-upload-shell) .vib-page-title,
+.vib-doc-hero .vib-page-title,
+.vib-app-page:has(.vib-settings-layout) .vib-page-title,
+.vib-app-page:has(.vib-upload-shell) h1.vib-title,
+.vib-doc-hero h1.vib-title,
+.vib-app-page:has(.vib-settings-layout) h1.vib-title {
+  font-size: var(--vib-precision-page-title) !important;
+  font-weight: 600 !important;
+  line-height: 1.25 !important;
+  color: var(--vib-precision-heading) !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* Section titles remain above row labels, but stay compact. */
+.vib-app-page:has(.vib-upload-shell) .vib-h2,
+.vib-doc-body h2,
+.vib-app-page:has(.vib-settings-layout) .vib-h2,
+.vib-app-page:has(.vib-upload-shell) .vib-section-title,
+.vib-doc-body .vib-section-title,
+.vib-app-page:has(.vib-settings-layout) .vib-section-title,
+.vib-app-page:has(.vib-upload-shell) h2.vib-title,
+.vib-doc-body h2.vib-title,
+.vib-app-page:has(.vib-settings-layout) h2.vib-title {
+  font-size: var(--vib-precision-section-title) !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  color: var(--vib-precision-section) !important;
+  margin-bottom: 2px !important;
+  letter-spacing: -0.005em !important;
+}
+
+/* Row labels / form labels / card titles: one step below section headings. */
+.vib-app-page:has(.vib-upload-shell) .vib-card-title,
+.vib-app-page:has(.vib-upload-shell) .vib-upload-file-title,
+.vib-doc-body h3,
+.vib-doc-card strong,
+.vib-doc-body .vib-label,
+.vib-app-page:has(.vib-settings-layout) .vib-settings-title,
+.vib-app-page:has(.vib-settings-layout) .vib-label,
+.vib-app-page:has(.vib-settings-layout) .vib-row-title,
+.vib-app-page:has(.vib-settings-layout) .vib-card-title {
+  font-size: var(--vib-precision-row-title) !important;
+  font-weight: 500 !important;
+  line-height: 1.3 !important;
+  color: var(--vib-precision-row) !important;
+}
+
+/* Descriptions, helper copy, TOC/nav secondary text and list copy. */
+.vib-app-page:has(.vib-upload-shell) .vib-body,
+.vib-app-page:has(.vib-upload-shell) .vib-card-text,
+.vib-app-page:has(.vib-upload-shell) .vib-upload-rule-list li,
+.vib-app-page:has(.vib-upload-shell) .vib-upload-help,
+.vib-app-page:has(.vib-upload-shell) .vib-upload-file-meta,
+.vib-doc-hero .vib-body,
+.vib-doc-body p,
+.vib-doc-body li,
+.vib-doc-card span:last-child,
+.vib-doc-toc a,
+.vib-doc-nav-link,
+.vib-doc-sidebar .vib-meta,
+.vib-app-page:has(.vib-settings-layout) .vib-body,
+.vib-app-page:has(.vib-settings-layout) .vib-settings-desc,
+.vib-app-page:has(.vib-settings-layout) p.vib-text,
+.vib-app-page:has(.vib-settings-layout) .vib-section-desc,
+.vib-app-page:has(.vib-settings-layout) .vib-card-desc {
+  font-size: var(--vib-precision-body) !important;
+  font-weight: 400 !important;
+  line-height: 1.4 !important;
+  color: var(--vib-precision-muted) !important;
+}
+
+/* Micro labels/kickers stay readable but non-loud. */
+.vib-app-page:has(.vib-upload-shell) .vib-kicker,
+.vib-doc-hero .vib-kicker,
+.vib-doc-body .vib-kicker,
+.vib-doc-nav-title,
+.vib-app-page:has(.vib-settings-layout) .vib-kicker,
+.vib-app-page:has(.vib-settings-layout) .vib-label-muted {
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.055em !important;
+  color: var(--vib-secondary) !important;
+}
+.vib-doc-nav-title,
+.vib-app-page:has(.vib-settings-layout) .vib-label-muted { color: var(--vib-precision-subtle) !important; }
+
+/* Badges in the audited pages: small, border-driven and non-neon. */
+.vib-doc-layout .vib-badge,
+.vib-doc-hero .vib-badge,
+.vib-app-page:has(.vib-upload-shell) .vib-badge,
+.vib-app-page:has(.vib-settings-layout) .vib-badge {
+  font-size: var(--vib-precision-badge) !important;
+  font-weight: 600 !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+  color: var(--vib-precision-muted) !important;
+}
+
+.vib-method {
+  font-size: var(--vib-precision-badge) !important;
+  font-weight: 600 !important;
+  padding: 1px 6px !important;
+  border-radius: 999px !important;
+  letter-spacing: 0 !important;
+  min-height: 18px !important;
+}
+.vib-method-get { background: var(--vib-method-get-bg) !important; color: var(--vib-method-get-text) !important; border-color: rgba(46, 160, 67, 0.24) !important; }
+.vib-method-post { background: var(--vib-method-post-bg) !important; color: var(--vib-method-post-text) !important; border-color: rgba(56, 139, 253, 0.24) !important; }
+.vib-method-put { background: var(--vib-method-put-bg) !important; color: var(--vib-method-put-text) !important; border-color: rgba(210, 153, 34, 0.24) !important; }
+.vib-method-delete { background: var(--vib-method-delete-bg) !important; color: var(--vib-method-delete-text) !important; border-color: rgba(248, 81, 73, 0.24) !important; }
+
+.vib-app-page:has(.vib-upload-shell) .vib-file-badge,
+.vib-app-page:has(.vib-upload-shell) .vib-file-badge.pdf,
+.vib-app-page:has(.vib-upload-shell) .vib-file-badge.png,
+.vib-app-page:has(.vib-upload-shell) .vib-file-badge.docx,
+.vib-app-page:has(.vib-upload-shell) .vib-file-badge.mp4 {
+  background: #161B22 !important;
+  color: var(--vib-precision-muted) !important;
+  border: 1px solid #30363D !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+}
+
+/* Soft active accents for settings switches and active nav states. */
+.vib-app-page:has(.vib-settings-layout) .vib-switch input:checked + .vib-slider {
+  background-color: var(--vib-precision-toggle-on) !important;
+}
+.vib-app-page:has(.vib-settings-layout) .vib-slider {
+  background-color: #30363D !important;
+}
+.vib-app-page:has(.vib-settings-layout) .vib-settings-nav-item.active,
+.vib-app-page:has(.vib-settings-layout) .vib-settings-nav-item[aria-current="page"],
+.vib-doc-nav-link.active,
+.vib-doc-nav-link[aria-current="page"],
+.vib-doc-toc a.active {
+  color: var(--vib-precision-section) !important;
+  border-left-color: var(--vib-precision-blue) !important;
+}
+
+
+
+/* v2.1.2 Production-Grade Form Components Playground
+   Adds forms.html playground classes while preserving the v2.1.2 precision typography contract. */
+:root {
+  --vib-playground-gap: 24px;
+  --vib-playground-card-padding-y: 16px;
+  --vib-playground-card-padding-x: 20px;
+  --vib-form-success: #238636;
+  --vib-form-warning: #D29922;
+  --vib-form-error: #F85149;
+}
+
+
+/* v2.1.2 Forms Playground Verification Fixes
+   Scope: complete the missing v2.1.2 form-state evidence without changing shell/layout architecture. */
+.vib-forms-playground-page .vib-input.is-hover {
+  background: var(--vib-field-hover) !important;
+  border-color: var(--vib-border) !important;
+}
+.vib-forms-playground-page .vib-input.is-focus {
+  background: var(--vib-field-focus) !important;
+  border-color: var(--vib-input-focus-border) !important;
+}
+.vib-input-md { min-height: 30px; height: 30px; }
+.vib-password-eye { width: 28px; justify-content: center; padding: 1px 0 !important; }
+.vib-disabled-surface {
+  display: grid;
+  gap: 3px;
+  padding: 10px;
+  border: 1px solid var(--vib-border-subtle);
+  border-radius: 8px;
+  background: var(--vib-disabled-bg);
+  color: var(--vib-precision-muted);
+  opacity: var(--vib-disabled-opacity);
+  pointer-events: none;
+}
+.vib-disabled-surface strong { font-size: 12px; font-weight: 600; color: var(--vib-precision-row); }
+.vib-disabled-surface span { font-size: 11px; line-height: 1.35; }
+
+
+/* v2.0.0 Soft Typography Weight & Contrast Calibration
+   Scope: forms.html and Sandbox/pages/forms/* modules only.
+   Purpose: reduce heavy/bold glare on the production-grade form playground while preserving every v2.1.2 control and interaction. */
+:root {
+  --vib-soft-primary-text: #E6EDF3;
+  --vib-soft-label-text: #C9D1D9;
+  --vib-soft-muted-text: #8B949E;
+  --vib-soft-placeholder-text: #6E7681;
+  --vib-soft-field-bg: #0D1117;
+  --vib-soft-field-border: #30363D;
+}
+
+.vib-forms-playground-page .vib-section-title,
+.vib-forms-playground-page .vib-card-title,
+.vib-forms-playground-page .vib-h2,
+.vib-forms-playground-page h2,
+.vib-forms-playground-page h3 {
+  font-weight: 500 !important;
+  color: var(--vib-soft-primary-text) !important;
+}
+
+.vib-forms-playground-page .vib-label,
+.vib-forms-playground-page label,
+.vib-forms-playground-page .vib-row-title {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: var(--vib-soft-label-text) !important;
+}
+
+.vib-forms-playground-page .vib-input,
+.vib-forms-playground-page .vib-select,
+.vib-forms-playground-page .vib-textarea,
+.vib-forms-playground-page input,
+.vib-forms-playground-page textarea,
+.vib-forms-playground-page select,
+.vib-forms-playground-page .vib-custom-select summary {
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  color: var(--vib-soft-primary-text) !important;
+  background-color: var(--vib-soft-field-bg) !important;
+  border-color: var(--vib-soft-field-border) !important;
+}
+
+.vib-forms-playground-page .vib-input::placeholder,
+.vib-forms-playground-page .vib-textarea::placeholder,
+.vib-forms-playground-page input::placeholder,
+.vib-forms-playground-page textarea::placeholder,
+.vib-forms-playground-page .vib-placeholder {
+  font-weight: 400 !important;
+  color: var(--vib-soft-placeholder-text) !important;
+  opacity: 1 !important;
+}
+
+.vib-forms-playground-page .vib-subtitle,
+.vib-forms-playground-page .vib-helper-text,
+.vib-forms-playground-page .vib-badge,
+.vib-forms-playground-page .vib-card-text,
+.vib-forms-playground-page .vib-body,
+.vib-forms-playground-page .vib-component-source,
+.vib-forms-playground-page small,
+.vib-forms-playground-page .vib-playground-nav-link span,
+.vib-forms-playground-page .vib-primitive-badge,
+.vib-forms-playground-page .vib-upload-mini-item small,
+.vib-forms-playground-page .vib-disabled-surface,
+.vib-forms-playground-page .vib-disabled-surface span,
+.vib-forms-playground-page .vib-validation-message,
+.vib-forms-playground-page .vib-status-note {
+  font-weight: 400 !important;
+  color: var(--vib-soft-muted-text) !important;
+}
+
+.vib-forms-playground-page .vib-input-action,
+.vib-forms-playground-page .vib-static-action,
+.vib-forms-playground-page .vib-hotkey-badge,
+.vib-forms-playground-page .vib-label-tag,
+.vib-forms-playground-page .vib-info-dot,
+.vib-forms-playground-page .vib-file-badge,
+.vib-forms-playground-page .vib-chip,
+.vib-forms-playground-page .vib-playground-nav-link,
+.vib-forms-playground-page .vib-button,
+.vib-forms-playground-page button {
+  font-weight: 500 !important;
+}
+
+.vib-forms-playground-page .vib-state-tags .vib-badge,
+.vib-forms-playground-page .vib-badge,
+.vib-forms-playground-page .vib-hotkey-badge,
+.vib-forms-playground-page .vib-static-action,
+.vib-forms-playground-page .vib-file-badge {
+  font-weight: 400 !important;
+  color: var(--vib-soft-muted-text) !important;
+}
+
+.vib-forms-playground-page .vib-input:focus,
+.vib-forms-playground-page .vib-select:focus,
+.vib-forms-playground-page .vib-textarea:focus,
+.vib-forms-playground-page input:focus,
+.vib-forms-playground-page textarea:focus,
+.vib-forms-playground-page select:focus,
+.vib-forms-playground-page .vib-input.is-focus {
+  border-color: var(--vib-input-focus-border) !important;
+  background-color: var(--vib-field-focus) !important;
+  box-shadow: none !important;
+}
+
+.vib-forms-playground-page .vib-upload-mini-item strong,
+.vib-forms-playground-page .vib-radio-card span,
+.vib-forms-playground-page .vib-disabled-surface strong {
+  font-weight: 500 !important;
+  color: var(--vib-soft-label-text) !important;
+}
+
+/* v2.0.0 Production-Grade Card Components Playground: cards.html uses .vib-cards-playground, .vib-card-section and 11 module pairs in Sandbox/pages/cards/. */
+
+/* v2.0.0 card playground typography refinement tokens */
+:root {
+  --vib-card-playground-title: #E6EDF3;
+  --vib-card-playground-subtitle: #C9D1D9;
+  --vib-card-playground-body: #8B949E;
+  --vib-card-playground-muted: #7D8590;
+}
+
+
+/* v2.0.0 Navigation Playground Tokens */
+:root { --vib-nav-playground-border: #30363D; --vib-nav-playground-title: #E6EDF3; --vib-nav-playground-body: #8B949E; }
+
+
+/* v2.1.2 Navigation Playground Polish Tokens */
+:root { --vib-nav-polish-border: #2D3748; --vib-nav-polish-title: #E6EDF3; --vib-nav-polish-subtitle: #C9D1D9; --vib-nav-polish-muted: #8B949E; --vib-nav-polish-accent: #38BDF8; }
+
+
+/* v2.1.2 Single Token Foundation Engine Tokens
+   Runtime location: Sandbox/assets/css/foundation/ and Sandbox/assets/css/vibtools-theme.css */
+:root {
+  --foundation-token-engine-version: "v2.1.2";
+  --foundation-token-root: "Sandbox/assets/css/foundation/_tokens.css";
+  --foundation-theme-aggregator: "Sandbox/assets/css/vibtools-theme.css";
+}
+
+
+/* v2.1.2 Single Token Foundation Verification Tokens
+   Current frozen SSOT status: foundation semantic tokens now also cover low-glare primary text and Tailwind CDN legacy aliases. */
+:root {
+  --foundation-token-engine-version: "v2.1.2";
+  --text-primary: var(--color-slate-200);
+  --vib-text: var(--text-primary);
+  --vib-active-bg: var(--component-active-bg);
+  --vib-disabled-bg: var(--component-disabled-bg);
+  --vib-upload-progress-fill: var(--upload-progress-fill);
+  --vib-chart-cpu: var(--chart-cpu);
+}

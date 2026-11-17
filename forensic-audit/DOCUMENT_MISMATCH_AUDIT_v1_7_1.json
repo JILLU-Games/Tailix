@@ -1,0 +1,28 @@
+{
+  "version": "v1.7.1",
+  "baseline": "v1.7.0 upload component compact baseline",
+  "scope": "Compact Settings Page & Layout Standard",
+  "mismatchesResolved": [
+    {
+      "area": "page map",
+      "before": "No settings route documented",
+      "after": "Settings page added under SYSTEM"
+    },
+    {
+      "area": "component contracts",
+      "before": "No settings row/subnav/switch contracts",
+      "after": "vib-settings-* and vib-switch contracts documented"
+    },
+    {
+      "area": "token docs",
+      "before": "Current release was v1.7.0 upload scope",
+      "after": "Current release is v1.7.1 settings scope"
+    },
+    {
+      "area": "runtime version",
+      "before": "v1.7.0",
+      "after": "v1.7.1"
+    }
+  ],
+  "scopeGuard": "No non-settings architecture changes were performed."
+}

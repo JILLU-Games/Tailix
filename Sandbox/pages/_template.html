@@ -1,0 +1,210 @@
+﻿<!doctype html>
+<html lang="en" class="dark">
+<!--
+  VibTools Sandbox — Base Page Template (v2.2.0)
+  -----------------------------------------------
+  This is the master scaffold for new Sandbox feature pages.
+
+  HOW TO USE:
+  1. Copy this file and rename it (e.g. my-feature.html).
+  2. Replace the <title> and <meta name="description"> values.
+  3. Place your page content inside <!-- PAGE CONTENT -- >.
+  4. The Shell Manager injects Topbar + Sidebar automatically via
+     the  data-vib-shell  attribute on <body>.
+  5. Use EventBus to trigger toasts, modals, sidebar toggle, etc.
+
+  FRAMEWORK SCRIPT LOAD ORDER (must not change):
+    1. tailwind-config.js   — Tailwind token bridge
+    2. tailwind CDN         — utility class engine
+    3. vibtools-theme.css   — v2.2.0 CSS token foundation
+    4. vibtools-sandbox.css — compiled component classes
+    5. sandbox-only.css     — sandbox-only visual helpers
+    6. event-bus.js         — pub/sub singleton  (EventBus)
+    7. toast-manager.js     — VibToast singleton
+    8. modal-manager.js     — VibModal singleton
+    9. shell-manager.js     — shell injector + EventBus wiring
+   10. sandbox-nav.js       — table/log/upload/docs interactions
+   11. page-specific JS     — inline or external, goes here last
+
+  TOKEN RULES (v2.2.0 hard constraints):
+  - ZERO hardcoded hex colours.
+  - ZERO hardcoded pixel dimensions (use var(--space-*), var(--text-*), etc.).
+  - ZERO SVG width/height/stroke-width attributes (use var(--icon-*)).
+  - All spacing via Tailwind  *-[var(--...)]  utilities or token class helpers.
+-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- -- Page identity (REPLACE THESE) ---------------------------- -->
+  <title>Page Title — VibTools Sandbox</title>
+  <meta name="description" content="Brief description of this page for tooling and SEO.">
+
+  <!-- -- Tailwind engine ------------------------------------------ -->
+  <script src="../js/tailwind-config.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- -- v2.2.0 CSS Foundation ------------------------------------ -->
+  <link rel="stylesheet" href="../assets/css/vibtools-theme.css">
+  <link rel="stylesheet" href="../css/vibtools-sandbox.css">
+  <link rel="stylesheet" href="../css/sandbox-only.css">
+
+  <!-- -- Framework JS — load order matters (see note above) ------- -->
+  <script src="../js/framework/event-bus.js"></script>
+  <script src="../js/components/toast-manager.js"></script>
+  <script src="../js/components/modal-manager.js"></script>
+  <script src="../js/framework/shell-manager.js"></script>
+  <script src="../js/framework/table-controller.js"></script>
+  <script src="../js/framework/form-controller.js"></script>
+  <script src="../js/sandbox-nav.js"></script>
+</head>
+
+<!--
+  data-vib-shell: tells ShellManager to inject Topbar + Sidebar around
+  the page content below. Remove this attribute only if you are building
+  a full-bleed page (e.g. login, 404) with its own shell markup.
+-->
+<body data-vib-shell>
+
+  <!-- --------------------------------------------------------------
+       PAGE CONTENT — place your feature markup here.
+       ShellManager wraps this inside <main class="vib-main flex-1">.
+       -------------------------------------------------------------- -->
+
+  <!-- Header & Actions Area -->
+  <section class="vib-section border-b border-vib-borderSubtle">
+    <div class="vib-container py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <p class="vib-kicker">Workspace</p>
+        <h1 class="vib-h1 mt-1">Template &amp; Framework Demo</h1>
+        <p class="text-[var(--vib-body)] text-vib-muted mt-1">
+          Demonstrating the new FormController and TableController engines.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main content area -->
+  <div class="vib-container vib-section-sm flex flex-col gap-4">
+
+    <!-- -- Form Demo ---------------------------------------------- -->
+    <div class="vib-card vib-card-pad max-w-xl">
+      <h2 class="vib-card-title">Add New User (FormController)</h2>
+      <form id="demo-form" class="mt-4 flex flex-col gap-4" novalidate>
+        <div class="vib-field-wrap">
+          <label class="vib-label">Full Name</label>
+          <input type="text" name="name" class="vib-input" placeholder="e.g. Jane Doe">
+        </div>
+        <div class="vib-field-wrap">
+          <label class="vib-label">Email Address</label>
+          <input type="email" name="email" class="vib-input" placeholder="jane@example.com">
+        </div>
+        <div class="vib-field-wrap">
+          <label class="vib-label">Role</label>
+          <select name="role" class="vib-select">
+            <option value="">Select a role...</option>
+            <option value="admin">Admin</option>
+            <option value="editor">Editor</option>
+            <option value="viewer">Viewer</option>
+          </select>
+        </div>
+        <div class="flex items-center gap-2 mt-2">
+          <button type="submit" class="vib-btn vib-btn-primary">Create User</button>
+          <button type="button" class="vib-btn vib-btn-secondary" onclick="demoForm.reset()">Reset</button>
+        </div>
+      </form>
+    </div>
+    <!-- -- /Form Demo --------------------------------------------- -->
+
+    <!-- -- Table Demo --------------------------------------------- -->
+    <div>
+      <h2 class="vib-card-title mb-4">Active Users (TableController)</h2>
+      <!-- TableController mounts into this container -->
+      <div id="demo-table-container"></div>
+    </div>
+    <!-- -- /Table Demo -------------------------------------------- -->
+
+  </div>
+  <!-- -- /PAGE CONTENT ---------------------------------------------- -->
+
+  <!-- -- Page-specific inline JS (load last) ------------------------ -->
+  <script>
+    // 1. Initialise FormController
+    var demoForm = new FormController({
+      form: document.getElementById('demo-form'),
+      eventBus: window.EventBus,
+      rules: {
+        name:  { required: true, minLength: 2 },
+        email: { required: true, type: 'email' },
+        role:  { required: true }
+      },
+      onSubmit: function(payload, fc) {
+        fc.setLoading(true);
+        // Simulate API delay
+        setTimeout(function() {
+          fc.setLoading(false);
+          fc.reset();
+          EventBus.emit('toast:show', { type: 'success', message: 'User "' + payload.name + '" created!' });
+          // Add to table
+          tableData.unshift({
+            id: Date.now(),
+            name: payload.name,
+            email: payload.email,
+            role: payload.role,
+            status: 'active'
+          });
+          demoTable.setData(tableData);
+        }, 1000);
+      }
+    });
+
+    // 2. Initialise TableController
+    var tableData = [
+      { id: 1, name: 'Alice Smith',  email: 'alice@example.com', role: 'admin',  status: 'active' },
+      { id: 2, name: 'Bob Jones',    email: 'bob@example.com',   role: 'editor', status: 'pending' },
+      { id: 3, name: 'Charlie Day',  email: 'charlie@demo.com',  role: 'viewer', status: 'inactive' },
+      { id: 4, name: 'Diana Prince', email: 'diana@demo.com',    role: 'editor', status: 'active' },
+      { id: 5, name: 'Evan Wright',  email: 'evan@example.com',  role: 'viewer', status: 'active' }
+    ];
+
+    var demoTable = new TableController({
+      container: document.getElementById('demo-table-container'),
+      eventBus: window.EventBus,
+      pageSize: 5,
+      columns: [
+        { key: 'name',   label: 'Name',   sortable: true },
+        { key: 'email',  label: 'Email',  sortable: true },
+        { key: 'role',   label: 'Role',   sortable: true },
+        { key: 'status', label: 'Status', type: 'status', sortable: true },
+        { key: '_actions', label: 'Actions', type: 'actions' }
+      ],
+      filters: [
+        { key: 'status', label: 'Status', options: ['active', 'pending', 'inactive'] },
+        { key: 'role',   label: 'Role',   options: ['admin', 'editor', 'viewer'] }
+      ],
+      data: tableData,
+      actions: ['Edit Profile', 'Suspend', 'Delete'],
+      onAction: function(action, row) {
+        if (action === 'Delete') {
+          EventBus.emit('modal:open', {
+            title: 'Delete User',
+            body: 'Are you sure you want to delete ' + row.name + '?',
+            confirmText: 'Delete',
+            onConfirm: function() {
+              tableData = tableData.filter(function(r) { return r.id !== row.id; });
+              demoTable.setData(tableData);
+              EventBus.emit('toast:show', { type: 'success', message: 'User deleted.' });
+            }
+          });
+        } else {
+          EventBus.emit('toast:show', { type: 'info', message: action + ' clicked for ' + row.name });
+        }
+      }
+    });
+
+    // Render table
+    demoTable.render();
+  </script>
+
+</body>
+</html>

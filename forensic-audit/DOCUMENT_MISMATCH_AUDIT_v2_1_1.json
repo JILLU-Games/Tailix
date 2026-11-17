@@ -1,0 +1,41 @@
+{
+  "version": "v2.1.2",
+  "baseline": "VibTools_WEB_UI_v2.1.0.zip",
+  "scope": "Single Token Foundation Engine verification fix",
+  "findings": [
+    {
+      "area": "primary text token",
+      "status": "fixed",
+      "before": "#F8FAFC through --text-primary",
+      "after": "#E6EDF3 through --text-primary"
+    },
+    {
+      "area": "Tailwind CDN vib aliases",
+      "status": "fixed",
+      "before": "core aliases retained raw hex values",
+      "after": "core aliases resolve through CSS variables"
+    },
+    {
+      "area": "legacy component aliases",
+      "status": "fixed",
+      "before": "state/upload/log/chart/settings aliases partly raw fallback",
+      "after": "v2.1.2 component bridge tokens and final alias completion layer"
+    },
+    {
+      "area": "scope guard",
+      "status": "pass",
+      "detail": "no route/layout/module/workflow redesign"
+    }
+  ],
+  "updatedFiles": [
+    "Sandbox/assets/css/foundation/_tokens.css",
+    "Sandbox/assets/css/vibtools-theme.css",
+    "Sandbox/css/vibtools-sandbox.css",
+    "Sandbox/js/tailwind-config.js",
+    "design-tokens/vibtools.tailwind-cdn.config.js",
+    "design-tokens/vibtools.compact.tokens.css",
+    "design-tokens/vibtools.compact.tokens.json",
+    "CHANGELOG_v2_1_1.md",
+    "forensic-audit/FORENSIC_AUDIT_REPORT_v2_1_1.md"
+  ]
+}

@@ -1,0 +1,93 @@
+﻿<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login â€” VibTools Sandbox</title>
+  <meta name="description" content="Login sandbox page">
+  <script src="../js/tailwind-config.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/css/vibtools-theme.css">
+  <link rel="stylesheet" href="../css/vibtools-sandbox.css">
+  <link rel="stylesheet" href="../css/sandbox-only.css">
+</head>
+<body>
+  <div class="vib-shell">
+    <header class="vib-topbar sticky top-0 z-20">
+      <div class="vib-container vib-topbar-inner">
+        <a href="../index.html" class="vib-brand">
+          <img src="../assets/brand/placeholder-vibtools-icon.svg" width="28" height="28" alt="">
+          <span>VibTools UI Sandbox</span>
+        </a>
+        <div class="vib-row">
+          <span class="vib-badge">v2.1.2</span>
+          <span class="vib-badge">Tailwind CDN</span>
+          <span class="vib-badge">Compact</span>
+        </div>
+      </div>
+    </header>
+    <div class="vib-layout">
+      <aside class="vib-sidebar shrink-0">
+        <div class="vib-sidebar-inner">
+          <nav class="vib-stack-sm" aria-label="Sandbox pages">
+            <a class="vib-sidebar-link" href="../index.html">Overview</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="home.html">Home</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="projects.html">Projects</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="about.html">About</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="contact.html">Contact</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="docs-layout.html">Docs</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="dashboard-shell.html">Dashboard</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="monitoring.html">Monitoring</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="login.html">Login</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="register.html">Register</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="profile.html">Profile</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="forms.html">Forms</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="upload.html">Upload Files</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="tables.html">Tables</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="cards.html">Cards</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="navigation.html">Navigation</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="dropdowns.html">Dropdowns</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="alerts-states.html">States</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="empty-loading-error.html">Empty/Error</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="logs-modal.html">Logs</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="settings.html">Settings</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="typography-colors.html">Tokens</a>
+          </nav>
+        </div>
+      </aside>
+      <main class="vib-main">
+<section class="vib-auth-viewport">
+  <div class="vib-auth-split-container" aria-labelledby="login-title">
+    <aside class="vib-auth-hero">
+      <div class="vib-row"><span class="vib-avatar">VT</span><span class="vib-badge">Secure access</span></div>
+      <h1 class="vib-auth-hero-title">VibTools workspace</h1>
+      <p class="vib-card-text">Compact auth surface with product context, centered viewport alignment and restrained dark-card elevation.</p>
+      <div class="vib-card-subtle vib-auth-proof">
+        <p class="vib-meta">UI contract</p>
+        <p class="vib-body vib-auth-compact-note">Centered auth viewport, 24px card padding, 16px field rhythm and 20px action margin.</p>
+      </div>
+    </aside>
+    <form class="vib-auth-card vib-auth-form" aria-labelledby="login-title">
+      <p class="vib-kicker">Auth Demo</p>
+      <h2 id="login-title" class="vib-h1 vib-auth-title">Login</h2>
+      <p class="vib-card-text vib-auth-subtitle">Compact form layout with 30px inputs, 28px action button and integrated provider actions.</p>
+      <div class="vib-social-row" aria-label="Social sign-in providers">
+        <button type="button" class="vib-social-button"><span class="vib-social-icon">G</span>Google</button>
+        <button type="button" class="vib-social-button"><span class="vib-social-icon">GH</span>GitHub</button>
+        <button type="button" class="vib-social-button"><span class="vib-social-icon">A</span>Apple</button>
+      </div>
+      <div class="vib-auth-divider"><span>Email sign in</span></div>
+      <div class="vib-auth-field-stack">
+        <div class="vib-form-field"><label class="vib-label" for="login-email">Email</label><input id="login-email" class="vib-input" type="email" value="hello@vib.tools"></div>
+        <div class="vib-form-field"><label class="vib-label" for="login-password">Password</label><input id="login-password" class="vib-input" type="password" value="password"></div>
+      </div>
+      <button type="button" class="vib-button vib-button-primary vib-auth-submit">Login</button>
+    </form>
+  </div>
+</section>
+      </main>
+    </div>
+  </div>
+  <script src="../js/sandbox-nav.js"></script>
+</body>
+</html>

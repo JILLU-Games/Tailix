@@ -1,0 +1,35 @@
+{
+  "version": "2.0.1",
+  "baseline": "VibTools_WEB_UI_v2.0.0.zip",
+  "scope": "Polish & Typography Refinement for Navigation Playground only",
+  "status": "PASS",
+  "runtimeScope": [
+    "Sandbox/pages/navigation.html",
+    "Sandbox/css/vibtools-sandbox.css",
+    "Sandbox/js/sandbox-nav.js",
+    "Sandbox/pages/Navigation/*"
+  ],
+  "documentSync": [
+    "README.md",
+    "MANIFEST.md",
+    "CHANGELOG_v2_0_1.md",
+    "Sandbox/audit/*",
+    "validation/*",
+    "design-tokens/*"
+  ],
+  "preserved": [
+    "8 navigation modules",
+    "app shell",
+    "sidebar width",
+    "topbar height",
+    "forms playground",
+    "cards playground",
+    "docs",
+    "upload",
+    "settings",
+    "monitoring",
+    "logs modal",
+    "table behavior",
+    "backend/API logic"
+  ]
+}

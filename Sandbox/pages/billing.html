@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Billing & Usage — VibTools Sandbox</title>
+  <meta name="description" content="Billing and analytics usage sandbox page">
+  <script src="../js/tailwind-config.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/css/vibtools-theme.css">
+  <link rel="stylesheet" href="../css/vibtools-sandbox.css">
+  <link rel="stylesheet" href="../css/sandbox-only.css">
+  
+  <!-- Global Managers -->
+  <script src="../js/components/toast-manager.js"></script>
+  <script src="../js/components/modal-manager.js"></script>
+</head>
+<body>
+  <div class="vib-shell">
+    <header class="vib-topbar sticky top-0 z-20">
+      <div class="vib-container vib-topbar-inner">
+        <a href="../index.html" class="vib-brand">
+          <svg class="w-[var(--icon-lg)] h-[var(--icon-lg)] stroke-[var(--icon-stroke)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+          <span>VibTools UI Sandbox</span>
+        </a>
+        <div class="vib-row">
+          <span class="vib-badge">v2.2.0</span>
+          <span class="vib-badge">Tailwind CDN</span>
+          <span class="vib-badge">Compact</span>
+        </div>
+      </div>
+    </header>
+    <div class="vib-layout">
+      <aside class="vib-sidebar shrink-0">
+        <div class="vib-sidebar-inner">
+          <nav class="vib-stack-sm" aria-label="Sandbox pages">
+            <a class="vib-sidebar-link" href="../index.html">Overview</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="home.html">Home</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="projects.html">Projects</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="about.html">About</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="contact.html">Contact</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="docs-layout.html">Docs</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="dashboard-shell.html">Dashboard</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="monitoring.html">Monitoring</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="login.html">Login</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="register.html">Register</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="profile.html">Profile</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="users.html">Users</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link active" href="billing.html">Billing</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="forms.html">Forms</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="upload.html">Upload Files</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="tables.html">Tables</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="cards.html">Cards</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="navigation.html">Navigation</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="dropdowns.html">Dropdowns</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="alerts-states.html">States</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="empty-loading-error.html">Empty/Error</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="logs-modal.html">Logs</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="settings.html">Settings</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="typography-colors.html">Tokens</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="404.html">404 Error</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="500.html">500 Error</a>
+          </nav>
+        </div>
+      </aside>
+      <main class="vib-main flex-1">
+        
+        <!-- Header & Actions Area -->
+        <section class="vib-app-page vib-cards-playground-page">
+          <div class="vib-page-header flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <p class="vib-kicker">Workspace</p>
+              <h1 class="vib-h1 mt-1">Billing &amp; Usage</h1>
+              <p class="text-[var(--vib-body)] text-vib-muted mt-1">Manage your subscription, view current usage metrics, and download invoice history.</p>
+            </div>
+            <div class="flex items-center gap-2 bg-vib-surfaceSoft border border-vib-borderSubtle rounded-[var(--vib-radius-md)] p-1">
+              <button type="button" class="px-3 py-1 vib-meta font-medium bg-vib-navActiveBg text-vib-primary rounded-[var(--vib-radius-sm)] shadow-sm">Monthly</button>
+              <button type="button" class="px-3 py-1 vib-meta hover:text-vib-primary transition-colors">Annually (Save 20%)</button>
+            </div>
+          </div>
+          <div class="vib-playground-container space-y-8">
+            
+            <!-- Current Subscription Plan Card -->
+            <div class="vib-card-subtle p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div>
+                <div class="flex items-center gap-3 mb-2">
+                  <h2 class="vib-h2">Enterprise Pro</h2>
+                  <span class="inline-flex items-center px-2 py-0.5 rounded-[var(--vib-radius-full)] vib-meta font-medium bg-vib-stateSuccessBg text-vib-stateSuccessText border border-vib-stateSuccessBorder">Active</span>
+                </div>
+                <p class="text-[var(--vib-body)] text-vib-muted">Your subscription renews on Oct 1, 2026 for $199.00.</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <button type="button" class="vib-button vib-button-ghost text-vib-danger hover:text-vib-danger hover:bg-vib-stateDangerBg">Cancel Subscription</button>
+                <button type="button" class="vib-button vib-button-primary">Upgrade Plan</button>
+              </div>
+            </div>
+
+            <!-- Usage & Resource Metrics Grid -->
+            <div>
+              <h3 class="text-[var(--text-md)] font-medium text-vib-primary mb-4">Current Usage</h3>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                
+                <!-- API Requests Metric -->
+                <div class="vib-card-subtle p-5">
+                  <div class="flex justify-between items-end mb-4">
+                    <div>
+                      <p class="vib-meta uppercase tracking-wide">API Requests</p>
+                      <div class="vib-h1 mt-1">85,000 <span class="text-[var(--vib-body)] text-vib-muted font-normal">/ 100k</span></div>
+                    </div>
+                    <svg class="w-[var(--icon-lg)] h-[var(--icon-lg)] stroke-[var(--vib-border)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                  </div>
+                  <div class="w-full bg-vib-surfaceSoft h-2 rounded-[var(--vib-radius-full)] overflow-hidden">
+                    <div class="bg-vib-stateWarningText h-full rounded-[var(--vib-radius-full)] transition-all duration-[var(--motion-duration-slow,300ms)] ease-[var(--motion-easing-bounce,cubic-bezier(0.4,0,0.2,1))]" style="width: 85%"></div>
+                  </div>
+                  <p class="vib-meta mt-2">15,000 requests remaining</p>
+                </div>
+
+                <!-- Team Seats Metric -->
+                <div class="vib-card-subtle p-5">
+                  <div class="flex justify-between items-end mb-4">
+                    <div>
+                      <p class="vib-meta uppercase tracking-wide">Team Seats</p>
+                      <div class="vib-h1 mt-1">4 <span class="text-[var(--vib-body)] text-vib-muted font-normal">/ 5</span></div>
+                    </div>
+                    <svg class="w-[var(--icon-lg)] h-[var(--icon-lg)] stroke-[var(--vib-border)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                  </div>
+                  <div class="w-full bg-vib-surfaceSoft h-2 rounded-[var(--vib-radius-full)] overflow-hidden">
+                    <div class="bg-vib-primary h-full rounded-[var(--vib-radius-full)] transition-all duration-[var(--motion-duration-slow,300ms)] ease-[var(--motion-easing-bounce,cubic-bezier(0.4,0,0.2,1))]" style="width: 80%"></div>
+                  </div>
+                  <p class="vib-meta mt-2">1 seat remaining</p>
+                </div>
+
+                <!-- Storage Usage Metric -->
+                <div class="vib-card-subtle p-5">
+                  <div class="flex justify-between items-end mb-4">
+                    <div>
+                      <p class="vib-meta uppercase tracking-wide">Storage</p>
+                      <div class="vib-h1 mt-1">2.4 GB <span class="text-[var(--vib-body)] text-vib-muted font-normal">/ 10 GB</span></div>
+                    </div>
+                    <svg class="w-[var(--icon-lg)] h-[var(--icon-lg)] stroke-[var(--vib-border)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>
+                  </div>
+                  <div class="w-full bg-vib-surfaceSoft h-2 rounded-[var(--vib-radius-full)] overflow-hidden">
+                    <div class="bg-vib-primary h-full rounded-[var(--vib-radius-full)] transition-all duration-[var(--motion-duration-slow,300ms)] ease-[var(--motion-easing-bounce,cubic-bezier(0.4,0,0.2,1))]" style="width: 24%"></div>
+                  </div>
+                  <p class="vib-meta mt-2">7.6 GB remaining</p>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Payment Methods & Invoice History -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-[var(--space-4)]">
+              
+              <!-- Payment Methods -->
+              <div class="lg:col-span-1">
+                <h3 class="text-[var(--text-md)] font-medium text-vib-primary mb-4">Payment Method</h3>
+                <div class="vib-card-subtle p-5 relative overflow-hidden group">
+                  <!-- Decorative background -->
+                  <div class="absolute -right-8 -top-8 w-24 h-24 bg-vib-surfaceSoft rounded-full opacity-50 group-hover:scale-110 transition-transform duration-[var(--motion-duration-slow)]"></div>
+                  
+                  <div class="flex items-start justify-between relative z-10">
+                    <div>
+                      <p class="text-[var(--vib-body)] font-medium text-vib-text mb-1">Visa ending in 4242</p>
+                      <p class="vib-meta">Expires 12/2028</p>
+                    </div>
+                    <div class="px-2 py-1 bg-vib-surfaceSoft border border-vib-borderSubtle rounded-[var(--vib-radius-sm)] flex items-center justify-center">
+                      <svg class="w-[var(--icon-lg)] h-[var(--icon-md)] fill-vib-primary opacity-80" viewBox="0 0 32 20"><path d="M12.164 1.109L9.756 18.06h-4.32l2.408-16.95h4.32zm13.146 0h4.298l-7.234 16.95h-4.482l3.432-8.083-4.225-8.868h4.63l1.865 4.587 1.716-4.587zM4.773 1.11H.272L0 2.457c1.378.368 2.802 1.05 3.96 1.874l1.328 11.232c-.068.34.02.695.234.954.214.258.537.406.878.406h4.5L13.13 1.11H8.56c-.347 0-.649.231-.741.564L6.19 10.354C5.83 5.464 2.857 2.147 4.773 1.11zm19.643 0h-3.483c-.392 0-.742.247-.872.617l-3.23 8.815-1.745-9.432H10.57l2.84 16.95h4.52l5.485-16.95z"/></svg>
+                    </div>
+                  </div>
+                  <div class="mt-6 flex items-center gap-3 relative z-10">
+                    <button type="button" class="vib-meta font-medium text-vib-danger hover:text-vib-danger/80 transition-colors">Remove</button>
+                    <button type="button" class="vib-meta font-medium text-vib-primary hover:opacity-80 transition-opacity ml-auto" onclick="
+                      window.VibModal.open({
+                        title: 'Add Payment Method',
+                        body: `
+                          <form id='payment-form' class='space-y-4' onsubmit='event.preventDefault(); window.VibToast.success(\`Payment method added successfully!\`, 3000);'>
+                            <div>
+                              <label class='block vib-meta font-medium text-vib-text mb-1.5'>Card Information</label>
+                              <div class='border border-vib-borderSubtle rounded-[var(--vib-radius-md)] overflow-hidden bg-vib-surface'>
+                                <input type='text' class='w-full px-3 py-2 bg-transparent text-[var(--vib-body)] text-vib-text focus:outline-none border-b border-vib-borderSubtle' placeholder='Card number' required>
+                                <div class='flex'>
+                                  <input type='text' class='w-1/2 px-3 py-2 bg-transparent text-[var(--vib-body)] text-vib-text focus:outline-none border-r border-vib-borderSubtle' placeholder='MM / YY' required>
+                                  <input type='text' class='w-1/2 px-3 py-2 bg-transparent text-[var(--vib-body)] text-vib-text focus:outline-none' placeholder='CVC' required>
+                                </div>
+                              </div>
+                            </div>
+                            <div>
+                              <label class='block vib-meta font-medium text-vib-text mb-1.5'>Cardholder Name</label>
+                              <input type='text' class='vib-input w-full' placeholder='Full name on card' required>
+                            </div>
+                          </form>
+                        `,
+                        confirmText: 'Save Card',
+                        onConfirm: () => {
+                          document.getElementById('payment-form').dispatchEvent(new Event('submit'));
+                        }
+                      })
+                    ">Add New Method</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Invoice History Table -->
+              <div class="lg:col-span-2">
+                <div class="flex items-center justify-between mb-4">
+                  <h3 class="text-[var(--text-md)] font-medium text-vib-primary">Invoice History</h3>
+                  <button type="button" class="vib-meta hover:text-vib-primary transition-colors flex items-center gap-1">
+                    <svg class="w-[var(--icon-sm)] h-[var(--icon-sm)] stroke-[var(--icon-stroke)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                    Download All
+                  </button>
+                </div>
+                
+                <div class="vib-table-panel p-0 overflow-hidden">
+                  <div class="vib-table-wrap">
+                    <table class="vib-table" aria-label="Invoice History">
+                      <thead>
+                        <tr>
+                          <th scope="col" class="vib-meta uppercase font-semibold">Date</th>
+                          <th scope="col" class="vib-meta uppercase font-semibold">Invoice ID</th>
+                          <th scope="col" class="vib-meta uppercase font-semibold">Amount</th>
+                          <th scope="col" class="vib-meta uppercase font-semibold">Status</th>
+                          <th scope="col" class="vib-td-action vib-meta uppercase font-semibold text-right">Receipt</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="hover:bg-vib-tableRowHover even:bg-vib-tableEmptyBg transition-colors">
+                          <td class="text-vib-primary text-[var(--vib-body)]">Sep 1, 2026</td>
+                          <td class="font-mono vib-meta text-vib-text">#INV-2026-009</td>
+                          <td class="text-vib-text text-[var(--vib-body)]">$199.00</td>
+                          <td><span class="inline-flex items-center px-2 py-0.5 rounded-[var(--vib-radius-full)] vib-meta font-medium bg-vib-stateSuccessBg text-vib-stateSuccessText border border-vib-stateSuccessBorder">Paid</span></td>
+                          <td class="vib-td-action text-right">
+                            <button type="button" class="text-vib-muted hover:text-vib-primary transition-colors" aria-label="Download receipt">
+                              <svg class="w-[var(--icon-md)] h-[var(--icon-md)] stroke-[var(--icon-stroke)] inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr class="hover:bg-vib-tableRowHover even:bg-vib-tableEmptyBg transition-colors">
+                          <td class="text-vib-primary text-[var(--vib-body)]">Aug 1, 2026</td>
+                          <td class="font-mono vib-meta text-vib-text">#INV-2026-008</td>
+                          <td class="text-vib-text text-[var(--vib-body)]">$199.00</td>
+                          <td><span class="inline-flex items-center px-2 py-0.5 rounded-[var(--vib-radius-full)] vib-meta font-medium bg-vib-stateSuccessBg text-vib-stateSuccessText border border-vib-stateSuccessBorder">Paid</span></td>
+                          <td class="vib-td-action text-right">
+                            <button type="button" class="text-vib-muted hover:text-vib-primary transition-colors" aria-label="Download receipt">
+                              <svg class="w-[var(--icon-md)] h-[var(--icon-md)] stroke-[var(--icon-stroke)] inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr class="hover:bg-vib-tableRowHover even:bg-vib-tableEmptyBg transition-colors">
+                          <td class="text-vib-primary text-[var(--vib-body)]">Jul 1, 2026</td>
+                          <td class="font-mono vib-meta text-vib-text">#INV-2026-007</td>
+                          <td class="text-vib-text text-[var(--vib-body)]">$199.00</td>
+                          <td><span class="inline-flex items-center px-2 py-0.5 rounded-[var(--vib-radius-full)] vib-meta font-medium bg-vib-stateSuccessBg text-vib-stateSuccessText border border-vib-stateSuccessBorder">Paid</span></td>
+                          <td class="vib-td-action text-right">
+                            <button type="button" class="text-vib-muted hover:text-vib-primary transition-colors" aria-label="Download receipt">
+                              <svg class="w-[var(--icon-md)] h-[var(--icon-md)] stroke-[var(--icon-stroke)] inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+        
+      </main>
+    </div>
+  </div>
+  <script src="../js/sandbox-nav.js"></script>
+</body>
+</html>

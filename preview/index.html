@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0D1117">
+  <title>VibTools Compact Tailwind CDN Preview v1.6.1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../design-tokens/vibtools.tailwind-cdn.config.js"></script>
+  <link rel="stylesheet" href="../Sandbox/css/vibtools-sandbox.css">
+</head>
+<body>
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[999] focus:rounded-vib-control focus:border focus:border-vib-secondary focus:bg-vib-surface focus:px-3 focus:py-2">Skip to content</a>
+
+  <header class="vib-topbar">
+    <div class="vib-container vib-topbar-inner">
+      <a class="vib-brand" href="#" aria-label="VibTools home"><span class="vib-avatar">VT</span><span>VibTools UI Sandbox</span></a>
+      <div class="vib-row"><span class="vib-badge">v1.6.1</span><span class="vib-badge">Tailwind CDN</span><span class="vib-badge">Compact</span></div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="vib-container vib-section">
+      <p class="vib-kicker">Tailwind CDN compact freeze</p>
+      <h1 class="vib-hero-title mt-2">The official compact VibTools web UI design.</h1>
+      <p class="vib-body mt-2 max-w-2xl">Source-matched dark surfaces, precise typography, compact cards and developer-first component contracts.</p>
+      <div class="vib-row mt-3">
+        <a class="vib-button vib-button-primary" href="../Sandbox/index.html">Open sandbox</a>
+        <a class="vib-button vib-button-secondary" href="../docs/01_COMPACT_DESIGN_SHEET.md">View design sheet</a>
+      </div>
+    </section>
+
+    <section class="vib-container vib-grid-3 vib-section-sm">
+      <article class="vib-card vib-card-pad">
+        <p class="vib-kicker">Card</p>
+        <h3 class="vib-card-title mt-2">Flat bordered surface</h3>
+        <p class="vib-card-text mt-2">10px/12px padding, 12px radius, 1px border and no default shadow.</p>
+      </article>
+      <article class="vib-card vib-card-pad">
+        <p class="vib-kicker">Form</p>
+        <label class="vib-label mt-2" for="repo">Repository</label>
+        <input id="repo" class="vib-input" placeholder="vibtools/project">
+      </article>
+      <article class="vib-card vib-card-pad">
+        <p class="vib-kicker">Status</p>
+        <div class="vib-row mt-2">
+          <span class="vib-badge-status" data-state="success">Ready</span>
+          <span class="vib-badge-status" data-state="warning">Review</span>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

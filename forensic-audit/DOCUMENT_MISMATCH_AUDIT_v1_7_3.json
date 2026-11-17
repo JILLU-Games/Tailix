@@ -1,0 +1,13 @@
+{
+  "version": "v1.7.3",
+  "baseline": "v1.7.2",
+  "scope": "Zero-Shadow Pure Flat UI Standard",
+  "mismatches": [
+    {
+      "area": "surface/elevation docs",
+      "before": "Earlier docs allowed auth/modal/focus shadow contexts",
+      "after": "v1.7.3 documents global zero-shadow and border-only depth"
+    }
+  ],
+  "scopeGuard": "No layout, route, workflow, sidebar/topbar dimension, component architecture or file structure changes outside the locked zero-shadow update."
+}

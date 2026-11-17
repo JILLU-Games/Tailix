@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Users & Team — VibTools Sandbox</title>
+  <meta name="description" content="User and team management sandbox page">
+  <script src="../js/tailwind-config.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/css/vibtools-theme.css">
+  <link rel="stylesheet" href="../css/vibtools-sandbox.css">
+  <link rel="stylesheet" href="../css/sandbox-only.css">
+  
+  <!-- Global Managers -->
+  <script src="../js/components/toast-manager.js"></script>
+  <script src="../js/components/modal-manager.js"></script>
+</head>
+<body>
+  <div class="vib-shell">
+    <header class="vib-topbar sticky top-0 z-20">
+      <div class="vib-container vib-topbar-inner">
+        <a href="../index.html" class="vib-brand">
+          <svg class="w-[var(--icon-lg)] h-[var(--icon-lg)] stroke-[var(--icon-stroke)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+          <span>VibTools UI Sandbox</span>
+        </a>
+        <div class="vib-row">
+          <span class="vib-badge">v2.2.0</span>
+          <span class="vib-badge">Tailwind CDN</span>
+          <span class="vib-badge">Compact</span>
+        </div>
+      </div>
+    </header>
+    <div class="vib-layout">
+      <aside class="vib-sidebar shrink-0">
+        <div class="vib-sidebar-inner">
+          <nav class="vib-stack-sm" aria-label="Sandbox pages">
+            <a class="vib-sidebar-link" href="../index.html">Overview</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="home.html">Home</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="projects.html">Projects</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="about.html">About</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="contact.html">Contact</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="docs-layout.html">Docs</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="dashboard-shell.html">Dashboard</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="monitoring.html">Monitoring</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="login.html">Login</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="register.html">Register</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="profile.html">Profile</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link active" href="users.html">Users</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="forms.html">Forms</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="upload.html">Upload Files</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="tables.html">Tables</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="cards.html">Cards</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="navigation.html">Navigation</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="dropdowns.html">Dropdowns</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="alerts-states.html">States</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="empty-loading-error.html">Empty/Error</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="logs-modal.html">Logs</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="settings.html">Settings</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="typography-colors.html">Tokens</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="404.html">404 Error</a>
+            <a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="500.html">500 Error</a>
+          </nav>
+        </div>
+      </aside>
+      <main class="vib-main flex-1">
+        
+        <!-- Header & Actions Area -->
+        <section class="vib-app-page vib-cards-playground-page">
+          <div class="vib-page-header flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <p class="vib-kicker">Workspace</p>
+              <h1 class="vib-h1 mt-1">Team &amp; User Management</h1>
+              <p class="text-[var(--vib-body)] text-vib-muted mt-1">Manage members, assign specialized roles, and control access permissions across your organization.</p>
+            </div>
+            <button class="vib-button vib-button-primary" type="button" onclick="
+              window.VibModal.open({
+                title: 'Invite Team Member',
+                body: `
+                  <form id='invite-form' class='flex flex-col gap-4' onsubmit='event.preventDefault(); window.VibToast.success(\`Invitation sent to new member!\`, 3000);'>
+                    <div>
+                      <label class='block vib-meta font-medium text-vib-text mb-1.5'>Email Address</label>
+                      <input type='email' class='vib-input w-full' placeholder='colleague@example.com' required>
+                    </div>
+                    <div>
+                      <label class='block vib-meta font-medium text-vib-text mb-1.5'>Assign Role</label>
+                      <select class='vib-select w-full'>
+                        <option value='viewer'>Viewer</option>
+                        <option value='editor' selected>Editor</option>
+                        <option value='admin'>Admin</option>
+                      </select>
+                      <p class='vib-meta mt-2'>Roles determine access levels across all workspace projects.</p>
+                    </div>
+                  </form>
+                `,
+                confirmText: 'Send Invite',
+                onConfirm: () => {
+                  document.getElementById('invite-form').dispatchEvent(new Event('submit'));
+                }
+              })
+            ">
+              <svg class="w-[var(--icon-md)] h-[var(--icon-md)] stroke-[var(--icon-stroke)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg>
+              Invite Member
+            </button>
+          </div>
+
+          <div class="vib-playground-container">
+            <div class="vib-table-panel" data-vib-table-panel>
+              <div class="vib-table-toolbar" aria-label="Users table controls">
+                <div class="vib-table-controls-left">
+                  <label class="vib-table-search">
+                    <span class="sr-only">Search members</span>
+                    <svg class="vib-table-search-icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.2" fill="none" stroke="currentColor" stroke-width="var(--icon-stroke)"></circle><path d="m10.2 10.2 3 3" fill="none" stroke="currentColor" stroke-width="var(--icon-stroke)" stroke-linecap="round"></path></svg>
+                    <input class="vib-input" type="search" data-table-search placeholder="Search by name or email...">
+                  </label>
+                  <select class="vib-select vib-table-filter" data-table-filter="role" aria-label="Filter by role">
+                    <option value="">Role: All</option>
+                    <option value="admin">Admin</option>
+                    <option value="editor">Editor</option>
+                    <option value="viewer">Viewer</option>
+                  </select>
+                </div>
+                <div class="vib-table-controls-right">
+                  <button class="vib-button vib-button-secondary" type="button">
+                    <svg class="w-[var(--icon-sm)] h-[var(--icon-sm)] stroke-[var(--icon-stroke)] mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                    Export CSV
+                  </button>
+                </div>
+              </div>
+              <div class="vib-table-wrap">
+                <table class="vib-table" aria-label="Team members">
+                  <thead>
+                    <tr>
+                      <th scope="col" class="vib-table-select-col vib-meta uppercase font-semibold"><input class="vib-table-checkbox" type="checkbox" data-table-select-all aria-label="Select all users"></th>
+                      <th scope="col" class="vib-meta uppercase font-semibold"><button class="vib-th-sort" type="button" data-sort-key="user">Member <span class="vib-sort-icon">?</span></button></th>
+                      <th scope="col" class="vib-meta uppercase font-semibold"><button class="vib-th-sort" type="button" data-sort-key="role">Role <span class="vib-sort-icon">?</span></button></th>
+                      <th scope="col" class="vib-meta uppercase font-semibold"><button class="vib-th-sort" type="button" data-sort-key="status">Status <span class="vib-sort-icon">?</span></button></th>
+                      <th scope="col" class="vib-meta uppercase font-semibold">Last Active</th>
+                      <th scope="col" class="vib-td-action vib-meta uppercase font-semibold">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr data-user="Sarah Jenkins" data-role="admin" data-status="active" class="hover:bg-vib-tableRowHover even:bg-vib-tableEmptyBg transition-colors">
+                      <td class="vib-table-select-col"><input class="vib-table-checkbox" type="checkbox" data-table-row-select aria-label="Select Sarah Jenkins"></td>
+                      <td>
+                        <div class="flex items-center gap-3">
+                          <div class="w-[32px] h-[32px] rounded-full bg-vib-surfaceSoft border border-vib-border flex items-center justify-center vib-meta font-medium text-vib-text shrink-0 uppercase tracking-wide">SJ</div>
+                          <div class="flex flex-col">
+                            <span class="text-[var(--vib-body)] font-medium text-vib-text ">Sarah Jenkins</span>
+                            <span class="vib-meta ">sarah@example.com</span>
+                          </div>
+                        </div>
+                      </td>
+                      <td><span class="inline-flex items-center px-2 py-0.5 rounded-[var(--vib-radius-full)] vib-meta font-medium bg-vib-badgeBg text-vib-primary border border-vib-borderSubtle">Admin</span></td>
+                      <td><span class="inline-flex items-center px-2 py-0.5 rounded-[var(--vib-radius-full)] vib-meta font-medium bg-vib-stateSuccessBg text-vib-stateSuccessText border border-vib-stateSuccessBorder">Active</span></td>
+                      <td class="text-vib-muted text-[var(--vib-body)]">Just now</td>
+                      <td class="vib-td-action">
+                        <details class="vib-action-menu">
+                          <summary class="vib-icon-button" aria-label="Open row menu">•••</summary>
+                          <div class="vib-action-menu-panel">
+                            <button type="button">Edit Role</button>
+                            <button type="button">Suspend User</button>
+                            <div class="h-px bg-vib-borderSubtle my-1"></div>
+                            <button type="button" class="text-vib-danger hover:text-vib-danger">Revoke Access</button>
+                          </div>
+                        </details>
+                      </td>
+                    </tr>
+                    
+                    <tr data-user="Michael Chen" data-role="editor" data-status="active" class="hover:bg-vib-tableRowHover even:bg-vib-tableEmptyBg transition-colors">
+                      <td class="vib-table-select-col"><input class="vib-table-checkbox" type="checkbox" data-table-row-select aria-label="Select Michael Chen"></td>
+                      <td>
+                        <div class="flex items-center gap-3">
+                          <div class="w-[32px] h-[32px] rounded-full bg-vib-surfaceSoft border border-vib-border flex items-center justify-center vib-meta font-medium text-vib-text shrink-0 uppercase tracking-wide">MC</div>
+                          <div class="flex flex-col">
+                            <span class="text-[var(--vib-body)] font-medium text-vib-text ">Michael Chen</span>
+                            <span class="vib-meta ">michael.chen@example.com</span>
+                          </div>
+                        </div>
+                      </td>
+                      <td><span class="inline-flex items-center px-2 py-0.5 rounded-[var(--vib-radius-full)] vib-meta font-medium bg-vib-surfaceSoft text-vib-text border border-vib-borderSubtle">Editor</span></td>
+                      <td><span class="inline-flex items-center px-2 py-0.5 rounded-[var(--vib-radius-full)] vib-meta font-medium bg-vib-stateSuccessBg text-vib-stateSuccessText border border-vib-stateSuccessBorder">Active</span></td>
+                      <td class="text-vib-muted text-[var(--vib-body)]">2 hours ago</td>
+                      <td class="vib-td-action">
+                        <details class="vib-action-menu">
+                          <summary class="vib-icon-button" aria-label="Open row menu">•••</summary>
+                          <div class="vib-action-menu-panel">
+                            <button type="button">Edit Role</button>
+                            <button type="button">Suspend User</button>
+                            <div class="h-px bg-vib-borderSubtle my-1"></div>
+                            <button type="button" class="text-vib-danger hover:text-vib-danger">Revoke Access</button>
+                          </div>
+                        </details>
+                      </td>
+                    </tr>
+
+                    <tr data-user="Alex Rivera" data-role="viewer" data-status="inactive" class="hover:bg-vib-tableRowHover even:bg-vib-tableEmptyBg transition-colors">
+                      <td class="vib-table-select-col"><input class="vib-table-checkbox" type="checkbox" data-table-row-select aria-label="Select Alex Rivera"></td>
+                      <td>
+                        <div class="flex items-center gap-3">
+                          <div class="w-[32px] h-[32px] rounded-full bg-vib-surfaceSoft border border-vib-border flex items-center justify-center vib-meta font-medium text-vib-text shrink-0 uppercase tracking-wide opacity-60">AR</div>
+                          <div class="flex flex-col opacity-60">
+                            <span class="text-[var(--vib-body)] font-medium text-vib-text ">Alex Rivera</span>
+                            <span class="vib-meta ">alex.rivera@example.com</span>
+                          </div>
+                        </div>
+                      </td>
+                      <td><span class="inline-flex items-center px-2 py-0.5 rounded-[var(--vib-radius-full)] vib-meta font-medium bg-vib-surfaceSoft text-vib-muted border border-vib-borderSubtle">Viewer</span></td>
+                      <td><span class="inline-flex items-center px-2 py-0.5 rounded-[var(--vib-radius-full)] vib-meta font-medium bg-vib-surfaceSoft text-vib-muted border border-vib-borderSubtle">Inactive</span></td>
+                      <td class="text-vib-muted text-[var(--vib-body)]">4 days ago</td>
+                      <td class="vib-td-action">
+                        <details class="vib-action-menu">
+                          <summary class="vib-icon-button" aria-label="Open row menu">•••</summary>
+                          <div class="vib-action-menu-panel">
+                            <button type="button">Edit Role</button>
+                            <button type="button">Restore User</button>
+                            <div class="h-px bg-vib-borderSubtle my-1"></div>
+                            <button type="button" class="text-vib-danger hover:text-vib-danger">Revoke Access</button>
+                          </div>
+                        </details>
+                      </td>
+                    </tr>
+
+                    <tr data-user="Jessica Wu" data-role="viewer" data-status="pending" class="hover:bg-vib-tableRowHover even:bg-vib-tableEmptyBg transition-colors">
+                      <td class="vib-table-select-col"><input class="vib-table-checkbox" type="checkbox" data-table-row-select aria-label="Select Jessica Wu"></td>
+                      <td>
+                        <div class="flex items-center gap-3">
+                          <div class="w-[32px] h-[32px] rounded-full bg-vib-surfaceSoft border border-vib-border border-dashed flex items-center justify-center vib-meta shrink-0 uppercase tracking-wide">JW</div>
+                          <div class="flex flex-col">
+                            <span class="text-[var(--vib-body)] font-medium text-vib-text ">Jessica Wu</span>
+                            <span class="vib-meta ">jwu@example.com</span>
+                          </div>
+                        </div>
+                      </td>
+                      <td><span class="inline-flex items-center px-2 py-0.5 rounded-[var(--vib-radius-full)] vib-meta font-medium bg-vib-surfaceSoft text-vib-text border border-vib-borderSubtle">Viewer</span></td>
+                      <td><span class="inline-flex items-center px-2 py-0.5 rounded-[var(--vib-radius-full)] vib-meta font-medium bg-vib-stateWarningBg text-vib-stateWarningText border border-vib-stateWarningBorder">Pending</span></td>
+                      <td class="text-vib-muted text-[var(--vib-body)]">Invited today</td>
+                      <td class="vib-td-action">
+                        <details class="vib-action-menu">
+                          <summary class="vib-icon-button" aria-label="Open row menu">•••</summary>
+                          <div class="vib-action-menu-panel">
+                            <button type="button" onclick="window.VibToast.info('Invitation resent', 3000)">Resend Invite</button>
+                            <button type="button">Edit Role</button>
+                            <div class="h-px bg-vib-borderSubtle my-1"></div>
+                            <button type="button" class="text-vib-danger hover:text-vib-danger">Cancel Invite</button>
+                          </div>
+                        </details>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="vib-table-footer border-t border-vib-borderSubtle mt-2 pt-2">
+                <span class="vib-meta" data-table-count>4 of 12 entries</span>
+                <div class="vib-table-controls flex items-center gap-2">
+                  <select class="vib-select vib-table-filter h-8 border border-vib-borderSubtle bg-transparent rounded-[var(--vib-radius-sm)] px-2 text-[var(--vib-body)] text-vib-text" aria-label="Rows per page"><option>10 / page</option><option>25 / page</option></select>
+                  <nav class="vib-pagination flex gap-1" aria-label="Table pagination">
+                    <button class="vib-page-button h-8 px-2 border border-vib-borderSubtle rounded-[var(--vib-radius-sm)] bg-transparent text-vib-text hover:bg-vib-surfaceSoft disabled:opacity-50 text-[var(--vib-body)] transition-colors" type="button" disabled>Prev</button>
+                    <button class="vib-page-button h-8 px-3 border border-vib-borderSubtle rounded-[var(--vib-radius-sm)] bg-vib-navActiveBg text-vib-primary text-[var(--vib-body)] font-medium" type="button" aria-current="page">1</button>
+                    <button class="vib-page-button h-8 px-3 border border-vib-borderSubtle rounded-[var(--vib-radius-sm)] bg-transparent text-vib-text hover:bg-vib-surfaceSoft transition-colors text-[var(--vib-body)] font-medium" type="button">2</button>
+                    <button class="vib-page-button h-8 px-2 border border-vib-borderSubtle rounded-[var(--vib-radius-sm)] bg-transparent text-vib-text hover:bg-vib-surfaceSoft disabled:opacity-50 text-[var(--vib-body)] transition-colors" type="button">Next</button>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+      </main>
+    </div>
+  </div>
+  <script src="../js/sandbox-nav.js"></script>
+</body>
+</html>

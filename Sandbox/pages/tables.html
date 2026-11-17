@@ -1,0 +1,162 @@
+﻿<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tables — VibTools Sandbox</title>
+  <meta name="description" content="Tables sandbox page">
+  <script src="../js/tailwind-config.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/css/vibtools-theme.css">
+  <link rel="stylesheet" href="../css/vibtools-sandbox.css">
+  <link rel="stylesheet" href="../css/sandbox-only.css">
+</head>
+<body>
+  <div class="vib-shell">
+    <header class="vib-topbar sticky top-0 z-20">
+      <div class="vib-container vib-topbar-inner">
+        <a href="../index.html" class="vib-brand">
+          <img src="../assets/brand/placeholder-vibtools-icon.svg" class="w-[var(--icon-lg)] h-[var(--icon-lg)]" alt="">
+          <span>VibTools UI Sandbox</span>
+        </a>
+        <div class="vib-row">
+          <span class="vib-badge">v2.1.2</span>
+          <span class="vib-badge">Tailwind CDN</span>
+          <span class="vib-badge">Compact</span>
+        </div>
+      </div>
+    </header>
+    <div class="vib-layout">
+      <aside class="vib-sidebar shrink-0">
+        <div class="vib-sidebar-inner">
+          <nav class="vib-stack-sm" aria-label="Sandbox pages">
+            <a class="vib-sidebar-link" href="../index.html">Overview</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="home.html">Home</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="projects.html">Projects</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="about.html">About</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="contact.html">Contact</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="docs-layout.html">Docs</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="dashboard-shell.html">Dashboard</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="monitoring.html">Monitoring</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="login.html">Login</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="register.html">Register</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="profile.html">Profile</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="forms.html">Forms</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="upload.html">Upload Files</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="tables.html">Tables</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="cards.html">Cards</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="navigation.html">Navigation</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="dropdowns.html">Dropdowns</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="alerts-states.html">States</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="empty-loading-error.html">Empty/Error</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="logs-modal.html">Logs</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="settings.html">Settings</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="typography-colors.html">Tokens</a>
+          </nav>
+        </div>
+      </aside>
+      <main class="vib-main">
+<section class="vib-app-page vib-cards-playground-page">
+    <div class="vib-page-header vib-playground-hero">
+      <div>
+    <p class="vib-kicker">Tables Demo</p>
+    <h1 class="vib-h1 mt-2">Compact table system.</h1>
+    <p class="vib-body mt-2">Tables use 12px text, 6px vertical and 12px horizontal cell padding, exact border tokens and no oversized cells.</p>
+  </div>
+    </div>
+    <div class="vib-playground-container">
+    <div class="vib-table-panel" data-vib-table-panel>
+      <div class="vib-table-toolbar" aria-label="Project table controls">
+        <div class="vib-table-controls-left">
+          <label class="vib-table-search">
+            <span class="sr-only">Search records</span>
+            <svg class="vib-table-search-icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.2" fill="none" stroke="currentColor" stroke-width="var(--icon-stroke)"></circle><path d="m10.2 10.2 3 3" fill="none" stroke="currentColor" stroke-width="var(--icon-stroke)" stroke-linecap="round"></path></svg>
+            <input class="vib-input" type="search" data-table-search placeholder="Search records...">
+          </label>
+          <select class="vib-select vib-table-filter" data-table-filter="status" aria-label="Filter by status">
+            <option value="">Status: All</option>
+            <option value="open">Open</option>
+            <option value="active">Active</option>
+            <option value="released">Released</option>
+          </select>
+          <select class="vib-select vib-table-filter" data-table-filter="category" aria-label="Filter by category">
+            <option value="">Category: All</option>
+            <option value="license">License</option>
+            <option value="desktop">Desktop</option>
+            <option value="email">Email</option>
+            <option value="invoice">Invoice</option>
+          </select>
+        </div>
+        <div class="vib-table-controls-right">
+          <button class="vib-button vib-button-secondary" type="button">Export CSV</button>
+          <button class="vib-button vib-button-primary" type="button">+ Add Item</button>
+        </div>
+      </div>
+      <div class="vib-table-wrap">
+        <table class="vib-table" aria-label="Recent open-source projects">
+          <thead>
+            <tr>
+              <th scope="col" class="vib-table-select-col vib-meta uppercase font-semibold"><input class="vib-table-checkbox" type="checkbox" data-table-select-all aria-label="Select all project rows"></th>
+              <th scope="col" class="vib-meta uppercase font-semibold"><button class="vib-th-sort" type="button" data-sort-key="project">Project <span class="vib-sort-icon">?</span></button></th>
+              <th scope="col" class="vib-meta uppercase font-semibold"><button class="vib-th-sort" type="button" data-sort-key="category">Category <span class="vib-sort-icon">?</span></button></th>
+              <th scope="col" class="vib-meta uppercase font-semibold"><button class="vib-th-sort" type="button" data-sort-key="status">Status <span class="vib-sort-icon">?</span></button></th>
+              <th scope="col" class="vib-meta uppercase font-semibold">Link</th>
+              <th scope="col" class="vib-td-action vib-meta uppercase font-semibold">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-project="Licora" data-category="license" data-status="open" class="hover:bg-vib-tableRowHover even:bg-vib-tableEmptyBg transition-colors">
+              <td class="vib-table-select-col"><input class="vib-table-checkbox" type="checkbox" data-table-row-select aria-label="Select Licora"></td>
+              <td class="vib-td-truncate" title="Licora">Licora</td><td>License</td><td><span class="inline-flex items-center px-2 py-0.5 rounded-full vib-meta font-medium bg-vib-stateSuccessBg text-vib-stateSuccessText border border-vib-stateSuccessBorder">Open</span></td><td><a href="https://github.com/vibtools/Licora">Repo</a></td><td class="vib-td-action"><details class="vib-action-menu"><summary class="vib-icon-button" aria-label="Open row menu">•••</summary><div class="vib-action-menu-panel"><button type="button">View</button><button type="button">Copy link</button></div></details></td>
+            </tr>
+            <tr data-project="ContextVault" data-category="desktop" data-status="released" class="hover:bg-vib-tableRowHover even:bg-vib-tableEmptyBg transition-colors">
+              <td class="vib-table-select-col"><input class="vib-table-checkbox" type="checkbox" data-table-row-select aria-label="Select ContextVault"></td>
+              <td class="vib-td-truncate" title="ContextVault">ContextVault</td><td>Desktop</td><td><span class="inline-flex items-center px-2 py-0.5 rounded-full vib-meta font-medium bg-vib-badgeBg text-vib-textMuted border border-vib-borderSubtle">v0.2.1</span></td><td><a href="https://github.com/vibtools/ContextVault">Repo</a></td><td class="vib-td-action"><details class="vib-action-menu"><summary class="vib-icon-button" aria-label="Open row menu">•••</summary><div class="vib-action-menu-panel"><button type="button">View</button><button type="button">Copy link</button></div></details></td>
+            </tr>
+            <tr data-project="MailStack" data-category="email" data-status="active" class="hover:bg-vib-tableRowHover even:bg-vib-tableEmptyBg transition-colors">
+              <td class="vib-table-select-col"><input class="vib-table-checkbox" type="checkbox" data-table-row-select aria-label="Select MailStack"></td>
+              <td class="vib-td-truncate" title="MailStack">MailStack</td><td>Email</td><td><span class="inline-flex items-center px-2 py-0.5 rounded-full vib-meta font-medium bg-vib-stateWarningBg text-vib-stateWarningText border border-vib-stateWarningBorder">Active</span></td><td><a href="https://github.com/vibtools/MailStack">Repo</a></td><td class="vib-td-action"><details class="vib-action-menu"><summary class="vib-icon-button" aria-label="Open row menu">•••</summary><div class="vib-action-menu-panel"><button type="button">View</button><button type="button">Copy link</button></div></details></td>
+            </tr>
+            <tr data-project="Invio" data-category="invoice" data-status="open" class="hover:bg-vib-tableRowHover even:bg-vib-tableEmptyBg transition-colors">
+              <td class="vib-table-select-col"><input class="vib-table-checkbox" type="checkbox" data-table-row-select aria-label="Select Invio"></td>
+              <td class="vib-td-truncate" title="Invio">Invio</td><td>Invoice</td><td><span class="inline-flex items-center px-2 py-0.5 rounded-full vib-meta font-medium bg-vib-stateSuccessBg text-vib-stateSuccessText border border-vib-stateSuccessBorder">Open</span></td><td><a href="https://github.com/vibtools/invio">Repo</a></td><td class="vib-td-action"><details class="vib-action-menu"><summary class="vib-icon-button" aria-label="Open row menu">•••</summary><div class="vib-action-menu-panel"><button type="button">View</button><button type="button">Copy link</button></div></details></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr><td colspan="6"><span class="vib-meta">Compact semantic table with select, sort, status badge and action-cell patterns.</span></td></tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="vib-table-footer border-t border-vib-borderSubtle mt-2 pt-2">
+        <span class="vib-meta" data-table-count>4 of 4 entries</span>
+        <div class="vib-table-controls flex items-center gap-2">
+          <select class="vib-select vib-table-filter h-8 border border-vib-borderSubtle bg-transparent rounded-vib-sm px-2 vib-body" aria-label="Rows per page"><option>10 / page</option><option>25 / page</option></select>
+          <nav class="vib-pagination flex gap-1" aria-label="Table pagination">
+            <button class="vib-page-button h-8 px-2 border border-vib-borderSubtle rounded-vib-sm bg-transparent hover:bg-vib-surfaceSoft disabled:opacity-50 vib-body transition-colors" type="button" disabled>Prev</button>
+            <button class="vib-page-button h-8 px-3 border border-vib-borderSubtle rounded-vib-sm bg-vib-navActiveBg text-vib-primary vib-body font-medium" type="button" aria-current="page">1</button>
+            <button class="vib-page-button h-8 px-2 border border-vib-borderSubtle rounded-vib-sm bg-transparent hover:bg-vib-surfaceSoft disabled:opacity-50 vib-body transition-colors" type="button" disabled>Next</button>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="vib-grid-2">
+      <article class="vib-table-state" aria-label="Table loading state">
+        <div class="vib-title-sm">Loading state</div>
+        <div class="vib-skeleton-row"><span class="vib-skeleton-line"></span><span class="vib-skeleton-line"></span><span class="vib-skeleton-line"></span><span class="vib-skeleton-line"></span></div>
+        <div class="vib-skeleton-row"><span class="vib-skeleton-line"></span><span class="vib-skeleton-line"></span><span class="vib-skeleton-line"></span><span class="vib-skeleton-line"></span></div>
+        <p class="vib-meta">Use for fetching or processing rows without layout jump.</p>
+      </article>
+      <article class="vib-table-state" aria-label="Empty table state">
+        <div class="vib-title-sm">No data found</div>
+        <p class="vib-meta">Use after search or filters return zero matching records.</p>
+        <button class="vib-button vib-button-secondary" type="button">Reset filters</button>
+      </article>
+    </div>
+  </div>
+</section>
+      </main>
+    </div>
+  </div>
+  <script src="../js/sandbox-nav.js"></script>
+</body>
+</html>

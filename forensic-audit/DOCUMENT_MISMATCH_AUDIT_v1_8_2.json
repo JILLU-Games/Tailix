@@ -1,0 +1,33 @@
+{
+  "version": "1.9.0",
+  "baseline": "VibTools_WEB_UI_v1.8.1.zip",
+  "scope": "Soft Typography Weight & Contrast Calibration for forms.html and Sandbox/pages/forms/* only",
+  "findings": [
+    "over-weighted form labels and headings",
+    "input/select/textarea glare and heavier value text",
+    "placeholder contrast not sufficiently muted",
+    "badges/helper metadata too prominent"
+  ],
+  "fixes": {
+    "headers": "500 max, #E6EDF3",
+    "labels": "12px, 500, #C9D1D9",
+    "controls": "12px, 400, #E6EDF3, #0D1117 background, #30363D border",
+    "placeholders": "400, #6E7681",
+    "helpers_badges": "400, #8B949E"
+  },
+  "preserved": [
+    "15 module pairs",
+    "forms.html route",
+    "top aligned .vib-app-page",
+    "zero-shadow flat UI",
+    "password eye toggle",
+    "search clear",
+    "Ctrl+K badge",
+    "textarea counter",
+    "checkbox indeterminate",
+    "file picker and dropzone handlers",
+    "disabled and readonly states",
+    "loading states"
+  ],
+  "status": "PASS"
+}

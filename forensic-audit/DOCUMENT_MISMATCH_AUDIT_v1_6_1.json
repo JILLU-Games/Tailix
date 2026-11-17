@@ -1,0 +1,51 @@
+{
+  "baseline": "VibTools_WEB_UI_v1.6.1.zip",
+  "audit": "official documentation drift after sandbox updates",
+  "mismatches": [
+    {
+      "file_group": "docs/*.md",
+      "issue": "old v1.2/v1.3 baselines and compact defaults",
+      "resolution": "rewritten to v1.6.1"
+    },
+    {
+      "file_group": "components/component-contracts-tailwind-cdn.md",
+      "issue": "old v1.4.4 contract and old docs grid",
+      "resolution": "updated to v1.6.1 component contracts"
+    },
+    {
+      "file_group": "design-tokens/vibtools.compact.tokens.css",
+      "issue": "old token CSS values",
+      "resolution": "mirrored current sandbox variables"
+    },
+    {
+      "file_group": "design-tokens/vibtools.compact.tokens.json",
+      "issue": "version/currentRelease and centeredPages still v1.6.0",
+      "resolution": "updated to v1.6.1 and corrected page categories"
+    },
+    {
+      "file_group": "design-tokens/vibtools.tailwind-cdn.config.js",
+      "issue": "stale compact Tailwind config",
+      "resolution": "synchronized from sandbox Tailwind config"
+    },
+    {
+      "file_group": "Sandbox/audit/*.md",
+      "issue": "QA checklist/page map stale",
+      "resolution": "rewritten to current v1.6.1 map and checks"
+    }
+  ],
+  "final_contract": {
+    "auth_pages_centered": [
+      "login.html",
+      "register.html"
+    ],
+    "app_pages_top_aligned_examples": [
+      "forms.html",
+      "profile.html"
+    ],
+    "header_px": 44,
+    "sidebar_px": 196,
+    "button_px": 28,
+    "input_px": 30,
+    "card_padding": "10px 12px"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "version": "2.0.0",
+  "baseline": "VibTools_WEB_UI_ v1.9.1.zip",
+  "scope": "Production-Grade Navigation Components Playground only",
+  "status": "PASS",
+  "missing": [],
+  "mismatches": [],
+  "preserved": [
+    "app shell",
+    "sidebar width",
+    "topbar height",
+    "forms playground",
+    "cards playground",
+    "docs",
+    "upload",
+    "settings",
+    "monitoring",
+    "logs modal",
+    "table behavior",
+    "backend/API logic"
+  ],
+  "modules": [
+    "sidebar",
+    "topbar",
+    "nav-link",
+    "active-link",
+    "breadcrumb",
+    "tabs",
+    "pagination",
+    "dropdown"
+  ]
+}

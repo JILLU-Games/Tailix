@@ -1,0 +1,60 @@
+/* Sandbox-only visual helpers. Production UI should use vibtools-sandbox.css component classes. */
+.sandbox-grid-bg {
+  background-image: linear-gradient(to right, rgba(255,255,255,.018) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,.018) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.sandbox-note { border-left: 2px solid var(--border-focus); padding-left: var(--space-5); }
+
+/* ── Framework Layer: Shell Manager sidebar collapse state (v2.2.0) ── */
+#vib-sidebar[data-collapsed="true"] {
+  width: var(--space-12, 3rem);
+  overflow: hidden;
+  transition: width var(--transition-normal);
+}
+#vib-sidebar[data-collapsed="true"] .vib-sidebar-group-title,
+#vib-sidebar[data-collapsed="true"] .vib-sidebar-workspace-title,
+#vib-sidebar[data-collapsed="true"] .vib-sidebar-workspace-meta,
+#vib-sidebar[data-collapsed="true"] .vib-sidebar-link > :not(.vib-sidebar-icon) {
+  display: none;
+}
+#vib-sidebar:not([data-collapsed]) {
+  transition: width var(--transition-normal);
+}
+
+/* ── Framework Layer: Form Controller field states (v2.2.0) ── */
+/* Applied programmatically by FormController; zero hardcodes.  */
+.vib-field-error {
+  border-color: var(--state-danger-border) !important;
+  background-color: var(--state-danger-bg) !important;
+  color: var(--state-danger-text);
+  outline-color: var(--state-danger-border);
+}
+.vib-field-error:focus {
+  box-shadow: 0 0 0 2px var(--state-danger-border);
+}
+.vib-field-error-msg {
+  color: var(--state-danger-text);
+  font-size: var(--text-xs);
+  margin-top: var(--space-1);
+}
+
+/* Button loading state — spinner via CSS animation, no images */
+.vib-btn-loading {
+  opacity: var(--vib-disabled-opacity, .6);
+  cursor: not-allowed;
+  pointer-events: none;
+  position: relative;
+}
+.vib-btn-loading::after {
+  content: '';
+  display: inline-block;
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+  margin-left: var(--space-2);
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: var(--vib-radius-full);
+  animation: vib-spin var(--motion-duration-slow, 600ms) linear infinite;
+  vertical-align: middle;
+}
+@keyframes vib-spin { to { transform: rotate(360deg); } }

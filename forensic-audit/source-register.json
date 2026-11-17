@@ -1,0 +1,87 @@
+{
+  "version": "1.2",
+  "created_at": "2026-08-09",
+  "live_web_audit": {
+    "vib.tools": {
+      "status": "audited via web cache",
+      "sections": [
+        "hero",
+        "cta pair",
+        "metrics",
+        "product cards",
+        "principles",
+        "future vision",
+        "footer"
+      ]
+    },
+    "ygit.net": {
+      "status": "audited via web cache",
+      "sections": [
+        "hero",
+        "deploy mockup",
+        "five-step flow",
+        "cli",
+        "ownership table",
+        "open source proof",
+        "final cta"
+      ]
+    },
+    "schema.ygit.dev": {
+      "status": "live cache fetch failed; repository source fallback used",
+      "fallback": "vibtools/ygit-schema"
+    },
+    "vibtools.github.io": {
+      "status": "audited via web cache and uploaded zip",
+      "sections": [
+        "header",
+        "hero",
+        "status card",
+        "project cards",
+        "stats",
+        "categories",
+        "releases",
+        "cta",
+        "footer"
+      ]
+    }
+  },
+  "github_sources": {
+    "vibtools/vibtools.github.io": [
+      "src/styles/global.css",
+      "tailwind.config.mjs",
+      "src/components/*.astro"
+    ],
+    "vibtools/ygit-platform": [
+      "src/css/custom.css"
+    ],
+    "vibtools/ygit-schema": [
+      "src/styles/tokens.css",
+      "src/styles/global.css"
+    ],
+    "vibtools/vib-id-account-portal": [
+      "app/static/css/app.css",
+      "templates/layouts/base.html"
+    ],
+    "vibtools/vubtools_official": [
+      "src/styles.css"
+    ]
+  },
+  "uploaded_files": {
+    "Vib Tools Brand Identity & UI Design Specification.pdf": {
+      "sha256": "535a48606b11c0b4c77e3a2e0db2a13dac27daa4c592ee054def62fcf8ef1bef",
+      "status": "canonical brand reference"
+    },
+    "vibtools.github.io.zip": {
+      "sha256": "a425f41f42fea62fc5c30dcb4302a72759e6f5a88f794e6a9972a878aebcf859",
+      "status": "audited source archive"
+    },
+    "id.vib.tools.zip": {
+      "sha256": "b32e0704d64cbaac76094732d630e1927bf130a82f75c0a8e98ce3d4de50aecf",
+      "status": "audited source archive"
+    },
+    "VibTools_Web_UI_Design_Official_Freeze_Compact_Package_v1_1_UPDATED.zip": {
+      "sha256": "a93de91feb3d31a5d63eb8ab89548fd8e174c30403dd2cc7ad010b6c6b9e0d6a",
+      "status": "baseline audited and updated"
+    }
+  }
+}

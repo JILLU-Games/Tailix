@@ -1,0 +1,16 @@
+{
+  "version": "1.9.1",
+  "baseline": "VibTools_WEB_UI_ v1.9.0.zip",
+  "scope": "Typography Weight & Brightness Refinement for Cards Playground",
+  "mismatchesFound": [
+    "Cards H1 inherited heavy global .vib-h1 styling",
+    "Card buttons inherited heavy global .vib-button weight",
+    "Badges/chips/card copy needed softer card-specific contrast"
+  ],
+  "fixed": [
+    "Added scoped cards playground H1/title/button/badge/copy/code typography overrides",
+    "Synced runtime version to v1.9.1",
+    "Updated docs/tokens/validation records"
+  ],
+  "scopeGuard": "No card module count, route workflow, shell layout, forms/docs/upload/settings pages, or backend logic changed"
+}

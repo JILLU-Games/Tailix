@@ -1,0 +1,49 @@
+{
+  "version": "v1.7.5",
+  "baseline": "v1.7.4",
+  "scope": "Precision Typography & Color Refinement only",
+  "mismatchesFixed": [
+    {
+      "component": "Audited page titles",
+      "before": "v1.7.4 visual output still looked oversized",
+      "after": "16px strict page title contract"
+    },
+    {
+      "component": "Settings hierarchy",
+      "before": "section headings and row labels looked too similar",
+      "after": "13px section titles, 12px row/form labels, 11px helper text"
+    },
+    {
+      "component": "Description color",
+      "before": "#8B949E remained too bright/noisy in screenshots",
+      "after": "#7D8590 muted slate"
+    },
+    {
+      "component": "Badges",
+      "before": "HTTP/file badges still visually loud",
+      "after": "desaturated method badges and neutral file badges"
+    },
+    {
+      "component": "Switches",
+      "before": "checked state used bright blue",
+      "after": "soft #238636 checked state"
+    }
+  ],
+  "preserved": [
+    "routes",
+    "shell layout",
+    "sidebar width",
+    "topbar height",
+    "zero-shadow flat UI",
+    "JS workflow",
+    "component markup"
+  ],
+  "updatedFiles": [
+    "Sandbox/css/vibtools-sandbox.css",
+    "design-tokens/vibtools.compact.tokens.css",
+    "design-tokens/vibtools.compact.tokens.json",
+    "Sandbox/js/sandbox-nav.js",
+    "CHANGELOG_v1_7_5.md",
+    "forensic-audit/FORENSIC_AUDIT_REPORT_v1_7_5.md"
+  ]
+}

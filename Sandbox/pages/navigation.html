@@ -1,0 +1,96 @@
+﻿<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Navigation â€” VibTools Sandbox</title>
+  <meta name="description" content="Production-grade navigation component playground">
+  <script src="../js/tailwind-config.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/css/vibtools-theme.css">
+  <link rel="stylesheet" href="../css/vibtools-sandbox.css">
+  <link rel="stylesheet" href="../css/sandbox-only.css">
+</head>
+<body class="vib-navigation-runtime-page">
+  <div class="vib-shell">
+    <header class="vib-topbar sticky top-0 z-20">
+      <div class="vib-container vib-topbar-inner">
+        <a href="../index.html" class="vib-brand">
+          <img src="../assets/brand/placeholder-vibtools-icon.svg" class="w-[var(--icon-lg)] h-[var(--icon-lg)]" alt="">
+          <span>VibTools UI Sandbox</span>
+        </a>
+        <div class="vib-row">
+          <span class="vib-badge">v2.1.2</span>
+          <span class="vib-badge">Tailwind CDN</span>
+          <span class="vib-badge">Compact</span>
+        </div>
+      </div>
+    </header>
+    <div class="vib-layout">
+      <aside class="vib-sidebar shrink-0">
+        <div class="vib-sidebar-inner">
+          <nav class="vib-stack-sm" aria-label="Sandbox pages">
+            <a class="vib-sidebar-link" href="../index.html">Overview</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="home.html">Home</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="projects.html">Projects</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="about.html">About</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="contact.html">Contact</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="docs-layout.html">Docs</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="dashboard-shell.html">Dashboard</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="monitoring.html">Monitoring</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="login.html">Login</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="register.html">Register</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="profile.html">Profile</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="forms.html">Forms</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="upload.html">Upload Files</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="tables.html">Tables</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="cards.html">Cards</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="navigation.html">Navigation</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="dropdowns.html">Dropdowns</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="alerts-states.html">States</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="empty-loading-error.html">Empty/Error</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="logs-modal.html">Logs</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="settings.html">Settings</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="typography-colors.html">Tokens</a>
+          </nav>
+        </div>
+      </aside>
+      <main class="vib-main">
+<section class="vib-app-page vib-navigation-playground-page">
+  <div class="vib-page-header vib-playground-hero">
+    <p class="vib-kicker">Navigation Demo</p>
+    <h1 class="vib-h1 mt-2">Production-grade navigation components.</h1>
+    <p class="vib-body mt-2">Scrollable navigation component playground for sidebar, topbar, nav link, active link, breadcrumb, tabs, pagination and dropdown states. The page preserves the v2.1.2 softened typography, lower-glare active states, zero-shadow flat UI and top-aligned app-page layout.</p>
+  </div>
+
+  <div class="vib-nav-playground">
+    <section class="vib-nav-section vib-playground-index" aria-labelledby="navigation-playground-index-title">
+      <div class="vib-component-header">
+        <div>
+          <p class="vib-kicker">Component index</p>
+          <h2 id="navigation-playground-index-title" class="vib-h2 mt-1">A-Z navigation primitives and states.</h2>
+        </div>
+        <span class="vib-badge">8 modules</span>
+      </div>
+      <p class="vib-nav-desc">Use the jump links to audit every navigation primitive: sidebar, topbar, nav link, active link, breadcrumb, tabs, pagination and dropdown without changing global app behavior.</p>
+      <nav id="vib-navigation-playground-nav" class="vib-playground-nav" aria-label="Navigation component sections"></nav>
+    </section>
+
+    <div id="vib-navigation-playground" class="vib-playground-stack" data-navigation-playground></div>
+  </div>
+</section>
+      </main>
+    </div>
+  </div>
+  <script src="Navigation/sidebar.js"></script>
+  <script src="Navigation/topbar.js"></script>
+  <script src="Navigation/nav-link.js"></script>
+  <script src="Navigation/active-link.js"></script>
+  <script src="Navigation/breadcrumb.js"></script>
+  <script src="Navigation/tabs.js"></script>
+  <script src="Navigation/pagination.js"></script>
+  <script src="Navigation/dropdown.js"></script>
+  <script src="Navigation/navigation-playground.js"></script>
+  <script src="../js/sandbox-nav.js"></script>
+</body>
+</html>

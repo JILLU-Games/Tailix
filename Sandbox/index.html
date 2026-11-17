@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VibTools UI Sandbox v2.2.0</title>
+  <meta name="description" content="VibTools compact Tailwind CDN visual validation sandbox">
+  <script src="./js/tailwind-config.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./assets/css/vibtools-theme.css">
+  <link rel="stylesheet" href="./css/vibtools-sandbox.css">
+  <link rel="stylesheet" href="./css/sandbox-only.css">
+</head>
+<body>
+<div class="vib-shell">
+  <header class="vib-topbar">
+    <div class="vib-container vib-topbar-inner">
+      <a class="vib-brand" href="index.html">
+        <svg class="w-[var(--icon-lg)] h-[var(--icon-lg)] stroke-[var(--icon-stroke)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+        <span>VibTools UI Sandbox</span>
+      </a>
+      <div class="vib-row">
+        <span class="vib-badge">v2.2.0</span>
+        <span class="vib-badge">Tailwind CDN</span>
+        <span class="vib-badge">Compact</span>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="vib-section border-b border-[var(--vib-border-subtle)] sandbox-grid-bg">
+      <div class="vib-container py-8">
+        <p class="vib-kicker">Visual validation app</p>
+        <h1 class="vib-hero-title mt-2">Compact VibTools Web UI reference.</h1>
+        <p class="text-[var(--text-base)] text-[var(--vib-muted)] mt-2 max-w-[640px]">Static HTML sandbox for validating the frozen brand UI: colors, typography, cards, sections, nav, sidebar, tables, forms, docs and dashboard patterns.</p>
+        
+        <div class="mt-6 max-w-xl relative">
+          <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-[var(--icon-md)] h-[var(--icon-md)] stroke-[var(--icon-stroke)] text-[var(--vib-muted)]" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.2" fill="none" stroke="currentColor" stroke-width="var(--icon-stroke)"></circle><path d="m10.2 10.2 3 3" fill="none" stroke="currentColor" stroke-width="var(--icon-stroke)" stroke-linecap="round"></path></svg>
+          <input type="search" id="page-search" class="vib-input w-full pl-9 h-[var(--height-input-lg)]" placeholder="Search sandbox pages... (e.g. Tables, Forms, Users)">
+        </div>
+      </div>
+    </section>
+
+    <section class="vib-section bg-[var(--vib-background)] min-h-screen">
+      <div class="vib-container py-8 flex flex-col gap-8" id="sandbox-groups">
+        
+        <!-- Group: Core & Dashboard -->
+        <div class="sandbox-group" data-group="Core & Dashboard">
+          <h2 class="text-[var(--text-lg)] font-medium text-[var(--vib-primary)] mb-4 flex items-center gap-2 border-b border-[var(--vib-border-subtle)] pb-2">
+            <svg class="w-[var(--icon-md)] h-[var(--icon-md)] stroke-[var(--icon-stroke)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+            Core & Dashboard
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <a class="vib-card p-4 hover:border-[var(--vib-border)] transition-colors no-underline group-item" href="pages/home.html" data-title="Home" data-desc="Homepage hero and project cards.">
+              <div class="text-[var(--text-base)] font-medium text-[var(--vib-text)]">Home</div><div class="text-[var(--text-xs)] text-[var(--vib-muted)] mt-1">Homepage hero and project cards.</div>
+            </a>
+            <a class="vib-card p-4 hover:border-[var(--vib-border)] transition-colors no-underline group-item" href="pages/dashboard-shell.html" data-title="Dashboard" data-desc="App shell and dashboard cards.">
+              <div class="text-[var(--text-base)] font-medium text-[var(--vib-text)]">Dashboard</div><div class="text-[var(--text-xs)] text-[var(--vib-muted)] mt-1">App shell and dashboard cards.</div>
+            </a>
+            <a class="vib-card p-4 hover:border-[var(--vib-border)] transition-colors no-underline group-item" href="pages/projects.html" data-title="Projects" data-desc="Open-source project card grid.">
+              <div class="text-[var(--text-base)] font-medium text-[var(--vib-text)]">Projects</div><div class="text-[var(--text-xs)] text-[var(--vib-muted)] mt-1">Open-source project card grid.</div>
+            </a>
+            <a class="vib-card p-4 hover:border-[var(--vib-border)] transition-colors no-underline group-item" href="pages/users.html" data-title="Users & Team" data-desc="Team management module.">
+              <div class="text-[var(--text-base)] font-medium text-[var(--vib-text)]">Users & Team</div><div class="text-[var(--text-xs)] text-[var(--vib-muted)] mt-1">Team management module.</div>
+            </a>
+            <a class="vib-card p-4 hover:border-[var(--vib-border)] transition-colors no-underline group-item" href="pages/monitoring.html" data-title="Monitoring" data-desc="Server health and metrics dashboard.">
+              <div class="text-[var(--text-base)] font-medium text-[var(--vib-text)]">Monitoring</div><div class="text-[var(--text-xs)] text-[var(--vib-muted)] mt-1">Server health and metrics dashboard.</div>
+            </a>
+            <a class="vib-card p-4 hover:border-[var(--vib-border)] transition-colors no-underline group-item" href="pages/settings.html" data-title="Settings" data-desc="Compact settings layout with controls.">
+              <div class="text-[var(--text-base)] font-medium text-[var(--vib-text)]">Settings</div><div class="text-[var(--text-xs)] text-[var(--vib-muted)] mt-1">Compact settings layout with controls.</div>
+            </a>
+            <a class="vib-card p-4 hover:border-[var(--vib-border)] transition-colors no-underline group-item" href="pages/billing.html" data-title="Billing & Usage" data-desc="Subscription, metrics and invoice history.">
+              <div class="text-[var(--text-base)] font-medium text-[var(--vib-text)]">Billing & Usage</div><div class="text-[var(--text-xs)] text-[var(--vib-muted)] mt-1">Subscription, metrics and invoice history.</div>
+            </a>
+            <a class="vib-card p-4 hover:border-[var(--vib-border)] transition-colors no-underline group-item" href="pages/plugins.html" data-title="Plugins" data-desc="Plugin Directory & Marketplace module.">
+              <div class="text-[var(--text-base)] font-medium text-[var(--vib-text)]">Plugins</div><div class="text-[var(--text-xs)] text-[var(--vib-muted)] mt-1">Plugin Directory & Marketplace module.</div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Group: Component Patterns -->
+        <div class="sandbox-group" data-group="Component Patterns">
+          <h2 class="text-[var(--text-lg)] font-medium text-[var(--vib-primary)] mb-4 flex items-center gap-2 border-b border-[var(--vib-border-subtle)] pb-2">
+            <svg class="w-[var(--icon-md)] h-[var(--icon-md)] stroke-[var(--icon-stroke)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+            Component Patterns
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <a class="vib-card p-4 hover:border-[var(--vib-border)] transition-colors no-underline group-item" href="pages/forms.html" data-title="Forms" data-desc="Inputs, selects, textareas, validation.">
+              <div class="text-[var(--text-base)] font-medium text-[var(--vib-text)]">Forms</div><div class="text-[var(--text-xs)] text-[var(--vib-muted)] mt-1">Inputs, selects, textareas, validation.</div>
+            </a>
+            <a class="vib-card p-4 hover:border-[var(--vib-border)] transition-colors no-underline group-item" href="pages/tables.html" data-title="Tables" data-desc="Data grids, sorting, selection.">
+              <div class="text-[var(--text-base)] font-medium text-[var(--vib-text)]">Tables</div><div class="text-[var(--text-xs)] text-[var(--vib-muted)] mt-1">Data grids, sorting, selection.</div>
+            </a>
+            <a class="vib-card p-4 hover:border-[var(--vib-border)] transition-colors no-underline group-item" href="pages/cards.html" data-title="Cards" data-desc="Elevated, nested, and stat cards.">
+              <div class="text-[var(--text-base)] font-medium text-[var(--vib-text)]">Cards</div><div class="text-[var(--text-xs)] text-[var(--vib-muted)] mt-1">Elevated, nested, and stat cards.</div>
+            </a>
+            <a class="vib-card p-4 hover:border-[var(--vib-border)] transition-colors no-underline group-item" href="pages/navigation.html" data-title="Navigation" data-desc="Tabs, breadcrumbs, sidebars.">
+              <div class="text-[var(--text-base)] font-medium text-[var(--vib-text)]">Navigation</div><div class="text-[var(--text-xs)] text-[var(--vib-muted)] mt-1">Tabs, breadcrumbs, sidebars.</div>
+            </a>
+            <a class="vib-card p-4 hover:border-[var(--vib-border)] transition-colors no-underline group-item" href="pages/dropdowns.html" data-title="Dropdowns" data-desc="Context menus and selections.">
+              <div class="text-[var(--text-base)] font-medium text-[var(--vib-text)]">Dropdowns</div><div class="text-[var(--text-xs)] text-[var(--vib-muted)] mt-1">Context menus and selections.</div>
+            </a>
+            <a class="vib-card p-4 hover:border-[var(--vib-border)] transition-colors no-underline group-item" href="pages/alerts-states.html" data-title="Alerts & States" data-desc="Success, warning, danger banners.">
+              <div class="text-[var(--text-base)] font-medium text-[var(--vib-text)]">Alerts & States</div><div class="text-[var(--text-xs)] text-[var(--vib-muted)] mt-1">Success, warning, danger banners.</div>
+            </a>
+            <a class="vib-card p-4 hover:border-[var(--vib-border)] transition-colors no-underline group-item" href="pages/typography-colors.html" data-title="Typography & Tokens" data-desc="Color scales and type hierarchy.">
+              <div class="text-[var(--text-base)] font-medium text-[var(--vib-text)]">Typography & Tokens</div><div class="text-[var(--text-xs)] text-[var(--vib-muted)] mt-1">Color scales and type hierarchy.</div>
+            </a>
+            <a class="vib-card p-4 hover:border-[var(--vib-border)] transition-colors no-underline group-item" href="pages/upload.html" data-title="Upload Files" data-desc="Drag-drop component states.">
+              <div class="text-[var(--text-base)] font-medium text-[var(--vib-text)]">Upload Files</div><div class="text-[var(--text-xs)] text-[var(--vib-muted)] mt-1">Drag-drop component states.</div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Group: Authentication -->
+        <div class="sandbox-group" data-group="Authentication">
+          <h2 class="text-[var(--text-lg)] font-medium text-[var(--vib-primary)] mb-4 flex items-center gap-2 border-b border-[var(--vib-border-subtle)] pb-2">
+            <svg class="w-[var(--icon-md)] h-[var(--icon-md)] stroke-[var(--icon-stroke)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+            Authentication
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <a class="vib-card p-4 hover:border-[var(--vib-border)] transition-colors no-underline group-item" href="pages/login.html" data-title="Login" data-desc="Standard login form.">
+              <div class="text-[var(--text-base)] font-medium text-[var(--vib-text)]">Login</div><div class="text-[var(--text-xs)] text-[var(--vib-muted)] mt-1">Standard login form.</div>
+            </a>
+            <a class="vib-card p-4 hover:border-[var(--vib-border)] transition-colors no-underline group-item" href="pages/register.html" data-title="Register" data-desc="New user signup form.">
+              <div class="text-[var(--text-base)] font-medium text-[var(--vib-text)]">Register</div><div class="text-[var(--text-xs)] text-[var(--vib-muted)] mt-1">New user signup form.</div>
+            </a>
+            <a class="vib-card p-4 hover:border-[var(--vib-border)] transition-colors no-underline group-item" href="pages/profile.html" data-title="Profile" data-desc="User profile management.">
+              <div class="text-[var(--text-base)] font-medium text-[var(--vib-text)]">Profile</div><div class="text-[var(--text-xs)] text-[var(--vib-muted)] mt-1">User profile management.</div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Group: Marketing & Content -->
+        <div class="sandbox-group" data-group="Marketing & Content">
+          <h2 class="text-[var(--text-lg)] font-medium text-[var(--vib-primary)] mb-4 flex items-center gap-2 border-b border-[var(--vib-border-subtle)] pb-2">
+            <svg class="w-[var(--icon-md)] h-[var(--icon-md)] stroke-[var(--icon-stroke)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+            Marketing & Content
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <a class="vib-card p-4 hover:border-[var(--vib-border)] transition-colors no-underline group-item" href="pages/about.html" data-title="About" data-desc="Company info and features.">
+              <div class="text-[var(--text-base)] font-medium text-[var(--vib-text)]">About</div><div class="text-[var(--text-xs)] text-[var(--vib-muted)] mt-1">Company info and features.</div>
+            </a>
+            <a class="vib-card p-4 hover:border-[var(--vib-border)] transition-colors no-underline group-item" href="pages/contact.html" data-title="Contact" data-desc="Contact, social, and address form.">
+              <div class="text-[var(--text-base)] font-medium text-[var(--vib-text)]">Contact</div><div class="text-[var(--text-xs)] text-[var(--vib-muted)] mt-1">Contact, social, and address form.</div>
+            </a>
+            <a class="vib-card p-4 hover:border-[var(--vib-border)] transition-colors no-underline group-item" href="pages/docs-layout.html" data-title="Docs" data-desc="Compact docs layout.">
+              <div class="text-[var(--text-base)] font-medium text-[var(--vib-text)]">Docs</div><div class="text-[var(--text-xs)] text-[var(--vib-muted)] mt-1">Compact docs layout.</div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Group: System & Error States -->
+        <div class="sandbox-group" data-group="System & Error States">
+          <h2 class="text-[var(--text-lg)] font-medium text-[var(--vib-primary)] mb-4 flex items-center gap-2 border-b border-[var(--vib-border-subtle)] pb-2">
+            <svg class="w-[var(--icon-md)] h-[var(--icon-md)] stroke-[var(--icon-stroke)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            System & Error States
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <a class="vib-card p-4 hover:border-[var(--vib-border)] transition-colors no-underline group-item" href="pages/empty-loading-error.html" data-title="Empty & Loading" data-desc="State placeholders and skeletons.">
+              <div class="text-[var(--text-base)] font-medium text-[var(--vib-text)]">Empty & Loading</div><div class="text-[var(--text-xs)] text-[var(--vib-muted)] mt-1">State placeholders and skeletons.</div>
+            </a>
+            <a class="vib-card p-4 hover:border-[var(--vib-border)] transition-colors no-underline group-item" href="pages/logs-modal.html" data-title="Logs Modal" data-desc="Deployment and build logs viewer.">
+              <div class="text-[var(--text-base)] font-medium text-[var(--vib-text)]">Logs Modal</div><div class="text-[var(--text-xs)] text-[var(--vib-muted)] mt-1">Deployment and build logs viewer.</div>
+            </a>
+            <a class="vib-card p-4 hover:border-[var(--vib-border)] transition-colors no-underline group-item" href="pages/404.html" data-title="404 Error" data-desc="Page not found state (Global Toasts demo).">
+              <div class="text-[var(--text-base)] font-medium text-[var(--vib-text)]">404 Error</div><div class="text-[var(--text-xs)] text-[var(--vib-muted)] mt-1">Page not found state (Global Toasts demo).</div>
+            </a>
+            <a class="vib-card p-4 hover:border-[var(--vib-border)] transition-colors no-underline group-item" href="pages/500.html" data-title="500 Error" data-desc="Internal server error (Global Modals demo).">
+              <div class="text-[var(--text-base)] font-medium text-[var(--vib-text)]">500 Error</div><div class="text-[var(--text-xs)] text-[var(--vib-muted)] mt-1">Internal server error (Global Modals demo).</div>
+            </a>
+          </div>
+        </div>
+
+        <!-- No Results State -->
+        <div id="no-results" class="hidden text-center py-12">
+          <svg class="w-[var(--icon-xl)] h-[var(--icon-xl)] stroke-[var(--icon-stroke)] text-[var(--vib-muted)] mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+          <div class="text-[var(--text-lg)] font-medium text-[var(--vib-text)]">No pages found</div>
+          <div class="text-[var(--text-sm)] text-[var(--vib-muted)] mt-1">Try searching with a different term.</div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+</div>
+<script src="./js/sandbox-nav.js"></script>
+<script id="search-logic">
+  (function() {
+    const searchInput = document.getElementById('page-search');
+    const groups = document.querySelectorAll('.sandbox-group');
+    const noResults = document.getElementById('no-results');
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        let totalVisible = 0;
+
+        groups.forEach(group => {
+          const items = group.querySelectorAll('.group-item');
+          let groupVisibleCount = 0;
+
+          items.forEach(item => {
+            const title = item.getAttribute('data-title').toLowerCase();
+            const desc = item.getAttribute('data-desc').toLowerCase();
+            
+            if (title.includes(query) || desc.includes(query)) {
+              item.style.display = 'block';
+              groupVisibleCount++;
+              totalVisible++;
+            } else {
+              item.style.display = 'none';
+            }
+          });
+
+          // Hide the whole group if no items match
+          if (groupVisibleCount === 0) {
+            group.style.display = 'none';
+          } else {
+            group.style.display = 'block';
+          }
+        });
+
+        // Show/hide no results message
+        if (totalVisible === 0) {
+          noResults.classList.remove('hidden');
+        } else {
+          noResults.classList.add('hidden');
+        }
+      });
+    }
+  })();
+</script>
+</body>
+</html>

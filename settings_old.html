@@ -1,0 +1,378 @@
+﻿format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the 
+line number, colon, and leading space.
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+  
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+<title>Settings — VibTools Sandbox</title>
+  <meta name="description" content="Compact settings page sandbox 
+pattern">
+  <script src="../js/tailwind-config.js"></script>
+  <script 
+src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" 
+href="../assets/css/vibtools-theme.css">
+  <link rel="stylesheet" href="../css/vibtools-sandbox.css">
+ 
+ <link rel="stylesheet" href="../css/sandbox-only.css">
+</head>
+<body>
+  <div 
+class="vib-shell">
+    <header class="vib-topbar sticky top-0 z-20">
+      <div class="vib-container 
+vib-topbar-inner">
+        <a href="../index.html" class="vib-brand">
+          <img 
+src="../assets/brand/placeholder-vibtools-icon.svg" width="28" height="28" alt="">
+          
+<span>VibTools UI Sandbox</span>
+        </a>
+        <div class="vib-row">
+          <span 
+class="vib-badge">v2.1.2</span>
+          <span class="vib-badge">Tailwind CDN</span>
+          <span 
+class="vib-badge">Compact</span>
+        </div>
+      </div>
+    </header>
+    <div 
+class="vib-layout">
+      <aside class="vib-sidebar shrink-0">
+        <div 
+class="vib-sidebar-inner">
+          <nav class="vib-stack-sm" aria-label="Sandbox pages">
+            
+<a class="vib-sidebar-link" href="../index.html">Overview</a>
+<a data-sandbox-link class="sandbox-page-link 
+vib-sidebar-link" href="home.html">Home</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" 
+href="projects.html">Projects</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" 
+href="about.html">About</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" 
+href="contact.html">Contact</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" 
+href="docs-layout.html">Docs</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" 
+href="dashboard-shell.html">Dashboard</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" 
+href="monitoring.html">Monitoring</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" 
+href="login.html">Login</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" 
+href="register.html">Register</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" 
+href="profile.html">Profile</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" 
+href="forms.html">Forms</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" 
+href="upload.html">Upload Files</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" 
+href="tables.html">Tables</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" 
+href="cards.html">Cards</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" 
+href="navigation.html">Navigation</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" 
+href="dropdowns.html">Dropdowns</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" 
+href="alerts-states.html">States</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" 
+href="empty-loading-error.html">Empty/Error</a>
+<a data-sandbox-link class="sandbox-page-link 
+vib-sidebar-link" href="logs-modal.html">Logs</a>
+<a data-sandbox-link class="sandbox-page-link 
+vib-sidebar-link" href="settings.html">Settings</a>
+<a data-sandbox-link class="sandbox-page-link 
+vib-sidebar-link" href="typography-colors.html">Tokens</a>
+          </nav>
+        </div>
+      
+</aside>
+      <main class="vib-main">
+<section class="vib-app-page">
+  <div 
+class="vib-settings-header vib-page-header">
+    <div>
+      <p class="vib-kicker">Settings 
+Demo</p>
+      <h1 class="vib-h1 mt-2">Account settings.</h1>
+      <p class="vib-body mt-2">Manage 
+workspace preferences, interface rules, security controls and destructive settings inside a compact top-aligned 
+dashboard layout.</p>
+    </div>
+    <label class="vib-settings-search" aria-label="Search 
+settings">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4"/><path 
+d="m10.2 10.2 2.8 2.8"/></svg>
+      <input class="vib-input" type="search" placeholder="Search 
+settings...">
+    </label>
+  </div>
+
+  <div class="vib-settings-plan vib-card-subtle" 
+role="status" aria-label="Workspace plan overview">
+    <div>
+      <h2 
+class="vib-settings-title">Your workspace is currently on the compact sandbox plan</h2>
+      <p 
+class="vib-settings-desc">Plan cards use the same restrained dark surface, border, and action-control system as the 
+rest of the Sandbox UI.</p>
+    </div>
+    <div class="vib-settings-plan-actions">
+      <button 
+type="button" class="vib-button vib-button-secondary">Chat to us</button>
+      <button type="button" 
+class="vib-button vib-button-primary">Upgrade</button>
+    </div>
+  </div>
+
+  <div 
+class="vib-settings-layout mt-5">
+    <aside class="vib-settings-sidebar" aria-label="Settings 
+sections">
+      <nav class="vib-settings-nav">
+        <a class="vib-settings-nav-item active" 
+href="#general" aria-current="page">General</a>
+        <a class="vib-settings-nav-item" 
+href="#appearance">Appearance &amp; Theme</a>
+        <a class="vib-settings-nav-item" 
+href="#security">Security &amp; API Keys</a>
+        <a class="vib-settings-nav-item" 
+href="#integrations">Integrations</a>
+        <a class="vib-settings-nav-item vib-settings-nav-danger" 
+href="#danger-zone">Danger Zone</a>
+      </nav>
+    </aside>
+
+    <div 
+class="vib-settings-content">
+      <section id="general" class="vib-settings-section" 
+aria-labelledby="general-heading">
+        <div class="vib-settings-section-heading">
+          <h2 
+id="general-heading" class="vib-h2">General preferences</h2>
+          <p 
+class="vib-settings-desc">Linear-style row controls for default workspace behavior.</p>
+        </div>
+   
+     <div class="vib-settings-card vib-card-subtle">
+          <div class="vib-settings-row">
+         
+   <div class="vib-settings-info">
+              <h3 class="vib-settings-title">Default home view</h3>
+
+              <p class="vib-settings-desc">Choose the page opened when the workspace starts.</p>
+            
+</div>
+            <select class="vib-select vib-settings-control" aria-label="Default home 
+view"><option>Dashboard</option><option>Projects</option><option>Monitoring</option></select>
+          
+</div>
+          <div class="vib-settings-row">
+            <div class="vib-settings-info">
+     
+         <h3 class="vib-settings-title">Use pointer cursors</h3>
+              <p 
+class="vib-settings-desc">Change the cursor to a pointer when hovering interactive elements.</p>
+            
+</div>
+            <label class="vib-switch"><input type="checkbox" checked><span 
+class="vib-slider"></span><span class="sr-only">Use pointer cursors</span></label>
+          </div>
+   
+       <div class="vib-settings-row">
+            <div class="vib-settings-info">
+              <h3 
+class="vib-settings-title">Display compact names</h3>
+              <p class="vib-settings-desc">Use short 
+labels in tables, sidebars and dashboard cards.</p>
+            </div>
+            <label 
+class="vib-switch"><input type="checkbox" checked><span class="vib-slider"></span><span 
+class="sr-only">Display compact names</span></label>
+          </div>
+        </div>
+      
+</section>
+
+      <section id="appearance" class="vib-settings-section" 
+aria-labelledby="appearance-heading">
+        <div class="vib-settings-section-heading">
+          <h2 
+id="appearance-heading" class="vib-h2">Appearance &amp; theme</h2>
+          <p 
+class="vib-settings-desc">Theme and display settings use compact Vercel/Linear inspired rows.</p>
+        
+</div>
+        <div class="vib-settings-card vib-card-subtle">
+          <div 
+class="vib-settings-row">
+            <div class="vib-settings-info">
+              <h3 
+class="vib-settings-title">Interface theme</h3>
+              <p class="vib-settings-desc">Select or 
+customize the interface color scheme.</p>
+            </div>
+            <select class="vib-select 
+vib-settings-control" aria-label="Interface theme"><option>Dark 
+(Default)</option><option>Light</option><option>System</option></select>
+          </div>
+          <div 
+class="vib-settings-row">
+            <div class="vib-settings-info">
+              <h3 
+class="vib-settings-title">Font size</h3>
+              <p class="vib-settings-desc">Adjust the size of text 
+across the app while preserving compact density.</p>
+            </div>
+            <select 
+class="vib-select vib-settings-control" aria-label="Font 
+size"><option>Default</option><option>Compact</option><option>Readable</option></select>
+          </div>
+
+          <div class="vib-settings-row">
+            <div class="vib-settings-info">
+              <h3 
+class="vib-settings-title">Sidebar badge style</h3>
+              <p class="vib-settings-desc">Keep 
+workspace badges subtle in the app sidebar.</p>
+            </div>
+            <button type="button" 
+class="vib-button vib-button-secondary">Customize</button>
+          </div>
+        </div>
+      
+</section>
+
+      <section id="security" class="vib-settings-section" 
+aria-labelledby="security-heading">
+        <div class="vib-settings-section-heading">
+          <h2 
+id="security-heading" class="vib-h2">Security &amp; API keys</h2>
+          <p 
+class="vib-settings-desc">Two-column field rows for credentials, copy controls and setup state.</p>
+        
+</div>
+        <div class="vib-settings-card vib-card-subtle">
+          <div 
+class="vib-settings-form-row">
+            <div class="vib-settings-info">
+              <h3 
+class="vib-settings-title">Sandbox API key</h3>
+              <p class="vib-settings-desc">Use 
+copy/regenerate actions without changing production behavior.</p>
+            </div>
+            <div 
+class="vib-settings-inline-control">
+              <input class="vib-input" 
+value="vib_sk_test_••••••••••••" readonly aria-label="Sandbox API key">
+              <button 
+type="button" class="vib-button vib-button-secondary">Copy</button>
+              <button type="button" 
+class="vib-button vib-button-ghost">Regenerate</button>
+            </div>
+          </div>
+       
+   <div class="vib-settings-row">
+            <div class="vib-settings-info">
+              <h3 
+class="vib-settings-title">Two-factor authentication</h3>
+              <p class="vib-settings-desc">Require 
+a second factor for workspace administrators.</p>
+            </div>
+            <div 
+class="vib-row"><span class="vib-badge">Enabled</span><button type="button" class="vib-button 
+vib-button-secondary">Setup</button></div>
+          </div>
+          <div 
+class="vib-settings-row">
+            <div class="vib-settings-info">
+              <h3 
+class="vib-settings-title">Admin approval for deploy requests</h3>
+              <p 
+class="vib-settings-desc">Require approval before deployment workflows can run.</p>
+            </div>
+  
+          <label class="vib-switch"><input type="checkbox" checked><span class="vib-slider"></span><span 
+class="sr-only">Require approval for deploy requests</span></label>
+          </div>
+        
+</div>
+      </section>
+
+      <section id="integrations" class="vib-settings-section" 
+aria-labelledby="integrations-heading">
+        <div class="vib-settings-section-heading">
+          
+<h2 id="integrations-heading" class="vib-h2">Integrations</h2>
+          <p 
+class="vib-settings-desc">Compact integration rows with clear status and action controls.</p>
+        
+</div>
+        <div class="vib-settings-card vib-card-subtle">
+          <div 
+class="vib-settings-row">
+            <div class="vib-settings-info">
+              <h3 
+class="vib-settings-title">GitHub sync</h3>
+              <p class="vib-settings-desc">Connect repositories 
+and synchronize project metadata.</p>
+            </div>
+            <button type="button" 
+class="vib-button vib-button-secondary">Configure</button>
+          </div>
+          <div 
+class="vib-settings-row">
+            <div class="vib-settings-info">
+              <h3 
+class="vib-settings-title">Email notifications</h3>
+              <p class="vib-settings-desc">Send 
+operational summaries and build alerts to maintainers.</p>
+            </div>
+            <label 
+class="vib-switch"><input type="checkbox"><span class="vib-slider"></span><span class="sr-only">Email 
+notifications</span></label>
+          </div>
+        </div>
+      </section>
+
+      
+<section id="danger-zone" class="vib-settings-section" aria-labelledby="danger-heading">
+        <div 
+class="vib-settings-section-heading">
+          <h2 id="danger-heading" class="vib-h2">Danger 
+zone</h2>
+          <p class="vib-settings-desc">Destructive actions are isolated in a red-tinted confirmation 
+surface.</p>
+        </div>
+        <div class="vib-settings-danger-card">
+          <div 
+class="vib-settings-info">
+            <h3 class="vib-settings-title">Reset workspace settings</h3>
+   
+         <p class="vib-settings-desc">Restore sandbox settings to the default compact UI contract.</p>
+        
+  </div>
+          <button type="button" class="vib-button vib-btn-danger">Reset settings</button>
+    
+    </div>
+      </section>
+    </div>
+  </div>
+</section></main>
+    </div>
+  
+</div>
+  <script src="../js/sandbox-nav.js"></script>
+</body>
+</html>
+
+The above content 
+shows the entire, complete file contents of the requested file.
+

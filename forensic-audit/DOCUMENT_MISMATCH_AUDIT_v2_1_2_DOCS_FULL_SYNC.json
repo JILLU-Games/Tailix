@@ -1,0 +1,29 @@
+{
+  "version": "v2.1.2_DOCS_FULL_SYNC",
+  "baseline": "VibTools_WEB_UI_v2.1.2.zip",
+  "scope": "Official Freeze Documents Full Rewrite Sync to v2.1.2 Baseline",
+  "runtime_changed": false,
+  "finding": "Sandbox runtime was v2.1.2 but several active freeze documents still carried older baseline headings or token values.",
+  "fixed_files": [
+    "docs/00_SCOPE_LOCK_COMPACT.md",
+    "docs/01_COMPACT_DESIGN_SHEET.md",
+    "docs/02_SOURCE_EXTRACTION_NOTES.md",
+    "docs/03_MATCH_AND_MISMATCH_AUDIT.md",
+    "docs/04_SIZE_GUARDRAILS.md",
+    "docs/05_SECTION_PATTERNS.md",
+    "docs/06_ACCESSIBILITY_AND_MOTION.md",
+    "docs/07_TAILWIND_CDN_IMPLEMENTATION_GUIDE.md",
+    "docs/08_FINAL_LOCK_SUMMARY.md",
+    "docs/08_SANDBOX_VALIDATION_GUIDE.md",
+    "docs/09_FINAL_LOCK_SUMMARY_v1_3.md",
+    "ai-handoff/VibTools_AI_Developer_Handoff_Tailwind_CDN_Compact.md",
+    "components/component-contracts-tailwind-cdn.md",
+    "components/compact-components.html",
+    "design-tokens/vibtools.compact.tokens.json",
+    "design-tokens/vibtools.compact.tokens.css",
+    "validation/COMPACT_FREEZE_VALIDATION.md",
+    "README.md",
+    "MANIFEST.md"
+  ],
+  "result": "PASS: active freeze docs now describe the v2.1.2 baseline."
+}

@@ -1,0 +1,111 @@
+﻿<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Empty Loading Error — VibTools Sandbox</title>
+  <meta name="description" content="Empty and error sandbox page">
+  <script src="../js/tailwind-config.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/css/vibtools-theme.css">
+  <link rel="stylesheet" href="../css/vibtools-sandbox.css">
+  <link rel="stylesheet" href="../css/sandbox-only.css">
+</head>
+<body>
+  <div class="vib-shell">
+    <header class="vib-topbar sticky top-0 z-20">
+      <div class="vib-container vib-topbar-inner">
+        <a href="../index.html" class="vib-brand">
+          <img src="../assets/brand/placeholder-vibtools-icon.svg" class="w-[var(--icon-lg)] h-[var(--icon-lg)]" alt="">
+          <span>VibTools UI Sandbox</span>
+        </a>
+        <div class="vib-row">
+          <span class="vib-badge">v2.1.2</span>
+          <span class="vib-badge">Tailwind CDN</span>
+          <span class="vib-badge">Compact</span>
+        </div>
+      </div>
+    </header>
+    <div class="vib-layout">
+      <aside class="vib-sidebar shrink-0">
+        <div class="vib-sidebar-inner">
+          <nav class="vib-stack-sm" aria-label="Sandbox pages">
+            <a class="vib-sidebar-link" href="../index.html">Overview</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="home.html">Home</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="projects.html">Projects</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="about.html">About</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="contact.html">Contact</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="docs-layout.html">Docs</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="dashboard-shell.html">Dashboard</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="monitoring.html">Monitoring</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="login.html">Login</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="register.html">Register</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="profile.html">Profile</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="forms.html">Forms</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="upload.html">Upload Files</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="tables.html">Tables</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="cards.html">Cards</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="navigation.html">Navigation</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="dropdowns.html">Dropdowns</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="alerts-states.html">States</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="empty-loading-error.html">Empty/Error</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="logs-modal.html">Logs</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="settings.html">Settings</a>
+<a data-sandbox-link class="sandbox-page-link vib-sidebar-link" href="typography-colors.html">Tokens</a>
+          </nav>
+        </div>
+      </aside>
+      <main class="vib-main">
+<section class="vib-app-page vib-cards-playground-page">
+    <div class="vib-page-header vib-playground-hero">
+      <div>
+    <p class="vib-kicker">Empty, Loading, Error</p>
+    <h1 class="vib-h1 mt-2">Compact feedback states.</h1>
+    <p class="vib-body mt-2">Empty and error states stay small, direct and useful; no large illustration or oversized message block.</p>
+    
+  </div>
+    </div>
+    <div class="vib-playground-container">
+    <article class="vib-card vib-card-pad vib-state-card">
+      <div class="vib-state-heading-row">
+        <span class="vib-state-icon text-vib-muted text-[var(--icon-xl)]" data-state="empty" aria-hidden="true">+</span>
+        <h2 class="vib-h2">Empty</h2>
+      </div>
+      <p class="vib-state-lead">No projects yet.</p>
+      <p class="vib-state-note">Add a project to continue with a clean first-run state.</p>
+      <button class="vib-button vib-button-primary">Add project</button>
+    </article>
+    <article class="vib-card vib-card-pad vib-state-card" aria-busy="true">
+      <div class="vib-state-heading-row">
+        <span class="vib-state-icon text-vib-muted text-[var(--icon-xl)]" data-state="loading" aria-hidden="true">…</span>
+        <h2 class="vib-h2">Loading</h2>
+      </div>
+      <p class="vib-state-note">Fetching records without layout jump.</p>
+      <div class="vib-skeleton-stack" aria-hidden="true">
+        <span class="vib-skeleton bg-vib-borderSubtle animate-pulse" data-width="medium"></span>
+        <div class="vib-feedback-skeleton-row">
+          <span class="vib-skeleton bg-vib-borderSubtle animate-pulse" data-size="sm"></span>
+          <span class="vib-skeleton bg-vib-borderSubtle animate-pulse" data-size="sm"></span>
+          <span class="vib-skeleton bg-vib-borderSubtle animate-pulse" data-size="sm"></span>
+        </div>
+        <span class="vib-skeleton bg-vib-borderSubtle animate-pulse" data-width="short" data-size="sm"></span>
+      </div>
+      <span class="vib-badge vib-state-badge">Loading...</span>
+    </article>
+    <article class="vib-card vib-card-pad vib-state-card">
+      <div class="vib-state-heading-row">
+        <span class="vib-state-icon text-vib-muted text-[var(--icon-xl)]" data-state="error" aria-hidden="true">!</span>
+        <h2 class="vib-h2">Error</h2>
+      </div>
+      <span class="vib-badge-status vib-state-badge" data-state="danger">Request failed</span>
+      <p class="vib-state-note">Retry the action or check logs for a short diagnostic trail.</p>
+      <button class="vib-button vib-button-secondary">Retry</button>
+    </article>
+  </div>
+</section>
+      </main>
+    </div>
+  </div>
+  <script src="../js/sandbox-nav.js"></script>
+</body>
+</html>
